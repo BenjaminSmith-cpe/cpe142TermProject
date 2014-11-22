@@ -1,7 +1,12 @@
 module alu(
-    alu_interface io
-);
     import alu_pkg::*;
+    
+    status_t                stat;
+    in_t                    in;
+    control_e               control;
+
+    logic signed [31:0]     out;
+);
 
     logic carry;
     logic [31:0] arith_temp;

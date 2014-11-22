@@ -1,0 +1,11 @@
+-PP 
+
+-cm fsm+line+tgl+branch 
+
+-notice 
+
+-q 
+
+-l $PWD/logs/VCS.log 
+
+stimulus

@@ -3,18 +3,27 @@ package alu_tb_pkg;
     class alu_checker;
         import alu_pkg::*; 
 
-        virtual alu_interface.tb    ports;
         logic signed [33:0]         result;
         logic                       ov;
-
-        function new (virtual alu_interface.tb ports);
-            this.ports = ports;
-        endfunction
 
         rand alu_pkg::control_e control;
         rand          integer   a;
         rand          integer   b;
         status_t                stat;
+        in_t                    DUT_inputs;
+
+        assign DUT_inputs.a = a;
+        assign DUT_inputs.b = b;
+        
+        function new (
+            alu alu_DUT(
+                .stat(stat)
+                .in()
+                .control()
+                .out()
+                );
+            );
+        endfunction
 
         `ifdef BOUNDED_INPUTS
         constraint limits{ 
@@ -28,9 +37,6 @@ package alu_tb_pkg;
 
         task randomize_alu_inputs();
             randomize();
-            ports.in.a    = this.a;
-            ports.in.b    = this.b;
-            ports.control = this.control;
         endtask
 
         task print_alu_state(string ident);

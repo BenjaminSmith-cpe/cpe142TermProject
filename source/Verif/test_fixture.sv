@@ -8,14 +8,14 @@ module stimulus();
     import alu_pkg::*;
     import tb_utils_pkg::*;
 
-    alu_interface       io();
     integer             testiteration = 0;
     integer             failure_count = 0;
-    alu alu(io);
 
     initial begin
         //| Perform regression testing of individual components
-        alu_checker alu_stim = new(io.tb);
+        //| =============================================================
+        alu_checker alu_stim = new(
+                                    );
 
         $vcdpluson; //make that dve database
 

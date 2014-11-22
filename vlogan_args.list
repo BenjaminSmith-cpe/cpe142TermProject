@@ -1,0 +1,24 @@
+-sverilog 
+-nc 
+
++lint=all,noVCDE 
++warn=all 
+
+-l $PWD/logs/vlogan.log 
+
++libext+.sv+.v
+
+//search directories
+-y $PWD/source/Design
+-y $PWD/source/Verif
+
+//packages that must be explicitly compiled(VCS implicit config isnt smart enough yet)
+//====================================================================================
+//Design packages
+$PWD/source/Design/alu_pkg.sv 
+
+//Verif packages
+$PWD/source/Verif/tb_utils_pkg.sv 
+
+//Top level file
+$PWD/source/Verif/test_fixture.sv
