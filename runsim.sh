@@ -33,7 +33,7 @@ echo
 #					  that have the module name with one of the libext extentions
 # -y <>				: library directories VCS will search when looking for unresolved modules
 # $PWD/source/$1    : top level file for compilation
-vlogan -sverilog -nc +lint=all,noVCDE +warn=all -l $PWD/logs/vlogan.log +libext+.sv+.v -y $PWD/source/ $PWD/source/alu_pkg.sv $PWD/source/tb_utils_pkg.sv $PWD/source/alu_interface.sv $PWD/source/$1
+vlogan -f vlogan_args.list
 
 if [ $? -ne 0 ]; then 
     echo "Vlogan analysis failed"
@@ -56,7 +56,7 @@ echo
 #                         : branch - which parts of if branches have been taken (superfluous with line?)
 # -PP                     : enables post process debug utilities
 # -notice                 : REALLY verbose messages
-vcs -PP -cm fsm+line+tgl+branch -notice -q -l $PWD/logs/VCS.log $2
+vcs -file VCS_args.list
 
 if [ $? -ne 0 ]; then 
     echo "VCS elaboration failed"
