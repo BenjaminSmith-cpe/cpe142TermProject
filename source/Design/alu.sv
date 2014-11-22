@@ -1,11 +1,11 @@
-module alu(
-    import alu_pkg::*;
-    
-    status_t                stat;
-    in_t                    in;
-    control_e               control;
+import alu_pkg::*;
 
-    logic signed [31:0]     out;
+module alu(
+    status_t              stat,
+    in_t                  in,
+    control_e             control,
+
+    logic signed [31:0]   out
 );
 
     logic carry;

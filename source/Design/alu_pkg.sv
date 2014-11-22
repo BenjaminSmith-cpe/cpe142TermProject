@@ -1,6 +1,6 @@
 package alu_pkg;
 
-    typedef enum [1:0]{
+    typedef enum logic[1:0]{
         add      = 2'b00,
         subtract = 2'b01,
         bitw_or  = 2'b10,

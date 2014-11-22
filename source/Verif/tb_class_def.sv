@@ -4,14 +4,13 @@
 //===============================================================
 
 package tb_class_def;
+    import alu_pkg::*; 
 
     //===========================================================
     // ALU test bench class.
     //
     //===========================================================
     class alu_checker;
-        import alu_pkg::*; 
-
         logic signed [33:0]         result;
         logic                       ov;
 
@@ -20,18 +19,18 @@ package tb_class_def;
         rand          integer   b;
         status_t                stat;
         in_t                    DUT_inputs;
+        logic    signed [15:0]  out;
 
-        assign DUT_inputs.a = a;
-        assign DUT_inputs.b = b;
-        
-        function new (
-            alu alu_DUT(
-                .stat(stat)
-                .in()
-                .control()
-                .out()
-                );
-            );
+        function new();
+            DUT_inputs.a = a;
+            DUT_inputs.b = b;
+
+            // alu alu(
+            //     .stat(stat),
+            //     .in(DUT_inputs),
+            //     .control(control),
+            //     .out(result)
+            //     );
         endfunction
 
         `ifdef BOUNDED_INPUTS
@@ -50,18 +49,18 @@ package tb_class_def;
 
         task print_alu_state(string ident);
             $display("%s -- time %4d - op: %s", ident, $time(), control.name);
-            $display("s:%b o:%b, z:%b -- Expected: s:%b o:%b, z:%b", ports.stat.sign, ports.stat.overflow, ports.stat.zero, result[33], ov, !(|result));
-            $display("%11d - %b", ports.in.a,ports.in.a);
-            $display("%11d - %b", ports.in.b,ports.in.b);
+            $display("s:%b o:%b, z:%b -- Expected: s:%b o:%b, z:%b", stat.sign, stat.overflow, stat.zero, result[33], ov, !(|result));
+            $display("%11d - %b", a,a);
+            $display("%11d - %b", b,b);
             $display("================================");
-            $display("%11d -   %b <-- result", ports.out, ports.out);
+            $display("%11d -   %b <-- result", out, out);
             $display("%11d - %b <-- expected \n", result, result);
         endtask
 
         function check_alu_outputs;
             integer failure_count = 0;
 
-            case(ports.control)
+            case(control)
                 add      : result = a + b;
                 subtract : result = a - b;
                 bitw_or  : result = a | b;
@@ -70,7 +69,7 @@ package tb_class_def;
 
             ov = (result[32]^result[31]); //If [33:31] of 32bit+32bit additions don't match there has been an overflow
 
-            if((ports.stat.sign != result[32]) && !ports.stat.overflow) begin              
+            if((stat.sign != result[32]) && !stat.overflow) begin              
                 print_alu_state("Sign Flag FAILURE");
                 failure_count++;
             end
@@ -79,7 +78,7 @@ package tb_class_def;
                 print_alu_state("Sign Flag SUCCESS");
             `endif
 
-            if((ports.stat.overflow != ov) && !ports.control[1]) begin                     
+            if((stat.overflow != ov) && !control[1]) begin                     
                 print_alu_state("Overflow Flag FAILURE");
                 failure_count++;   
             end
@@ -88,7 +87,7 @@ package tb_class_def;
                 print_alu_state("Overflow Flag SUCCESS");
             `endif
 
-            if((ports.stat.zero && |ports.out)&& !ports.stat.overflow) begin           
+            if((stat.zero && |out)&& !stat.overflow) begin           
                 print_alu_state("Zero Flag FAILURE");
                 failure_count++;   
             end
@@ -97,7 +96,7 @@ package tb_class_def;
                 print_alu_state("Zero Flag SUCCESS");
             `endif
 
-            if((result != ports.out)&& (!ports.stat.overflow)) begin
+            if((result != out)&& (!stat.overflow)) begin
                 print_alu_state("ALU FAILURE");
                 failure_count++;   
             end
@@ -115,32 +114,29 @@ package tb_class_def;
     //===========================================================
     class reg_program_counter_checker;
     
-        wire        [15:0]      DUT_output;
+        logic        [15:0]     DUT_output;
         logic                   clk;
         logic                   rst;
     
-        rand alu_pkg::control_e control;
         rand        logic[15:0]   test_address;
         rand        logic         test_halt;
         rand        logic         test_stall;
         
          
         
-        function new (
-            reg_program_counter pc_DUT(
-                .clk(clk)
-                .rst(rst)
+        // function new (
+        //     reg_program_counter pc_DUT(
+        //         .clk(clk)
+        //         .rst(rst)
     
-                .halt_sys(test_halt)    // Control signal from main control to halt cpu
-                .stall(test_halt)       // Control signal from hazard unit to stall for one cycle
+        //         .halt_sys(test_halt)    // Control signal from main control to halt cpu
+        //         .stall(test_halt)       // Control signal from hazard unit to stall for one cycle
     
-                .in_address(test_address)    // Next PC address
+        //         .in_address(test_address)    // Next PC address
         
-                .out_address(DUT_output)
-                );
-            );
-        endfunction
-
+        //         .out_address(DUT_output)
+        //         );
+        //     );
+        // endfunction
     endclass
-
 endpackage
