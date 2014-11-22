@@ -1,0 +1,10 @@
+module comparator(
+
+);
+
+
+
+
+
+
+endmodule
