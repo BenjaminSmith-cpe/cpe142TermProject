@@ -1,4 +1,4 @@
-module jump_adder(
+module adder(
 	input wire 	[15:0] 	pc,
 	input wire 	[15:0]	offset,
 
