@@ -12,6 +12,7 @@ module stimulus();
     integer             testiteration = 0;
     integer             failure_count = 0;
 
+
     initial begin
         //| Perform regression testing of individual components
         //| =============================================================
