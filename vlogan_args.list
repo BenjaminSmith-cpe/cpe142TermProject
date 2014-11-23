@@ -16,9 +16,11 @@
 //====================================================================================
 //Design packages
 $PWD/source/Design/alu_pkg.sv 
+$PWD/source/Design/interfaces.sv 
 
 //Verif packages
 $PWD/source/Verif/tb_utils_pkg.sv 
+$PWD/source/Verif/tb_class_def.sv 
 
 //Top level file
 $PWD/source/Verif/test_fixture.sv
