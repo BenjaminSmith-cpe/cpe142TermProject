@@ -18,19 +18,23 @@ module mem_main(
 );
 
 
-	logic 	[15:0][65535:0]	memory;	// Memory block. 16 bit address with 16 bit data
+	logic 	[7:0][65535:0]	memory;	// Memory block. 16 bit address with 16 bit data
 	
-	assign data_out = memory[address];	// Always read the data from the address
+	assign data_out = {memory[address + 1], memory[address]};	// Always read the data from the address
 
 	always_ff@ (posedge clk or posedge rst) begin: mem_main_flop
+		assert(!address[0]);
 		if (rst) begin		
 			memory <= 0;// If rst is asserted, we want to clear the flops
 		end 
 		else begin
-			if(halt_sys || !write_en) 
+			if(halt_sys || !write_en) begin
 				memory[address] <= memory[address]; // Stay the same value. System is halted.
+				memory[address + 1] <= memory[address + 1]; // Stay the same value. System is halted.
+			end
 			else 
-				memory[address] <= write_data; 	// Flop the input
+				
+				{memory[address + 1], memory[address]} <= write_data; 	// Flop the input
 		end
 	end
 endmodule
