@@ -4,7 +4,7 @@ module mem_program(
 	output logic[15:0]	data_out
 );
 
-	logic 	[7:0] 	memory 	[65535:0];	// Memory block. 16 bit address with 16 bit data
+	logic 	[65535:0][7:0] memory = 0;	// Memory block. 16 bit address with 16 bit data
     
     initial $readmemh("verif/program_memory.hex", memory);
 
