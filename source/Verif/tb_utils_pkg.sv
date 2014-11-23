@@ -1,6 +1,6 @@
 package tb_utils_pkg;
 
-    task print_sim_stats(integer failures, integer testiterations);
+    task automatic print_sim_stats(integer failures, integer testiterations);
         integer successes = 0;
         successes = testiterations-failures;
         $display("\n");

@@ -21,16 +21,14 @@ package tb_class_def;
         in_t                    DUT_inputs;
         logic    signed [15:0]  out;
 
-        function new();
-            DUT_inputs.a = a;
-            DUT_inputs.b = b;
+        function new(statin, operandsin, controlin, resultin);
+            DUT_inputs.a = this.a;
+            DUT_inputs.b = this.b;
 
-            // alu alu(
-            //     .stat(stat),
-            //     .in(DUT_inputs),
-            //     .control(control),
-            //     .out(result)
-            //     );
+            operandsin = this.DUT_inputs;
+            statin = this.stat;
+            controlin = this.control;
+            resultin = this.out;
         endfunction
 
         `ifdef BOUNDED_INPUTS
