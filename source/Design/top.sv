@@ -31,7 +31,6 @@ module top (
 	adder pc_adder(
 		.pc(PC_address),
 		.offset(16'd2),
-
 		.sum(PC_next_nojump)
 	);
 
@@ -40,7 +39,6 @@ module top (
 	adder jump_adder(
 		.pc(PC_address),
 		.offset(16'd4),
-
 		.sum(PC_next_jump)
 	);
 
@@ -53,13 +51,16 @@ module top (
 
 	//| Program counter
 	//| ============================================================================
-	always_ff @(posedge clk or posedge rst) begin : program_counter
-		if(rst) begin
-			PC_address <= 0;
-		end else begin
-			PC_address <= PC_next_nojump;
-		end
-	end
+	reg_program_counter pc_reg(
+		.clk(clk),
+		.rst(rst),
+
+		.halt_sys(0), 	// Control signal from main control to halt cpu
+		.stall(0),		// Control signal from hazard unit to stall for one cycle
+
+		.in_address(PC_next_nojump),	// Next PC address
+		.out_address(PC_address)	// Current PC address
+	);
 
 	//| Register File
 	//| ============================================================================

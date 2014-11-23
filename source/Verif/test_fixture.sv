@@ -12,20 +12,19 @@ module stimulus();
     integer             testiteration = 0;
     integer             failure_count = 0;
 
-    logic clock;
-    logic reset;
+    logic clock = 0;
+    logic reset = 0;
 
     top dut(
         .clk(clock),
         .rst(reset)
     );
+    
+    initial forever #1 clock = ~clock;
 
     initial begin
         //| system wide reset
         //| =============================================================
-        reset = 0;
-        clock = 0;
-
         #10 reset = 1;
         #10 reset = 0;
         
