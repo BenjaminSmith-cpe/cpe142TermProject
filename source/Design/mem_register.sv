@@ -36,8 +36,7 @@ module mem_register(
 			if(halt_sys || !write_en) 
 				registers[write_address] <= registers[write_address]; // Stay the same value. System is halted.
 			else begin // Write data to reg, and write top 16 bits to R0 if R0_en is high 
-				if (R0_en)
-					registers[0] <= write_data_high;
+				if (R0_en) registers[0] <= write_data_high;
 				registers[write_address] <= write_data_low; 	// Flop the input
 			end
 		end
