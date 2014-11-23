@@ -20,8 +20,8 @@ package alu_pkg;
     // Status flags for ALU
     // sign asserted when positive
     typedef struct{
-        logic signed [31:0]  a;
-        logic signed [31:0]  b;
+        word_16 a;
+        word_16 b;
     } in_t;
 
 endpackage

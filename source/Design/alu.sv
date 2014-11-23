@@ -3,7 +3,7 @@ import alu_pkg::*;
 module alu(alu_interface io);
 
     logic carry;
-    logic [31:0] arith_temp;
+    logic [17:0] arith_temp;
 
     always_comb begin    
         case(io.control)
@@ -16,7 +16,7 @@ module alu(alu_interface io);
 
     always_comb begin
         io.stat.zero = !(|io.out);
-        io.stat.sign = io.out[31];
-        io.stat.overflow = (!io.control[1]) ? carry^io.out[31] : 1'b0; 
+        io.stat.sign = io.out[17];
+        io.stat.overflow = (!io.control[1]) ? carry^io.out[17] : 1'b0; 
     end
 endmodule
