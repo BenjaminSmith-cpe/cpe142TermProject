@@ -1,4 +1,4 @@
-module register_file(
+module mem_register(
 	input wire 			rst,
 	input wire 			clk,
 	input wire 			halt_sys,
