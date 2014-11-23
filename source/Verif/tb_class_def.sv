@@ -1,3 +1,8 @@
+`define VERBOSE //Prints information about test success, otherwise only
+                   //failing checks will print information
+
+`define BOUNDED_INPUTS   //limits magnitutde of ALU inputs
+
 //===============================================================
 // This package contains class definitions for out test benches.
 // 
@@ -12,7 +17,7 @@ package tb_class_def;
     //===========================================================
    class alu_checker;
         virtual alu_interface.tb    ports;
-        logic signed [33:0]         result;
+        logic signed [15:0]         result;
         logic                       ov;
 
         function new (virtual alu_interface.tb ports);
@@ -35,7 +40,7 @@ package tb_class_def;
         `endif
 
         task randomize_alu_inputs();
-            //randomize();
+            randomize();
             ports.in.a    = this.a;
             ports.in.b    = this.b;
             ports.control = this.control;
@@ -43,7 +48,7 @@ package tb_class_def;
 
         task print_alu_state(string ident);
             $display("%s -- time %4d - op: %s", ident, $time(), control.name);
-            $display("s:%b o:%b, z:%b -- Expected: s:%b o:%b, z:%b", ports.stat.sign, ports.stat.overflow, ports.stat.zero, result[33], ov, !(|result));
+            $display("s:%b o:%b, z:%b -- Expected: s:%b o:%b, z:%b", ports.stat.sign, ports.stat.overflow, ports.stat.zero, result[16], ov, !(|result));
             $display("%11d - %b", ports.in.a,ports.in.a);
             $display("%11d - %b", ports.in.b,ports.in.b);
             $display("================================");
@@ -55,15 +60,15 @@ package tb_class_def;
             integer failure_count = 0;
 
             case(ports.control)
-                add      : result = a + b;
-                subtract : result = a - b;
-                bitw_or  : result = a | b;
-                bitw_and : result = a & b;
+                ADD: result = a + b;
+                SUB: result = a - b;
+                OR : result = a | b;
+                AND: result = a & b;
             endcase
 
-            ov = (result[32]^result[31]); //If [33:31] of 32bit+32bit additions don't match there has been an overflow
+            ov = (result[17]^result[15]); //If [33:31] of 32bit+32bit additions don't match there has been an overflow
 
-            if((ports.stat.sign != result[32]) && !ports.stat.overflow) begin              
+            if((ports.stat.sign != result[17]) && !ports.stat.overflow) begin              
                 print_alu_state("Sign Flag FAILURE");
                 failure_count++;
             end

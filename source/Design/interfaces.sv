@@ -7,7 +7,7 @@ interface alu_interface;
     word_16    out;
 
     modport tb(
-    	output stat, control, out,
-    	input in
+    	 stat, control, out,
+    	 in
     );
 endinterface
