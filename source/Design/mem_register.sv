@@ -25,7 +25,7 @@ module register_file(
 															// into two words
 	assign rd1 = registers[ra1];	// Always read the data from the address
 	// If a branch instruction(R0_read is high) then R0 contents are output at rd2
-	assign rd2 = (Ro_read) ? registers[0] : registers[ra2];	
+	assign rd2 = (R0_read) ? registers[0] : registers[ra2];	
 
 
 	always_ff@ (posedge clk or posedge rst) begin: mem_reg_flop
