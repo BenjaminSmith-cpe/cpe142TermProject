@@ -1,8 +1,3 @@
-`define VERBOSE //Prints information about test success, otherwise only
-                   //failing checks will print information
-
-`define BOUNDED_INPUTS   //limits magnitutde of ALU inputs
-
 //===============================================================
 // This package contains class definitions for out test benches.
 // 
@@ -16,12 +11,11 @@ package tb_class_def;
     //
     //===========================================================
    class alu_checker;
-        virtual alu_interface.tb    ports;
         logic signed [15:0]         result;
         logic                       ov;
 
-        function new (virtual alu_interface.tb ports);
-            this.ports = ports;
+        function new ();
+            
         endfunction
 
         rand alu_pkg::control_e control;
@@ -41,25 +35,25 @@ package tb_class_def;
 
         task randomize_alu_inputs();
             // randomize();
-            ports.in.a    = this.a;
-            ports.in.b    = this.b;
-            ports.control = this.control;
+            in.a    = this.a;
+            in.b    = this.b;
+            control = this.control;
         endtask
 
         task print_alu_state(string ident);
             $display("%s -- time %4d - op: %s", ident, $time(), control.name);
-            $display("s:%b o:%b, z:%b -- Expected: s:%b o:%b, z:%b", ports.stat.sign, ports.stat.overflow, ports.stat.zero, result[16], ov, !(|result));
-            $display("%11d - %b", ports.in.a,ports.in.a);
-            $display("%11d - %b", ports.in.b,ports.in.b);
+            $display("s:%b o:%b, z:%b -- Expected: s:%b o:%b, z:%b", stat.sign, stat.overflow, stat.zero, result[16], ov, !(|result));
+            $display("%11d - %b", in.a,in.a);
+            $display("%11d - %b", in.b,in.b);
             $display("================================");
-            $display("%11d -   %b <-- result", ports.out, ports.out);
+            $display("%11d -   %b <-- result", out, out);
             $display("%11d - %b <-- expected \n", result, result);
         endtask
 
         function check_alu_outputs;
             integer failure_count = 0;
 
-            case(ports.control)
+            case(control)
                 ADD: result = a + b;
                 SUB: result = a - b;
                 OR : result = a | b;
@@ -68,7 +62,7 @@ package tb_class_def;
 
             ov = (result[17]^result[15]); //If [33:31] of 32bit+32bit additions don't match there has been an overflow
 
-            if((ports.stat.sign != result[17]) && !ports.stat.overflow) begin              
+            if((stat.sign != result[17]) && !stat.overflow) begin              
                 print_alu_state("Sign Flag FAILURE");
                 failure_count++;
             end
@@ -77,7 +71,7 @@ package tb_class_def;
                 print_alu_state("Sign Flag SUCCESS");
             `endif
 
-            if((ports.stat.overflow != ov) && !ports.control[1]) begin                     
+            if((stat.overflow != ov) && !control[1]) begin                     
                 print_alu_state("Overflow Flag FAILURE");
                 failure_count++;   
             end
@@ -86,7 +80,7 @@ package tb_class_def;
                 print_alu_state("Overflow Flag SUCCESS");
             `endif
 
-            if((ports.stat.zero && |ports.out)&& !ports.stat.overflow) begin           
+            if((stat.zero && |out)&& !stat.overflow) begin           
                 print_alu_state("Zero Flag FAILURE");
                 failure_count++;   
             end
@@ -95,7 +89,7 @@ package tb_class_def;
                 print_alu_state("Zero Flag SUCCESS");
             `endif
 
-            if((result != ports.out)&& (!ports.stat.overflow)) begin
+            if((result != out)&& (!stat.overflow)) begin
                 print_alu_state("ALU FAILURE");
                 failure_count++;   
             end

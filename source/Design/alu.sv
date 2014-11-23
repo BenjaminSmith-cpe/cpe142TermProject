@@ -1,19 +1,26 @@
-module alu(alu_interface io);
-    import alu_pkg::*;
+import alu_pkg::*;
+
+module alu(
+    input in_t       in,
+    input control_e  control,
+    
+    output status_t   stat,
+    output word_16    out
+);
     logic carry;
 
     always_comb begin    
-        case(io.control)
-            ADD: {carry, io.out} = io.in.a + io.in.b;
-            SUB: {carry, io.out} = io.in.a - io.in.b;
-            OR : io.out = io.in.a | io.in.b;
-            AND: io.out = io.in.a & io.in.b;
+        case(control)
+            ADD: {carry, out} = in.a + in.b;
+            SUB: {carry, out} = in.a - in.b;
+            OR : out = in.a | in.b;
+            AND: out = in.a & in.b;
         endcase
     end
 
     always_comb begin
-        io.stat.zero = !(|io.out);
-        io.stat.sign = io.out[16];
-        io.stat.overflow = (!io.control[1]) ? carry^io.out[16] : 1'b0; 
+        stat.zero = !(|out);
+        stat.sign = out[15];
+        stat.overflow = (!control[1]) ? carry^out[15] : 1'b0; 
     end
 endmodule
