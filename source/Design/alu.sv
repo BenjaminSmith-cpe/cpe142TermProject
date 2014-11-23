@@ -1,7 +1,5 @@
-import alu_pkg::*;
-
 module alu(alu_interface io);
-
+    import alu_pkg::*;
     logic carry;
 
     always_comb begin    

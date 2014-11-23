@@ -13,13 +13,13 @@ interface alu_interface;
 endinterface
 
 interface adder_interface;
-    input wire  [15:0]  pc,
-    input wire  [15:0]  offset,
+    wire  [15:0]  pc;
+    wire  [15:0]  offset;
 
-    output logic[15:0]  sum
+    logic[15:0]  sum;
 
     modport tb(
-         output pc, offset
+         output pc, offset,
          input sum
     );
 endinterface
