@@ -20,7 +20,7 @@ module mem_register(
 	wire 	[15:0]			write_data_low;
 
 	logic 	[15:0]	registers[15:0];	// Memory block. 16 bit address with 16 bit data
-
+	
 	assign {write_data_high, write_data_low} = write_data; 	// Split the input data
 															// into two words
 	assign rd1 = registers[ra1];	// Always read the data from the address
@@ -30,7 +30,6 @@ module mem_register(
 	always_ff@ (posedge clk or posedge rst) begin: mem_reg_flop
 		if (rst) begin		
 			registers <= '{default:8'b0};// If rst is asserted, we want to clear the flops
-			$readmemh("verif/register_memory.hex", registers);
 		end 
 		else begin
 			if(halt_sys || !write_en) 

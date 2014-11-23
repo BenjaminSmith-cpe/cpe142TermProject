@@ -10,14 +10,18 @@ module top (
 	uword PC_address, PC_next_jump, PC_next_nojump;
 	logic [15:0] instruction;
 
+	opcode_t opcode;
+	control_e func_code;
+
+	assign opcode = opcode_t'(instruction[15:12]);
+	assign func_code = control_e'(instruction[3:0]);
+
 	//| ALU instantiation
 	//| ============================================================================
 	in_t  aluin;
 	control_e alucontrol;
 	status_t alustat;
 	word_16 aluout;
-
-	assign alucontrol = ADD;
 
 	alu main_alu(
 		.in 	(aluin),
@@ -55,8 +59,8 @@ module top (
 		.clk(clk),
 		.rst(rst),
 
-		.halt_sys(0), 	// Control signal from main control to halt cpu
-		.stall(0),		// Control signal from hazard unit to stall for one cycle
+		.halt_sys(1'b0), 	// Control signal from main control to halt cpu
+		.stall(1'b0),		// Control signal from hazard unit to stall for one cycle
 
 		.in_address(PC_next_nojump),	// Next PC address
 		.out_address(PC_address)	// Current PC address
@@ -65,30 +69,50 @@ module top (
 	//| Register File
 	//| ============================================================================
 	mem_register register_file (
-	.rst(rst),
-	.clk(clk),
-	//.halt_sys(),
+		.rst(rst),
+		.clk(clk),
+		.halt_sys(1'b0),
 
-	//.R0_read,
-  	.ra1(instruction[11:8]),
-  	.ra2(instruction[7:4]),
+		.R0_read(1'b0),
+	  	.ra1(instruction[11:8]),
+	  	.ra2(instruction[7:4]),
 
-	//.write_en(),
-	//.R0_en(),
-	//.write_address(),
-	//.write_data(),
+		.write_en(1'b0),
+		.R0_en(1'b0),
+		.write_address(4'b0),
+		.write_data(32'b0),
 
-	.rd1(aluin.a),
-	.rd2(aluin.b)
-);
+		.rd1(aluin.a),
+		.rd2(aluin.b)
+	);
 	
-
 
 	//| Main Control Unit
 	//| ============================================================================
+	control_main Control_unit(
+		.opcode(opcode),
+		.func(func_code),
+		.div0(1'b0),
+		.overflow(1'b0),
+
+		.ALUop(ALUop),
+		.offset_sel(),
+		.mem2r(),
+		.memwr(),
+		.halt_sys(),
+		.reg_wr(),
+		.R0_read(),
+		.se_imm_a()
+	);
 
 	//| ALU Control Unit
 	//| ============================================================================
+	control_alu alu_control(
+		.func(func_code),
+		.ALUop(ALUop),
+
+		.alu_ctrl(alucontrol)
+	);
 
 	//| Hazard Detection Unit
 	//| ============================================================================

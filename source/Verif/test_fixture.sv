@@ -20,19 +20,20 @@ module stimulus();
         .rst(reset)
     );
     
-    initial forever #1 clock = ~clock;
+    initial #4 forever #1 clock = ~clock;
 
     initial begin
         //| system wide reset
         //| =============================================================
-        #10 reset = 1;
-        #10 reset = 0;
-        
+        #1 reset = 1;
+        #1 reset = 0;
+        $readmemh("verif/register_memory.hex", dut.register_file.registers);
+        $readmemh("verif/program_memory.hex", dut.program_memory.memory);
+
         //| Perform regression testing of individual components
         //| =============================================================
         // alu_checker alu_stim;
 
-        #50 force dut.main_alu.in.a = 1;
 
         // $vcdpluson; //make that dve database
         

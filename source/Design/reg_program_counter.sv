@@ -10,7 +10,7 @@ module reg_program_counter(
 	output logic [15:0] out_address	// Current PC address
 );
 
-	always_ff@ (posedge clk or posedge rst) begin: program_counter_flop
+	always_ff@ (posedge clk or rst) begin: program_counter_flop
 		if (rst) begin
 			out_address <= 16'd0;
 		end 
