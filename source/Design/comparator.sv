@@ -1,9 +1,4 @@
-typedef enum logic[1:0]{
-        GREATER 		= 2'b00,
-        LESS	     	= 2'b01,
-        EQUAL 			= 2'b10,
-        UNKNOWN  		= 2'b11       
-    } result_t;
+import types_pkg::*;
 
 module comparator(
 	input wire		[15:0]	in1,
