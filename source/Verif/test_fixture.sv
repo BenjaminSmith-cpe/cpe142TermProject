@@ -1,7 +1,7 @@
-// `define VERBOSE //Prints information about test success, otherwise only
+`define VERBOSE //Prints information about test success, otherwise only
                    //failing checks will print information
 
-// `define BOUNDED_INPUTS   //limits magnitutde of ALU inputs
+`define BOUNDED_INPUTS   //limits magnitutde of ALU inputs
 
 // Top level stimulus module
 module stimulus();
@@ -12,6 +12,7 @@ module stimulus();
     integer             testiteration = 0;
     integer             failure_count = 0;
 
+    //| Interfaces and modules
     alu_interface io();
     alu alu_dut(io);
 

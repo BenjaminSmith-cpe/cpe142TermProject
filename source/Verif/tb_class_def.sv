@@ -40,7 +40,7 @@ package tb_class_def;
         `endif
 
         task randomize_alu_inputs();
-            randomize();
+            // randomize();
             ports.in.a    = this.a;
             ports.in.b    = this.b;
             ports.control = this.control;

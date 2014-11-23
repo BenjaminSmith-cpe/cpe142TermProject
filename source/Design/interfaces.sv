@@ -7,7 +7,19 @@ interface alu_interface;
     word_16    out;
 
     modport tb(
-    	 stat, control, out,
-    	 in
+    	 output stat, control, out,
+    	 input in
+    );
+endinterface
+
+interface adder_interface;
+    input wire  [15:0]  pc,
+    input wire  [15:0]  offset,
+
+    output logic[15:0]  sum
+
+    modport tb(
+         output pc, offset
+         input sum
     );
 endinterface
