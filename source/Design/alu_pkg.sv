@@ -3,8 +3,8 @@ package alu_pkg;
     typedef logic signed [15:0] word_16;
 
     typedef enum logic[3:0]{
-        MULT= 4'h0,
-        DIV = 4'h1,
+        MULT= 4'h1,
+        DIV = 4'h2,
         ROL = 4'h8,
         ROR = 4'h9,
         SHL = 4'hA,
