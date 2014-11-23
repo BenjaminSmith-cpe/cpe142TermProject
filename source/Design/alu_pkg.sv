@@ -2,11 +2,17 @@ package alu_pkg;
     
     typedef logic signed [15:0] word_16;
 
-    typedef enum logic[1:0]{
-        add      = 2'b00,
-        subtract = 2'b01,
-        bitw_or  = 2'b10,
-        bitw_and = 2'b11
+    typedef enum logic[3:0]{
+        MULT= 4'h0,
+        DIV = 4'h1,
+        ROL = 4'h8,
+        ROR = 4'h9,
+        SHL = 4'hA,
+        SHR = 4'hB,
+        OR  = 4'hC,
+        AND = 4'hD,
+        SUB = 4'hE,
+        ADD = 4'hF
     } control_e;
     
     // Status flags for ALU
