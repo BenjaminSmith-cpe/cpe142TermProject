@@ -16,7 +16,7 @@
 //====================================================================================
 //Design packages
 $PWD/source/Design/alu_pkg.sv 
-$PWD/source/Design/interfaces.sv 
+$PWD/source/Design/types_pkg.sv 
 
 //Verif packages
 $PWD/source/Verif/tb_utils_pkg.sv 

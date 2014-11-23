@@ -1,29 +1,71 @@
+import types_pkg::*;
+import alu_pkg::*;
+
 module top (
-	input wire clk
+	input wire clk,
+	input wire rst
 );
+	//| Local logic instantiations
+	//| ============================================================================
+	uword PC_address, PC_next_jump, PC_next_nojump;
+	logic [15:0] instruction;
 
+	//| ALU instantiation
+	//| ============================================================================
+	in_t  aluin;
+	control_e alucontrol;
+	status_t alustat;
+	word_16 aluout;
 
+	assign aluin.a = 0;
+	assign aluin.b = 0;
+	assign alucontrol = ADD;
 
+	alu main_alu(
+		.in 	(aluin),
+		.control(alucontrol),
+		.stat   (alustat),
+		.out	(aluout)
+	);
 
-mux s3_alu_mux(
-	.out(s3_data)
-;)
+	//| PC adder instantiation
+	//| ============================================================================
+	adder pc_adder(
+		.pc(PC_address),
+		.offset(16'd2),
 
-mux s2_a_mux(
-	.ina(alu_a),
-	.inb(s3_data),
-	.out(alu_interface.in)
-);
+		.sum(PC_next_nojump)
+	);
 
-mux s2_b_mux(
-	.ina(alu_b),
-	.inb(s3_data),
-	.out(in_alu_b)
-);
+	//| Jump adder instantiation
+	//| ============================================================================
+	adder jump_adder(
+		.pc(PC_address),
+		.offset(16'd4),
 
-alu main_alu(
-	.ina(in_alu_a),
-	.inb(in_alu_b),
+		.sum(PC_next_jump)
+	);
 
-	.out(output)
-);
+	//| ALU instantiation
+	//| ============================================================================
+	mem_program program_memory(
+		.address(PC_address),	
+		.data_out(instruction)
+	);
+
+	//| Program counter
+	//| ============================================================================
+	always_ff @(posedge clk or posedge rst) begin : program_counter
+		if(rst) begin
+			PC_address <= 0;
+		end else begin
+			PC_address <= PC_next_nojump;
+		end
+	end
+
+	//| ALU instantiation
+	//| ============================================================================
+
+	//| ALU instantiation
+	//| ============================================================================
+endmodule

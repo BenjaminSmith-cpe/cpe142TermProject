@@ -1,6 +1,8 @@
 package types_pkg;
     import alu_pkg::*;
 
+    typedef logic [15:0] uword;
+
     typedef enum logic[1:0]{
             GREATER         = 2'b00,
             LESS            = 2'b01,
