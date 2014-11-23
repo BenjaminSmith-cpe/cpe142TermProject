@@ -1,4 +1,6 @@
 package alu_pkg;
+    
+    typedef logic signed [15:0] word_16;
 
     typedef enum logic[1:0]{
         add      = 2'b00,
