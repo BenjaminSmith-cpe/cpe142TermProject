@@ -13,6 +13,16 @@ module top (
 	opcode_t opcode;
 	control_e func_code;
 
+	wire [10:0] 	haz;
+
+	wire 	[1:0]	memc;
+	wire 	[1:0]	s2_memc;
+	wire 	[1:0]	s3_memc;
+
+	wire 	[31:0]	s3_data;
+	wire 	[31:0]	s3_alu;
+
+
 	assign opcode = opcode_t'(instruction[15:12]);
 	assign func_code = control_e'(instruction[3:0]);
 
@@ -34,16 +44,16 @@ module top (
 	//| ============================================================================
 	adder pc_adder(
 		.pc(PC_address),
-		.offset(16'd2),
-		.sum(PC_next_nojump)
+		.offset(offset_shifted),
+		.sum(PC_no_jump)
 	);
 
 	//| Jump adder instantiation
 	//| ============================================================================
 	adder jump_adder(
 		.pc(PC_address),
-		.offset(16'd4),
-		.sum(PC_next_jump)
+		.offset(offset_shifted),
+		.sum(PC_jump)
 	);
 
 	//| ALU instantiation
@@ -59,10 +69,10 @@ module top (
 		.clk(clk),
 		.rst(rst),
 
-		.halt_sys(1'b0), 	// Control signal from main control to halt cpu
-		.stall(1'b0),		// Control signal from hazard unit to stall for one cycle
+		.halt_sys(halt_sys), 	// Control signal from main control to halt cpu
+		.stall(stall),		// Control signal from hazard unit to stall for one cycle
 
-		.in_address(PC_next_nojump),	// Next PC address
+		.in_address(PC_next),	// Next PC address
 		.out_address(PC_address)	// Current PC address
 	);
 
@@ -71,19 +81,19 @@ module top (
 	mem_register register_file (
 		.rst(rst),
 		.clk(clk),
-		.halt_sys(1'b0),
+		.halt_sys(halt_sys),
 
-		.R0_read(1'b0),
+		.R0_read(R0_read),
 	  	.ra1(instruction[11:8]),
 	  	.ra2(instruction[7:4]),
 
-		.write_en(1'b0),
-		.R0_en(1'b0),
-		.write_address(4'b0),
-		.write_data(32'b0),
+		.write_en(s3_write_en),
+		.R0_en(s3_R0_en),
+		.write_address(s3_write_address),
+		.write_data(s3_data),
 
-		.rd1(aluin.a),
-		.rd2(aluin.b)
+		.rd1(r1_data),
+		.rd2(r2_data)
 	);
 	
 
@@ -96,13 +106,13 @@ module top (
 		.overflow(1'b0),
 
 		.ALUop(ALUop),
-		.offset_sel(),
-		.mem2r(),
-		.memwr(),
-		.halt_sys(),
-		.reg_wr(),
-		.R0_read(),
-		.se_imm_a()
+		.offset_sel(offset_sel),
+		.mem2r(mem2r),
+		.memwr(memwr),
+		.halt_sys(halt_sys),
+		.reg_wr(reg_wr),
+		.R0_read(R0_read),
+		.se_imm_a(se_imm_a)
 	);
 
 	//| ALU Control Unit
@@ -117,116 +127,116 @@ module top (
 	//| Hazard Detection Unit
 	//| ============================================================================
 	hazard_detection_unit HDU(
-	.R0_en(R0_en),
-	.s2_R0_en(),
-	.s3_R0_en(),
-	.opcode(),
-	.s2_opcode(),
-	.s3_opcode(),
+		.R0_en(R0_en),
+		.s2_R0_en(s2_R0_en),
+		.s3_R0_en(s3_R0_en),
+		.opcode(opcode),
+		.s2_opcode(s2_opcode),
+		.s3_opcode(s3_opcode),
 
-	.r1(),
-	.r2(),
-	.s2_r1(),
-	.s3_r1(),
+		.r1(instruction[11:8]),
+		.r2(instruction[7:4]),
+		.s2_r1(s2_r1),
+		.s3_r1(s3_r1),
 
-	.haz(),
-	.stall()
+		.haz(haz),
+		.stall(stall)
 	);
 
 	//| Stage 1 Flip-Flop
 	//| ============================================================================
 	reg_pipe_stage_a stage_one(
-	.clk(clk),
-	.rst(rst),
-	.halt_sys(),
-	.stall(),
+		.clk(clk),
+		.rst(rst),
+		.halt_sys(halt_sys),
+		.stall(stall),
 
-	.in_memc(),
-	.in_reg_wr(),
-	.in_alu_a(),
-	.in_alu_b(),
-	.in_R1_data(),
+		.in_memc({mem2r, memwr}),
+		.in_reg_wr(reg_wr),
+		.in_alu_a(in_alu_a),
+		.in_alu_b(in_alu_b),
+		.in_R1_data(r1_data),
 
-	.in_R0_en(),
-	.in_alu_ctrl(),
-	.in_instr(),	// Top 8 bits of instruction for opcode and dest reg
+		.in_R0_en(R0_en),
+		.in_alu_ctrl(alu_ctrl),
+		.in_instr(instruction[15:8]),	// Top 8 bits of instruction for opcode and dest reg
 
-	// outputs
-	.out_memc(),
-	.out_reg_wr(),
-	.out_alu_a(),
-	.out_alu_b(),
-	.out_R1_data(),
+		// outputs
+		.out_memc(s2_memc),
+		.out_reg_wr(s2_reg_wr),
+		.out_alu_a(s2_alu_a),
+		.out_alu_b(s2_alu_b),
+		.out_R1_data(s2_r1_data),
 
-	.out_R0_en(),
-	.out_alu_ctrl(),
-	.out_instr()	// Top 8 bits of instruction for opcode and dest reg
+		.out_R0_en(s2_R0_en),
+		.out_alu_ctrl(s2_alu_ctrl),
+		.out_instr(s2_instruction)	// Top 8 bits of instruction for opcode and dest reg
 	);
 	
 	//| Stage 2 Flip-Flop
 	//| ============================================================================
 	reg_pipe_stage_a stage_two(
-	.clk(clk),
-	.rst(rst),
-	.halt_sys(),
-	.stall(),
+		.clk(clk),
+		.rst(rst),
+		.halt_sys(halt_sys),
+		.stall(stall),
 
-	.in_memc(),
-	.in_reg_wr(),
-	.in_alu(),
-	.in_R1_data(),
+		.in_memc(s2_memc),
+		.in_reg_wr(s2_reg_wr),
+		.in_alu(aluout),
+		.in_R1_data(s1_r1_data),	// Muxed
 
-	.in_R0_en(),
-	.in_instr(),	// Top 8 bits of instruction for opcode and dest reg
+		.in_R0_en(R0_en),
+		.in_instr(s2_instruction),	// Top 8 bits of instruction for opcode and dest reg
 
-	//outputs
-	.out_memc(),
-	.out_reg_wr(),
-	.out_alu(),	
-	.out_R1_data(),
+		//outputs
+		.out_memc(s3_memc),
+		.out_reg_wr(s3_reg_wr),
+		.out_alu(s3_alu),	
+		.out_R1_data(s3_r1_data),
 
-	.out_R0_en(),
-	.out_instr()	// Top 8 bits of instruction for opcode and dest reg
+		.out_R0_en(s3_R0_en),
+		.out_instr(s3_instruction)	// Top 8 bits of instruction for opcode and dest reg
 	);
 
 	//| Sign Extending unit
 	//| ============================================================================
 	sign_extender sign_extend(
-	.offset_sel(),
-	.input_value(),
+		.offset_sel(offset_sel),
+		.input_value(instruction[11:0]),	// 11:0 to handle all 3 different sized offsets.
 
-	.se_value()
+		.se_value(offset_se)
 	);
 
 	//| Shift Left Unit
 	//| ============================================================================
 	shift_one shift1(
-	.in(),
-	.out()
+		.in(offset_se),
+		.out(offset_shifted)
 	);
 
 	//| Comparator
 	//| ============================================================================
 	comparator cmp(
-	.in1(),
-	.in2(),
+		.in1(cmp_a),
+		.in2(cmp_b),
 
-	.cmp_result()
+		.cmp_result(cmp_result)
 	);
 	
 	//| Main Memory
 	//| ============================================================================
 	mem_main main_memory(
-	.rst(rst),
-	.clk(clk),
-	.halt_sys(),
+		.rst(rst),
+		.clk(clk),
+		.halt_sys(halt_sys),
 
 
-	.write_en(),
-	.address(),
-	.write_data(),
+		.write_en(s3_memc[0]),	//memwr
+		.address(s3_alu),
+		.write_data(s3_r1_data),
 
-	.data_out()
+		.data_out(mem_data)
 	);
 
 
@@ -237,65 +247,65 @@ module top (
 
 	//| Mux
 	//| ============================================================================
-	mux #(.SIZE(16), .IS3WAY(1)) mux0(
-		.sel(),
+	mux #(.SIZE(16), .IS3WAY(0)) mux0(
+		.sel(jmp),
 	
-		.in1(),
-		.in2(),
+		.in1(PC_no_jump),
+		.in2(PC_jump),
 		.in3(),
 	
-		.out()
+		.out(PC_next)
 	);
 
-	//| Mux
+	//| Mux before comparator with R1
 	//| ============================================================================
 	mux #(.SIZE(16), .IS3WAY(1)) mux1(
-		.sel(),
+		.sel({haz[4], haz[5]}),
 	
-		.in1(),
-		.in2(),
-		.in3(),
+		.in1(r1_data),
+		.in2(aluout[15:0]),
+		.in3(s3_data[15:0]),
 	
-		.out()
+		.out(cmp_a)
 	);
 
-	//| Mux
+	//| Mux before comparator with R2
 	//| ============================================================================
 	mux #(.SIZE(16), .IS3WAY(1)) mux2(
-		.sel(),
+		.sel({haz[6], haz[7]}),
 	
-		.in1(),
-		.in2(),
-		.in3(),
+		.in1(r2_data),
+		.in2(aluout[31:16]),
+		.in3(s3_data[31:16]),
 	
-		.out()
+		.out(cmp_b)
 	);
 	
-	//| Mux
+	//| Mux for r1_data
 	//| ============================================================================
 	mux #(.SIZE(16), .IS3WAY(1)) mux3(
-		.sel(),
+		.sel({haz[9], haz[10]}), 	// mem2r
 	
-		.in1(),
-		.in2(),
-		.in3(),
+		.in1(r1_data),
+		.in2(aluout[15:0]),
+		.in3(mem_data),
 	
-		.out()
+		.out(s1_r1_data)
 	);
 	
-	//| Mux
+	//| Mux for ALU_a
 	//| ============================================================================
 	mux #(.SIZE(16), .IS3WAY(1)) mux4(
-		.sel(),
+		.sel({se_imm_a, haz[0]}),
 	
-		.in1(),
-		.in2(),
-		.in3(),
+		.in1(r1_data),
+		.in2(offset_se), //sign extended
+		.in3(s3_data[15:0]),
 	
-		.out()
+		.out(alu_a_in)
 	);
 	
-	//| Mux
+	//| Mux for ALU_B
 	//| ============================================================================
 	mux #(.SIZE(16), .IS3WAY(1)) mux5(
 		.sel(),
@@ -304,7 +314,7 @@ module top (
 		.in2(),
 		.in3(),
 	
-		.out()
+		.out(in_alu_b)
 	);
 	
 	//| ====================================================================
@@ -355,14 +365,14 @@ module top (
 
 	//| Mux
 	//| ============================================================================
-	mux #(.SIZE(16), .IS3WAY(1)) mux9(
-		.sel(),
+	mux #(.SIZE(16), .IS3WAY(0)) mux3(
+		.sel(s3_memc[1]), 	// mem2r
 	
-		.in1(),
-		.in2(),
+		.in1(mem_data),
+		.in2(s3_alu[15:0]),
 		.in3(),
 	
-		.out()
+		.out(s3_data)
 	);
 	
 endmodule
