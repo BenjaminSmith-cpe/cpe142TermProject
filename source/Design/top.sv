@@ -23,7 +23,8 @@ module top (
 
 	wire 	[15:0]	s2_alu_a;
 	wire 	[15:0]	s2_alu_b;
-
+	control_e		s2_alu_ctrl;
+	
 	wire 	[31:0]	s3_data;
 	wire 	[31:0]	s3_alu;
 
@@ -64,7 +65,7 @@ module top (
 	in_t  aluin;
 	control_e alucontrol;
 	status_t alustat;
-	word_16 aluout;
+	integer aluout;
 
 	alu main_alu(
 		.in 	(aluin),
@@ -331,7 +332,7 @@ module top (
 		.sel({haz[9], haz[10]}), 	// mem2r
 	
 		.in1(r1_data),
-		.in2(aluout),
+		.in2(aluout[15:0]),
 		.in3(mem_data),
 	
 		.out(s1_r1_data)

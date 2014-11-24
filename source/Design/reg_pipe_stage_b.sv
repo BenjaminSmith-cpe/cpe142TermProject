@@ -6,7 +6,7 @@ module reg_pipe_stage_b(
 	
 	input wire		[1:0]	in_memc,
 	input wire				in_reg_wr,
-	input wire		[31:0]	in_alu,
+	input integer			in_alu,
 	input wire 		[15:0]	in_R1_data,
 	
 	input wire 				in_R0_en,
@@ -14,7 +14,7 @@ module reg_pipe_stage_b(
 
 	output logic	[1:0]	out_memc,
 	output logic			out_reg_wr,
-	output logic	[31:0]	out_alu,	
+	output integer		out_alu,	
 	output logic 	[15:0]	out_R1_data,
 
 	output logic 			out_R0_en,
