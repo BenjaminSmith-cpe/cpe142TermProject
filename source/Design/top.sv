@@ -49,6 +49,8 @@ module top (
 	wire 	[15:0] 	s2_r1_data;
 	wire    [15:0]	s1_r1_data;
 
+	wire 	[15:0]	r1_data;
+
 	wire 	[7:0]	s2_instruction;
 	wire 	[7:0] 	s3_instruction;
 
