@@ -22,6 +22,27 @@ module top (
 	wire 	[31:0]	s3_data;
 	wire 	[31:0]	s3_alu;
 
+	wire 	[15:0]	offset_se;
+	wire 	[15:0]	offset_shifted;
+
+	wire 	[15:0]	cmp_a;
+	wire 	[15:0]	cmp_b;
+	wire 	[15:0]	cmp_result;
+
+	wire 	[15:0]	s3_r1_data;
+	wire 	[15:0]	mem_data;
+
+	wire [15:0] PC_no_jump;
+	wire [15:0] PC_jump;
+	wire [15:0] PC_next;
+	
+	wire [15:0] r2_data;
+
+	
+	wire [15:0] s2_r1_muxed;
+	wire [15:0] s2_r1_data;
+
+
 
 	assign opcode = opcode_t'(instruction[15:12]);
 	assign func_code = control_e'(instruction[3:0]);
@@ -121,7 +142,8 @@ module top (
 		.func(func_code),
 		.ALUop(ALUop),
 
-		.alu_ctrl(alucontrol)
+		.alu_ctrl(alucontrol),
+		.immb(immb)
 	);
 
 	//| Hazard Detection Unit
@@ -215,6 +237,7 @@ module top (
 		.out(offset_shifted)
 	);
 
+
 	//| Comparator
 	//| ============================================================================
 	comparator cmp(
@@ -223,7 +246,7 @@ module top (
 
 		.cmp_result(cmp_result)
 	);
-	
+
 	//| Main Memory
 	//| ============================================================================
 	mem_main main_memory(
@@ -233,7 +256,7 @@ module top (
 
 
 		.write_en(s3_memc[0]),	//memwr
-		.address(s3_alu),
+		.address(s3_alu[15:0]),
 		.write_data(s3_r1_data),
 
 		.data_out(mem_data)
@@ -244,6 +267,7 @@ module top (
 	//| Stage 1
 	//| 
 	//| ====================================================================
+
 
 	//| Mux
 	//| ============================================================================
@@ -308,11 +332,11 @@ module top (
 	//| Mux for ALU_B
 	//| ============================================================================
 	mux #(.SIZE(16), .IS3WAY(1)) mux5(
-		.sel(),
+		.sel({immb, haz[3]}),
 	
-		.in1(),
-		.in2(),
-		.in3(),
+		.in1(r2_data),
+		.in2({12'd0, instruction[7:4]}),
+		.in3(s3_data[15:0]),
 	
 		.out(in_alu_b)
 	);
@@ -339,7 +363,7 @@ module top (
 	mux #(.SIZE(16), .IS3WAY(0)) mux7(
 		.sel(haz[2]),
 	
-		.in1(s2_alu_c),
+		.in1(s2_alu_b),
 		.in2(s3_data[15:0]),
 		.in3(),
 	
