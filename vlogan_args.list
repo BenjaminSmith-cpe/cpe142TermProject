@@ -1,7 +1,7 @@
 -sverilog 
 -nc 
 
-+lint=all,noVCDE 
++lint=all,noVCDE,noIWU
 +warn=all 
 
 -l $PWD/logs/vlogan.log 

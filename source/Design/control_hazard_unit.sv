@@ -1,7 +1,7 @@
 import types_pkg::*;
 import alu_pkg::*;
 
-module hazard_detection_unit(
+module control_hazard_unit(
 	input wire  			R0_en,
 	input wire 				s2_R0_en,
 	input wire				s3_R0_en,
@@ -108,7 +108,7 @@ module hazard_detection_unit(
 					&&((r1 == s2_r1)||(r2 == s2_r1));
 	assign stall = (stall_logic) ? 1'b1: 1'b0;
 
-	// always_comb begin
-	// 	assert($onehot(haz));
-	// end
+	always_comb begin
+		assert($onehot(haz));
+	end
 endmodule

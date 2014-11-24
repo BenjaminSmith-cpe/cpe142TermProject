@@ -27,13 +27,13 @@ module top (
 	wire 	[31:0]	s3_data;
 	wire 	[31:0]	s3_alu;
 
-	wire 	[1:0]	offset_sel;
+	sel_t	offset_sel;
 	wire 	[15:0]	offset_se;
 	wire 	[15:0]	offset_shifted;
 
 	wire 	[15:0]	cmp_a;
 	wire 	[15:0]	cmp_b;
-	wire 	[15:0]	cmp_result;
+	result_t  		cmp_result;
 
 	wire 	[15:0]	s3_r1_data;
 	wire 	[15:0]	mem_data;
@@ -77,7 +77,7 @@ module top (
 	//| ============================================================================
 	adder pc_adder(
 		.pc(PC_address),
-		.offset(offset_shifted),
+		.offset(16'd2),
 		.sum(PC_no_jump)
 	);
 
@@ -168,7 +168,7 @@ module top (
 
 	//| Hazard Detection Unit
 	//| ============================================================================
-	hazard_detection_unit HDU(
+	control_hazard_unit HDU(
 		.R0_en(R0_en),
 		.s2_R0_en(s2_R0_en),
 		.s3_R0_en(s3_R0_en),

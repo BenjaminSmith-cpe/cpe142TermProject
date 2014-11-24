@@ -5,7 +5,7 @@ module alu(
     input control_e  control,
     
     output status_t   stat,
-    output word_16    out
+    output integer    out
 );
     logic carry;
 
@@ -15,6 +15,8 @@ module alu(
             SUB: {carry, out} = in.a - in.b;
             OR : out = in.a | in.b;
             AND: out = in.a & in.b;
+            default:
+                out = 32'bZ;
         endcase
     end
 

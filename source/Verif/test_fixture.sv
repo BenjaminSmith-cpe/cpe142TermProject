@@ -27,12 +27,13 @@ class alu_checker;
         }
         `endif
 
-        function automatic get_random_alu_input();
+        function automatic in_t get_random_alu_input();
             // randomize();
             in_t out;
+
             out.a = this.a;
             out.b = this.b;
-            
+
             return out;
         endfunction
 
@@ -58,46 +59,46 @@ class alu_checker;
 
         //     ov = (result[17]^result[15]); //If [33:31] of 32bit+32bit additions don't match there has been an overflow
 
-            // if((stat.sign != result[17]) && !stat.overflow) begin              
-            //     print_alu_state("Sign Flag FAILURE");
-            //     failure_count++;
-            // end
-            // `ifdef VERBOSE 
-            // else  
-            //     print_alu_state("Sign Flag SUCCESS");
-            // `endif
+        //     if((stat.sign != result[17]) && !stat.overflow) begin              
+        //         print_alu_state("Sign Flag FAILURE");
+        //         failure_count++;
+        //     end
+        //     `ifdef VERBOSE 
+        //     else  
+        //         print_alu_state("Sign Flag SUCCESS");
+        //     `endif
 
-            // if((stat.overflow != ov) && !control[1]) begin                     
-            //     print_alu_state("Overflow Flag FAILURE");
-            //     failure_count++;   
-            // end
-            // `ifdef VERBOSE 
-            // else  
-            //     print_alu_state("Overflow Flag SUCCESS");
-            // `endif
+        //     if((stat.overflow != ov) && !control[1]) begin                     
+        //         print_alu_state("Overflow Flag FAILURE");
+        //         failure_count++;   
+        //     end
+        //     `ifdef VERBOSE 
+        //     else  
+        //         print_alu_state("Overflow Flag SUCCESS");
+        //     `endif
 
-            // if((stat.zero && |out)&& !stat.overflow) begin           
-            //     print_alu_state("Zero Flag FAILURE");
-            //     failure_count++;   
-            // end
-            // `ifdef VERBOSE      
-            // else  
-            //     print_alu_state("Zero Flag SUCCESS");
-            // `endif
+        //     if((stat.zero && |out)&& !stat.overflow) begin           
+        //         print_alu_state("Zero Flag FAILURE");
+        //         failure_count++;   
+        //     end
+        //     `ifdef VERBOSE      
+        //     else  
+        //         print_alu_state("Zero Flag SUCCESS");
+        //     `endif
 
-            // // if((result != out)&& (!stat.overflow)) begin
-            // //     print_alu_state("ALU FAILURE");
-            // //     failure_count++;   
-            // // end
-            // `ifdef VERBOSE       
-            // else  
-            //     print_alu_state("ALU SUCCESS");
-            // `endif
-            // return failure_count;
+        //     // if((result != out)&& (!stat.overflow)) begin
+        //     //     print_alu_state("ALU FAILURE");
+        //     //     failure_count++;   
+        //     // end
+        //     `ifdef VERBOSE       
+        //     else  
+        //         print_alu_state("ALU SUCCESS");
+        //     `endif
+        //     return failure_count;
         // endfunction
     endclass
 
-module stimulus();
+module AAstimulus();
     integer             testiteration = 0;
     integer             failure_count = 0;
 
@@ -108,29 +109,31 @@ module stimulus();
         .clk(clock),
         .rst(reset)
     );
-    
+
     initial #4 forever #1 clock = ~clock;
 
     initial begin
         //| system wide reset
         //| =============================================================
+        $vcdpluson; //make that dve database
+
         #1 reset = 1;
         #1 reset = 0;
-        $readmemh("verif/register_memory.hex", dut.register_file.registers);
-        $readmemh("verif/program_memory.hex", dut.program_memory.memory);
-
-        //| Perform regression testing of individual components
-        //| =============================================================
-        // alu_checker s;
-
-        // $vcdpluson; //make that dve database
         
-        // while (testiteration < 1000) begin
-        //     alu_stim.randomize_alu_inputs();
-        //     #1  failure_count += alu_stim.check_alu_outputs();
-        //     testiteration++;
-        // end
+        $readmemh("Verif/register_memory.hex", dut.register_file.registers);
+        $readmemh("Verif/program_memory.hex", dut.program_memory.memory);
+    end
 
-        print_sim_stats(failure_count, testiteration);
+    always @ (negedge clock) begin
+        if (dut.PC_next == 50) $stop;
+
+        // $display(".--------------------------------------------------.");
+        // $display("| PIPE STATUS| PC: %d", dut.PC_next);
+        // $display("|--------------------------------------------------|");
+        // $display("| Stage      : ONE |TWO |THREE |");
+        // $display("| Instruction: %5s |%5s |%5s |", dut.opcode, dut.s2_opcode, dut.s3_opcode);
+        // $display("| %s", dut.opcode);
+        // $display("| %s", dut.opcode);        
+        // $display("'--------------------------------------------------'");
     end
 endmodule

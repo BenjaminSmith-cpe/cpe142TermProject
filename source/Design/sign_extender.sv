@@ -1,9 +1,4 @@
-typedef enum logic[1:0]{
-        NONE 		= 2'b00,
-        FOURBIT     = 2'b01,
-        EIGHTBIT 		= 2'b10,
-        TWELVEBIT  	= 2'b11       
-    } sel_t;
+import types_pkg::*;
 
 module sign_extender(
 	input sel_t 				offset_sel,

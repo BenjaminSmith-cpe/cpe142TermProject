@@ -8,7 +8,7 @@ module control_main(
 	input wire 			overflow,
 
 	output logic 		ALUop,
-	output logic [1:0]	offset_sel,
+	output sel_t	offset_sel,
 	output logic 		mem2r,
 	output logic 		memwr,
 	output logic 		halt_sys,
@@ -20,7 +20,7 @@ module control_main(
 	always_comb begin
 		if (div0 || overflow) begin // Exception
 			ALUop = 1'b0;
-			offset_sel = 2'b00;
+			offset_sel = NONE;
 			mem2r = 1'b0;
 			memwr = 1'b0;
 			halt_sys = 1'b1;
@@ -33,9 +33,9 @@ module control_main(
 				ARITHM: begin
 					ALUop = 1'b0;
 					if((func == ROR)||(func == ROL)||(func == SHL)||(func == SHR))
-						offset_sel = 2'b01;
+						offset_sel = FOURBIT;
 					else
-						offset_sel = 2'b00;
+						offset_sel = NONE;
 					mem2r = 1'b0;
 					memwr = 1'b0;
 					halt_sys = 1'b0;
@@ -45,7 +45,7 @@ module control_main(
 				end
 				LW: begin
 					ALUop = 1'b1;
-					offset_sel = 2'b10;
+					offset_sel = EIGHTBIT;
 					mem2r = 1'b1;
 					memwr = 1'b0;
 					halt_sys = 1'b0;
@@ -55,7 +55,7 @@ module control_main(
 				end
 				SW: begin
 					ALUop = 1'b1;
-					offset_sel = 2'b10;
+					offset_sel = EIGHTBIT;
 					mem2r = 1'b0;
 					memwr = 1'b1;
 					halt_sys = 1'b0;
@@ -65,7 +65,7 @@ module control_main(
 				end
 				BLT: begin
 					ALUop = 1'b0;
-					offset_sel = 2'b10;
+					offset_sel = EIGHTBIT;
 					mem2r = 1'b0;
 					memwr = 1'b0;
 					halt_sys = 1'b0;
@@ -75,7 +75,7 @@ module control_main(
 				end
 				BGT: begin
 					ALUop = 1'b0;
-					offset_sel = 2'b10;
+					offset_sel = EIGHTBIT;
 					mem2r = 1'b0;
 					memwr = 1'b0;
 					halt_sys = 1'b0;
@@ -85,7 +85,7 @@ module control_main(
 				end
 				BE: begin
 					ALUop = 1'b0;
-					offset_sel = 2'b10;
+					offset_sel = EIGHTBIT;
 					mem2r = 1'b0;
 					memwr = 1'b0;
 					halt_sys = 1'b0;
@@ -95,7 +95,7 @@ module control_main(
 				end
 				JMP: begin
 					ALUop = 1'b0;
-					offset_sel = 2'b11;
+					offset_sel = TWELVEBIT;
 					mem2r = 1'b0;
 					memwr = 1'b0;
 					halt_sys = 1'b0;
@@ -105,7 +105,7 @@ module control_main(
 				end
 				HALT: begin
 					ALUop = 1'b0;
-					offset_sel = 2'b00;
+					offset_sel = NONE;
 					mem2r = 1'b0;
 					memwr = 1'b0;
 					halt_sys = 1'b1;
@@ -116,7 +116,7 @@ module control_main(
 	
 				default: begin		// Exception
 					ALUop = 1'b0;
-					offset_sel = 2'b00;
+					offset_sel = NONE;
 					mem2r = 1'b0;
 					memwr = 1'b0;
 					halt_sys = 1'b1;
