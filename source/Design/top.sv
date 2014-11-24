@@ -204,6 +204,11 @@ module top (
 		.in_alu_ctrl(alucontrol),
 		.in_instr(instruction[15:8]),	// Top 8 bits of instruction for opcode and dest reg
 
+		.in_haz2(haz[2]),
+		.in_haz1(haz[1]),
+		.out_haz1(s2_haz1),
+		.out_haz2(s2_haz2),
+
 		// outputs
 		.out_memc(s2_memc),
 		.out_reg_wr(s2_reg_wr),
@@ -341,11 +346,11 @@ module top (
 	//| Mux for ALU_a
 	//| ============================================================================
 	mux #(.SIZE(16), .IS3WAY(1)) mux4(
-		.sel({se_imm_a, haz[0]}),
+		.sel(haz[0]),
 	
 		.in1(r1_data),
-		.in2(offset_se), //sign extended
-		.in3(s3_data[15:0]),
+		//.in2(offset_se), //sign extended
+		.in2(s3_data[15:0]),
 	
 		.out(in_alu_a)
 	);
@@ -370,7 +375,7 @@ module top (
 	//| Mux for ALU input a
 	//| ============================================================================
 	mux #(.SIZE(16), .IS3WAY(0)) mux6(
-		.sel(haz[1]),
+		.sel(s2_haz1),
 	
 		.in1(s2_alu_a),
 		.in2(s3_data[15:0]),
@@ -382,7 +387,7 @@ module top (
 	//| Mux for ALU input b
 	//| ============================================================================
 	mux #(.SIZE(16), .IS3WAY(0)) mux7(
-		.sel(haz[2]),
+		.sel(s2_haz2),
 	
 		.in1(s2_alu_b),
 		.in2(s3_data[15:0]),

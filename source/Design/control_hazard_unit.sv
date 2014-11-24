@@ -36,7 +36,7 @@ module control_hazard_unit(
 	// op with the R2 as the first destination.
 	assign haz2 = ((opcode == ARITHM))
 					&&((s2_opcode == ARITHM)||(s2_opcode == LW))
-					&&((r2 == s3_r1));
+					&&((r2 == s2_r1));
 	assign haz[2] = (haz2) ? 1'b1: 1'b0;
 	
 	// Arithmetic or load followed 2 instructions later by an

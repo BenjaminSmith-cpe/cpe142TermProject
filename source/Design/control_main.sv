@@ -41,7 +41,7 @@ module control_main(
 					halt_sys = 1'b0;
 					reg_wr = 1'b1;
 					R0_read = 1'b0;
-					se_imm_a = 1'b1; // Not soooo sure bout this one
+					se_imm_a = 1'b0; // Not soooo sure bout this one
 				end
 				LW: begin
 					ALUop = 1'b1;
