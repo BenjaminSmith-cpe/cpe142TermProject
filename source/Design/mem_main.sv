@@ -16,9 +16,9 @@ module mem_main(
 
 	output logic[15:0]	data_out
 );
-	always_comb begin : assertions
-		assert(!address[0]);
-	end
+	// always_comb begin : assertions
+	// 	assert(!address[0]);
+	// end
 
 	logic 	[7:0][2^16:0]	memory;	// Memory block. 16 bit address with 16 bit data
 	
