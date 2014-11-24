@@ -50,6 +50,7 @@ module top (
 	wire    [15:0]	s1_r1_data;
 
 	wire 	[7:0]	s2_instruction;
+	wire 	[7:0] 	s3_instruction;
 
 
 	assign s3_data[31:16] = s3_alu[31:16];
@@ -119,7 +120,7 @@ module top (
 
 		.write_en(s3_reg_wr),
 		.R0_en(s3_R0_en),
-		.write_address(s3_instruction[11:8]), // r1 address
+		.write_address(s3_instruction[3:0]), // r1 address
 		.write_data(s3_data),
 
 		.rd1(r1_data),
@@ -170,13 +171,13 @@ module top (
 		.s2_R0_en(s2_R0_en),
 		.s3_R0_en(s3_R0_en),
 		.opcode(opcode),
-		.s2_opcode(opcode_t'(s2_instruction[15:12])),
-		.s3_opcode(opcode_t'(s3_instruction[15:12])),
+		.s2_opcode(opcode_t'(s2_instruction[7:4])), // s2 and s3 instructions hold
+		.s3_opcode(opcode_t'(s3_instruction[7:4])), // top 8 bits of that instr 
 
 		.r1(instruction[11:8]),
 		.r2(instruction[7:4]),
-		.s2_r1(s2_instruction[11:8]),
-		.s3_r1(s3_instruction[11:8]),
+		.s2_r1(s2_instruction[3:0]),
+		.s3_r1(s3_instruction[3:0]),
 
 		.haz(haz),
 		.stall(stall)
@@ -381,7 +382,7 @@ module top (
 		.sel(haz[2]),
 	
 		.in1(s2_alu_b),
-		.in2(s3_data[15:0])
+		.in2(s3_data[15:0]),
 		.in3(),
 	
 		.out(aluin.b)
