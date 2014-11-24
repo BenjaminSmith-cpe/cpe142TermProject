@@ -1,6 +1,6 @@
 import types_pkg::*;
 
-module jump_control(
+module control_jump(
 	input result_t 	cmp_result,
 	input opcode_t 	opcode,
 

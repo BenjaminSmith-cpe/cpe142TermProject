@@ -18,10 +18,16 @@ module top (
 	wire 	[1:0]	memc;
 	wire 	[1:0]	s2_memc;
 	wire 	[1:0]	s3_memc;
+	wire 	[15:0]	in_alu_a;
+	wire 	[15:0]	in_alu_b;
+
+	wire 	[15:0]	s2_alu_a;
+	wire 	[15:0]	s2_alu_b;
 
 	wire 	[31:0]	s3_data;
 	wire 	[31:0]	s3_alu;
 
+	wire 	[1:0]	offset_sel;
 	wire 	[15:0]	offset_se;
 	wire 	[15:0]	offset_shifted;
 
@@ -32,18 +38,21 @@ module top (
 	wire 	[15:0]	s3_r1_data;
 	wire 	[15:0]	mem_data;
 
-	wire [15:0] PC_no_jump;
-	wire [15:0] PC_jump;
-	wire [15:0] PC_next;
+	wire 	[15:0] 	PC_no_jump;
+	wire 	[15:0] 	PC_jump;
+	wire 	[15:0] 	PC_next;
 	
-	wire [15:0] r2_data;
+	wire 	[15:0] 	r2_data;
 
 	
-	wire [15:0] s2_r1_muxed;
-	wire [15:0] s2_r1_data;
+	wire 	[15:0] 	s2_r1_muxed;
+	wire 	[15:0] 	s2_r1_data;
+	wire    [15:0]	s1_r1_data;
+
+	wire 	[7:0]	s2_instruction;
 
 
-
+	assign s3_data[31:16] = s3_alu[31:16];
 	assign opcode = opcode_t'(instruction[15:12]);
 	assign func_code = control_e'(instruction[3:0]);
 
@@ -108,9 +117,9 @@ module top (
 	  	.ra1(instruction[11:8]),
 	  	.ra2(instruction[7:4]),
 
-		.write_en(s3_write_en),
+		.write_en(s3_reg_wr),
 		.R0_en(s3_R0_en),
-		.write_address(s3_write_address),
+		.write_address(s3_instruction[11:8]), // r1 address
 		.write_data(s3_data),
 
 		.rd1(r1_data),
@@ -143,7 +152,15 @@ module top (
 		.ALUop(ALUop),
 
 		.alu_ctrl(alucontrol),
-		.immb(immb)
+		.immb(immb),
+		.R0_en(R0_en)
+	);
+
+	control_jump jump_unit(
+		.cmp_result(cmp_result),
+		.opcode(opcode),
+
+		.jmp(jmp)
 	);
 
 	//| Hazard Detection Unit
@@ -153,13 +170,13 @@ module top (
 		.s2_R0_en(s2_R0_en),
 		.s3_R0_en(s3_R0_en),
 		.opcode(opcode),
-		.s2_opcode(s2_opcode),
-		.s3_opcode(s3_opcode),
+		.s2_opcode(opcode_t'(s2_instruction[15:12])),
+		.s3_opcode(opcode_t'(s3_instruction[15:12])),
 
 		.r1(instruction[11:8]),
 		.r2(instruction[7:4]),
-		.s2_r1(s2_r1),
-		.s3_r1(s3_r1),
+		.s2_r1(s2_instruction[11:8]),
+		.s3_r1(s3_instruction[11:8]),
 
 		.haz(haz),
 		.stall(stall)
@@ -180,7 +197,7 @@ module top (
 		.in_R1_data(s1_r1_data),
 
 		.in_R0_en(R0_en),
-		.in_alu_ctrl(alu_ctrl),
+		.in_alu_ctrl(alucontrol),
 		.in_instr(instruction[15:8]),	// Top 8 bits of instruction for opcode and dest reg
 
 		// outputs
@@ -197,7 +214,7 @@ module top (
 	
 	//| Stage 2 Flip-Flop
 	//| ============================================================================
-	reg_pipe_stage_a stage_two(
+	reg_pipe_stage_b stage_two(
 		.clk(clk),
 		.rst(rst),
 		.halt_sys(halt_sys),
@@ -311,7 +328,7 @@ module top (
 		.sel({haz[9], haz[10]}), 	// mem2r
 	
 		.in1(r1_data),
-		.in2(aluout[15:0]),
+		.in2(aluout),
 		.in3(mem_data),
 	
 		.out(s1_r1_data)
@@ -364,7 +381,7 @@ module top (
 		.sel(haz[2]),
 	
 		.in1(s2_alu_b),
-		.in2(s3_data[15:0]),
+		.in2(s3_data[15:0])
 		.in3(),
 	
 		.out(aluin.b)
@@ -396,7 +413,7 @@ module top (
 		.in2(s3_alu[15:0]),
 		.in3(),
 	
-		.out(s3_data)
+		.out(s3_data[15:0])
 	);
 	
 endmodule

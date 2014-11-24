@@ -6,7 +6,7 @@ typedef enum logic[1:0]{
     } sel_t;
 
 module sign_extender(
-	input sel_t [1:0]	offset_sel,
+	input sel_t 				offset_sel,
 	input wire 	[11:0]	input_value,
 
 	output logic[15:0] 	se_value
