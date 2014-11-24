@@ -15,7 +15,7 @@ module top (
 
 	wire [10:0] 	haz;
 
-	wire 	[1:0]	memc;
+
 	wire 	[1:0]	s2_memc;
 	wire 	[1:0]	s3_memc;
 	wire 	[15:0]	in_alu_a;
