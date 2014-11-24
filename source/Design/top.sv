@@ -69,7 +69,7 @@ module top (
 
 	alu main_alu(
 		.in 	(aluin),
-		.control(alucontrol),
+		.control(s2_alu_ctrl),
 		.stat   (alustat),
 		.out	(aluout)
 	);

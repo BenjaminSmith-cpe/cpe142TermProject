@@ -18,14 +18,14 @@ module mem_main(
 );
 	// always_comb begin : assertions
 	// 	assert(!address[0]);
-	// end
+	// end 
 
-	logic 	[7:0][2^16:0]	memory;	// Memory block. 16 bit address with 16 bit data
+	logic 	[7:0] memory[65535:0];	// Memory block. 16 bit address with 16 bit data
 	
 	assign data_out = {memory[address + 1], memory[address]};	// Always read the data from the address
 
 	always_ff@ (posedge clk or posedge rst) begin: mem_main_flop
-		if (rst) memory <= 0;// If rst is asserted, we want to clear the flops
+		if (rst) memory <= '{default:8'b0};// If rst is asserted, we want to clear the flops
 		else begin
 			if(halt_sys || !write_en) begin
 				memory[address] <= memory[address]; // Stay the same value. System is halted.

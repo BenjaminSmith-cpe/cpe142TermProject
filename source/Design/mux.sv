@@ -18,8 +18,10 @@ module mux
 					out = in2;
 				2'b01:
 					out = in3;
-				2'b00:
-					out = 0;
+				2'b11: begin
+					out = 32'bX;
+					assert(0);
+				end
 			endcase
 		end
 		else begin

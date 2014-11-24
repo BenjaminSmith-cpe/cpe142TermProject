@@ -107,8 +107,4 @@ module control_hazard_unit(
 					&&((s2_opcode == LW))
 					&&((r1 == s2_r1)||(r2 == s2_r1));
 	assign stall = (stall_logic) ? 1'b1: 1'b0;
-
-	always_comb begin
-		assert($onehot(haz));
-	end
 endmodule
