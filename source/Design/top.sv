@@ -155,7 +155,7 @@ module top (
 		.in_reg_wr(reg_wr),
 		.in_alu_a(in_alu_a),
 		.in_alu_b(in_alu_b),
-		.in_R1_data(r1_data),
+		.in_R1_data(s1_r1_data),
 
 		.in_R0_en(R0_en),
 		.in_alu_ctrl(alu_ctrl),
@@ -184,7 +184,7 @@ module top (
 		.in_memc(s2_memc),
 		.in_reg_wr(s2_reg_wr),
 		.in_alu(aluout),
-		.in_R1_data(s1_r1_data),	// Muxed
+		.in_R1_data(s2_r1_muxed),	// Muxed
 
 		.in_R0_en(R0_en),
 		.in_instr(s2_instruction),	// Top 8 bits of instruction for opcode and dest reg
@@ -302,7 +302,7 @@ module top (
 		.in2(offset_se), //sign extended
 		.in3(s3_data[15:0]),
 	
-		.out(alu_a_in)
+		.out(in_alu_a)
 	);
 	
 	//| Mux for ALU_B
@@ -322,40 +322,40 @@ module top (
 	//| 
 	//| ====================================================================
 
-	//| Mux
+	//| Mux for ALU input a
 	//| ============================================================================
-	mux #(.SIZE(16), .IS3WAY(1)) mux6(
-		.sel(),
+	mux #(.SIZE(16), .IS3WAY(0)) mux6(
+		.sel(haz[1]),
 	
-		.in1(),
-		.in2(),
+		.in1(s2_alu_a),
+		.in2(s3_data[15:0]),
 		.in3(),
 	
-		.out()
+		.out(aluin.a)
 	);
 	
-	//| Mux
+	//| Mux for ALU input b
 	//| ============================================================================
-	mux #(.SIZE(16), .IS3WAY(1)) mux7(
-		.sel(),
+	mux #(.SIZE(16), .IS3WAY(0)) mux7(
+		.sel(haz[2]),
 	
-		.in1(),
-		.in2(),
+		.in1(s2_alu_c),
+		.in2(s3_data[15:0]),
 		.in3(),
 	
-		.out()
+		.out(aluin.b)
 	);
 	
-	//| Mux
+	//| Mux for r1_data
 	//| ============================================================================
-	mux #(.SIZE(16), .IS3WAY(1)) mux8(
-		.sel(),
+	mux #(.SIZE(16), .IS3WAY(0)) mux8(
+		.sel(haz[8]),
 	
-		.in1(),
-		.in2(),
+		.in1(s2_r1_data),
+		.in2(mem_data),
 		.in3(),
 	
-		.out()
+		.out(s2_r1_muxed)
 	);
 	
 	//| ====================================================================
@@ -365,7 +365,7 @@ module top (
 
 	//| Mux
 	//| ============================================================================
-	mux #(.SIZE(16), .IS3WAY(0)) mux3(
+	mux #(.SIZE(16), .IS3WAY(0)) mux9(
 		.sel(s3_memc[1]), 	// mem2r
 	
 		.in1(mem_data),
