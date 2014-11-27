@@ -1,61 +1,52 @@
 module stage_one(
-    	input wire clk,
-    	input wire rst,
-        input reg [31:0] aluout,
-        input reg [15:0] s2_instruction,
-        input reg [15:0] s3_instruction,
-        input reg s2_R0_en,
-        input reg s3_R0_en,
-    	input reg [31:0] s3_data,
-    	input reg  in_memc,
+    	input wire          clk,
+    	input wire          rst,
+        
+        input wire          R1_data,
+        input wire          alu_ctrl,
 
-    	input in_reg_wr, 
-    	input in_R1_data,
-    	input in_haz1,
-    	input in_haz2,
-    	input in_R0_en,
-    	input alu_pkg::control_e in_alu_ctrl,
-    	input reg [15:0] in_instr,
+        input wire [31:0]   aluout,
+        
+        input wire          instr,
+        input wire [16:0]   s2_instruction,
+        input wire [16:0]   s3_instruction,
+        
+        input wire          R0_en,
+        input wire          s2_R0_en,
+        input wire          s3_R0_en,
+        
+        input wire          s3_alu,
+        input wire          s3_data,
+
 
         //flopped outputs
-        output reg out_memc,    
-        output reg out_reg_wr,  
-        output reg halt_sys,
-        output reg stall,
-        output alu_pkg::in_t out_alu,    
-        output reg out_R1_data, 
-        output reg out_haz1,    
-        output reg out_haz2,    
-        output reg out_R0_en,   
-        output alu_pkg::control_e out_alu_ctrl,
-        output reg [15:0] out_instr
+        output reg          stall,
+        output reg          halt_sys,
+        output reg          out_memc,    
+        output reg          out_reg_wr,  
+        output in_t         out_alu,    
+        output reg          out_R1_data, 
+        output reg          out_haz1,    
+        output reg          out_haz2,    
+        output reg          out_R0_en,   
+        output control_e    out_alu_ctrl,
+        output reg [15:0]   out_instr
     );
 
-    import types_pkg::*;
-	import alu_pkg::*;
-	
-	logic		R0_read;
-	logic		s3_reg_wr;
-	logic 		ALUop;
-	logic		mem2r;
-	logic		memwr;
-	logic		reg_wr;
-	logic		se_imm_a;
-	alu_pkg::control_e alucontrol;
-	logic		immb;
-	logic		jmp;
-	logic		R0_en;
-	logic	[15:0]	s1_r1_data;
-	
+   import types_pkg::*;
+
     //| Local logic instantiations
     //| ============================================================================
-    uword PC_address, PC_next_jump, PC_next_nojump;
+    uword PC_address;
+    uword PC_next_jump;
+    uword PC_next_nojump;
+
     logic [15:0] instruction;
 
-    opcode_t opcode;
-    control_e func_code;
+    opcode_t        opcode;
+    control_e       func_code;
 
-    sel_t   offset_sel;
+    sel_t           offset_sel;
     wire    [15:0]  offset_se;
     wire    [15:0]  offset_shifted;
 
@@ -65,6 +56,7 @@ module stage_one(
 
     wire    [15:0]  in_alu_a;
     wire    [15:0]  in_alu_b;
+    
     wire    [15:0]  mem_data;
 
     wire    [15:0]  PC_no_jump;
@@ -72,14 +64,13 @@ module stage_one(
     wire    [15:0]  PC_next;
 
     wire    [15:0]  r1_data;
+    wire    [15:0]  r2_data;
 
     wire    [10:0]  haz;
-    wire    [15:0]  r2_data;
-	wire	[31:0]	s3_data;
-    
+
+    assign s3_data[31:16] = s3_alu[31:16];
     assign opcode = opcode_t'(instruction[15:12]);
     assign func_code = control_e'(instruction[3:0]);
-
 
     //| Stage 1 Flip-Flop
     //| ============================================================================
@@ -142,10 +133,10 @@ module stage_one(
         .rst(rst),
 
         .halt_sys(halt_sys),    // Control signal from main control to halt cpu
-        .stall(stall),      // Control signal from hazard unit to stall for one cycle
+        .stall(stall),          // Control signal from hazard unit to stall for one cycle
 
         .in_address(PC_next),   // Next PC address
-        .out_address(PC_address)    // Current PC address
+        .out_address(PC_address)// Current PC address
     );
 
     mem_register register_file (
@@ -177,6 +168,7 @@ module stage_one(
 
         .ALUop(ALUop),
         .offset_sel(offset_sel),
+        
         .mem2r(mem2r),
         .memwr(memwr),
         .halt_sys(halt_sys),
@@ -256,8 +248,7 @@ module stage_one(
         .sel(jmp),
         .in1(PC_no_jump),
         .in2(PC_jump),
-    	.in3(16'b0),
-    	
+    
         .out(PC_next)
     );
 
@@ -315,8 +306,7 @@ module stage_one(
         .sel(haz[0]),    
         .in1(r1_data),
         .in2(s3_data[15:0]),
-    	.in3(),
-    	    
+    
         .out(in_alu_a)
     );
     

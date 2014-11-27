@@ -7,42 +7,42 @@ module top (
 	import alu_pkg::*;
 
     //| Stage One
-    reg [31:0]  aluout;
-    reg [15:0]  s2_instruction;
-    reg         s2_R0_en;
-    reg         s3_R0_en;
-    reg         in_memc;
+    reg     [31:0]  aluout;
+    reg     [15:0]  s2_instruction;
+    reg             s2_R0_en;
+    reg             s3_R0_en;
+    reg             in_memc;
+    
+    reg             in_reg_wr; 
+    reg             in_R1_data;
+    reg             in_haz1;
+    reg             in_haz2;
+    reg             in_R0_en;
+    control_e       in_alu_ctrl;
+    reg     [15:0]  in_instr;
 
-    reg         in_reg_wr; 
-    reg         in_R1_data;
-    reg         in_haz1;
-    reg         in_haz2;
-    reg         in_R0_en;
-    control_e   in_alu_ctrl;
-    reg [15:0]  in_instr;
-
-    reg         memc;    
-    reg         s1_reg_wr;  
-    reg         halt_sys;
-    reg         stall;
-    in_t        s1_alu_inputs;    
-    reg         s1_R1_data; 
-    reg         out_haz1;    
-    reg         out_haz2;    
-    reg         out_R0_en;   
-    control_e   out_alu_ctrl;
-    reg [15:0]  out_instr;
+    reg             memc;    
+    reg             s1_reg_wr;  
+    reg             halt_sys;
+    reg             stall;
+    in_t            s1_alu_inputs;    
+    reg             s1_R1_data; 
+    reg             out_haz1;    
+    reg             out_haz2;    
+    reg             out_R0_en;   
+    control_e       out_alu_ctrl;
+    reg     [15:0]  out_instr;
 
     //| Stage Two
-    in_t in_alu;
-    reg [31:0] s2_alu_out;
+    in_t            in_alu;
+    reg     [31:0]  s2_alu_out;
 
     //| stage 3
     reg     [31:0]  s3_alu;
     wire    [1:0]   s3_memc;
     wire    [15:0]  s3_r1_data;
     wire    [15:0]  s3_instruction;
-    wire    [31s:0]  s3_data;
+    wire    [31:0] s3_data;
 
     stage_one st1(
         .clk(clk),
@@ -53,15 +53,15 @@ module top (
         .s3_instruction(s3_instruction),
         .s2_R0_en(s2_R0_en),
         .s3_R0_en(s3_R0_en),
-        .in_memc(in_memc),
+        .memc(in_memc),
 
-        .in_reg_wr(in_reg_wr), 
-        .in_R1_data(in_R1_data),
-        .in_haz1(in_haz1),
-        .in_haz2(in_haz2),
-        .in_R0_en(in_R0_en),
+        .reg_wr(in_reg_wr), 
+        .R1_data(in_R1_data),
+        .haz1(in_haz1),
+        .haz2(in_haz2),
+        .R0_en(in_R0_en),
         .in_alu_ctrl(in_alu_ctrl),
-        .in_instr(in_instr),
+        .instr(in_instr),
 
         //outputs
         .out_memc(memc),    
