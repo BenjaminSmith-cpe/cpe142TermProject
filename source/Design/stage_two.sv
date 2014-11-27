@@ -55,7 +55,7 @@ module stage_two(
             else                // Flop the input
                 out_memc        <= in_memc;
                 out_reg_wr      <= in_reg_wr;
-                out_alu         <= in_alu;
+                out_alu         <= aluout;
                 out_R1_data     <= in_R1_data;
                 out_R0_en       <= in_R0_en;
                 out_instr       <= in_instr;

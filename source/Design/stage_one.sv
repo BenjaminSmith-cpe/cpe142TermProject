@@ -6,7 +6,7 @@ module stage_one(
         input reg [15:0] s3_instruction,
         input reg s2_R0_en,
         input reg s3_R0_en,
-    	input reg [31:0] s3_data_in,
+    	input reg [31:0] s3_data,
     	input reg  in_memc,
 
     	input in_reg_wr, 
