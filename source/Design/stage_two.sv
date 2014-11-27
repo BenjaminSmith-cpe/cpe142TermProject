@@ -6,18 +6,18 @@ module stage_two(
         input reg stall,
 
         input in_reg_wr,
-        input in_alu,
+        input alu_pkg::in_t in_alu,
         input in_R1_data,
         input in_R0_en,
-        input in_instr,
+        input wire [15:0] in_instr,
         input in_memc,
         
         output reg out_memc,  
         output reg out_reg_wr,  
-        output reg out_alu,  
+        output reg [31:0] out_alu,  
         output reg out_R1_data,  
         output reg out_R0_en,  
-        output reg out_instr
+        output reg [15:0] out_instr
     );
     
 	import alu_pkg::*;

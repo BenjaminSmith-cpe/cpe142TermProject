@@ -4,7 +4,7 @@
 
 -notice 
 
-+lint=all
++lint=all,noVNGS
 
 -q 
 

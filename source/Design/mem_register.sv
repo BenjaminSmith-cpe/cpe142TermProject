@@ -30,7 +30,6 @@ module mem_register(
 	always_ff@ (posedge clk or posedge rst) begin: mem_reg_flop
 		if (rst) begin		
 			registers <= '{default:8'b0};// If rst is asserted, we want to clear the flops
-			$readmemh("source/Verif/register_memory.hex", registers); //load test memory on reset
 		end 
 		else begin
 			if(halt_sys || !write_en) 

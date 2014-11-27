@@ -7,15 +7,10 @@ module top (
 	import alu_pkg::*;
 
     //| Stage One
-    wire        clk;
-    wire        rst;
-    reg         s3_data;
     reg [31:0]  aluout;
-    reg [16:0]  s2_instruction;
-    reg [16:0]  s3_instruction;
+    reg [15:0]  s2_instruction;
     reg         s2_R0_en;
     reg         s3_R0_en;
-    reg         s3_alu;
     reg         in_memc;
 
     reg         in_reg_wr; 
@@ -23,15 +18,14 @@ module top (
     reg         in_haz1;
     reg         in_haz2;
     reg         in_R0_en;
-    reg         in_alu_ctrl;
-    reg         in_instr;
+    control_e         in_alu_ctrl;
+    reg [15:0]        in_instr;
 
-    //flopped outputs
     reg         out_memc;    
     reg         out_reg_wr;  
     reg         halt_sys;
     reg         stall;
-    in_t        out_alu;    
+    in_t        s1_alu_inputs;    
     reg         out_R1_data; 
     reg         out_haz1;    
     reg         out_haz2;    
@@ -39,27 +33,16 @@ module top (
     control_e   out_alu_ctrl;
     reg [15:0]  out_instr;
 
-    //| Stage Two reset
-    input in_reg_wr;
-    input in_alu;
-    input in_R1_data;
-    input in_R0_en;
-    input in_instr;
-    input in_memc;
-    
-    reg out_memc;  
-    reg out_reg_wr;  
-    reg out_alu;  
-    reg out_R1_data;  
-    reg out_R0_en;  
-    reg out_instr
+    //| Stage Two
+    in_t in_alu;
+    reg [31:0] s2_alu_out;
 
-    //| staage 3
+    //| stage 3
     reg     [31:0]  s3_alu;
     wire    [1:0]   s3_memc;
     wire    [15:0]  s3_r1_data;
-    wire    [7:0]   s3_instruction;
-    uword16         s3_data;
+    wire    [15:0]  s3_instruction;
+    wire    [15:0]  s3_data;
 
 	stage_one st1(
         .clk(clk),
@@ -86,7 +69,7 @@ module top (
         .out_reg_wr(out_reg_wr),  
         .halt_sys(halt_sys),
         .stall(stall),
-        .out_alu(out_alu),    
+        .out_alu(s1_alu_inputs),    
         .out_R1_data(out_R1_data), 
         .out_haz1(out_haz1),    
         .out_haz2(out_haz2),    
@@ -103,7 +86,7 @@ module top (
         .stall(stall),
 
         .in_reg_wr(in_reg_wr),
-        .in_alu(in_alu),
+        .in_alu(s1_alu_inputs),
         .in_R1_data(in_R1_data),
         .in_R0_en(in_R0_en),
         .in_instr(in_instr),
@@ -111,7 +94,7 @@ module top (
         
         .out_memc(out_memc),  
         .out_reg_wr(out_reg_wr),  
-        .out_alu(out_alu),  
+        .out_alu(s2_alu_out),  
         .out_R1_data(out_R1_data),  
         .out_R0_en(out_R0_en),  
         .out_instr(out_instr)
@@ -121,10 +104,11 @@ module top (
         .clk(clk),
         .rst(rst),
 
+		.halt_sys(halt_sys),
         .s3_alu(s3_alu),
         .s3_memc(s3_memc),
         .s3_r1_data(s3_r1_data),
         .s3_instruction(s3_instruction),
-        .s3_data(s3_data)
+        .s3_data_out(s3_data)
     );
 endmodule

@@ -4,10 +4,14 @@ module stage_three(
     input   reg     [31:0]  s3_alu,
     input   wire    [1:0]   s3_memc,
     input   wire    [15:0]  s3_r1_data,
-    input   wire    [7:0]   s3_instruction,
-    output  uword16         s3_data
+    input   wire    [15:0]  s3_instruction,
+    input 	wire			halt_sys,
+    
+    output  reg		[31:0]  s3_data
 );
 
+	assign s3_data_out = {s3_alu[31:16], s3_data[15:0]};
+	
     mux #(.SIZE(16), .IS3WAY(0)) mux9(
         .sel(s3_memc[1]),   // mem2r
         .in1(mem_data),

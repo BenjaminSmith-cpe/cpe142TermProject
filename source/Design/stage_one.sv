@@ -2,11 +2,11 @@ module stage_one(
     	input wire clk,
     	input wire rst,
         input reg [31:0] aluout,
-        input reg [16:0] s2_instruction,
-        input reg [16:0] s3_instruction,
+        input reg [15:0] s2_instruction,
+        input reg [15:0] s3_instruction,
         input reg s2_R0_en,
         input reg s3_R0_en,
-    	input reg [31:0]s3_alu,
+    	input reg [31:0] s3_data_in,
     	input reg  in_memc,
 
     	input in_reg_wr, 
@@ -76,8 +76,7 @@ module stage_one(
     wire    [10:0]  haz;
     wire    [15:0]  r2_data;
 	wire	[31:0]	s3_data;
-	
-    assign s3_data[31:16] = s3_alu[31:16];
+    
     assign opcode = opcode_t'(instruction[15:12]);
     assign func_code = control_e'(instruction[3:0]);
 
