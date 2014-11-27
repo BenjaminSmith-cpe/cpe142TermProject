@@ -4,7 +4,7 @@ module sign_extender(
 
 	output logic			[15:0] 	se_value
 );
-
+	import types_pkg::*;
 
 	always_comb begin
 		case (offset_sel)

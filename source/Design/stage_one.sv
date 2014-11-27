@@ -1,13 +1,12 @@
 module stage_one(
     	input wire clk,
     	input wire rst,
-        input reg s3_data,
         input reg [31:0] aluout,
         input reg [16:0] s2_instruction,
         input reg [16:0] s3_instruction,
         input reg s2_R0_en,
         input reg s3_R0_en,
-    	input reg s3_alu,
+    	input reg [31:0]s3_alu,
     	input reg  in_memc,
 
     	input in_reg_wr, 
@@ -15,25 +14,39 @@ module stage_one(
     	input in_haz1,
     	input in_haz2,
     	input in_R0_en,
-    	input in_alu_ctrl,
-    	input in_instr,
+    	input alu_pkg::control_e in_alu_ctrl,
+    	input reg [15:0] in_instr,
 
         //flopped outputs
         output reg out_memc,    
         output reg out_reg_wr,  
         output reg halt_sys,
         output reg stall,
-        output in_t out_alu,    
+        output alu_pkg::in_t out_alu,    
         output reg out_R1_data, 
         output reg out_haz1,    
         output reg out_haz2,    
         output reg out_R0_en,   
-        output control_e out_alu_ctrl,
-        output [15:0] out_instr
+        output alu_pkg::control_e out_alu_ctrl,
+        output reg [15:0] out_instr
     );
 
-   import types_pkg::*;
-
+    import types_pkg::*;
+	import alu_pkg::*;
+	
+	logic		R0_read;
+	logic		s3_reg_wr;
+	logic 		ALUop;
+	logic		mem2r;
+	logic		memwr;
+	logic		reg_wr;
+	logic		se_imm_a;
+	alu_pkg::control_e alucontrol;
+	logic		immb;
+	logic		jmp;
+	logic		R0_en;
+	logic	[15:0]	s1_r1_data;
+	
     //| Local logic instantiations
     //| ============================================================================
     uword PC_address, PC_next_jump, PC_next_nojump;
@@ -62,7 +75,8 @@ module stage_one(
 
     wire    [10:0]  haz;
     wire    [15:0]  r2_data;
-
+	wire	[31:0]	s3_data;
+	
     assign s3_data[31:16] = s3_alu[31:16];
     assign opcode = opcode_t'(instruction[15:12]);
     assign func_code = control_e'(instruction[3:0]);
@@ -243,7 +257,8 @@ module stage_one(
         .sel(jmp),
         .in1(PC_no_jump),
         .in2(PC_jump),
-    
+    	.in3(16'b0),
+    	
         .out(PC_next)
     );
 
@@ -301,7 +316,8 @@ module stage_one(
         .sel(haz[0]),    
         .in1(r1_data),
         .in2(s3_data[15:0]),
-    
+    	.in3(),
+    	    
         .out(in_alu_a)
     );
     

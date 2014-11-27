@@ -28,13 +28,10 @@ module AAstimulus();
 
         #1 reset = 1;
         #1 reset = 0;
-        
-        $readmemh("Verif/program_memory.hex", dut.program_memory.memory);
-        $readmemh("Verif/register_memory.hex", dut.register_file.registers); //load test memory on reset
     end
 
     always @ (negedge clock) begin
-        if (dut.PC_next == 50) $stop;
+        if (dut.st1.PC_next == 50) $finish;
         // $display(".--------------------------------------------------.");
         // $display("| PIPE STATUS| PC: %d", dut.PC_next);
         // $display("|--------------------------------------------------|");

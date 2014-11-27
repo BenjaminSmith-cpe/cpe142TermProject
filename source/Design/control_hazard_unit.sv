@@ -14,7 +14,14 @@ module control_hazard_unit(
 	output logic	[10:0]	haz,
 	output logic 			stall
 );
-
+	import alu_pkg::*;
+	import types_pkg::*;
+	
+	logic stall_logic;
+	
+	logic haz0, haz1, haz2, haz3, haz4, haz5, haz6, haz7, haz8,
+	 haz9, haz10;
+	
 	// Arithmetic or load followed two instructions later
 	// another arithmetic(Or STORE) using same destination
 	// register for R1.

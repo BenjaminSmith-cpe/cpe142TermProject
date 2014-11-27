@@ -5,7 +5,7 @@ module control_main(
 	input wire 					overflow,
 
 	output logic 				ALUop,
-	output typed_pkg::sel_t		offset_sel,
+	output types_pkg::sel_t		offset_sel,
 	output logic 				mem2r,
 	output logic 				memwr,
 	output logic 				halt_sys,
@@ -13,7 +13,10 @@ module control_main(
 	output logic 				R0_read,
 	output logic 				se_imm_a
 );
-
+	
+	import types_pkg::*;
+	import alu_pkg::*;
+	
 	always_comb begin
 		if (div0 || overflow) begin // Exception
 			ALUop = 1'b0;

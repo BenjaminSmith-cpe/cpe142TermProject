@@ -7,10 +7,14 @@ module top (
 	import alu_pkg::*;
 
 	stage_one st1(
-		);
+		.clk(clk),
+		.rst(rst)
+	);
 
 	stage_two st2(
-		);
+		.clk(clk),
+		.rst(rst)
+	);
 
 
 endmodule

@@ -10,6 +10,7 @@ module stage_two(
         input in_R1_data,
         input in_R0_en,
         input in_instr,
+        input in_memc,
         
         output reg out_memc,  
         output reg out_reg_wr,  
@@ -18,7 +19,10 @@ module stage_two(
         output reg out_R0_en,  
         output reg out_instr
     );
-
+    
+	import alu_pkg::*;
+	import types_pkg::*;
+	
     in_t  aluin;
     control_e alucontrol;
     status_t alustat;
@@ -27,7 +31,7 @@ module stage_two(
     wire    [15:0]  s2_alu_a;
     wire    [15:0]  s2_alu_b;
     control_e       s2_alu_ctrl;
-
+    
     wire    [15:0]  s2_r1_muxed;
     wire    [15:0]  s2_r1_data;
     wire    [7:0]   s2_instruction;

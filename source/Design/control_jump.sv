@@ -5,6 +5,8 @@ module control_jump(
 	output logic 	jmp
 );
 
+import types_pkg::*;
+
 always_comb begin
 	case(opcode)
 		BLT:

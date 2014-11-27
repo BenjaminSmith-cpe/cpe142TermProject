@@ -4,6 +4,8 @@
 
 -notice 
 
++lint=all
+
 -q 
 
 -l $PWD/logs/VCS.log 
