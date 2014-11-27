@@ -40,28 +40,26 @@ module top (
     reg [15:0]  out_instr;
 
     //| Stage Two reset
-    input in_reg_wr,
-    input in_alu,
-    input in_R1_data,
-    input in_R0_en,
-    input in_instr,
-    input in_memc,
+    input in_reg_wr;
+    input in_alu;
+    input in_R1_data;
+    input in_R0_en;
+    input in_instr;
+    input in_memc;
     
-    output reg out_memc,  
-    output reg out_reg_wr,  
-    output reg out_alu,  
-    output reg out_R1_data,  
-    output reg out_R0_en,  
-    output reg out_instr
+    reg out_memc;  
+    reg out_reg_wr;  
+    reg out_alu;  
+    reg out_R1_data;  
+    reg out_R0_en;  
+    reg out_instr
 
     //| staage 3
-    input   wire            clk,
-    input   wire            rst,
-    input   reg     [31:0]  s3_alu,
-    input   wire    [1:0]   s3_memc,
-    input   wire    [15:0]  s3_r1_data,
-    input   wire    [7:0]   s3_instruction,
-    output  uword16         s3_data
+    reg     [31:0]  s3_alu;
+    wire    [1:0]   s3_memc;
+    wire    [15:0]  s3_r1_data;
+    wire    [7:0]   s3_instruction;
+    uword16         s3_data;
 
 	stage_one st1(
         .clk(clk),
