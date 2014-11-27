@@ -29,6 +29,7 @@ module stage_one(
         output reg out_haz2,    
         output reg out_R0_en,   
         output control_e out_alu_ctrl,
+        output [15:0] out_instr
     );
 
     //| Local logic instantiations
