@@ -14,6 +14,7 @@ module stage_one(
         input wire          R0_en,
         input wire          s2_R0_en,
         input wire          s3_R0_en,
+        input wire          s3_reg_wr,
         
         input wire          s3_alu,
         input wire          s3_data,
@@ -24,24 +25,26 @@ module stage_one(
         output reg          halt_sys,
         output reg          out_memc,    
         output reg          out_reg_wr,  
-        output in_t         out_alu,    
-        output reg          out_R1_data, 
+        output alu_pkg::in_t         out_alu,    
+        output reg          s1_R1_data, 
+        input  reg          s2_R1_data, 
         output reg          out_haz1,    
         output reg          out_haz2,    
         output reg          out_R0_en,   
-        output control_e    out_alu_ctrl,
+        output alu_pkg::control_e    out_alu_ctrl,
         output reg [15:0]   out_instr
     );
 
-   import types_pkg::*;
-
+    import types_pkg::*;
+	import alu_pkg::*;
+	
     //| Local logic instantiations
     //| ============================================================================
-    uword PC_address;
-    uword PC_next_jump;
-    uword PC_next_nojump;
+    uword 			PC_address;
+    uword 			PC_next_jump;
+    uword 			PC_next_nojump;
 
-    logic [15:0] instruction;
+    logic [15:0] 	instruction;
 
     opcode_t        opcode;
     control_e       func_code;
@@ -54,8 +57,8 @@ module stage_one(
     wire    [15:0]  cmp_b;
     result_t        cmp_result;
 
-    wire    [15:0]  in_alu_a;
-    wire    [15:0]  in_alu_b;
+    wire    [15:0]  alu_a;
+    wire    [15:0]  alu_b;
     
     wire    [15:0]  mem_data;
 
@@ -67,7 +70,18 @@ module stage_one(
     wire    [15:0]  r2_data;
 
     wire    [10:0]  haz;
-
+	wire			jmp;
+	wire			immb;
+	wire			alucontrol;
+	wire			se_imm_a;
+	wire			reg_wr;
+	wire			memwr;
+	wire			mem2r;
+	wire			ALUop;
+	wire			R0_read;
+	wire			R0_en;
+	wire			memc;
+	
     assign s3_data[31:16] = s3_alu[31:16];
     assign opcode = opcode_t'(instruction[15:12]);
     assign func_code = control_e'(instruction[3:0]);
@@ -80,7 +94,7 @@ module stage_one(
             out_reg_wr      <= 1'd0;
             out_alu.a       <= 16'd0;
             out_alu.b       <= 16'd0;
-            out_R1_data     <= 16'd0;
+            s1_R1_data     <= 16'd0;
             out_haz1        <= 1'b0;
             out_haz2        <= 1'b0;
             out_R0_en       <= 1'd0;
@@ -92,16 +106,16 @@ module stage_one(
                 // Stay the same value. System is halted.
             end
             else                // Flop the input
-                out_memc        <= in_memc;
-                out_reg_wr      <= in_reg_wr;
-                out_alu.a       <= in_alu_a;
-                out_alu.b       <= in_alu_b;
-                out_R1_data     <= in_R1_data;
-                out_haz1        <= in_haz1;
-                out_haz2        <= in_haz2;
-                out_R0_en       <= in_R0_en;
-                out_alu_ctrl    <= in_alu_ctrl;
-                out_instr       <= in_instr;
+                out_memc        <= memc;
+                out_reg_wr      <= reg_wr;
+                out_alu.a       <= alu_a;
+                out_alu.b       <= alu_b;
+                s1_R1_data     <= R1_data;
+                out_haz1        <= haz[1];
+                out_haz2        <= haz[2];
+                out_R0_en       <= R0_en;
+                out_alu_ctrl    <= alucontrol;
+                out_instr       <= instr;
         end
     end
 
@@ -294,7 +308,7 @@ module stage_one(
         .in2(aluout[15:0]),
         .in3(mem_data),
     
-        .out(s1_r1_data)
+        .out(r1_data)
     );
     
     //| Mux for ALU_a
@@ -307,7 +321,7 @@ module stage_one(
         .in1(r1_data),
         .in2(s3_data[15:0]),
     
-        .out(in_alu_a)
+        .out(alu_a)
     );
     
     //| Mux for ALU_B
@@ -321,7 +335,7 @@ module stage_one(
         .in2({12'd0, instruction[7:4]}),
         .in3(s3_data[15:0]),
     
-        .out(in_alu_b)
+        .out(alu_b)
     );
     
 endmodule
