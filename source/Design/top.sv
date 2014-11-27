@@ -1,10 +1,10 @@
-import types_pkg::*;
-import alu_pkg::*;
-
 module top (
 	input wire clk,
 	input wire rst
 );
+
+import types_pkg::*;
+import alu_pkg::*;
 	
 stage_one st1(
 	);

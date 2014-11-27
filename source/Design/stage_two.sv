@@ -2,24 +2,21 @@ module stage_two(
         input rst,
         input clk,
 
-        input reg out_memc,    
-        input reg out_reg_wr,  
         input reg halt_sys,
         input reg stall,
-        input in_t out_alu,    
-        input reg out_R1_data, 
-        input reg out_haz1,    
-        input reg out_haz2,    
-        input reg out_R0_en,   
-        input control_e out_alu_ctrl,
-        input [15:0] out_instr
 
+        input in_reg_wr,
+        input in_alu,
+        input in_R1_data,
+        input in_R0_en,
+        input in_instr,
+        
         output reg out_memc,  
         output reg out_reg_wr,  
         output reg out_alu,  
         output reg out_R1_data,  
         output reg out_R0_en,  
-        output reg out_instr,  
+        output reg out_instr
     );
 
     in_t  aluin;
@@ -34,11 +31,6 @@ module stage_two(
     wire    [15:0]  s2_r1_muxed;
     wire    [15:0]  s2_r1_data;
     wire    [7:0]   s2_instruction;
-
-    wire    [15:0]  s2_r1_muxed;
-    wire    [15:0]  s2_r1_data;
-    wire    [7:0]   s2_instruction;
-
     wire    [15:0]  s1_r1_data;
 
     //| Stage B flip flop

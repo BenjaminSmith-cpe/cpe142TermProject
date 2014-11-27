@@ -1,12 +1,12 @@
-import alu_pkg::*;
-
 module alu(
-    input in_t       in,
-    input control_e  control,
+    input alu_pkg::in_t       in,
+    input alu_pkg::control_e  control,
     
-    output status_t   stat,
-    output integer    out
+    output alu_pkg::status_t   stat,
+    output integer   out
 );
+	import alu_pkg::*;
+
     logic carry;
 
     always_comb begin    
