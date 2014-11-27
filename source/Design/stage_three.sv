@@ -12,7 +12,6 @@ module stage_three(
 
     mux #(.SIZE(16), .IS3WAY(0)) mux9(
         .sel(s3_memc[1]),   // mem2r
-    
         .in1(mem_data),
         .in2(s3_alu[15:0]),
         .in3(),

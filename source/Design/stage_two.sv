@@ -1,6 +1,31 @@
 module stage_two(
+        input rst,
+        input clk,
 
+        input reg out_memc,    
+        input reg out_reg_wr,  
+        input reg halt_sys,
+        input reg stall,
+        input in_t out_alu,    
+        input reg out_R1_data, 
+        input reg out_haz1,    
+        input reg out_haz2,    
+        input reg out_R0_en,   
+        input control_e out_alu_ctrl,
+        input [15:0] out_instr
+
+        output reg out_memc,  
+        output reg out_reg_wr,  
+        output reg out_alu,  
+        output reg out_R1_data,  
+        output reg out_R0_en,  
+        output reg out_instr,  
     );
+
+    in_t  aluin;
+    control_e alucontrol;
+    status_t alustat;
+    integer aluout;
 
     wire    [15:0]  s2_alu_a;
     wire    [15:0]  s2_alu_b;
@@ -43,10 +68,6 @@ module stage_two(
 
     //| ALU instantiation
     //| ============================================================================
-    in_t  aluin;
-    control_e alucontrol;
-    status_t alustat;
-    integer aluout;
 
     alu main_alu(
         .in     (aluin),
