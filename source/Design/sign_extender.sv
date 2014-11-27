@@ -1,10 +1,8 @@
-import types_pkg::*;
-
 module sign_extender(
-	input sel_t 				offset_sel,
-	input wire 	[11:0]	input_value,
+	input types_pkg::sel_t 			offset_sel,
+	input wire 				[11:0]	input_value,
 
-	output logic[15:0] 	se_value
+	output logic			[15:0] 	se_value
 );
 
 

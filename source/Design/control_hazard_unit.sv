@@ -1,13 +1,10 @@
-import types_pkg::*;
-import alu_pkg::*;
-
 module control_hazard_unit(
 	input wire  			R0_en,
 	input wire 				s2_R0_en,
 	input wire				s3_R0_en,
-	input opcode_t			opcode,
-	input opcode_t			s2_opcode,
-	input opcode_t			s3_opcode,
+	input types_pkg::opcode_t			opcode,
+	input types_pkg::opcode_t			s2_opcode,
+	input types_pkg::opcode_t			s3_opcode,
 
 	input wire		[3:0]	r1,
 	input wire		[3:0]	r2,
@@ -17,6 +14,7 @@ module control_hazard_unit(
 	output logic	[10:0]	haz,
 	output logic 			stall
 );
+
 	// Arithmetic or load followed two instructions later
 	// another arithmetic(Or STORE) using same destination
 	// register for R1.

@@ -1,20 +1,17 @@
-import types_pkg::*;
-import alu_pkg::*;
-
 module control_main(
-	input opcode_t 		opcode,
-	input control_e		func,
-	input wire 			div0,
-	input wire 			overflow,
+	input types_pkg::opcode_t 	opcode,
+	input alu_pkg::control_e	func,
+	input wire 					div0,
+	input wire 					overflow,
 
-	output logic 		ALUop,
-	output sel_t	offset_sel,
-	output logic 		mem2r,
-	output logic 		memwr,
-	output logic 		halt_sys,
-	output logic 		reg_wr,
-	output logic 		R0_read,
-	output logic 		se_imm_a
+	output logic 				ALUop,
+	output typed_pkg::sel_t		offset_sel,
+	output logic 				mem2r,
+	output logic 				memwr,
+	output logic 				halt_sys,
+	output logic 				reg_wr,
+	output logic 				R0_read,
+	output logic 				se_imm_a
 );
 
 	always_comb begin

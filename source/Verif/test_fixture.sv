@@ -2,13 +2,11 @@
                    //failing checks will print information
 
 // `define BOUNDED_INPUTS   //limits magnitutde of ALU inputs
-
-// Top level stimulus module
-import alu_pkg::*;
-import tb_utils_pkg::*;
-import tb_class_def::*;
-
 module AAstimulus();
+    import alu_pkg::*;
+    import tb_utils_pkg::*;
+    import tb_class_def::*;
+    
     integer             testiteration = 0;
     integer             failure_count = 0;
 
