@@ -12,8 +12,11 @@ module top (
     
     reg             in_reg_wr; 
     reg             in_R1_data;
+    reg     [15:0]  s1_instr;
+    reg             s1_R0_en;
     reg             in_R0_en;
-    control_e       in_alu_ctrl;
+
+    
     reg     [15:0]  in_instr;
 
     reg             s1_memc;    
@@ -26,8 +29,6 @@ module top (
     reg             out_haz2;    
     reg             out_R0_en;   
     control_e       out_alu_ctrl;
-    reg     [15:0]  s1_instr;
-    reg             s1_R0_en;
     
     //| Stage Two
     in_t            s2_in_alu;
