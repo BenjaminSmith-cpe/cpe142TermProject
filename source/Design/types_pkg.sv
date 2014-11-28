@@ -28,4 +28,11 @@ package types_pkg;
         TWELVEBIT   = 2'b11       
     } sel_t;
 
+    // Status flags for ALU
+    // sign asserted when positive
+    typedef struct{
+        logic memwr;
+        logic mem2r;
+    } memc_t;
+    
 endpackage

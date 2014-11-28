@@ -7,16 +7,19 @@ module stage_one(
 
         input wire [31:0]   aluout,
         
-        input wire          instr,
         input wire [16:0]   s2_instruction,
         input wire [16:0]   s3_instruction,
         
+        input wire          s1_r1_data,
+         
         input wire          R0_en,
         input wire          s2_R0_en,
         input wire          s3_R0_en,
         
         input wire          s3_alu,
         input wire          s3_data,
+        
+        input wire          s3_reg_wr,
 
 
         //flopped outputs
@@ -33,8 +36,9 @@ module stage_one(
         output reg [15:0]   out_instr
     );
 
-   import types_pkg::*;
-
+    import types_pkg::*;
+	import alu_pkg::*;
+	
     //| Local logic instantiations
     //| ============================================================================
     uword PC_address;
@@ -68,6 +72,18 @@ module stage_one(
 
     wire    [10:0]  haz;
 
+	memc_t memc;
+	reg alu_a;
+	reg alu_b;
+	reg R0_read;
+	memc_t s3_memc;
+	reg ALUop;
+	reg reg_wr;
+	reg se_imm_a;
+	reg alucontrol;
+	reg immb;
+	reg jmp;
+	
     assign s3_data[31:16] = s3_alu[31:16];
     assign opcode = opcode_t'(instruction[15:12]);
     assign func_code = control_e'(instruction[3:0]);
@@ -92,16 +108,16 @@ module stage_one(
                 // Stay the same value. System is halted.
             end
             else                // Flop the input
-                out_memc        <= in_memc;
-                out_reg_wr      <= in_reg_wr;
-                out_alu.a       <= in_alu_a;
-                out_alu.b       <= in_alu_b;
-                out_R1_data     <= in_R1_data;
-                out_haz1        <= in_haz1;
-                out_haz2        <= in_haz2;
-                out_R0_en       <= in_R0_en;
-                out_alu_ctrl    <= in_alu_ctrl;
-                out_instr       <= in_instr;
+                out_memc        <= memc;
+                out_reg_wr      <= reg_wr;
+                out_alu.a       <= alu_a;
+                out_alu.b       <= alu_b;
+                out_R1_data     <= R1_data;
+                out_haz1        <= haz[1];
+                out_haz2        <= haz[2];
+                out_R0_en       <= R0_en;
+                out_alu_ctrl    <= alu_ctrl;
+                out_instr       <= instruction;
         end
     end
 
@@ -169,8 +185,8 @@ module stage_one(
         .ALUop(ALUop),
         .offset_sel(offset_sel),
         
-        .mem2r(mem2r),
-        .memwr(memwr),
+        .mem2r(memc.mem2r),
+        .memwr(memc.memwr),
         .halt_sys(halt_sys),
         .reg_wr(reg_wr),
         .R0_read(R0_read),
