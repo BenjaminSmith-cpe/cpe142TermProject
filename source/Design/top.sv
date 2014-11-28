@@ -15,7 +15,7 @@ module top (
     reg     [15:0]  s1_instr;
     reg             s1_R0_en;
     reg             in_R0_en;
-
+	reg		[15:0]	s1_R1_data;
     
     reg     [15:0]  in_instr;
 
@@ -24,7 +24,7 @@ module top (
     reg             halt_sys;
     reg             stall;
     in_t            s1_alu_inputs;    
-    reg             s1_R1_data; 
+    reg   [15:0]      s1_R1_data; 
     reg             out_haz1;    
     reg             out_haz2;    
     reg             out_R0_en;   
@@ -58,16 +58,18 @@ module top (
         .s3_R0_en(s3_R0_en),
         .memc(memc),
 
-        .R1_data(in_R1_data),
+		.s3_alu(s3_alu),
+		.s2_R1_data(s1_R1_data),
+		.s3_reg_wr(s3_memc.mem2r),
         .R0_en(in_R0_en),
 
         //outputs
-        .out_memc(s1_memc),    
+        .out_memc(s1_memc), 
+        .out_R1_data(s1_R1_data),   
         .out_reg_wr(s1_reg_wr),  
         .halt_sys(halt_sys),
         .stall(stall),
         .out_alu(s1_alu_inputs),    
-        .out_R1_data(s1_R1_data), 
         .out_haz1(out_haz1),    
         .out_haz2(out_haz2),    
         .out_R0_en(s1_R0_en),   

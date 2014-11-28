@@ -18,7 +18,7 @@ module stage_three(
 	logic [15:0] data_muxed;
 	
 	assign data = {alu[31:16], data_muxed[15:0]};
-	assign r0_en = out_r0_en;
+	assign out_r0_en = r0_en;
 	
     mux #(.SIZE(16), .IS3WAY(0)) mux9(
         .sel(memc.mem2r),
