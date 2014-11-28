@@ -10,12 +10,15 @@ module stage_three(
     input 	wire			halt_sys,
     
     output  reg		[31:0]  data,
-    output 	reg		[15:0]	mem_data
+    output 	reg		[15:0]	mem_data,
+    output types_pkg::memc_t out_memc,
+    output	reg		out_r0_en
 );
 	
 	logic [15:0] data_muxed;
 	
 	assign data = {alu[31:16], data_muxed[15:0]};
+	assign r0_en = out_r0_en;
 	
     mux #(.SIZE(16), .IS3WAY(0)) mux9(
         .sel(memc.mem2r),

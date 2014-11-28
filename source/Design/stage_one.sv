@@ -262,7 +262,8 @@ module stage_one(
         .sel(jmp),
         .in1(PC_no_jump),
         .in2(PC_jump),
-    
+    	.in3(16'b0),
+    	
         .out(PC_next)
     );
 
@@ -320,7 +321,8 @@ module stage_one(
         .sel(haz[0]),    
         .in1(r1_data),
         .in2(s3_data[15:0]),
-    
+    	.in3(16'b0),
+    	
         .out(in_alu_a)
     );
     

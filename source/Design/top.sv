@@ -91,17 +91,19 @@ module top (
         .out_memc(s2_memc),  
         .out_alu(s2_alu_out),  
         .out_R1_data(s2_r1_data),  
-        .out_R0_en(s2_R0_en),  
-        .out_instr(s2_instruction)
+        .out_R0_en(s3_R0_en),  
+        .out_instr(s3_instruction)
 	);
 
     stage_three st3(
         .clk(clk),
         .rst(rst),
-
+		.memc(s2_memc),
+		
 		.halt_sys(halt_sys),
         .alu(s3_alu),
-        .memc(s3_memc),
+        .out_memc(s3_memc),
+        .r0_en(s3_R0_en),
         .r1_data(s3_r1_data),
         //.instruction(s3_instruction),
         .data(s3_data),
