@@ -1,27 +1,29 @@
 module stage_three(
     input   wire            clk,
     input   wire            rst,
-    input   reg     [31:0]  s3_alu,
-    input   wire    [1:0]   s3_memc,
-    input   wire    [15:0]  s3_r1_data,
-    input   wire    [15:0]  s3_instruction,
+    
+    input   reg     [31:0]  alu,
+    input   types_pkg::memc_t memc,
+    input   wire    [15:0]  r1_data,
+    input   wire 			r0_en,
+    //output  wire    [15:0]  instruction,
     input 	wire			halt_sys,
     
-    output  reg		[31:0]  s3_data,
+    output  reg		[31:0]  data,
     output 	reg		[15:0]	mem_data
 );
 	
-	logic [15:0] s3_data_muxed;
+	logic [15:0] data_muxed;
 	
-	assign s3_data = {s3_alu[31:16], s3_data_muxed[15:0]};
+	assign data = {alu[31:16], data_muxed[15:0]};
 	
     mux #(.SIZE(16), .IS3WAY(0)) mux9(
-        .sel(s3_memc[1]),   // mem2r
+        .sel(memc.mem2r),
         .in1(mem_data),
-        .in2(s3_alu[15:0]),
+        .in2(alu[15:0]),
         .in3(),
     
-        .out(s3_data_muxed[15:0])
+        .out(data_muxed[15:0])
     );
 
     //| Main Memory
@@ -32,9 +34,9 @@ module stage_three(
         .halt_sys(halt_sys),
 
 
-        .write_en(s3_memc[0]),  //memwr
-        .address(s3_alu[15:0]),
-        .write_data(s3_r1_data),
+        .write_en(memc.memwr),
+        .address(alu[15:0]),
+        .write_data(r1_data),
 
         .data_out(mem_data)
     );

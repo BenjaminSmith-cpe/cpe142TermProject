@@ -8,7 +8,7 @@ module top (
 
     //| Stage One
     reg     [31:0]  aluout;
-    reg             memc;
+    memc_t		    memc;
     
     reg             in_reg_wr; 
     reg             in_R1_data;
@@ -19,7 +19,7 @@ module top (
     
     reg     [15:0]  in_instr;
 
-    reg             s1_memc;    
+    types_pkg::memc_t s1_memc;    
     reg             s1_reg_wr;  
     reg             halt_sys;
     reg             stall;
@@ -33,6 +33,7 @@ module top (
     //| Stage Two
     in_t            s2_in_alu;
     reg     [31:0]  s2_alu_out;
+    memc_t   		s2_memc;
     reg     	    s2_reg_wr;
     reg     	    s2_r1_data;
     reg             s2_R0_en;
@@ -40,7 +41,7 @@ module top (
        
     //| stage 3
     reg     [31:0]  s3_alu;
-    wire    [1:0]   s3_memc;
+    memc_t   		s3_memc;
     wire    [15:0]  s3_r1_data;
     wire    [15:0]  s3_instruction;
     wire    [31:0]  s3_data;
@@ -57,12 +58,11 @@ module top (
         .s3_R0_en(s3_R0_en),
         .memc(memc),
 
-        .reg_wr(in_reg_wr), 
         .R1_data(in_R1_data),
         .R0_en(in_R0_en),
 
         //outputs
-        .out_memc(memc),    
+        .out_memc(s1_memc),    
         .out_reg_wr(s1_reg_wr),  
         .halt_sys(halt_sys),
         .stall(stall),
@@ -82,16 +82,15 @@ module top (
         .halt_sys(halt_sys),
         .stall(stall),
 
-        .in_reg_wr(s1_reg_wr),
         .in_alu(s1_alu_inputs),
         .in_R1_data(s1_R1_data),
         .in_R0_en(s1_R0_en),
         .in_instr(s1_instr),
         .in_memc(s1_memc),
           
-        .out_reg_wr(s2_reg_wr),  
+        .out_memc(s2_memc),  
         .out_alu(s2_alu_out),  
-        .out_R1_data(s2_R1_data),  
+        .out_R1_data(s2_r1_data),  
         .out_R0_en(s2_R0_en),  
         .out_instr(s2_instruction)
 	);
@@ -100,12 +99,12 @@ module top (
         .clk(clk),
         .rst(rst),
 
-	.halt_sys(halt_sys),
-        .s3_alu(s3_alu),
-        .s3_memc(s3_memc),
-        .s3_r1_data(s3_r1_data),
-        .s3_instruction(s3_instruction),
-        .s3_data(s3_data),
+		.halt_sys(halt_sys),
+        .alu(s3_alu),
+        .memc(s3_memc),
+        .r1_data(s3_r1_data),
+        //.instruction(s3_instruction),
+        .data(s3_data),
         .mem_data()
     );
 endmodule

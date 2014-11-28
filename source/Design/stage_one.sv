@@ -3,37 +3,36 @@ module stage_one(
     	input wire          rst,
         
         input wire          R1_data,
-        input wire          alu_ctrl,
 
         input wire [31:0]   aluout,
         
         input wire [16:0]   s2_instruction,
         input wire [16:0]   s3_instruction,
         
-        input wire          s1_r1_data,
+        output wire [15:0]  s1_r1_data,
          
         input wire          R0_en,
         input wire          s2_R0_en,
         input wire          s3_R0_en,
         
-        input wire          s3_alu,
-        input wire          s3_data,
+        input wire [31:0]   s3_alu,
+        input wire [31:0]   s3_data,
         
         input wire          s3_reg_wr,
-
 
         //flopped outputs
         output reg          stall,
         output reg          halt_sys,
-        output reg          out_memc,    
+        output types_pkg::memc_t  out_memc,    
         output reg          out_reg_wr,  
-        output in_t         out_alu,    
+        output alu_pkg::in_t         out_alu,    
         output reg          out_R1_data, 
         output reg          out_haz1,    
         output reg          out_haz2,    
         output reg          out_R0_en,   
-        output control_e    out_alu_ctrl,
-        output reg [15:0]   out_instr
+        output alu_pkg::control_e    out_alu_ctrl,
+        output reg [15:0]   out_instr,
+        output types_pkg::memc_t memc
     );
 
     import types_pkg::*;
@@ -72,7 +71,6 @@ module stage_one(
 
     wire    [10:0]  haz;
 
-	memc_t memc;
 	reg alu_a;
 	reg alu_b;
 	reg R0_read;
@@ -80,7 +78,7 @@ module stage_one(
 	reg ALUop;
 	reg reg_wr;
 	reg se_imm_a;
-	reg alucontrol;
+	control_e alucontrol;
 	reg immb;
 	reg jmp;
 	
@@ -92,7 +90,7 @@ module stage_one(
     //| ============================================================================
     always_ff@ (posedge clk or posedge rst) begin: stage_A_flop
         if (rst) begin      
-            out_memc        <= 2'd0;
+            out_memc        <= memc_t'(2'd0);
             out_reg_wr      <= 1'd0;
             out_alu.a       <= 16'd0;
             out_alu.b       <= 16'd0;
@@ -116,7 +114,7 @@ module stage_one(
                 out_haz1        <= haz[1];
                 out_haz2        <= haz[2];
                 out_R0_en       <= R0_en;
-                out_alu_ctrl    <= alu_ctrl;
+                out_alu_ctrl    <= alucontrol;
                 out_instr       <= instruction;
         end
     end

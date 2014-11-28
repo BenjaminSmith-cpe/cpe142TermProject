@@ -5,15 +5,13 @@ module stage_two(
         input reg halt_sys,
         input reg stall,
 
-        input in_reg_wr,
+        input types_pkg::memc_t in_memc,
         input alu_pkg::in_t in_alu,
         input in_R1_data,
         input in_R0_en,
         input wire [15:0] in_instr,
-        input in_memc,
         
-        output reg out_memc,  
-        output reg out_reg_wr,  
+        output types_pkg::memc_t out_memc,   
         output reg [31:0] out_alu,  
         output reg out_R1_data,  
         output reg out_R0_en,  
@@ -41,8 +39,7 @@ module stage_two(
     //| =======================================================
     always_ff@ (posedge clk or posedge rst) begin: stage_B_flop
         if (rst) begin      
-            out_memc        <= 2'd0;
-            out_reg_wr      <= 1'd0;
+            out_memc        <= memc_t'(2'd0);
             out_alu         <= 32'd0;
             out_R1_data     <= 16'd0;
             out_R0_en       <= 1'd0;
@@ -54,7 +51,6 @@ module stage_two(
             end
             else                // Flop the input
                 out_memc        <= in_memc;
-                out_reg_wr      <= in_reg_wr;
                 out_alu         <= aluout;
                 out_R1_data     <= in_R1_data;
                 out_R0_en       <= in_R0_en;
