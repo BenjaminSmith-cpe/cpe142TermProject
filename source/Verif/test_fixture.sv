@@ -9,7 +9,7 @@ module AAstimulus();
     
     integer             testiteration = 0;
     integer             failure_count = 0;
-
+    
     logic clock = 0;
     logic reset = 0;
 
@@ -25,6 +25,8 @@ module AAstimulus();
         //| =============================================================
         $vcdpluson; //make that dve database
         $vcdplusmemon;
+		$readmemh("source/Verif/program_memory.hex", dut.st1.program_memory.memory);
+		//$readmemh("source/Verif/program_memory.hex", register_temp);
 
         #1 reset = 1;
         #1 reset = 0;

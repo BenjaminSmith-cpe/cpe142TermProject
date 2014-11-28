@@ -3,6 +3,7 @@
 -cm fsm+line+tgl+branch 
 
 -notice 
+//-xzcheck
 
 +lint=all,noVNGS
 

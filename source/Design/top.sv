@@ -7,7 +7,6 @@ module top (
 	import alu_pkg::*;
 
     //| Stage One
-    reg     [31:0]  aluout;
     memc_t		    memc;
     
     reg             in_reg_wr; 
@@ -51,7 +50,7 @@ module top (
         .clk(clk),
         .rst(rst),
         .s3_data(s3_data),
-        .aluout(aluout),
+        .aluout(s2_alu_out),
         .s2_instruction(s2_instruction),
         .s3_instruction(s3_instruction),
         .s2_R0_en(s2_R0_en),
@@ -61,7 +60,6 @@ module top (
 		.s3_alu(s3_alu),
 		.s2_R1_data(s1_R1_data),
 		.s3_reg_wr(s3_memc.mem2r),
-        .R0_en(in_R0_en),
 
         //outputs
         .out_memc(s1_memc), 

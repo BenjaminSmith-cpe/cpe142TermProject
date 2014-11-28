@@ -9,7 +9,6 @@ module stage_one(
         
         input wire [15:0]  s2_R1_data,
          
-        input wire          R0_en,
         input wire          s2_R0_en,
         input wire          s3_R0_en,
         
@@ -40,8 +39,6 @@ module stage_one(
     //| Local logic instantiations
     //| ============================================================================
     uword PC_address;
-    uword PC_next_jump;
-    uword PC_next_nojump;
 
     logic [15:0] instruction;
 
@@ -69,7 +66,8 @@ module stage_one(
     wire    [15:0]  r2_data;
 
     wire    [10:0]  haz;
-
+	wire 			R0_en;
+	
 	reg alu_a;
 	reg alu_b;
 	reg R0_read;

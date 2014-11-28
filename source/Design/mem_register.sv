@@ -19,7 +19,7 @@ module mem_register(
 	wire 	[15:0]			write_data_high;
 	wire 	[15:0]			write_data_low;
 
-	logic 	[15:0]	registers[15:0];	// Memory block. 16 bit address with 16 bit data
+	logic 	[15:0]	registers[31:0];	// Memory block. 4 bit address with 16 bit data
 	
 	assign {write_data_high, write_data_low} = write_data; 	// Split the input data
 															// into two words
@@ -27,9 +27,9 @@ module mem_register(
 	// If a branch instruction(R0_read is high) then R0 contents are output at rd2
 	assign rd2 = (R0_read) ? registers[0] : registers[ra2];	
 
-	always_ff@ (posedge clk or posedge rst) begin: mem_reg_flop
+	always_ff@ (posedge clk or rst) begin: mem_reg_flop
 		if (rst) begin		
-			registers <= '{default:8'b0};// If rst is asserted, we want to clear the flops
+			registers <= '{default:8'h0};// If rst is asserted, we want to clear the flops
 		end 
 		else begin
 			if(halt_sys || !write_en) 
