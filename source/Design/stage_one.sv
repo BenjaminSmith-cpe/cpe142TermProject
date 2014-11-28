@@ -6,8 +6,8 @@ module stage_one(
 
         input wire [31:0]   aluout,
         
-        input wire [16:0]   s2_instruction,
-        input wire [16:0]   s3_instruction,
+        input wire [15:0]   s2_instruction,
+        input wire [15:0]   s3_instruction,
         
         output wire [15:0]  s1_r1_data,
          
