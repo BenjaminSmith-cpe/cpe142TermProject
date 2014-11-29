@@ -85,7 +85,7 @@ module top (
         .alu_control(s1_alu_control),
         
         .out_memc(s2_memc),
-        .out_alu_result(s2_alu_result),  
+        .out_alu_result(s2_alu_result),  // for reg forwarding
         .out_alu(s3_alu),  
         .out_R1_data(s2_R1_data),  
         .out_R0_en(s3_R0_en),  

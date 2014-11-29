@@ -26,8 +26,8 @@ module AAstimulus();
         //$xzcheckoff;
         $vcdpluson; //make that dve database
         $vcdplusmemon;
-		$readmemh("source/Verif/program_memory.hex", dut.st1.program_memory.memory);
-		$readmemh("source/Verif/register_memory.hex", dut.st1.register_file.zregisters);
+		$readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/program_memory.hex", dut.st1.program_memory.memory);
+		$readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/register_memory.hex", dut.st1.register_file.zregisters);
         
         #1 reset = 1;
         #2 reset = 0;

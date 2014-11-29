@@ -207,12 +207,12 @@ module stage_one(
         .s2_R0_en(s2_R0_en),
         .s3_R0_en(s3_R0_en),
         .opcode(opcode),
-        .s2_opcode(opcode_t'(s2_instruction[15:12])), // s2 and s3 instructions hold
+        .s2_opcode(opcode_t'(out_instr[15:12])), // s2 and s3 instructions hold
         .s3_opcode(opcode_t'(s3_instruction[15:12])), // top 8 bits of that instr 
 
         .r1(instruction[11:8]),
         .r2(instruction[7:4]),
-        .s2_r1(s2_instruction[11:8]),
+        .s2_r1(out_instr[11:8]),
         .s3_r1(s3_instruction[11:8]),
 
         .haz(haz),
