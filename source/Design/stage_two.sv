@@ -12,7 +12,8 @@ module stage_two(
         input in_R0_en,
         input wire [15:0] in_instr,
         input wire haz1,    
-        input wire haz2, 
+        input wire haz2,
+        input wire haz8, 
         input wire [31:0] s3_data,
         output types_pkg::memc_t out_memc,   
         output reg [31:0] out_alu,  
@@ -29,6 +30,7 @@ module stage_two(
     status_t alustat;
     integer aluout;
     reg     [15:0]  in_R1_data_muxed;
+
     in_t alu_muxed;
 
     assign out_alu_result = aluout;

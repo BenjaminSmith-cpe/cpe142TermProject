@@ -45,7 +45,7 @@ module top (
         .s3_instruction(s3_instruction),
         .s2_R0_en(s1_R0_en),
         .s3_R0_en(s3_R0_en),
-        .s2_alu_result(out_alu),
+        .s2_alu(s2_alu_result),
         .memc(memc),
 
 		.s3_alu(s3_alu),
@@ -80,7 +80,7 @@ module top (
         .in_memc(s1_memc),
         .haz1(s1_haz1),
         .haz2(s1_haz2),
-        .haz3(s1_haz8),
+        .haz8(s1_haz8),
         .s3_data(s3_data),
         .alu_control(s1_alu_control),
         
