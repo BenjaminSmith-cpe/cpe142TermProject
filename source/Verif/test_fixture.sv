@@ -7,11 +7,11 @@ module AAstimulus();
     import tb_utils_pkg::*;
     import tb_class_def::*;
     
-    integer             testiteration = 0;
-    integer             failure_count = 0;
-	reg		[15:0]register_temp[4:0];
-    logic clock = 0;
-    logic reset = 0;
+    integer         testiteration = 0;
+    integer         failure_count = 0;
+	reg		[15:0]  register_temp[4:0];
+    logic           clock = 0;
+    logic           reset = 0;
 
     top dut(
         .clk(clock),

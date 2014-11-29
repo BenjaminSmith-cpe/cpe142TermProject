@@ -1,10 +1,10 @@
 module control_hazard_unit(
-	input wire  			R0_en,
-	input wire 				s2_R0_en,
-	input wire				s3_R0_en,
-	input types_pkg::opcode_t			opcode,
-	input types_pkg::opcode_t			s2_opcode,
-	input types_pkg::opcode_t			s3_opcode,
+	input wire  				R0_en,
+	input wire 					s2_R0_en,
+	input wire					s3_R0_en,
+	input types_pkg::opcode_t	opcode,
+	input types_pkg::opcode_t	s2_opcode,
+	input types_pkg::opcode_t	s3_opcode,
 
 	input wire		[3:0]	r1,
 	input wire		[3:0]	r2,

@@ -3,7 +3,7 @@ module alu(
     input alu_pkg::control_e  control,
     
     output alu_pkg::status_t   stat,
-    output integer   out
+    output integer             out
 );
 	import alu_pkg::*;
 
@@ -11,8 +11,8 @@ module alu(
 
     always_comb begin    
         case(control)
-            OR : out = in.a | in.b;
-            AND: out = in.a & in.b;
+            OR  : out = in.a | in.b;
+            AND : out = in.a & in.b;
             MULT: out = in.a * in.b;
             ROL : out = {in.a, in.a} << in.b;
             ROR : out = {in.a, in.a} >> in.b;
