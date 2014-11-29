@@ -22,14 +22,12 @@ module top (
     control_e       s1_alu_control;
     
     //| Stage Two
-    in_t            s2_in_alu;
     memc_t   		s2_memc;
-    uword     	    s2_r1_data;
        
     //| stage 3
     wire 	[31:0]	s3_alu;
     memc_t   		s3_memc;
-    uword		    s3_r1_data;
+    uword		    s3_R1_data;
     uword		    s3_instruction;
     wire    [31:0]  s3_data;
     reg             s3_R0_en;

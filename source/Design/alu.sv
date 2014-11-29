@@ -21,9 +21,14 @@ module alu(
             SUB : out = in.a - in.b;
             ADD : out = in.a + in.b;
             DIV : begin
-                assert(in.b != 0);
-                out[15:0] = in.a / in.b;
-                out[31:16] = in.a % in.b;
+                if(in.b != 0) begin
+    	            out[15:0] = in.a / in.b;
+	                out[31:16] = in.a % in.b;
+	            end
+	            else begin
+	            	out = 32'b0;
+	            	assert(1s);
+	            end
             end
             default:
                 out = 32'bZ;

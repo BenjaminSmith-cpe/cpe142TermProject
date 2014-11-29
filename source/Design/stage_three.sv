@@ -24,6 +24,7 @@ module stage_three(
 	assign out_r0_en = r0_en;
 	assign out_memc = memc;
 	assign instruction_out = instruction;
+	assign r1_data_out = r1_data;
 	
     mux #(.SIZE(16), .IS3WAY(0)) mux9(
         .sel(memc.mem2r),

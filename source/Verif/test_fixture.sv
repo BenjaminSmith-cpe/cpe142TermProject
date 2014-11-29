@@ -23,17 +23,15 @@ module AAstimulus();
     initial begin
         //| system wide reset
         //| =============================================================
+        //$xzcheckoff;
         $vcdpluson; //make that dve database
         $vcdplusmemon;
 		$readmemh("source/Verif/program_memory.hex", dut.st1.program_memory.memory);
-//		$readmemh("source/Verif/program_memory.hex", register_temp);
-//		
-//		for(int i = 0; i<5; i++)
-//			for(int j = 0; j<16;j++)
-//				$force(dut.st1.register_file.registers[i][j], register_temp[i][j]);
+		$readmemh("source/Verif/register_memory.hex", dut.st1.register_file.zregisters);
         
         #1 reset = 1;
         #2 reset = 0;
+        //$xzcheckon;
     end
 
     always @ (negedge clock) begin
