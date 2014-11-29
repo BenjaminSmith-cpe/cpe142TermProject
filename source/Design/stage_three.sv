@@ -8,6 +8,7 @@ module stage_three(
     input   types_pkg::uword r1_data,
     input   wire 			r0_en,
     input 	wire			halt_sys,
+    input   wire            haz8,
     
     output  reg		[31:0]  data,
     output  types_pkg::uword r1_data_out,

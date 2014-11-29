@@ -33,6 +33,8 @@ module top (
     reg             s3_R0_en;
     reg				s1_haz2;
     reg				s1_haz1;
+    reg             s1_haz8;
+    wire    [31:0]  s2_alu_result;
     uword 			s2_R1_data;
     
     stage_one st1(
@@ -43,6 +45,7 @@ module top (
         .s3_instruction(s3_instruction),
         .s2_R0_en(s1_R0_en),
         .s3_R0_en(s3_R0_en),
+        .s2_alu_result(out_alu),
         .memc(memc),
 
 		.s3_alu(s3_alu),
@@ -57,6 +60,7 @@ module top (
         .out_alu(s1_alu_inputs),    
         .out_haz1(s1_haz1),    
         .out_haz2(s1_haz2),    
+        .out_haz8(s1_haz8),
         .out_R0_en(s1_R0_en),   
         .out_alu_ctrl(s1_alu_control),
         .out_instr(s1_instruction)
@@ -76,10 +80,12 @@ module top (
         .in_memc(s1_memc),
         .haz1(s1_haz1),
         .haz2(s1_haz2),
+        .haz3(s1_haz8),
         .s3_data(s3_data),
         .alu_control(s1_alu_control),
         
-        .out_memc(s2_memc),  
+        .out_memc(s2_memc),
+        .out_alu_result(s2_alu_result),  
         .out_alu(s3_alu),  
         .out_R1_data(s2_R1_data),  
         .out_R0_en(s3_R0_en),  

@@ -7,7 +7,8 @@ module stage_one(
          
         input wire          s2_R0_en,
         input wire          s3_R0_en,
-        
+
+        input wire [31:0]   s2_alu,
         input wire [31:0]   s3_alu,
         input wire [31:0]   s3_data,
         
@@ -20,7 +21,8 @@ module stage_one(
         output reg          out_reg_wr,  
         output alu_pkg::in_t         out_alu,    
         output reg          out_haz1,    
-        output reg          out_haz2,    
+        output reg          out_haz2,
+        output reg          out_haz8, 
         output reg          out_R0_en,  
         output alu_pkg::control_e    out_alu_ctrl,
         output types_pkg::uword	    out_instr,
@@ -86,9 +88,11 @@ module stage_one(
             out_R1_data     <= 16'd0;
             out_haz1        <= 1'b0;
             out_haz2        <= 1'b0;
+            out_haz8        <= 1'b0;
             out_R0_en       <= 1'd0;
             out_alu_ctrl    <= ADD;
             out_instr       <= 8'd0;    // Top 8 bits of instruction // If rst is asserted, we want to clear the flops
+        
         end 
         else begin
             if(halt_sys || stall) begin
@@ -101,6 +105,7 @@ module stage_one(
                 out_R1_data     <= R1_data_muxed;
                 out_haz1        <= haz[1];
                 out_haz2        <= haz[2];
+                out_haz8        <= haz[8];
                 out_R0_en       <= R0_en;
                 out_alu_ctrl    <= alucontrol;
                 out_instr       <= instruction;
@@ -202,13 +207,13 @@ module stage_one(
         .s2_R0_en(s2_R0_en),
         .s3_R0_en(s3_R0_en),
         .opcode(opcode),
-        .s2_opcode(opcode_t'(s2_instruction[7:4])), // s2 and s3 instructions hold
-        .s3_opcode(opcode_t'(s3_instruction[7:4])), // top 8 bits of that instr 
+        .s2_opcode(opcode_t'(s2_instruction[15:12])), // s2 and s3 instructions hold
+        .s3_opcode(opcode_t'(s3_instruction[15:12])), // top 8 bits of that instr 
 
         .r1(instruction[11:8]),
         .r2(instruction[7:4]),
-        .s2_r1(s2_instruction[3:0]),
-        .s3_r1(s3_instruction[3:0]),
+        .s2_r1(s2_instruction[11:8]),
+        .s3_r1(s3_instruction[11:8]),
 
         .haz(haz),
         .stall(stall)
@@ -264,7 +269,7 @@ module stage_one(
         .sel({haz[4], haz[5]}),
     
         .in1(R1_data),
-        .in2(s3_alu[15:0]),
+        .in2(s2_alu[15:0]),
         .in3(s3_data[15:0]),
     
         .out(cmp_a)
@@ -279,7 +284,7 @@ module stage_one(
         .sel({haz[6], haz[7]}),
     
         .in1(r2_data),
-        .in2(s3_alu[31:16]),
+        .in2(s2_alu[31:16]),
         .in3(s3_data[31:16]),
     
         .out(cmp_b)
@@ -291,11 +296,11 @@ module stage_one(
         .SIZE(16), 
         .IS3WAY(1)
     )mux3(
-        .sel({haz[9], haz[10]}),    // mem2r
+        .sel({haz[10], haz[9]}),    // mem2r
     
         .in1(R1_data),
-        .in2(s3_alu[15:0]),
-        .in3(mem_data),
+        .in2(s2_alu[15:0]),
+        .in3(s3_data[15:0]),
     
         .out(R1_data_muxed)
     );
