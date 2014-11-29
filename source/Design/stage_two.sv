@@ -61,7 +61,7 @@ module stage_two(
         .SIZE(16), 
         .IS3WAY(0)
     )muxa(
-        .sel(haz1),    
+        .sel({1'b0,haz1}),    
         .in1(in_alu.a),
         .in2(s3_data[15:0]),
     	.in3(16'b0),
