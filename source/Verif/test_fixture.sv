@@ -9,7 +9,7 @@ module AAstimulus();
     
     integer             testiteration = 0;
     integer             failure_count = 0;
-    
+	reg		[15:0]register_temp[4:0];
     logic clock = 0;
     logic reset = 0;
 
@@ -26,10 +26,14 @@ module AAstimulus();
         $vcdpluson; //make that dve database
         $vcdplusmemon;
 		$readmemh("source/Verif/program_memory.hex", dut.st1.program_memory.memory);
-		//$readmemh("source/Verif/program_memory.hex", register_temp);
-
+//		$readmemh("source/Verif/program_memory.hex", register_temp);
+//		
+//		for(int i = 0; i<5; i++)
+//			for(int j = 0; j<16;j++)
+//				$force(dut.st1.register_file.registers[i][j], register_temp[i][j]);
+        
         #1 reset = 1;
-        #1 reset = 0;
+        #2 reset = 0;
     end
 
     always @ (negedge clock) begin

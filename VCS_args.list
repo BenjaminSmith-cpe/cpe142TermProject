@@ -2,10 +2,14 @@
 
 -cm fsm+line+tgl+branch 
 
+-sverilog
+
 -notice 
+
 //-xzcheck
 
 +lint=all,noVNGS
+-race
 
 -q 
 

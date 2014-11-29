@@ -1,13 +1,9 @@
 module stage_one(
     	input wire          clk,
     	input wire          rst,
-
-        input wire [31:0]   aluout,
         
         input wire [15:0]   s2_instruction,
         input wire [15:0]   s3_instruction,
-        
-        input wire [15:0]  s2_R1_data,
          
         input wire          s2_R0_en,
         input wire          s3_R0_en,
@@ -52,9 +48,6 @@ module stage_one(
     wire    [15:0]  cmp_a;
     wire    [15:0]  cmp_b;
     result_t        cmp_result;
-
-    wire    [15:0]  in_alu_a;
-    wire    [15:0]  in_alu_b;
     
     wire    [15:0]  mem_data;
 
@@ -62,14 +55,13 @@ module stage_one(
     wire    [15:0]  PC_jump;
     wire    [15:0]  PC_next;
 
-    wire    [15:0]  R1_data;
+    uword   		R1_data;
+    uword			R1_data_muxed;
     wire    [15:0]  r2_data;
 
     wire    [10:0]  haz;
 	wire 			R0_en;
 	
-	reg alu_a;
-	reg alu_b;
 	reg R0_read;
 	memc_t s3_memc;
 	reg ALUop;
@@ -78,8 +70,8 @@ module stage_one(
 	control_e alucontrol;
 	reg immb;
 	reg jmp;
+	in_t alu_muxed;
 	
-    assign s3_data[31:16] = s3_alu[31:16];
     assign opcode = opcode_t'(instruction[15:12]);
     assign func_code = control_e'(instruction[3:0]);
 
@@ -105,9 +97,8 @@ module stage_one(
             else                // Flop the input
                 out_memc        <= memc;
                 out_reg_wr      <= reg_wr;
-                out_alu.a       <= alu_a;
-                out_alu.b       <= alu_b;
-                out_R1_data     <= R1_data;
+                out_alu       	<= alu_muxed;
+                out_R1_data     <= R1_data_muxed;
                 out_haz1        <= haz[1];
                 out_haz2        <= haz[2];
                 out_R0_en       <= R0_en;
@@ -273,7 +264,7 @@ module stage_one(
         .sel({haz[4], haz[5]}),
     
         .in1(R1_data),
-        .in2(aluout[15:0]),
+        .in2(s3_alu[15:0]),
         .in3(s3_data[15:0]),
     
         .out(cmp_a)
@@ -288,7 +279,7 @@ module stage_one(
         .sel({haz[6], haz[7]}),
     
         .in1(r2_data),
-        .in2(aluout[31:16]),
+        .in2(s3_alu[31:16]),
         .in3(s3_data[31:16]),
     
         .out(cmp_b)
@@ -303,10 +294,10 @@ module stage_one(
         .sel({haz[9], haz[10]}),    // mem2r
     
         .in1(R1_data),
-        .in2(aluout[15:0]),
+        .in2(s3_alu[15:0]),
         .in3(mem_data),
     
-        .out(R1_data)
+        .out(R1_data_muxed)
     );
     
     //| Mux for ALU_a
@@ -320,7 +311,7 @@ module stage_one(
         .in2(s3_data[15:0]),
     	.in3(16'b0),
     	
-        .out(in_alu_a)
+        .out(alu_muxed.a)
     );
     
     //| Mux for ALU_B
@@ -334,7 +325,7 @@ module stage_one(
         .in2({12'd0, instruction[7:4]}),
         .in3(s3_data[15:0]),
     
-        .out(in_alu_b)
+        .out(alu_muxed.b)
     );
     
 endmodule

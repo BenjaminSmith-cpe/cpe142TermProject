@@ -2,8 +2,10 @@
 
 -nc 
 
++v2k
+
 +lint=all,noVCDE
-//+warn=all 
++warn=all 
 
 -l $PWD/logs/vlogan.log 
 

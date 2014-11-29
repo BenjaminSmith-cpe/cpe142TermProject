@@ -7,13 +7,16 @@ module stage_two(
 
         input types_pkg::memc_t in_memc,
         input alu_pkg::in_t in_alu,
-        input in_R1_data,
+        input alu_pkg::control_e alu_control,
+        input [15:0] in_R1_data,
         input in_R0_en,
         input wire [15:0] in_instr,
-        
+        input wire haz1,    
+        input wire haz2, 
+        input wire [31:0] s3_data,
         output types_pkg::memc_t out_memc,   
         output reg [31:0] out_alu,  
-        output reg out_R1_data,  
+        output reg [15:0] out_R1_data,  
         output reg out_R0_en,  
         output reg [15:0] out_instr
     );
@@ -21,19 +24,10 @@ module stage_two(
 	import alu_pkg::*;
 	import types_pkg::*;
 	
-    in_t  aluin;
     control_e alucontrol;
     status_t alustat;
     integer aluout;
-
-    wire    [15:0]  s2_alu_a;
-    wire    [15:0]  s2_alu_b;
-    control_e       s2_alu_ctrl;
-    
-    wire    [15:0]  s2_r1_muxed;
-    wire    [15:0]  s2_r1_data;
-    wire    [7:0]   s2_instruction;
-    wire    [15:0]  s1_r1_data;
+    in_t alu_muxed;
 
     //| Stage B flip flop
     //| =======================================================
@@ -58,12 +52,35 @@ module stage_two(
         end
     end
 
+    mux #(
+        .SIZE(16), 
+        .IS3WAY(0)
+    )muxa(
+        .sel(haz1),    
+        .in1(in_alu.a),
+        .in2(s3_data[15:0]),
+    	.in3(16'b0),
+    	
+        .out(alu_muxed.a)
+    );
+    
+    mux #(
+        .SIZE(16), 
+        .IS3WAY(0)
+    )muxb(
+        .sel(haz2),    
+        .in1(in_alu.b),
+        .in2(s3_data[31:16]),
+    	.in3(16'b0),
+    	
+        .out(alu_muxed.b)
+    );
+    
     //| ALU instantiation
     //| ============================================================================
-
     alu main_alu(
-        .in     (aluin),
-        .control(s2_alu_ctrl),
+        .in     (alu_muxed),
+        .control(alu_control),
         .stat   (alustat),
         .out    (aluout)
     );
