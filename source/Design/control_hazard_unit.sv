@@ -19,6 +19,7 @@ module control_hazard_unit(
 	
 	logic stall_logic;
 	logic haz11;
+	logic haz12;
 	
 	logic haz0, haz1, haz2, haz3, haz4, haz5, haz6, haz7, haz8,
 	 haz9, haz10;
@@ -65,7 +66,7 @@ module control_hazard_unit(
 	assign haz5 = ((opcode == BE)||(opcode == BLT)||(opcode == BGT))
 					&&((s3_opcode == LW)||(s2_opcode == LW)||(s3_opcode == ARITHM))
 					&&((r1 == s2_r1)||(r1 == s3_r1)&&!(s2_opcode == LW));
-	assign haz[5] = (haz5) ? 1'b1: 1'b0;
+	assign haz[5] = (haz5 && !haz4) ? 1'b1: 1'b0;
 	
 	// Multiply or divide is followed directly by a branch
 	// instruction(What registers they specify does not matter.
@@ -109,6 +110,7 @@ module control_hazard_unit(
 	assign haz[10] = (haz10) ? 1'b1: 1'b0;
 
 	assign haz11 = (haz10 && haz9) ? 1'b1 : 1'b0; 
+
 	// LOAD is followed directly by a branch instruction
 	// using the dest register for compare
 	assign stall_logic = ((opcode == BE)||(opcode == BLT)||(opcode == BGT))

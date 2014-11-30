@@ -64,7 +64,7 @@ module control_main(
 					se_imm_a = 1'b0;
 				end
 				BLT: begin
-					ALUop = 1'b0;
+					ALUop = 1'b1;
 					offset_sel = EIGHTBIT;
 					mem2r = 1'b0;
 					memwr = 1'b0;
@@ -74,7 +74,7 @@ module control_main(
 					se_imm_a = 1'b1;
 				end
 				BGT: begin
-					ALUop = 1'b0;
+					ALUop = 1'b1;
 					offset_sel = EIGHTBIT;
 					mem2r = 1'b0;
 					memwr = 1'b0;
@@ -84,7 +84,7 @@ module control_main(
 					se_imm_a = 1'b1;
 				end
 				BE: begin
-					ALUop = 1'b0;
+					ALUop = 1'b1;
 					offset_sel = EIGHTBIT;
 					mem2r = 1'b0;
 					memwr = 1'b0;
@@ -94,7 +94,7 @@ module control_main(
 					se_imm_a = 1'b1;
 				end
 				JMP: begin
-					ALUop = 1'b0;
+					ALUop = 1'b1;
 					offset_sel = TWELVEBIT;
 					mem2r = 1'b0;
 					memwr = 1'b0;
