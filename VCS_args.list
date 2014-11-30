@@ -9,7 +9,8 @@
 //-xzcheck
 
 +lint=all,noVNGS
--race
+
+//-race
 
 -q 
 

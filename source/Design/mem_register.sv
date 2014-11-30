@@ -16,21 +16,22 @@ module mem_register(
 	output logic[15:0] 	rd2
 );
 
-	wire 	[15:0]			write_data_high;
-	wire 	[15:0]			write_data_low;
+	reg 	[15:0]			write_data_high;
+	reg 	[15:0]			write_data_low;
 
-	logic 	[15:0]	registers[31:0]='{default:0};	// Memory block. 4 bit address with 16 bit data
+	logic 	[15:0]	registers[31:0];	// Memory block. 4 bit address with 16 bit data
 	logic 	[15:0]	zregisters[31:0] ='{default:0};
 	
-	assign {write_data_high, write_data_low} = write_data; 	// Split the input data
-															// into two words
-	assign rd1 = registers[ra1];	// Always read the data from the address
+	always_comb begin: memory_read_logic
+		rd1 = registers[ra1];	// Always read the data from the address
+    	rd2 = (R0_read) ? registers[0] : registers[ra2];		// if R0_read is high then R0 contents are output at r2
 	
-	// If a branch instruction(R0_read is high) then R0 contents are output at rd2
-	assign rd2 = (R0_read) ? registers[0] : registers[ra2];	
+		{write_data_high, write_data_low} = write_data; 	// Split the input data into two words
+	end										
 
-/*	always_ff@(posedge clk, negedge rst) begin: mem_reg_flop
-		if (rst) begin		
+
+	always_ff@(posedge clk, posedge rst) begin: mem_reg_flop
+		if (rst == 1'b1) begin		
 			registers <= zregisters;// If rst is asserted, we want to clear the flops
 		end 
 		else begin
@@ -41,5 +42,5 @@ module mem_register(
 				registers[write_address] <= write_data_low; 	// Flop the input
 			end
 		end
-	end*/
+	end
 endmodule

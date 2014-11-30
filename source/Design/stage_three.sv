@@ -24,11 +24,12 @@ module stage_three(
 	assign out_r0_en = r0_en;
 	assign out_memc = memc;
 	assign instruction_out = instruction;
+	assign r1_data_out = r1_data;
 	
     mux #(.SIZE(16), .IS3WAY(0)) mux9(
         .sel(memc.mem2r),
-        .in1(mem_data),
-        .in2(alu[15:0]),
+        .in1(alu[15:0]),
+        .in2(mem_data),
         .in3(),
     
         .out(data_muxed[15:0])
