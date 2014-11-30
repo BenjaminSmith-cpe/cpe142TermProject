@@ -26,12 +26,13 @@ module system_tb();
     initial begin
         //| system wide reset
         //| =============================================================
-        //$xzcheckoff;
+        $xzcheckoff;
         $vcdpluson; //make that dve database
         $vcdplusmemon;
 		#1 SimPhase = RESET;
 		   reset = 1;
-		#9 reset = 0;
+		#1 $xzcheckon;
+		#8 reset = 0;
 		
 
 		$readmemh("source/Verif/program_memory_blank.hex", dut.st1.program_memory.memory);
@@ -145,8 +146,6 @@ module system_tb();
  		#1 reset = 0;
         #1 reset = 1;
         #1 reset = 0;       
-        
-        //$xzcheckon;
     end
 
     always @ (negedge clock) begin

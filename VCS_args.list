@@ -8,7 +8,7 @@
 
 -notice 
 
-//-xzcheck
+-xzcheck nofalseneg
 
 +lint=all
 

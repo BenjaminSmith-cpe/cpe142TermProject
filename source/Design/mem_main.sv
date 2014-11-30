@@ -22,7 +22,7 @@ module mem_main(
 	logic 	[7:0] shadow_memory[65536:0] = '{default:0};
 	
 	always_comb begin: clock_gating
-	 clockg = (halt_sys == 1'b1|| write_en == 1'b0)?clk:1'b0; //flop clock gated
+	 clockg = (halt_sys == 1'b1|| write_en == 1'b0)?1'b0:clk; //flop clock gated
 	end
 	
 	always_comb begin: memory_read_logic
