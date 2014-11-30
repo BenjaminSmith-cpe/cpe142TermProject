@@ -56,7 +56,7 @@ echo
 #                         : branch - which parts of if branches have been taken (superfluous with line?)
 # -PP                     : enables post process debug utilities
 # -notice                 : REALLY verbose messages
-vcs -file VCS_args.list
+vcs -file VCS_args.list $1
 
 if [ $? -ne 0 ]; then 
     echo "VCS elaboration failed"

@@ -25,5 +25,6 @@ $PWD/source/Design/types_pkg.sv
 $PWD/source/Verif/tb_utils_pkg.sv 
 $PWD/source/Verif/tb_class_def.sv 
 
-//Top level file
-$PWD/source/Verif/test_fixture.sv
+//Top level files
+$PWD/source/Verif/system_tb.sv
+$PWD/source/Verif/alu_tb.sv

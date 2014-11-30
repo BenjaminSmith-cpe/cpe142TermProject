@@ -50,6 +50,8 @@ module stage_one(
     wire    [15:0]  cmp_a;
     wire    [15:0]  cmp_b;
     result_t        cmp_result;
+    
+    wire    [15:0]  mem_data;
 
     wire    [15:0]  PC_no_jump;
     wire    [15:0]  PC_jump;

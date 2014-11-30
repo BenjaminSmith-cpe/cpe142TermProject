@@ -1,6 +1,8 @@
 -PP 
-
+-debug_all
 -cm fsm+line+tgl+branch 
+
++vcs+initreg+random 
 
 -sverilog
 
@@ -15,5 +17,3 @@
 -q 
 
 -l $PWD/logs/VCS.log 
-
-AAstimulus

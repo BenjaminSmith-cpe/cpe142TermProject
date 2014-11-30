@@ -5,7 +5,7 @@
 
 typedef enum{RESET, IDLE, HAZARD, FULLTEST, HAZ0, HAZ1, HAZ2, HAZ3, HAZ4, HAZ5, HAZ6, HAZ7, HAZ8, HAZ9, HAZ10, STALL} SimPhase_e;
 
-module system_tb();
+module AAstimulus();
     import alu_pkg::*;
     import tb_utils_pkg::*;
     import tb_class_def::*;
