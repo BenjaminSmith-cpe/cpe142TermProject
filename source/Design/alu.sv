@@ -8,18 +8,25 @@ module alu(
 	import alu_pkg::*;
 
     logic carry;
-
+	logic signed [17:0] arith;
+	
     always_comb begin    
         case(control)
-            OR : out = in.a | in.b;
-            AND: out = in.a & in.b;
+            OR  : out = {16'b0,in.a | in.b};
+            AND : out = {16'b0,in.a & in.b};
             MULT: out = in.a * in.b;
-            ROL : out = {in.a, in.a} << in.b;
-            ROR : out = {in.a, in.a} >> in.b;
-            SHL : out = in.a <<< in.b;
-            SHR : out = in.a >>> in.b;
-            SUB : out = in.a - in.b;
-            ADD : out = in.a + in.b;
+            ROL : out = {16'b0,({in.a, in.a} << in.b)};
+            ROR : out = {16'b0,({in.a, in.a} >> in.b)};
+            SHL : out = {16'b0,in.a <<< in.b};
+            SHR : out = {16'b0,in.a >>> in.b};
+            SUB : begin
+            	arith = in.a - in.b;
+            	out = {16'b0, arith[15:0]};
+            end
+            ADD : begin
+            	arith = in.a + in.b;
+            	out = {16'b0, arith[15:0]};
+            end
             DIV : begin
                 if(in.b != 0) begin
     	            out[15:0] = in.a / in.b;
@@ -27,17 +34,18 @@ module alu(
 	            end
 	            else begin
 	            	out = 32'b0;
-	            	assert(1s);
+	            	assert(0);
 	            end
             end
-            default:
-                out = 32'bZ;
-        endcase
+         endcase
     end
 
-    always_comb begin
+    always_comb begin:flag_logic
         stat.zero = !(|out);
-        stat.sign = out[15];
-        stat.overflow = (!control[1]) ? out[16]^out[15] : 1'b0; 
+        
+        stat.overflow = (control == ADD || control == SUB) ? arith[17]^arith[16] : 1'b0; 
+        
+        if(control == MULT) stat.sign = out[31];
+        else 			    stat.sign = out[15];
     end
 endmodule
