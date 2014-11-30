@@ -1,5 +1,5 @@
 module control_hazard_unit(
-	input wire  			R0_en,
+
 	input wire 				s2_R0_en,
 	input wire				s3_R0_en,
 	input types_pkg::opcode_t			opcode,
@@ -18,6 +18,7 @@ module control_hazard_unit(
 	import types_pkg::*;
 	
 	logic stall_logic;
+	logic haz11;
 	
 	logic haz0, haz1, haz2, haz3, haz4, haz5, haz6, haz7, haz8,
 	 haz9, haz10;
@@ -99,13 +100,15 @@ module control_hazard_unit(
 	assign haz9 = ((opcode == SW))
 					&&((s3_opcode == LW))
 					&&((r1 == s3_r1)||(r2 == s3_r1));
-	assign haz[9] = (haz9) ? 1'b1: 1'b0;
+	assign haz[9] = (haz9 && !haz11) ? 1'b1: 1'b0;
 	// Arithmetic instruction followed directly by a STORE
 	// instruction using same reg for dest/src
 	assign haz10 = ((opcode == SW))
 					&&((s2_opcode == ARITHM))
 					&&((r1 == s2_r1)||(r2 == s2_r1));
 	assign haz[10] = (haz10) ? 1'b1: 1'b0;
+
+	assign haz11 = (haz10 && haz9) 1'b1 : 1'b0 
 	// LOAD is followed directly by a branch instruction
 	// using the dest register for compare
 	assign stall_logic = ((opcode == BE)||(opcode == BLT)||(opcode == BGT))
