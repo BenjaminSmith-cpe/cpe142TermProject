@@ -156,7 +156,7 @@ module stage_one(
 
         .write_en(s3_reg_wr || s3_mem2r),
         .R0_en(s3_R0_en),
-        .write_address(s3_instruction[3:0]), // r1 address
+        .write_address(s3_instruction[11:8]), // r1 address
         .write_data(s3_data),
 
         .rd1(R1_data),
