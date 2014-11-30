@@ -49,12 +49,13 @@ module top (
         .memc(memc),
 
 		.s3_alu(s3_alu),
-		.s3_reg_wr(s3_memc.mem2r),
+		.s3_reg_wr(s3_reg_wr),
+        .s3_mem2r(s3_memc.mem2r),
 
         //outputs
         .out_memc(s1_memc), 
         .out_R1_data(s1_R1_data),   
-        .out_reg_wr(s1_reg_wr),  
+        .out_reg_wr(s2_reg_wr),  
         .halt_sys(halt_sys),
         .stall(stall),
         .out_alu(s1_alu_inputs),    
@@ -78,12 +79,14 @@ module top (
         .in_R0_en(s1_R0_en),
         .in_instr(s1_instruction),
         .in_memc(s1_memc),
+        .in_reg_wr(s2_reg_wr),
         .haz1(s1_haz1),
         .haz2(s1_haz2),
         .haz8(s1_haz8),
         .s3_data(s3_data),
         .alu_control(s1_alu_control),
-        
+
+        .out_reg_wr(s3_reg_wr),
         .out_memc(s2_memc),
         .out_alu_result(s2_alu_result),  // for reg forwarding
         .out_alu(s3_alu),  

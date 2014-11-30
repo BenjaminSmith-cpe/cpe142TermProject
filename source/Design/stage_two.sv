@@ -15,6 +15,8 @@ module stage_two(
         input wire haz2,
         input wire haz8, 
         input wire [31:0] s3_data,
+        input wire in_reg_wr,
+        output reg out_reg_wr,
         output types_pkg::memc_t out_memc,   
         output reg [31:0] out_alu,  
         output reg [31:0] out_alu_result,
@@ -43,6 +45,7 @@ module stage_two(
             out_R1_data     <= 16'd0;
             out_R0_en       <= 1'd0;
             out_instr       <= 8'd0;    // Top 8 bits of instruction // If rst is asserted, we want to clear the flops
+            out_reg_wr      <= 1'd0;
         end 
         else begin
             if(halt_sys || stall) begin
@@ -54,6 +57,7 @@ module stage_two(
                 out_R1_data     <= in_R1_data_muxed;
                 out_R0_en       <= in_R0_en;
                 out_instr       <= in_instr;
+                out_reg_wr      <= in_reg_wr;
         end
     end
 
@@ -61,7 +65,7 @@ module stage_two(
         .SIZE(16), 
         .IS3WAY(0)
     )muxa(
-        .sel({1'b0,haz1}),    
+        .sel(haz1),    
         .in1(in_alu.a),
         .in2(s3_data[15:0]),
     	.in3(16'b0),

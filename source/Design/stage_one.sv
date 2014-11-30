@@ -13,6 +13,7 @@ module stage_one(
         input wire [31:0]   s3_data,
         
         input wire          s3_reg_wr,
+        input wire          s3_mem2r,
 
         //flopped outputs
         output reg          stall,
@@ -153,7 +154,7 @@ module stage_one(
         .ra1(instruction[11:8]),
         .ra2(instruction[7:4]),
 
-        .write_en(s3_reg_wr),
+        .write_en(s3_reg_wr || s3_mem2r),
         .R0_en(s3_R0_en),
         .write_address(s3_instruction[3:0]), // r1 address
         .write_data(s3_data),
