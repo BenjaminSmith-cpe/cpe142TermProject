@@ -15,28 +15,27 @@ module top (
     reg             s1_reg_wr;  
     reg             halt_sys;
     reg             stall;
-    reg				s1_haz1;
-    reg             s1_haz2;
     in_t            s1_alu_inputs;    
-    uword           s1_R1_data; 
-    uword           s1_instruction; 
+    uword		    s1_R1_data; 
+    uword		    s1_instruction; 
+    uword		    s2_instruction; 
     control_e       s1_alu_control;
     
     //| Stage Two
     in_t            s2_in_alu;
-    memc_t          s2_memc;
-    uword           s2_r1_data;
-    uword           s2_R1_data;
-    uword           s2_instruction; 
+    memc_t   		s2_memc;
+    uword     	    s2_r1_data;
        
     //| stage 3
-    wire    [31:0]  s3_alu;
-    memc_t          s3_memc;
-    uword           s3_r1_data;
-    uword           s3_instruction;
-    reg             s2_R0_en;
+    wire 	[31:0]	s3_alu;
+    memc_t   		s3_memc;
+    uword		    s3_r1_data;
+    uword		    s3_instruction;
     wire    [31:0]  s3_data;
     reg             s3_R0_en;
+    reg				s1_haz2;
+    reg				s1_haz1;
+    uword 			s2_R1_data;
     
     stage_one st1(
         .clk(clk),
@@ -47,6 +46,7 @@ module top (
         .s2_R0_en(s1_R0_en),
         .s3_R0_en(s3_R0_en),
         .memc(memc),
+
 		.s3_alu(s3_alu),
 		.s3_reg_wr(s3_memc.mem2r),
 
@@ -84,7 +84,7 @@ module top (
         .out_memc(s2_memc),  
         .out_alu(s3_alu),  
         .out_R1_data(s2_R1_data),  
-        .out_R0_en(s2_R0_en),  
+        .out_R0_en(s3_R0_en),  
         .out_instr(s2_instruction)
 	);
 
@@ -98,10 +98,10 @@ module top (
 		.halt_sys(halt_sys),
         .alu(s3_alu),
         .out_memc(s3_memc),
-        .r0_en(s2_R0_en),
+        .r0_en(s3_R0_en),
         
         .instruction_out(s3_instruction),
-        .out_r0_en(s3_R0_en),
+        .out_r0_en(),
         .r1_data_out(s3_R1_data),
         .data(s3_data)
     );
