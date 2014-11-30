@@ -108,7 +108,7 @@ module control_hazard_unit(
 					&&((r1 == s2_r1)||(r2 == s2_r1));
 	assign haz[10] = (haz10) ? 1'b1: 1'b0;
 
-	assign haz11 = (haz10 && haz9) 1'b1 : 1'b0 
+	assign haz11 = (haz10 && haz9) ? 1'b1 : 1'b0; 
 	// LOAD is followed directly by a branch instruction
 	// using the dest register for compare
 	assign stall_logic = ((opcode == BE)||(opcode == BLT)||(opcode == BGT))

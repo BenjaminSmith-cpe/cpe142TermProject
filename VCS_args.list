@@ -10,7 +10,7 @@
 
 //-xzcheck
 
-+lint=all,noVNGS
++lint=all
 
 //-race
 

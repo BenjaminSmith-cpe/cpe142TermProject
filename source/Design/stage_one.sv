@@ -63,15 +63,15 @@ module stage_one(
     wire    [10:0]  haz;
 	wire 			R0_en;
 	
-	reg R0_read;
-	memc_t s3_memc;
-	reg ALUop;
-	reg reg_wr;
-	reg se_imm_a;
-	control_e alucontrol;
-	reg immb;
-	reg jmp;
-	in_t alu_muxed;
+	reg 		R0_read;
+	memc_t 		s3_memc;
+	reg 		ALUop;
+	reg 		reg_wr;
+	reg 		se_imm_a;
+	control_e 	alucontrol;
+	reg 		immb;
+	reg 		jmp;
+	in_t		alu_muxed;
 	
     assign opcode = opcode_t'(instruction[15:12]);
     assign func_code = control_e'(instruction[3:0]);

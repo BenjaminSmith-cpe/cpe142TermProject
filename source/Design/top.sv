@@ -37,7 +37,7 @@ module top (
     reg             s1_haz8;
     wire    [31:0]  s2_alu_result;
     uword 			s2_R1_data;
-    
+    integer 		s3_alu;
     stage_one st1(
         .clk(clk),
         .rst(rst),
