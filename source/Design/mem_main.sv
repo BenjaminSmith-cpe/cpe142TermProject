@@ -32,7 +32,6 @@ module mem_main(
 	always_ff@(posedge clockg ,posedge rst) begin: memory_rst_and_write
 		if(rst == 1'b1) memory <=  shadow_memory;// If rst is asserted, we want to clear the flops
 		else           {memory[address + 1], memory[address]} <= write_data; 	// Flop the input
-		$display("hii!: %b", rst);
 	end
 endmodule
 

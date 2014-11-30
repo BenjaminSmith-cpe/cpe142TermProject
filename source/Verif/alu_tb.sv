@@ -53,8 +53,8 @@ function static check_alu_outputs(
             OR  : result = {16'b0,in.a | in.b};
             AND : result = {16'b0,in.a & in.b};
             MULT: result = in.a * in.b;
-            ROL : result = {16'b0,({in.a, in.a} << in.b)};
-            ROR : result = {16'b0,({in.a, in.a} >> in.b)};
+            ROL : result = {16'b0,({in.a, in.a} <<< in.b)};
+            ROR : result = {16'b0,({in.a, in.a} >>> in.b)};
             SHL : result = {16'b0,in.a <<< in.b};
             SHR : result = {16'b0,in.a >>> in.b};
             SUB : result = {16'b0,in.a - in.b};
@@ -162,8 +162,6 @@ module alu_tb();
     );
 	
 	initial begin
-		//$vcdpluson;
-		
         alu_stim as = new;
         
 	    for(int i = 0; i < testiterations; i++) begin
