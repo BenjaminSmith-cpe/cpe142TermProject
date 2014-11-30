@@ -27,7 +27,6 @@ module top (
 
        
     //| stage 3
-    wire    [31:0]  s3_alu;
     wire            s3_reg_wr;
     memc_t   		s3_memc;
     uword		    s3_R1_data;

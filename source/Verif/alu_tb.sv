@@ -148,7 +148,6 @@ module alu_tb();
     alu_pkg::control_e 		control;
     status_t                stat;
     in_t                    alu_input;
-    //control_e				control;
     integer                 alu_output;
 	integer					errors = 0;
     integer					testiterations = 10000;
