@@ -202,7 +202,6 @@ module stage_one(
     //| Hazard Detection Unit
     //| ============================================================================
     control_hazard_unit HDU(
-        .R0_en(R0_en),
         .s2_R0_en(s2_R0_en),
         .s3_R0_en(s3_R0_en),
         .opcode(opcode),

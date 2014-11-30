@@ -23,9 +23,10 @@ module top (
     
     //| Stage Two
     memc_t   		s2_memc;
+    wire            s2_reg_wr;
        
     //| stage 3
-    wire 	[31:0]	s3_alu;
+    wire            s3_reg_wr;
     memc_t   		s3_memc;
     uword		    s3_R1_data;
     uword		    s3_instruction;
