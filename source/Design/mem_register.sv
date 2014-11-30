@@ -26,7 +26,7 @@ module mem_register(
 	assign	{write_data_high, write_data_low} = write_data; 	// Split the input data into two words
 	
 	always_comb begin: clock_gating
-	 clockg = (halt_sys == 1'b1|| write_en == 1'b0)?clk:1'b0; //flop clock gated
+	 clockg = (halt_sys == 1'b1|| write_en == 1'b0)?1'b0:clk; //flop clock gated
 	end
 		
 	always_comb begin: memory_read_logic
