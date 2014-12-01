@@ -122,7 +122,7 @@ module stage_one(
     //| Jump adder instantiation
     //| ============================================================================
     adder jump_adder(
-        .pc(PC_address),
+        .pc(PC_no_jump),
         .offset(offset_shifted),
         .sum(PC_jump)
     );
@@ -307,12 +307,12 @@ module stage_one(
     //| ============================================================================
     mux #(
         .SIZE(16), 
-        .IS3WAY(0)
+        .IS3WAY(1)
     )mux4(
-        .sel(haz[0]),    
+        .sel({haz[0], se_imm_a}),    
         .in1(R1_data),
         .in2(s3_data[15:0]),
-    	.in3(16'b0),
+    	.in3(offset_se),
     	
         .out(alu_muxed.a)
     );
