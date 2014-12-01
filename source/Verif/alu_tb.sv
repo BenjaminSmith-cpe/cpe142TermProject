@@ -2,7 +2,7 @@ import alu_pkg::*;
 import types_pkg::*;
 //`define VERBOSE
 
-task print_alu_state(string ident, integer result, control_e control, in_t in, integer out, status_t stat, reg ov);
+task static print_alu_state(string ident, integer result, control_e control, in_t in, integer out, status_t stat, reg ov);
     case(control)
     	default :begin
     		$display("%s -- time %4d - op: %s", ident, $time(), control.name);
@@ -36,7 +36,7 @@ task print_alu_state(string ident, integer result, control_e control, in_t in, i
     endcase
 endtask
 	
-function static check_alu_outputs(
+function automatic check_alu_outputs(
     status_t stat,
     control_e control,
     in_t     in,

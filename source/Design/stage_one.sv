@@ -2,14 +2,12 @@ module stage_one(
     	input wire          clk,
     	input wire          rst,
         
-        input wire [15:0]   s2_instruction,
         input wire [15:0]   s3_instruction,
          
         input wire          s2_R0_en,
         input wire          s3_R0_en,
 
         input wire [31:0]   s2_alu,
-        input wire [31:0]   s3_alu,
         input wire [31:0]   s3_data,
         
         input wire          s3_reg_wr,

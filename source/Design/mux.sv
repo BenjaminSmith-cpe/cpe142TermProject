@@ -1,5 +1,5 @@
 module mux
-	#(parameter SIZE = 16, parameter IS3WAY = 0)(
+	#(parameter SIZE = 16, parameter IS3WAY = 1)(
 	input wire [IS3WAY:0]		sel,
 
 	input wire [(SIZE - 1):0] 	in1,
@@ -20,7 +20,6 @@ module mux
 					out = in3;
 				2'b11: begin
 					out = 32'bX;
-					assert(0);
 				end
 			endcase
 		end

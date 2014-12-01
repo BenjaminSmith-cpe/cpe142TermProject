@@ -43,14 +43,12 @@ module top (
         .clk(clk),
         .rst(rst),
         .s3_data(s3_data),
-        .s2_instruction(s2_instruction),
         .s3_instruction(s3_instruction),
         .s2_R0_en(s1_R0_en),
         .s3_R0_en(s3_R0_en),
         .s2_alu(s2_alu_result),
         .memc(memc),
 
-		.s3_alu(s3_alu),
 		.s3_reg_wr(s3_reg_wr),
         .s3_mem2r(s3_memc.mem2r),
 
