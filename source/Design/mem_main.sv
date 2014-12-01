@@ -26,12 +26,12 @@ module mem_main(
 	end
 	
 	always_comb begin: memory_read_logic
-		data_out = {memory[address + 1], memory[address]};	// Always read the data from the address
+		data_out = {memory[address], memory[address +1]};	// Always read the data from the address
 	end
 	
 	always_ff@(posedge clockg ,posedge rst) begin: memory_rst_and_write
 		if(rst == 1'b1) memory <=  shadow_memory;// If rst is asserted, we want to clear the flops
-		else if (write_en)          {memory[address + 1], memory[address]} <= write_data; 	// Flop the input
+		else if (write_en)          {memory[address], memory[address +1]} <= write_data; 	// Flop the input
 	end
 endmodule
 
