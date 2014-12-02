@@ -2,7 +2,7 @@ import alu_pkg::*;
 import types_pkg::*;
 //`define VERBOSE
 
-task print_alu_state(string ident, integer result, control_e control, in_t in, integer out, status_t stat, reg ov);
+task static print_alu_state(string ident, integer result, control_e control, in_t in, integer out, status_t stat, reg ov);
     case(control)
     	default :begin
     		$display("%s -- time %4d - op: %s", ident, $time(), control.name);
@@ -36,7 +36,7 @@ task print_alu_state(string ident, integer result, control_e control, in_t in, i
     endcase
 endtask
 	
-function static check_alu_outputs(
+function automatic check_alu_outputs(
     status_t stat,
     control_e control,
     in_t     in,
@@ -53,8 +53,8 @@ function static check_alu_outputs(
             OR  : result = {16'b0,in.a | in.b};
             AND : result = {16'b0,in.a & in.b};
             MULT: result = in.a * in.b;
-            ROL : result = {16'b0,({in.a, in.a} << in.b)};
-            ROR : result = {16'b0,({in.a, in.a} >> in.b)};
+            ROL : result = {16'b0,({in.a, in.a} <<< in.b)};
+            ROR : result = {16'b0,({in.a, in.a} >>> in.b)};
             SHL : result = {16'b0,in.a <<< in.b};
             SHR : result = {16'b0,in.a >>> in.b};
             SUB : result = {16'b0,in.a - in.b};
@@ -148,7 +148,6 @@ module alu_tb();
     alu_pkg::control_e 		control;
     status_t                stat;
     in_t                    alu_input;
-    control_e				control;
     integer                 alu_output;
 	integer					errors = 0;
     integer					testiterations = 10000;
@@ -162,8 +161,6 @@ module alu_tb();
     );
 	
 	initial begin
-		//$vcdpluson;
-		
         alu_stim as = new;
         
 	    for(int i = 0; i < testiterations; i++) begin
@@ -173,7 +170,7 @@ module alu_tb();
         	alu_input.b = as.b;
         	#1 errors += check_alu_outputs(stat, control, alu_input, alu_output);
 		end
-    
+
     successes = testiterations-errors;
     $display("\n");
     $display("================Test Statistics=================");

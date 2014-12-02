@@ -8,9 +8,9 @@
 
 -notice 
 
-//-xzcheck
+-xzcheck nofalseneg
 
-+lint=all,noVNGS
++lint=all
 
 //-race
 

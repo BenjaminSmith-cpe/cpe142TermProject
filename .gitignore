@@ -1,5 +1,6 @@
 *.tk
 *.log
+*.sv~
 142.mpf
 142.cr.mti
 source/work

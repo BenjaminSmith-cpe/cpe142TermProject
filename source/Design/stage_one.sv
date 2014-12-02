@@ -2,17 +2,16 @@ module stage_one(
     	input wire          clk,
     	input wire          rst,
         
-        input wire [15:0]   s2_instruction,
         input wire [15:0]   s3_instruction,
          
         input wire          s2_R0_en,
         input wire          s3_R0_en,
 
         input wire [31:0]   s2_alu,
-        input wire [31:0]   s3_alu,
         input wire [31:0]   s3_data,
         
         input wire          s3_reg_wr,
+        input wire          s3_mem2r,
 
         //flopped outputs
         output reg          stall,
@@ -62,15 +61,15 @@ module stage_one(
     wire    [10:0]  haz;
 	wire 			R0_en;
 	
-	reg R0_read;
-	memc_t s3_memc;
-	reg ALUop;
-	reg reg_wr;
-	reg se_imm_a;
-	control_e alucontrol;
-	reg immb;
-	reg jmp;
-	in_t alu_muxed;
+	reg 		R0_read;
+	memc_t 		s3_memc;
+	reg 		ALUop;
+	reg 		reg_wr;
+	reg 		se_imm_a;
+	control_e 	alucontrol;
+	reg 		immb;
+	reg 		jmp;
+	in_t		alu_muxed;
 	
     assign opcode = opcode_t'(instruction[15:12]);
     assign func_code = control_e'(instruction[3:0]);
@@ -121,7 +120,7 @@ module stage_one(
     //| Jump adder instantiation
     //| ============================================================================
     adder jump_adder(
-        .pc(PC_address),
+        .pc(PC_no_jump),
         .offset(offset_shifted),
         .sum(PC_jump)
     );
@@ -153,9 +152,9 @@ module stage_one(
         .ra1(instruction[11:8]),
         .ra2(instruction[7:4]),
 
-        .write_en(s3_reg_wr),
+        .write_en(s3_reg_wr || s3_mem2r),
         .R0_en(s3_R0_en),
-        .write_address(s3_instruction[3:0]), // r1 address
+        .write_address(s3_instruction[11:8]), // r1 address
         .write_data(s3_data),
 
         .rd1(R1_data),
@@ -201,7 +200,6 @@ module stage_one(
     //| Hazard Detection Unit
     //| ============================================================================
     control_hazard_unit HDU(
-        .R0_en(R0_en),
         .s2_R0_en(s2_R0_en),
         .s3_R0_en(s3_R0_en),
         .opcode(opcode),
@@ -307,12 +305,12 @@ module stage_one(
     //| ============================================================================
     mux #(
         .SIZE(16), 
-        .IS3WAY(0)
+        .IS3WAY(1)
     )mux4(
-        .sel(haz[0]),    
+        .sel({haz[0], se_imm_a}),    
         .in1(R1_data),
         .in2(s3_data[15:0]),
-    	.in3(16'b0),
+    	.in3(offset_se),
     	
         .out(alu_muxed.a)
     );

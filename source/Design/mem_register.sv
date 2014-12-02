@@ -18,29 +18,29 @@ module mem_register(
 
 	reg 	[15:0]			write_data_high;
 	reg 	[15:0]			write_data_low;
-
+	reg						clockg;
+	
 	logic 	[15:0]	registers[31:0];	// Memory block. 4 bit address with 16 bit data
 	logic 	[15:0]	zregisters[31:0] ='{default:0};
 	
+	assign	{write_data_high, write_data_low} = write_data; 	// Split the input data into two words
+	
+	always_comb begin: clock_gating
+	 clockg = (halt_sys == 1'b1|| write_en == 1'b0)?1'b0:clk; //flop clock gated
+	end
+		
 	always_comb begin: memory_read_logic
 		rd1 = registers[ra1];	// Always read the data from the address
     	rd2 = (R0_read) ? registers[0] : registers[ra2];		// if R0_read is high then R0 contents are output at r2
-	
-		{write_data_high, write_data_low} = write_data; 	// Split the input data into two words
 	end										
-
-
-	always_ff@(posedge clk, posedge rst) begin: mem_reg_flop
+		
+	always_ff@(posedge clockg, posedge rst) begin: mem_reg_flop
 		if (rst == 1'b1) begin		
 			registers <= zregisters;// If rst is asserted, we want to clear the flops
 		end 
-		else begin
-			if(halt_sys || !write_en) 
-				registers[write_address] <= registers[write_address]; // Stay the same value. System is halted.
-			else begin // Write data to reg, and write top 16 bits to R0 if R0_en is high 
-				if (R0_en) registers[0] <= write_data_high;
-				registers[write_address] <= write_data_low; 	// Flop the input
-			end
+		else begin// Write data to reg, and write top 16 bits to R0 if R0_en is high  
+			if (R0_en) registers[0] <= write_data_high;
+			registers[write_address] <= write_data_low; 	// Flop the input
 		end
 	end
 endmodule

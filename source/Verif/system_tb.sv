@@ -7,31 +7,39 @@ typedef enum{RESET, IDLE, HAZARD, FULLTEST, HAZ0, HAZ1, HAZ2, HAZ3, HAZ4, HAZ5, 
 
 module system_tb();
     import alu_pkg::*;
+    import types_pkg::*;
     import tb_utils_pkg::*;
     import tb_class_def::*;
     
     integer             testiteration = 0;
     integer             failure_count = 0;
+	
 	reg		[15:0]register_temp[4:0];
+    
     logic clock = 0;
     logic reset = 0;
-
+	
+	uword memcheck;
+	uword memcheck2;
+    
     top dut(
         .clk(clock),
         .rst(reset)
     );
+	
 	SimPhase_e SimPhase;
     initial #4 forever #1 clock = ~clock;
 	
     initial begin
         //| system wide reset
         //| =============================================================
-        //$xzcheckoff;
+        $xzcheckoff;
         $vcdpluson; //make that dve database
         $vcdplusmemon;
 		#1 SimPhase = RESET;
 		   reset = 1;
-		#9 reset = 0;
+		#1 $xzcheckon;
+		#8 reset = 0;
 		
 
 		$readmemh("source/Verif/program_memory_blank.hex", dut.st1.program_memory.memory);
@@ -142,22 +150,20 @@ module system_tb();
 		SimPhase = FULLTEST;
 		$readmemh("source/Verif/program_memory.hex", dut.st1.program_memory.memory);
 		$readmemh("source/Verif/register_memory.hex", dut.st1.register_file.zregisters);
+		$readmemh("source/Verif/main_memory.hex", dut.st3.main_memory.shadow_memory);
  		#1 reset = 0;
         #1 reset = 1;
         #1 reset = 0;       
-        
-        //$xzcheckon;
-    end
-
-    always @ (negedge clock) begin
-        if (dut.st1.PC_next == 52) $finish;
-        // $display(".--------------------------------------------------.");
-        // $display("| PIPE STATUS| PC: %d", dut.PC_next);
-        // $display("|--------------------------------------------------|");
-        // $display("| Stage      : ONE |TWO |THREE |");
-        // $display("| Instruction: %5s |%5s |%5s |", dut.opcode, dut.s2_opcode, dut.s3_opcode);
-        // $display("| %s", dut.opcode);
-        // $display("| %s", dut.opcode);        
-        // $display("'--------------------------------------------------'");
+    	
+    	#60
+    	memcheck = {dut.st3.main_memory.memory[0], dut.st3.main_memory.memory[1]};
+    	memcheck2 = {dut.st3.main_memory.memory[2], dut.st3.main_memory.memory[3]};
+    	
+        if (memcheck != 32'h2bcd) $display("check FAILED! memory[0] value = %h expected 2BCD", memcheck);
+        else  $display("Memory check Passed! memory[0] value = %h expected 2bcd", memcheck);
+        	
+        if (memcheck2 != 32'h579A) $display("check FAILED! memory[2] value = %h expected 579A", memcheck2);
+        else $display("Memory check Passed! memory[2] value = %h expected 579a", memcheck2);
+        $finish;
     end
 endmodule

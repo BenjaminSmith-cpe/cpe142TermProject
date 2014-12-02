@@ -22,17 +22,16 @@ module mem_main(
 	logic 	[7:0] shadow_memory[65536:0] = '{default:0};
 	
 	always_comb begin: clock_gating
-	 clockg = (halt_sys == 1'b1|| write_en == 1'b0)?clk:1'b0; //flop clock gated
+	 clockg = (halt_sys == 1'b1|| write_en == 1'b0)?1'b0:clk; //flop clock gated
 	end
 	
 	always_comb begin: memory_read_logic
-		data_out = {memory[address + 1], memory[address]};	// Always read the data from the address
+		data_out = {memory[address], memory[address +1]};	// Always read the data from the address
 	end
 	
 	always_ff@(posedge clockg ,posedge rst) begin: memory_rst_and_write
 		if(rst == 1'b1) memory <=  shadow_memory;// If rst is asserted, we want to clear the flops
-		else           {memory[address + 1], memory[address]} <= write_data; 	// Flop the input
-		$display("hii!: %b", rst);
+		else if (write_en)          {memory[address], memory[address +1]} <= write_data; 	// Flop the input
 	end
 endmodule
 
