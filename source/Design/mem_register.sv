@@ -16,12 +16,12 @@ module mem_register(
 	output logic[15:0] 	rd2
 );
 
-	reg 	[15:0]			write_data_high;
-	reg 	[15:0]			write_data_low;
-	reg						clockg;
+	reg 	[15:0]		write_data_high;
+	reg 	[15:0]		write_data_low;
+	reg					clockg;
 	
-	logic 	[15:0]	registers[31:0];	// Memory block. 4 bit address with 16 bit data
-	logic 	[15:0]	zregisters[31:0] ='{default:0};
+	logic 	[15:0]		registers[31:0];	// Memory block. 4 bit address with 16 bit data
+	logic 	[15:0]		zregisters[31:0] ='{default:0};
 	
 	assign	{write_data_high, write_data_low} = write_data; 	// Split the input data into two words
 	

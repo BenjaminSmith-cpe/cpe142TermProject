@@ -9,6 +9,6 @@ module comparator(
 	assign cmp_result = (in1 > in2) ? GREATER 	:
 						(in1 < in2) ? LESS		:
 						(in1 == in2)? EQUAL		:
-						UNKNOWN;
+						              UNKNOWN;
 
 endmodule

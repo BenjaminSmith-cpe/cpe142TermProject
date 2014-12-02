@@ -5,3 +5,13 @@
 142.cr.mti
 source/work
 vish_stacktrace.vstf
+*.aux
+*.fdb*
+*.fls
+*.lof
+*.log
+*.lol
+*.iot
+*.pyg
+*.syntex.qz
+*.toc
