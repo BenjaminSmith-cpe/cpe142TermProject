@@ -170,7 +170,7 @@ module alu_tb();
         	alu_input.b = as.b;
         	#1 errors += check_alu_outputs(stat, control, alu_input, alu_output);
 		end
-    
+
     successes = testiterations-errors;
     $display("\n");
     $display("================Test Statistics=================");
