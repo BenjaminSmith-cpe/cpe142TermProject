@@ -1,19 +1,40 @@
+//
+// VCS configuration file
+//
+
+//enables post process debug utilities
 -PP 
+
+//VCS will build interactive debug capability into the simv executable
 -debug_all
+
+// Enables coverage metrics which tells what parts of the code have been exercised
+// FSM - Which states of finite state machines have been used
+// line - which lines of code have been used by test run
+// tgl - records which signals have been toggled in test rub
+// branch - which parts of if branches have been taken (superfluous with line?)
 -cm fsm+line+tgl+branch 
 
+//initialize all memory elements with random data at sim start
 +vcs+initreg+random 
 
+//enables system verilog
 -sverilog
 
+//REALLY verbose warning messages
 -notice 
 
+//check 
 -xzcheck nofalseneg
 
+//Always listen to lint... always
 +lint=all
 
-//-race
+//check for race conditions in TB assignments.. we like our sims nice and deterministic
+-race
 
+//suppress synopsys copywright message
 -q 
 
+//put log file in log folder because we're civilzed here.
 -l $PWD/logs/VCS.log 

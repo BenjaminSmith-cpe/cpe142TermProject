@@ -1,17 +1,30 @@
+//configuration
+//====================================================================================
+//Because everyone knows it's the bext verilog
 -sverilog 
 
+// -nc               : suppress Synopsys copyright message at beginning of log
 -nc 
 
 +v2k
 
+// +lint=all         : display all lint checks for code quality (noVCDE suppress messages about compiler directives)
 +lint=all,noVCDE
+
+// +warn=all         : always pay attention to warnings, they're there for a reason.
 +warn=all 
 
+// -l <path>         : vlogan will direct it's output messages to this file
 -l $PWD/logs/vlogan.log 
 
+//part of VCS implicit configuration. The top level file is the only
+//module reqired to be imported (packages and interfaces wont be resolved)
+//VCS will then search the -y directory for missing modules in file names
+//that have the module name with one of the libext extentions
 +libext+.sv+.v
 
-//search directories
+//library directories VCS will search when looking for unresolved modules
+//for implicit configuration Module name must match file name!!!!
 -y $PWD/source/Design
 -y $PWD/source/Verif
 
@@ -24,6 +37,7 @@ $PWD/source/Design/types_pkg.sv
 //Verif packages
 $PWD/source/Verif/tb_utils_pkg.sv 
 $PWD/source/Verif/tb_class_def.sv 
+
 
 //Top level files
 $PWD/source/Verif/system_tb.sv
