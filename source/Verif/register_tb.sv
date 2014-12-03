@@ -107,14 +107,14 @@ module register_tb();
         for(int i = 0; i < 16; i++) begin
             #2 
             if(test_data[i] != rd1)
-                $display("Fail RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);
+               $display("Fail RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);
             else 
-                $display("Success! RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);             
+                $display("Read Success! RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);            
 
             if(test_data[i] != rd2)
-                $display("Fail RD2! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);
+               $display("Fail RD2! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);
             else
-                $display("Success! RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);
+                $display("Read Success! RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);
             
             ra1 = i + 1;
             ra2 = i + 1;
