@@ -1,9 +1,9 @@
 module shift_one(
-	input wire	 [15:0] in,
+    input wire   [15:0] in,
 
-	output logic [15:0]	out
+    output logic [15:0] out
 );
 
-	assign out = {in << 1};
+    assign out = {in << 1};
 
-endmodule	
+endmodule   

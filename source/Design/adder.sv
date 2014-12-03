@@ -1,11 +1,11 @@
 module adder(
-	input logic 	[15:0] 	pc,
-	input logic 	[15:0]	offset,
+    input logic     [15:0]  pc,
+    input logic     [15:0]  offset,
 
-	output logic    [15:0]	sum
+    output logic    [15:0]  sum
 );
 
-	logic overflow; // If there is an overflow, that is bad!
+    logic overflow; // If there is an overflow, that is bad!
 
-	assign {overflow, sum} = pc + offset;
+    assign {overflow, sum} = pc + offset;
 endmodule

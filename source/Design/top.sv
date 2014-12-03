@@ -1,13 +1,13 @@
 module top (
-	input wire clk,
-	input wire rst
+    input wire clk,
+    input wire rst
 );
-	
-	import types_pkg::*;
-	import alu_pkg::*;
+    
+    import types_pkg::*;
+    import alu_pkg::*;
 
     //| Stage One
-    memc_t		    memc;
+    memc_t          memc;
     
     reg             s1_R0_en;
 
@@ -16,29 +16,29 @@ module top (
     reg             halt_sys;
     reg             stall;
     in_t            s1_alu_inputs;    
-    uword		    s1_R1_data; 
-    uword		    s1_instruction; 
-    uword		    s2_instruction; 
+    uword           s1_R1_data; 
+    uword           s1_instruction; 
+    uword           s2_instruction; 
     control_e       s1_alu_control;
     
     //| Stage Two
-    memc_t   		s2_memc;
+    memc_t          s2_memc;
     wire            s2_reg_wr;
 
        
     //| stage 3
     wire            s3_reg_wr;
-    memc_t   		s3_memc;
-    uword		    s3_R1_data;
-    uword		    s3_instruction;
+    memc_t          s3_memc;
+    uword           s3_R1_data;
+    uword           s3_instruction;
     wire    [31:0]  s3_data;
     reg             s3_R0_en;
-    reg				s1_haz2;
-    reg				s1_haz1;
+    reg             s1_haz2;
+    reg             s1_haz1;
     reg             s1_haz8;
     wire    [31:0]  s2_alu_result;
-    uword 			s2_R1_data;
-    integer 		s3_alu;
+    uword           s2_R1_data;
+    integer         s3_alu;
     stage_one st1(
         .clk(clk),
         .rst(rst),
@@ -49,7 +49,7 @@ module top (
         .s2_alu(s2_alu_result),
         .memc(memc),
 
-		.s3_reg_wr(s3_reg_wr),
+        .s3_reg_wr(s3_reg_wr),
         .s3_mem2r(s3_memc.mem2r),
 
         //outputs
@@ -65,9 +65,9 @@ module top (
         .out_R0_en(s1_R0_en),   
         .out_alu_ctrl(s1_alu_control),
         .out_instr(s1_instruction)
-	);
+    );
 
-	stage_two st2(
+    stage_two st2(
         .rst(rst),
         .clk(clk),
 
@@ -93,16 +93,16 @@ module top (
         .out_R1_data(s2_R1_data),  
         .out_R0_en(s3_R0_en),  
         .out_instr(s2_instruction)
-	);
+    );
 
     stage_three st3(
         .clk(clk),
         .rst(rst),
-		.memc(s2_memc),
-		.instruction(s2_instruction),
+        .memc(s2_memc),
+        .instruction(s2_instruction),
         .r1_data(s2_R1_data),
-        		
-		.halt_sys(halt_sys),
+                
+        .halt_sys(halt_sys),
         .alu(s3_alu),
         .out_memc(s3_memc),
         .r0_en(s3_R0_en),

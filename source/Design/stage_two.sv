@@ -25,9 +25,9 @@ module stage_two(
         output reg [15:0] out_instr
     );
     
-	import alu_pkg::*;
-	import types_pkg::*;
-	
+    import alu_pkg::*;
+    import types_pkg::*;
+    
     control_e alucontrol;
     status_t alustat;
     integer aluout;
@@ -68,8 +68,8 @@ module stage_two(
         .sel(haz1),    
         .in1(in_alu.a),
         .in2(s3_data[15:0]),
-    	.in3(16'b0),
-    	
+        .in3(16'b0),
+        
         .out(alu_muxed.a)
     );
     
@@ -80,8 +80,8 @@ module stage_two(
         .sel(haz2),    
         .in1(in_alu.b),
         .in2(s3_data[15:0]),
-    	.in3(16'b0),
-    	
+        .in3(16'b0),
+        
         .out(alu_muxed.b)
     );
     
