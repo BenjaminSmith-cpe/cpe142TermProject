@@ -4,7 +4,7 @@ This is a simple pipelined processor that implements a subset of the MIPS instru
 
 ##The basics:
 This is a three stage pipelined CPU. It is modeled in *pretty much* System Verilog. The CPU is modeled after this design drawing. 
-![Picture!](https://dl-web.dropbox.com/get/fall2014/CPE142/Term%20Project/142.jpg?_subject_uid=4419201&w=AACtCcFwGR1TC8CJRGYCr7-8OcfW355eR_fUy7zt2Fm5Kw)
+![Picture!](http://cl.ly/image/1K2m0Y0v310R)
 
 ## MIT Open!
 For some reason, if you would like to copy or redistribute the code in the repo go right ahead! All source code is released to the community under MIT open license. 
