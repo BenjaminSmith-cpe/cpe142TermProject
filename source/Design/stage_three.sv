@@ -42,7 +42,7 @@ module stage_three(
 
     //| Main Memory
     //| ============================================================================
-    mem_main main_amemory(
+    mem_main main_memory(
         .rst(rst),
         .clk(clk),
         .halt_sys(halt_sys),

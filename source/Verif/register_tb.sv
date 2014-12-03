@@ -4,7 +4,7 @@ import types_pkg::*;
 
 class reg_stim;
     
-    rand logic   [15:0]  memory_test_data;
+    rand logic   [15:0] memory_test_data;
     rand logic	 		halt;
     rand logic	 [3:0]	address;
     
@@ -109,12 +109,12 @@ module register_tb();
             if(test_data[i] != rd1)
                $display("Fail RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);
           	else 
-                $display("Success! RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);           	
+                $display("Read Success! RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);           	
 
         	if(test_data[i] != rd2)
                $display("Fail RD2! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);
       		else
-      			$display("Success! RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);
+      			$display("Read Success! RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);
         	
         	ra1 = i + 1;
         	ra2 = i + 1;
@@ -129,6 +129,7 @@ module register_tb();
         if(dut.registers[0] != 16'h55) 
         	$display("Fail R0! Address: %d -- data ex: %h rec: %h", 0, 16'h55, dut.registers[0]);
        	
+       	//check r0 read
        	R0_read = 1;
         #1 ;
         if(rd1 != 16'h55) 
