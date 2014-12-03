@@ -5,11 +5,11 @@ module alu(
     output alu_pkg::status_t   stat,
     output integer   out
 );
-	import alu_pkg::*;
+    import alu_pkg::*;
 
     logic carry;
-	logic signed [17:0] arith;
-	
+    logic signed [17:0] arith;
+    
     always_comb begin    
         case(control)
             OR  : out = {16'b0,in.a | in.b};
@@ -20,22 +20,22 @@ module alu(
             SHL : out = {16'b0,in.a <<< in.b};
             SHR : out = {16'b0,in.a >>> in.b};
             SUB : begin
-            	arith = in.a - in.b;
-            	out = {16'b0, arith[15:0]};
+                arith = in.a - in.b;
+                out = {16'b0, arith[15:0]};
             end
             ADD : begin
-            	arith = in.a + in.b;
-            	out = {16'b0, arith[15:0]};
+                arith = in.a + in.b;
+                out = {16'b0, arith[15:0]};
             end
             DIV : begin
                 if(in.b != 0) begin
-    	            out[15:0] = in.a / in.b;
-	                out[31:16] = in.a % in.b;
-	            end
-	            else begin
-	            	out = 32'b0;
-	            	assert(0);
-	            end
+                    out[15:0] = in.a / in.b;
+                    out[31:16] = in.a % in.b;
+                end
+                else begin
+                    out = 32'b0;
+                    assert(0);
+                end
             end
          endcase
     end
@@ -46,6 +46,6 @@ module alu(
         stat.overflow = (control == ADD || control == SUB) ? arith[17]^arith[16] : 1'b0; 
         
         if(control == MULT) stat.sign = out[31];
-        else 			    stat.sign = out[15];
+        else                stat.sign = out[15];
     end
 endmodule

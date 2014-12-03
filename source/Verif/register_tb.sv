@@ -4,33 +4,33 @@ import types_pkg::*;
 
 class reg_stim;
     
-    rand logic   [15:0] memory_test_data;
-    rand logic	 		halt;
-    rand logic	 [3:0]	address;
+    rand logic   [15:0]  memory_test_data;
+    rand logic          halt;
+    rand logic   [3:0]  address;
     
     function r();
-    	randomize();
+        randomize();
     endfunction
     
     function [15:0] get_data();
-	    return memory_test_data;
-	endfunction
-	
-	function get_halt();
-		return halt;
-	endfunction
-	
-	function [3:0] get_address();
-		return address;
-	endfunction
+        return memory_test_data;
+    endfunction
+    
+    function get_halt();
+        return halt;
+    endfunction
+    
+    function [3:0] get_address();
+        return address;
+    endfunction
 endclass
 
 module register_tb();
     import alu_pkg::*;
 
-	integer			errors;
-    integer			testiterations = 10000;
-    integer 		successes;
+    integer          errors;
+    integer          testiterations = 10000;
+    integer          successes;
     
     logic   [15:0]   test_reg[31:0];
 
@@ -55,9 +55,9 @@ module register_tb();
     mem_register dut(.*);
     reg_stim as = new;
         
- initial forever clk = #1 !clk;
-   		
-	initial begin
+    initial forever clk = #1 !clk;
+        
+    initial begin
         test_reg = '{default:0};
         rst = '0;
         clk = '0;
@@ -79,24 +79,24 @@ module register_tb();
         write_en = 1;
         
         // load memory with test data
-	    for(int i = 0; i < 16; i++) begin
-        	   as.r();
-        	   test_data[i] = as.get_data();
+        for(int i = 0; i < 16; i++) begin
+               as.r();
+               test_data[i] = as.get_data();
                write_data = as.get_data();
                write_address = i;
                #4 ;
         end
         write_en = 0;
-	    #2 ;
-	    for(int i = 0; i < 16; i++) begin
-        	   if(test_data[i] != dut.registers[i]) 
-        	   	$display("Fail Write! Address: %d -- data ex: %h rec: %h", i, test_data[i], dut.registers[i]);
+        #2 ;
+        for(int i = 0; i < 16; i++) begin
+               if(test_data[i] != dut.registers[i]) 
+                $display("Fail Write! Address: %d -- data ex: %h rec: %h", i, test_data[i], dut.registers[i]);
         end
-		
-		//|check stalling mechanism
-		halt_sys = 1;
+        
+        //|check stalling mechanism
+        halt_sys = 1;
         // try to overwrite data with 1s
-	    for(int i = 0; i < 16; i++) begin
+        for(int i = 0; i < 16; i++) begin
                write_data = 16'b1;
                write_address = i;
                #4 ;
@@ -108,34 +108,34 @@ module register_tb();
             #2 
             if(test_data[i] != rd1)
                $display("Fail RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);
-          	else 
-                $display("Read Success! RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);           	
+            else 
+                $display("Read Success! RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);            
 
-        	if(test_data[i] != rd2)
+            if(test_data[i] != rd2)
                $display("Fail RD2! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);
-      		else
-      			$display("Read Success! RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);
-        	
-        	ra1 = i + 1;
-        	ra2 = i + 1;
-		end
-		
-		//check r0 write
-		write_address = 10;
-		write_data = 32'h555555;
-		write_en = 1;
-		R0_en = 1; 
-		#4
+            else
+                $display("Read Success! RD1! Address: %d -- data ex: %h rec: %h", i, test_data[i], rd1);
+            
+            ra1 = i + 1;
+            ra2 = i + 1;
+        end
+        
+        //check r0 write
+        write_address = 10;
+        write_data = 32'h555555;
+        write_en = 1;
+        R0_en = 1; 
+        #4
         if(dut.registers[0] != 16'h55) 
-        	$display("Fail R0! Address: %d -- data ex: %h rec: %h", 0, 16'h55, dut.registers[0]);
-       	
-       	//check r0 read
-       	R0_read = 1;
+            $display("Fail R0! Address: %d -- data ex: %h rec: %h", 0, 16'h55, dut.registers[0]);
+        
+        //check r0 read
+        R0_read = 1;
         #1 ;
         if(rd1 != 16'h55) 
-        	$display("Fail read R0! Address: %d -- data ex: %h rec: %h", 0, 16'h55, rd1);   
+            $display("Fail read R0! Address: %d -- data ex: %h rec: %h", 0, 16'h55, rd1);   
         #1 R0_read = 0;
-        #2 ;    	
-	$finish;	
-	end	
+        #2 ;        
+    $finish;    
+    end 
 endmodule
