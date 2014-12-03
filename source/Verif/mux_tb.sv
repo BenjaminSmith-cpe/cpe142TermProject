@@ -94,6 +94,7 @@ module mux_tb();
         #1
             // input_b should be on the output
             if(output_a != input_b) failure_counta++;
+            
 
         #5  size = 32'd16;
             is3way = 1'b1;
@@ -101,6 +102,8 @@ module mux_tb();
         #1
             // input_c should be on the output
             if(output_a != input_c) failure_counta++;
+            if(output_b != input_b) failure_countb++;
+            if(output_c != input_b[1:0]) failure_countc++;
         #5  
         $display("Number of unexpected results for a: %d", failure_counta);
         $display("Number of unexpected results for b: %d", failure_countb);
