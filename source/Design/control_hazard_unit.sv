@@ -56,7 +56,8 @@ module control_hazard_unit(
 	// An Arithmetic operation is followed directly by a
 	// branch instruction
 	assign haz4 = ((opcode == BE)||(opcode == BLT)||(opcode == BGT))
-					&&((s2_opcode == ARITHM));
+					&&((s2_opcode == ARITHM))
+					&&(r1 == s2_r1);
 	assign haz[4] = (haz4) ? 1'b1: 1'b0;
 	
 	// LOAD is followed directly, or second instruction, by a

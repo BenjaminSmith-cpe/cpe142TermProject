@@ -422,6 +422,13 @@ begin the design process with a through understanding of what hardware is to per
     \end{figure*}
     \FloatBarrier
 
+	\section{Simulation and Verification}
+	\subsection{Term Project Status Report}
+	We should import the PDF HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+	\subsection{Expected Results}
+	We were given a small amount of assembly code to test our processor. 
+	\lstinputlisting{../Paper/listings/program.asm}
     \section{Design Source Code}
         \subsubsection{Stage One}
         \lstinputlisting{../source/Design/alu.sv}
@@ -439,8 +446,7 @@ begin the design process with a through understanding of what hardware is to per
         \lstinputlisting{../source/Design/mem_program.sv}
         \lstinputlisting{../source/Design/mem_register.sv}
         \lstinputlisting{../source/Design/mux.sv}
-        \lstinputlisting{../source/Design/reg_pipe_stage_a.sv}
-        \lstinputlisting{../source/Design/reg_pipe_stage_b.sv}
+  
         \lstinputlisting{../source/Design/reg_program_counter.sv}
         \lstinputlisting{../source/Design/shift_one.sv}
         
@@ -456,8 +462,7 @@ begin the design process with a through understanding of what hardware is to per
         \lstinputlisting{../source/Verif/alu_tb.sv}
         \lstinputlisting{../source/Verif/register_tb.sv}
         \lstinputlisting{../source/Verif/system_tb.sv}
-        \lstinputlisting{../source/Verif/tb_class_def.sv}
-        \lstinputlisting{../source/Verif/tb_utils_pkg.sv}
+
     
     \section{Build Scripts and utilities}
         \lstinputlisting[language = bash, label = imuangle]{../runsim.sh}
