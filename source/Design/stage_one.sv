@@ -9,6 +9,8 @@ module stage_one(
 
         input wire [31:0]   s2_alu,
         input wire [31:0]   s3_data,
+        input wire          div0,
+        input wire          overflow,
         
         input wire          s3_reg_wr,
         input wire          s3_mem2r,
@@ -167,8 +169,8 @@ module stage_one(
     control_main Control_unit(
         .opcode(opcode),
         .func(func_code),
-        .div0(1'b0),
-        .overflow(1'b0),
+        .div0(div0),
+        .overflow(overflow),
 
         .ALUop(ALUop),
         .offset_sel(offset_sel),

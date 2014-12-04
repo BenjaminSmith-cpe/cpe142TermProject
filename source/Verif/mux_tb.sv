@@ -10,8 +10,7 @@ typedef enum{
 module mux_tb();
     import alu_pkg::*;
     import types_pkg::*;
-    import tb_utils_pkg::*;
-    import tb_class_def::*;
+
     
     integer             testiteration = 0;
     integer             failure_counta = 0;

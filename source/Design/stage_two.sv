@@ -22,14 +22,14 @@ module stage_two(
         output reg [31:0] out_alu_result,
         output reg [15:0] out_R1_data,  
         output reg out_R0_en,  
-        output reg [15:0] out_instr
+        output reg [15:0] out_instr,
+        output alu_pkg::status_t out_alu_stat
     );
     
     import alu_pkg::*;
     import types_pkg::*;
     
     control_e alucontrol;
-    status_t alustat;
     integer aluout;
     reg     [15:0]  in_R1_data_muxed;
 
@@ -102,7 +102,7 @@ module stage_two(
     alu main_alu(
         .in     (alu_muxed),
         .control(alu_control),
-        .stat   (alustat),
+        .stat   (out_alu_stat),
         .out    (aluout)
     );
 

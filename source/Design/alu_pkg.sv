@@ -21,6 +21,7 @@ package alu_pkg;
         logic   sign;
         logic   overflow;
         logic   zero;
+        logic   div0;
     } status_t;
 
     // Status flags for ALU
