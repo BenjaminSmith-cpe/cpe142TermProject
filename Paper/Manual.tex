@@ -416,7 +416,105 @@ begin the design process with a through understanding of what hardware is to per
     The third stage of this pipelined processor handles memory references and writes back to the
     register file as seen in stage 3. The main logic of this stage is contained in the 
     main memory unit which is described in section two of this document.
-    \FloatBarrier
+
+	\section{Simulation and Verification}
+        \subsection{Expected Results}
+        We were given a small amount of assembly code to test our processor. We also
+        received the initial values for the register file and main memory. 
+        \lstinputlisting{../Paper/listings/program.asm}
+
+        \begin{table}[htbp]
+           \caption{Register File Contents}
+           \label{regfi}
+           \centering
+           \begin{tabular}{ c | c }
+           Register         & Expected \\
+           \hline
+           R1  &   0F00        \\
+           R2  &   0050        \\
+           R3  &   FF0F        \\
+           R4  &   F0FF        \\
+           R5  &   0040        \\
+           R6  &   0024        \\
+           R7  &   00FF        \\
+           R8  &   AAAA        \\
+           R9  &   0000        \\
+           R10 &   0000        \\
+           R11 &   0000        \\
+           R12 &   FFFF        \\
+           R13 &   0002        \\
+           \end{tabular}
+        \end{table}
+
+        \begin{table}[htbp]
+           \caption{Main Memory Contents}
+           \label{mainme}
+           \centering
+           \begin{tabular}{ c | c }
+           Address         & Contents   \\
+           \hline
+           00  &   2BCD                 \\
+           All Others  &   0000         \\
+           
+           \end{tabular}
+        \end{table}
+
+        From the assembly code, we were able to translate it to binary program data 
+        to be loaded into program memory. We used the following file to load the program memory.
+        \lstinputlisting{../source/Verif/program_memory.hex}
+
+        After determining what the given program code would do by hand, we had a good idea of
+        what to look for. We were able to verify the end contents of the memory module and register file as seen in Table \ref{results}.
+
+        %\lstinputlisting{../Paper/listings/program_breakdown.txt}
+
+        \begin{table}[htbp]
+        	   \caption{Final Register File Contents}
+        	   \label{results}
+        	   \centering
+        	   \begin{tabular}{ c | c | c}
+        	   Register         & Expected & Simulated   \\
+        	   \hline
+        	   R1  &   0001     &   0001        \\
+               R2  &   0050     &   0050        \\
+               R3  &   0050     &   0050        \\
+               R4  &   21FE     &   21FE        \\
+               R5  &   0900     &   0900        \\
+               R6  &   0012     &   0012        \\
+               R7  &   00FF     &   00FF        \\
+               R8  &   597A     &   597A        \\
+               R9  &   0000     &   0000        \\
+               R10 &   597A     &   597A        \\
+               R11 &   0051     &   0051        \\
+               R12 &   FFFE     &   FFFE        \\
+               R13 &   0002     &   0002        \\
+        	   \end{tabular}
+        	\end{table}
+            \begin{table}[htbp]
+               \caption{Final Main Memory Contents}
+               \label{fmainme}
+               \centering
+               \begin{tabular}{ c | c | c }
+               Address         & Expected & Results    \\
+               \hline
+               00  &   2BCD            \\
+               02  &   597A            \\
+               All Others  &   0000    \\
+               
+               \end{tabular}
+            \end{table}
+            The assignment prompt said to display every important signal at the falling
+            edge of the clock for the entire program. The test bench will output these values
+            during simulation. This is far too much data to print on paper.
+             
+            The give assembly program program will branch on the 16th instruction BGT which will skip 2 instructions. The program should halt on the 24th instruction because it is an unknown
+            opcode which means the last two instructions will not finish.
+            With this information we determined only 21 full instructions will run from start to finish. With 3 stages that should take 23 cycles.
+            Our test bench system\_tb shows the halt to occur on the 23rd cycle. 
+
+
+            \textbf{The main testbench in system\_tb.sv contains many singular tests up until 282ps. This is where the main assembly program starts running. }
+        
     \newpage  
     \begin{figure*}[htpb]
         \centering
@@ -430,13 +528,9 @@ begin the design process with a through understanding of what hardware is to per
     \onecolumn
 
 	\section{Simulation and Verification}
-<<<<<<< HEAD
-
-=======
 	\subsection{Term Project Status Report}
 	We should import the PDF HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	
->>>>>>> parent of 9d87184... More changes to report
 	\subsection{Expected Results}
 	We were given a small amount of assembly code to test our processor. We also
 	received the initial values for the register file and main memory. 
