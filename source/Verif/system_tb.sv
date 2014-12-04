@@ -166,12 +166,14 @@ module system_tb();
         else $display("Memory check Passed! memory[2] value = %h expected 579a", memcheck2);
         $finish;
     end
-
+	
+	integer cycle = 0;
     always @ (negedge clock) begin
         if(SimPhase == FULLTEST) begin
+        	cycle++;
             //PC, ADDERS, MEMORY, REGISTER FILE, ALU, and pipeline buffers (inputs and output)
             $display("\n\n");
-            $display("Current CPU State =================================================");
+            $display("Current CPU State ====Cycle: %2d====================================", cycle);
             $display("Pipe Stage One ----------------------------------------------------");
             $display("stall        :%b"     , dut.st1.stall);
             $display("halt_sys     :%b"     , dut.st1.halt_sys);
@@ -228,7 +230,9 @@ module system_tb();
             $display("in_reg_wr - %b "      , dut.st2.in_reg_wr);
             
             $display("alucontrol - %s"      , dut.st2.alucontrol);
-            $display("alustat - %b"         , dut.st2.alustat);
+            $display("alu overflow - %b"    , dut.st2.alustat.sign);
+            $display("alu sign - %b"        , dut.st2.alustat.overflow);
+			$display("alu zero- %b"         , dut.st2.alustat.zero);
 
             $display("");
             $display("out_reg_wr - %b "     , dut.st2.out_reg_wr);
@@ -239,7 +243,7 @@ module system_tb();
             $display("out_R0_en - %b "      , dut.st2.out_R0_en);
             $display("out_instr - %b "      , dut.st2.out_instr);
 
-            $display("Pipe Stage Three ----------------------------------------------------");
+            $display("Pipe Stage Three --------------------------------------------------");
             $display("instruction - %b"     , dut.st3.instruction);
             $display("alu - %b"             , dut.st3.alu);
             $display("memc - %b"            , dut.st3.memc.mem2r);
