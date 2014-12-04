@@ -40,118 +40,115 @@ module system_tb();
         #8 reset = 0;
         
 
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/program_memory_blank.hex", dut.st1.program_memory.memory);
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
+        $readmemh("source/Verif/program_memory_blank.hex", dut.st1.program_memory.memory);
+        $readmemh("source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
         #1 SimPhase = IDLE;
            reset = 1;
         #1 reset = 0;
         
         #19
         
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/haz0.hex", dut.st1.program_memory.memory);
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
+        $readmemh("source/Verif/haz0.hex", dut.st1.program_memory.memory);
+        $readmemh("source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
         SimPhase = HAZ0;
            reset = 1;
         #1 reset = 0;
         
         #19
         
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/haz1.hex", dut.st1.program_memory.memory);
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
+        $readmemh("source/Verif/haz1.hex", dut.st1.program_memory.memory);
+        $readmemh("source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
         SimPhase = HAZ1;
            reset = 1;
         #1 reset = 0;
         
         #19
         
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/haz2.hex", dut.st1.program_memory.memory);
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
+        $readmemh("source/Verif/haz2.hex", dut.st1.program_memory.memory);
+        $readmemh("source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
         SimPhase = HAZ2;
            reset = 1;
         #1 reset = 0;
         
         #19
         
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/haz3.hex", dut.st1.program_memory.memory);
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
+        $readmemh("source/Verif/haz3.hex", dut.st1.program_memory.memory);
+        $readmemh("source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
         SimPhase = HAZ3;
            reset = 1;
         #1 reset = 0;
         
         #19
         
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/haz4.hex", dut.st1.program_memory.memory);
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
+        $readmemh("source/Verif/haz4.hex", dut.st1.program_memory.memory);
+        $readmemh("source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
         SimPhase = HAZ4;
            reset = 1;
         #1 reset = 0;
         
         #19     
         
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/haz5.hex", dut.st1.program_memory.memory);
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
+        $readmemh("source/Verif/haz5.hex", dut.st1.program_memory.memory);
+        $readmemh("source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
         SimPhase = HAZ5;
            reset = 1;
         #1 reset = 0;
         
         #19     
         
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/haz6.hex", dut.st1.program_memory.memory);
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
+        $readmemh("source/Verif/haz6.hex", dut.st1.program_memory.memory);
+        $readmemh("source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
         SimPhase = HAZ6;
            reset = 1;
         #1 reset = 0;
         
         #19     
         
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/haz7.hex", dut.st1.program_memory.memory);
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
+        $readmemh("source/Verif/haz7.hex", dut.st1.program_memory.memory);
+        $readmemh("source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
         SimPhase = HAZ7;
            reset = 1;
         #1 reset = 0;
         
         #19     
         
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/haz8.hex", dut.st1.program_memory.memory);
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
+        $readmemh("source/Verif/haz8.hex", dut.st1.program_memory.memory);
+        $readmemh("source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
         SimPhase = HAZ8;
            reset = 1;
         #1 reset = 0;
         
         #19     
         
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/haz9.hex", dut.st1.program_memory.memory);
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
+        $readmemh("source/Verif/haz9.hex", dut.st1.program_memory.memory);
+        $readmemh("source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
         SimPhase = HAZ9;
            reset = 1;
         #1 reset = 0;
         
         #19     
         
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/haz10.hex", dut.st1.program_memory.memory);
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
+        $readmemh("source/Verif/haz10.hex", dut.st1.program_memory.memory);
+        $readmemh("source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
         SimPhase = HAZ10;
            reset = 1;
         #1 reset = 0;
         
         #19     
 
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/stall.hex", dut.st1.program_memory.memory);
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
+        $readmemh("source/Verif/stall.hex", dut.st1.program_memory.memory);
+        $readmemh("source/Verif/register_memory_blank.hex", dut.st1.register_file.zregisters);      
         SimPhase = STALL;
            reset = 1;
         #1 reset = 0;
         
         #19     
-        #1 reset = 0;
-        #1 reset = 1;
-        #1 reset = 0; 
-        #6                
+                        
         //| official test program
         SimPhase = FULLTEST;
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/program_memory.hex", dut.st1.program_memory.memory);
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/register_memory.hex", dut.st1.register_file.zregisters);
-        $readmemh("C:/Users/devin/Documents/GitHub/cpe142TermProject/source/Verif/main_memory.hex", dut.st3.main_memory.shadow_memory);
+        $readmemh("source/Verif/program_memory.hex", dut.st1.program_memory.memory);
+        $readmemh("source/Verif/register_memory.hex", dut.st1.register_file.zregisters);
+        $readmemh("source/Verif/main_memory.hex", dut.st3.main_memory.shadow_memory);
         #1 reset = 0;
         #1 reset = 1;
         #1 reset = 0;       
@@ -231,7 +228,6 @@ module system_tb();
             $display("in_reg_wr - %h "      , dut.st2.in_reg_wr);
             
             $display("alucontrol - %s"      , dut.st2.alucontrol);
-<<<<<<< HEAD
             $display("alu overflow - %h"    , dut.st2.out_alu_stat.sign);
             $display("alu sign - %h"        , dut.st2.out_alu_stat.overflow);
 			$display("alu zero- %h"         , dut.st2.out_alu_stat.zero);
@@ -248,7 +244,6 @@ module system_tb();
             $display("alu sign - %b"        , dut.st2.out_alu_stat.overflow);
 			$display("alu zero- %b"         , dut.st2.out_alu_stat.zero);
 
->>>>>>> dcdd64061149951ed816358fb4f294144f7da988
             $display("");
             $display("Pipe Stage Three --------------------------------------------------");
             $display("instruction - %h"     , dut.st3.instruction);
