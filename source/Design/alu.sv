@@ -42,6 +42,7 @@ module alu(
 
     always_comb begin:flag_logic
         stat.zero = !(|out);
+        stat.div0 = ((control == DIV)&&(in.b == 32'd0)) ? 1'b1 : 1'b0;
         
         stat.overflow = (control == ADD || control == SUB) ? arith[17]^arith[16] : 1'b0; 
         

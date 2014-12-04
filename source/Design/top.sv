@@ -24,7 +24,7 @@ module top (
     //| Stage Two
     memc_t          s2_memc;
     wire            s2_reg_wr;
-
+    status_t        stat;
        
     //| stage 3
     wire            s3_reg_wr;
@@ -39,6 +39,8 @@ module top (
     wire    [31:0]  s2_alu_result;
     uword           s2_R1_data;
     integer         s3_alu;
+    
+
     stage_one st1(
         .clk(clk),
         .rst(rst),
@@ -48,7 +50,8 @@ module top (
         .s3_R0_en(s3_R0_en),
         .s2_alu(s2_alu_result),
         .memc(memc),
-
+        .div0(stat.div0),
+        .overflow(stat.overflow),
         .s3_reg_wr(s3_reg_wr),
         .s3_mem2r(s3_memc.mem2r),
 
@@ -58,7 +61,8 @@ module top (
         .out_reg_wr(s2_reg_wr),  
         .halt_sys(halt_sys),
         .stall(stall),
-        .out_alu(s1_alu_inputs),    
+        .out_alu(s1_alu_inputs), 
+
         .out_haz1(s1_haz1),    
         .out_haz2(s1_haz2),    
         .out_haz8(s1_haz8),
@@ -90,6 +94,7 @@ module top (
         .out_memc(s2_memc),
         .out_alu_result(s2_alu_result),  // for reg forwarding
         .out_alu(s3_alu),  
+        .out_alu_stat(stat),
         .out_R1_data(s2_R1_data),  
         .out_R0_en(s3_R0_en),  
         .out_instr(s2_instruction)
