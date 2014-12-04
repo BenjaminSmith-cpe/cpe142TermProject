@@ -8,13 +8,6 @@ Doing common elaboration
 Note-[I_OPTS] Ignoring -I option
   Ignoring -I option, using -PP option
 
-
-Lint-[CAWM-L] Width mismatch
-/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv, 13
-  Continuous assignment width mismatch
-  32 bits (lhs) versus 48 bits (rhs).
-  Source info: assign vcstemp = {16'b0, ({in.a, in.a} << (in.b % 16))};  
-
 VCS Coverage Metrics Release I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
 ***** Warning: +memcbk/-debug* will not enable toggle coverage on MDA please use -cm_tgl mda to enable it
 9 modules and 0 UDP read.

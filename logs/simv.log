@@ -1,7 +1,7 @@
 Command: ./simv -l /gaia/class/cs1421/cs142130/cpe142/logs/simv.log -cm fsm+line+tgl+branch -cg_coverage_control=1
 Chronologic VCS simulator copyright 1991-2014
 Contains Synopsys proprietary information.
-Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Dec  4 14:27 2014
+Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Dec  4 15:42 2014
 VCD+ Writer I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
 
 Warning-[STASKW_CO1] Cannot open file
@@ -2475,5 +2475,5 @@ VCS Coverage Metrics: during simulation line, FSM, branch, tgl was monitored
 ---------------------------------------------------------------------------
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 334
-CPU Time:      0.800 seconds;       Data structure size:   4.0Mb
-Thu Dec  4 14:27:58 2014
+CPU Time:      1.160 seconds;       Data structure size:   4.0Mb
+Thu Dec  4 15:42:56 2014

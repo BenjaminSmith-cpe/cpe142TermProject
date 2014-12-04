@@ -11,7 +11,7 @@ module alu(
     output integer   out                // 32 bit output
 );
     import alu_pkg::*;
-	integer vcstemp; //required because VCS does not support concat bit slicing.. booooo
+	logic [47:0] vcstemp; //required because VCS does not support concat bit slicing.. booooo
     logic carry;
     logic signed [17:0] arith;
     
