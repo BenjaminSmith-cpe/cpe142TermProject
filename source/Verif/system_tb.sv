@@ -227,6 +227,9 @@ module system_tb();
             $display("s3_data - %b "        , dut.st2.s3_data);
             $display("in_reg_wr - %b "      , dut.st2.in_reg_wr);
             
+            $display("alucontrol - %s"      , dut.st2.alucontrol);
+            $display("alustat - %b"         , dut.st2.alustat);
+
             $display("");
             $display("out_reg_wr - %b "     , dut.st2.out_reg_wr);
             $display("out_memc - %b "       , dut.st2.out_memc.mem2r);
