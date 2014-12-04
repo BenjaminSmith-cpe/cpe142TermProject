@@ -430,12 +430,7 @@ begin the design process with a through understanding of what hardware is to per
    
 
 	\section{Simulation and Verification}
-	\subsection{Term Project Status Report}
-	\onecolumn
-	
-    \includepdf[pages={1-},scale=0.75]{./figures/status_report.pdf}
-    
-	\twocolumn
+
 	\subsection{Expected Results}
 	We were given a small amount of assembly code to test our processor. We also
 	received the initial values for the register file and main memory. 
@@ -483,6 +478,8 @@ begin the design process with a through understanding of what hardware is to per
     After determining what the given program code would do by hand, we had a good idea of
     what to look for. We were able to verify the end contents of the memory module and register file as seen in Table \ref{results}.
     
+    \lstinputlisting{../Paper/listings/program_breakdown.txt}
+    
 	\begin{table}[htbp]
 		   \caption{Final Register File Contents}
 		   \label{results}
@@ -527,8 +524,17 @@ begin the design process with a through understanding of what hardware is to per
 	    With this information we determined only 21 full instructions will run from start to finish. With 3 stages that should take 23 cycles.
 	    Our test bench system\_tb shows the halt to occur on the 23rd cycle. 
 
+
         \textbf{The main testbench in system\_tb.sv contains many singular tests up until 282ps. This is where the main assembly program starts running. }
-\onecolumn
+        
+        
+
+	\subsection{Term Project Status Report}
+	\onecolumn
+	
+    \includepdf[pages={1-},scale=0.75]{./figures/status_report.pdf}
+    
+
     \section{Design Source Code}
         \subsection{Top Level}
         \lstinputlisting{../source/Design/top.sv}
