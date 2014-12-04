@@ -15,6 +15,9 @@
 \input{./Library/Title_Page.tex}
 \input{./Library/TOC.tex}
 
+\refstepcounter{section}%
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}Status Report}%
+
 \includepdf[pages={1}]{figures/status_report.pdf}
 \newpage
 \includepdf[pages={2}]{figures/status_report.pdf}
@@ -514,23 +517,8 @@ begin the design process with a through understanding of what hardware is to per
 
 
             \textbf{The main testbench in system\_tb.sv contains many singular tests up until 282ps. This is where the main assembly program starts running. }
-        
-    \newpage  
-    \begin{figure*}[htpb]
-        \centering
-        \includegraphics[angle=90,width=.68\textwidth]{./figures/142.pdf}
-        \caption{Pipeline Organization}
-        \label{fullschematic}
-    \end{figure*}
-    \FloatBarrier
-
-
-    \onecolumn
 
 	\section{Simulation and Verification}
-	\subsection{Term Project Status Report}
-	We should import the PDF HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	
 	\subsection{Expected Results}
 	We were given a small amount of assembly code to test our processor. We also
 	received the initial values for the register file and main memory. 
@@ -571,15 +559,12 @@ begin the design process with a through understanding of what hardware is to per
        \end{tabular}
     \end{table}
     
-    From the assembly code, we were able to translate it to binary program data 
-    to be loaded into program memory. We used the following file to load the program memory.
+    From the assembly code, we were able to translate it to binary program data to be loaded into program memory. We used the following file to load the program memory.
     \lstinputlisting{../source/Verif/program_memory.hex}
-<<<<<<< HEAD
     
-    After determining what the given program code would do by hand, we had a good idea of
-    what to look for. We were able to verify the end contents of the memory module and register file as seen in Table \ref{results}.
+    After determining what the given program code would do by hand, we had a good idea of what to look for. We were able to verify the end contents of the memory module and register file as seen in Table \ref{results}.
     
-    \lstinputlisting{../Paper/listings/program_breakdown.txt}
+    % \lstinputlisting{../Paper/listings/program_breakdown.txt}
     
 	\begin{table}[htbp]
 		   \caption{Final Register File Contents}
@@ -613,9 +598,9 @@ begin the design process with a through understanding of what hardware is to per
 	       00  &   2BCD            \\
            02  &   597A            \\
 	       All Others  &   0000    \\
-	       
 	       \end{tabular}
 	    \end{table}
+
 	    The assignment prompt said to display every important signal at the falling
 	    edge of the clock for the entire program. The test bench will output these values
 	    during simulation. This is far too much data to print on paper.
@@ -625,19 +610,17 @@ begin the design process with a through understanding of what hardware is to per
 	    With this information we determined only 21 full instructions will run from start to finish. With 3 stages that should take 23 cycles.
 	    Our test bench system\_tb shows the halt to occur on the 23rd cycle. 
 
-
         \textbf{The main testbench in system\_tb.sv contains many singular tests up until 282ps. This is where the main assembly program starts running. }
-        
-        
 
-	\subsection{Term Project Status Report}
+    \newpage  
+    \begin{figure*}[htpb]
+        \centering
+        \includegraphics[angle=90,width=.63\textwidth]{./figures/142.pdf}
+        \caption{Full CPU Pipeline Diagram}
+        \label{fullschematic}
+    \end{figure*}
+    \FloatBarrier
 	\onecolumn
-	
-    \includepdf[pages={1-},scale=0.75]{./figures/status_report.pdf}
-    
-=======
-	
->>>>>>> parent of 9d87184... More changes to report
 
     \section{Design Source Code}
         \subsection{Top Level}
