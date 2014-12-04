@@ -15,10 +15,10 @@ module alu(
             OR  : out = {16'b0,in.a | in.b};
             AND : out = {16'b0,in.a & in.b};
             MULT: out = in.a * in.b;
-            ROL : out = {16'b0,({in.a, in.a} << in.b%16)};
+            ROL : out = {16'b0,({in.a, in.a} << in.b%16)}[31:16];
             ROR : out = {16'b0,({in.a, in.a} >> in.b%16)};
-            SHL : out = {16'b0,in.a <<< in.b};
-            SHR : out = {16'b0,in.a >>> in.b};
+            SHL : out = {16'b0,in.a << in.b};
+            SHR : out = {16'b0,in.a >> in.b};
             SUB : begin
                 arith = in.a - in.b;
                 out = {16'b0, arith[15:0]};

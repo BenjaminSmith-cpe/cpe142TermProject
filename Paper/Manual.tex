@@ -426,7 +426,58 @@ begin the design process with a through understanding of what hardware is to per
     \end{figure*}
     \FloatBarrier
 
+
     \onecolumn
+
+	\section{Simulation and Verification}
+	\subsection{Term Project Status Report}
+	We should import the PDF HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+	\subsection{Expected Results}
+	We were given a small amount of assembly code to test our processor. We also
+	received the initial values for the register file and main memory. 
+	\lstinputlisting{../Paper/listings/program.asm}
+	
+	\begin{table}[htbp]
+	   \caption{Register File Contents}
+	   \label{regfi}
+	   \centering
+	   \begin{tabular}{ c | c }
+	   Register         & Contents    \\
+	   \hline
+	   R1  &   0F00        \\
+       R2  &   0050        \\
+       R3  &   FF0F        \\
+       R4  &   F0FF        \\
+       R5  &   0040        \\
+       R6  &   0024        \\
+       R7  &   00FF        \\
+       R8  &   AAAA        \\
+       R9  &   0000        \\
+       R10 &   0000        \\
+       R11 &   0000        \\
+       R12 &   FFFF        \\
+       R13 &   0002        \\
+	   \end{tabular}
+	\end{table}
+    \begin{table}[htbp]
+       \caption{Main Memory Contents}
+       \label{mainme}
+       \centering
+       \begin{tabular}{ c | c }
+       Address         & Contents    \\
+       \hline
+       00  &   2BCD        \\
+       All Others  &   0000        \\
+       
+       \end{tabular}
+    \end{table}
+    
+    From the assembly code, we were able to translate it to binary program data 
+    to be loaded into program memory. We used the following file to load the program memory.
+    \lstinputlisting{../source/Verif/program_memory.hex}
+	
+
     \section{Design Source Code}
         \subsection{Top Level}
         \lstinputlisting{../source/Design/top.sv}
