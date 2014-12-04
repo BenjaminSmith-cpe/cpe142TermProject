@@ -1,0 +1,2342 @@
+Command: ./simv -l /gaia/class/cs1421/cs142130/cpe142/logs/simv.log -cm fsm+line+tgl+branch -cg_coverage_control=1
+Chronologic VCS simulator copyright 1991-2014
+Contains Synopsys proprietary information.
+Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Dec  3 19:55 2014
+VCD+ Writer I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
+
+
+
+Current CPU State ====Cycle:  1====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :00000000000000100000000000000010
+out_haz1     :1
+out_haz2     :1
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1011
+out_instr    :0000010000101011
+out_R1_data  :0000000000000010
+memc         :0
+instruction - 0000011000111001
+PC_address - 0000000000010010
+opcode - 0000
+func_code - 1001
+offset_sel - 01
+offset_se - 1111111111111001
+offset_shifted - 1111111111110010
+cmp_a - 0000000000000000
+cmp_b - 0000000000000000
+cmp_result - 10
+PC_no_jump - 0000000000010100
+PC_jump - 0000000000000110
+PC_next - 0000000000010100
+R1_data - 0000000000000000
+R1_data_muxed - 0000000000000000
+r2_data - 0000000000000000
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000010 
+in_alu b- 0000000000000010 
+alu_control - 1011 
+in_R1_data - 0000000000000010 
+in_R0_en - 0 
+in_instr - 0000010000101011 
+haz1 - 1 
+haz2 - 1 
+haz8 - 0 
+s3_data - 00000000000000000000000000000010 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000000000000000000000010 
+out_alu_result - 00000000000000000000000000000000 
+out_R1_data - 0000000000000010 
+out_R0_en - 0 
+out_instr - 0000000000000000 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000000000000000
+alu - 00000000000000000000000000000010
+memc - 0
+r1_data - 0000000000000010
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000000000000000000010
+r1_data_out - 0000000000000010
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000000000000000
+===================================================================
+
+
+
+Current CPU State ====Cycle:  2====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :0
+out_alu      :00000000000000000000000000000000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :0000000000000000
+out_R1_data  :0000000000000000
+memc         :0
+instruction - 0000000100101111
+PC_address - 0000000000000000
+opcode - 0000
+func_code - 1111
+offset_sel - 00
+offset_se - 0000000100101111
+offset_shifted - 0000001001011110
+cmp_a - 0000111100000000
+cmp_b - 0000000001010000
+cmp_result - 00
+PC_no_jump - 0000000000000010
+PC_jump - 0000001001100000
+PC_next - 0000000000000010
+R1_data - 0000111100000000
+R1_data_muxed - 0000111100000000
+r2_data - 0000000001010000
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000000 
+in_alu b- 0000000000000000 
+alu_control - 1111 
+in_R1_data - 0000000000000000 
+in_R0_en - 0 
+in_instr - 0000000000000000 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000000000000000 
+in_reg_wr - 0 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
+
+out_reg_wr - 0 
+out_memc - 0 
+out_alu - 00000000000000000000000000000000 
+out_alu_result - 00000000000000000000000000000000 
+out_R1_data - 0000000000000000 
+out_R0_en - 0 
+out_instr - 0000000000000000 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000000000000000
+alu - 00000000000000000000000000000000
+memc - 0
+r1_data - 0000000000000000
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000000000000000000000
+r1_data_out - 0000000000000000
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000000000000000
+===================================================================
+
+
+
+Current CPU State ====Cycle:  3====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :00001111000000000000000001010000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :0000000100101111
+out_R1_data  :0000111100000000
+memc         :0
+instruction - 0000000100101110
+PC_address - 0000000000000010
+opcode - 0000
+func_code - 1110
+offset_sel - 00
+offset_se - 0000000100101110
+offset_shifted - 0000001001011100
+cmp_a - 0000111100000000
+cmp_b - 0000000001010000
+cmp_result - 00
+PC_no_jump - 0000000000000100
+PC_jump - 0000001001100000
+PC_next - 0000000000000100
+R1_data - 0000111100000000
+R1_data_muxed - 0000111100000000
+r2_data - 0000000001010000
+haz - 00000000010
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000111100000000 
+in_alu b- 0000000001010000 
+alu_control - 1111 
+in_R1_data - 0000111100000000 
+in_R0_en - 0 
+in_instr - 0000000100101111 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000000000000000 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 0 
+out_memc - 0 
+out_alu - 00000000000000000000000000000000 
+out_alu_result - 00000000000000000000111101010000 
+out_R1_data - 0000000000000000 
+out_R0_en - 0 
+out_instr - 0000000000000000 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000000000000000
+alu - 00000000000000000000000000000000
+memc - 0
+r1_data - 0000000000000000
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000000000000000000000
+r1_data_out - 0000000000000000
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000000000000000
+===================================================================
+
+
+
+Current CPU State ====Cycle:  4====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :00001111000000000000000001010000
+out_haz1     :1
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1110
+out_instr    :0000000100101110
+out_R1_data  :0000111100000000
+memc         :0
+instruction - 0000001101001100
+PC_address - 0000000000000100
+opcode - 0000
+func_code - 1100
+offset_sel - 00
+offset_se - 0000001101001100
+offset_shifted - 0000011010011000
+cmp_a - 1111111100001111
+cmp_b - 1111000011111111
+cmp_result - 00
+PC_no_jump - 0000000000000110
+PC_jump - 0000011010011110
+PC_next - 0000000000000110
+R1_data - 1111111100001111
+R1_data_muxed - 1111111100001111
+r2_data - 1111000011111111
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000111100000000 
+in_alu b- 0000000001010000 
+alu_control - 1110 
+in_R1_data - 0000111100000000 
+in_R0_en - 0 
+in_instr - 0000000100101110 
+haz1 - 1 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000111101010000 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000000000000111101010000 
+out_alu_result - 00000000000000000000111100000000 
+out_R1_data - 0000111100000000 
+out_R0_en - 0 
+out_instr - 0000000100101111 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000000100101111
+alu - 00000000000000000000111101010000
+memc - 0
+r1_data - 0000111100000000
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000000000111101010000
+r1_data_out - 0000111100000000
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000000100101111
+===================================================================
+
+
+
+Current CPU State ====Cycle:  5====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :11111111000011111111000011111111
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1100
+out_instr    :0000001101001100
+out_R1_data  :1111111100001111
+memc         :0
+instruction - 0000001100101101
+PC_address - 0000000000000110
+opcode - 0000
+func_code - 1101
+offset_sel - 00
+offset_se - 0000001100101101
+offset_shifted - 0000011001011010
+cmp_a - 1111111100001111
+cmp_b - 0000000001010000
+cmp_result - 00
+PC_no_jump - 0000000000001000
+PC_jump - 0000011001100010
+PC_next - 0000000000001000
+R1_data - 1111111100001111
+R1_data_muxed - 1111111100001111
+r2_data - 0000000001010000
+haz - 00000000010
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 1111111100001111 
+in_alu b- 1111000011111111 
+alu_control - 1100 
+in_R1_data - 1111111100001111 
+in_R0_en - 0 
+in_instr - 0000001101001100 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000111100000000 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 1
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000000000000111100000000 
+out_alu_result - 00000000000000001111111111111111 
+out_R1_data - 0000111100000000 
+out_R0_en - 0 
+out_instr - 0000000100101110 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000000100101110
+alu - 00000000000000000000111100000000
+memc - 0
+r1_data - 0000111100000000
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000000000111100000000
+r1_data_out - 0000111100000000
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000000100101110
+===================================================================
+
+
+
+Current CPU State ====Cycle:  6====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :11111111000011110000000001010000
+out_haz1     :1
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1101
+out_instr    :0000001100101101
+out_R1_data  :1111111100001111
+memc         :0
+instruction - 0000010101100001
+PC_address - 0000000000001000
+opcode - 0000
+func_code - 0001
+offset_sel - 00
+offset_se - 0000010101100001
+offset_shifted - 0000101011000010
+cmp_a - 0000000001000000
+cmp_b - 0000000000100100
+cmp_result - 00
+PC_no_jump - 0000000000001010
+PC_jump - 0000101011001100
+PC_next - 0000000000001010
+R1_data - 0000000001000000
+R1_data_muxed - 0000000001000000
+r2_data - 0000000000100100
+haz - 00000000000
+R0_en - 1
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 1111111100001111 
+in_alu b- 0000000001010000 
+alu_control - 1101 
+in_R1_data - 1111111100001111 
+in_R0_en - 0 
+in_instr - 0000001100101101 
+haz1 - 1 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000001111111111111111 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000000001111111111111111 
+out_alu_result - 00000000000000000000000001010000 
+out_R1_data - 1111111100001111 
+out_R0_en - 0 
+out_instr - 0000001101001100 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000001101001100
+alu - 00000000000000001111111111111111
+memc - 0
+r1_data - 1111111100001111
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000001111111111111111
+r1_data_out - 1111111100001111
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000001101001100
+===================================================================
+
+
+
+Current CPU State ====Cycle:  7====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :00000000010000000000000000100100
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :1
+out_alu_ctrl :0001
+out_instr    :0000010101100001
+out_R1_data  :0000000001000000
+memc         :0
+instruction - 0000000101010010
+PC_address - 0000000000001010
+opcode - 0000
+func_code - 0010
+offset_sel - 00
+offset_se - 0000000101010010
+offset_shifted - 0000001010100100
+cmp_a - 0000111100000000
+cmp_b - 0000000001000000
+cmp_result - 00
+PC_no_jump - 0000000000001100
+PC_jump - 0000001010110000
+PC_next - 0000000000001100
+R1_data - 0000111100000000
+R1_data_muxed - 0000111100000000
+r2_data - 0000000001000000
+haz - 00000000100
+R0_en - 1
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000001000000 
+in_alu b- 0000000000100100 
+alu_control - 0001 
+in_R1_data - 0000000001000000 
+in_R0_en - 1 
+in_instr - 0000010101100001 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000000001010000 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000000000000000001010000 
+out_alu_result - 00000000000000000000100100000000 
+out_R1_data - 1111111100001111 
+out_R0_en - 0 
+out_instr - 0000001100101101 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000001100101101
+alu - 00000000000000000000000001010000
+memc - 0
+r1_data - 1111111100001111
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000000000000001010000
+r1_data_out - 1111111100001111
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000001100101101
+===================================================================
+
+
+
+Current CPU State ====Cycle:  8====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :00001111000000000000000001000000
+out_haz1     :0
+out_haz2     :1
+out_haz8     :0
+out_R0_en    :1
+out_alu_ctrl :0010
+out_instr    :0000000101010010
+out_R1_data  :0000111100000000
+memc         :0
+instruction - 0000000000001110
+PC_address - 0000000000001100
+opcode - 0000
+func_code - 1110
+offset_sel - 00
+offset_se - 0000000000001110
+offset_shifted - 0000000000011100
+cmp_a - 0000000000000000
+cmp_b - 0000000000000000
+cmp_result - 10
+PC_no_jump - 0000000000001110
+PC_jump - 0000000000101010
+PC_next - 0000000000001110
+R1_data - 0000000000000000
+R1_data_muxed - 0000000000000000
+r2_data - 0000000000000000
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000111100000000 
+in_alu b- 0000000001000000 
+alu_control - 0010 
+in_R1_data - 0000111100000000 
+in_R0_en - 1 
+in_instr - 0000000101010010 
+haz1 - 0 
+haz2 - 1 
+haz8 - 0 
+s3_data - 00000000000000000000100100000000 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000000000000100100000000 
+out_alu_result - 00000110000000000000000000000001 
+out_R1_data - 0000000001000000 
+out_R0_en - 1 
+out_instr - 0000010101100001 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000010101100001
+alu - 00000000000000000000100100000000
+memc - 0
+r1_data - 0000000001000000
+r0_en - 1
+halt_sys - 0
+
+data - 00000000000000000000100100000000
+r1_data_out - 0000000001000000
+out_memc - 0
+out_r0_en - 1
+instruction_out - 0000010101100001
+===================================================================
+
+
+
+Current CPU State ====Cycle:  9====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :00000000000000000000000000000000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1110
+out_instr    :0000000000001110
+out_R1_data  :0000000000000000
+memc         :0
+instruction - 0000010000111010
+PC_address - 0000000000001110
+opcode - 0000
+func_code - 1010
+offset_sel - 01
+offset_se - 1111111111111010
+offset_shifted - 1111111111110100
+cmp_a - 1111000011111111
+cmp_b - 0000000001010000
+cmp_result - 00
+PC_no_jump - 0000000000010000
+PC_jump - 0000000000000100
+PC_next - 0000000000010000
+R1_data - 1111000011111111
+R1_data_muxed - 1111000011111111
+r2_data - 0000000001010000
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000000 
+in_alu b- 0000000000000000 
+alu_control - 1110 
+in_R1_data - 0000000000000000 
+in_R0_en - 0 
+in_instr - 0000000000001110 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000110000000000000000000000001 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000110000000000000000000000001 
+out_alu_result - 00000000000000000000000000000000 
+out_R1_data - 0000111100000000 
+out_R0_en - 1 
+out_instr - 0000000101010010 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000000101010010
+alu - 00000110000000000000000000000001
+memc - 0
+r1_data - 0000111100000000
+r0_en - 1
+halt_sys - 0
+
+data - 00000110000000000000000000000001
+r1_data_out - 0000111100000000
+out_memc - 0
+out_r0_en - 1
+instruction_out - 0000000101010010
+===================================================================
+
+
+
+Current CPU State ====Cycle: 10====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :11110000111111110000000000000011
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1010
+out_instr    :0000010000111010
+out_R1_data  :1111000011111111
+memc         :0
+instruction - 0000010000101011
+PC_address - 0000000000010000
+opcode - 0000
+func_code - 1011
+offset_sel - 01
+offset_se - 1111111111111011
+offset_shifted - 1111111111110110
+cmp_a - 1111000011111111
+cmp_b - 0000000001010000
+cmp_result - 00
+PC_no_jump - 0000000000010010
+PC_jump - 0000000000001000
+PC_next - 0000000000010010
+R1_data - 1111000011111111
+R1_data_muxed - 1111000011111111
+r2_data - 0000000001010000
+haz - 00000000010
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 1111000011111111 
+in_alu b- 0000000000000011 
+alu_control - 1010 
+in_R1_data - 1111000011111111 
+in_R0_en - 0 
+in_instr - 0000010000111010 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000000000000000 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 1
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000000000000000000000000 
+out_alu_result - 00000000000000001000011111111000 
+out_R1_data - 0000000000000000 
+out_R0_en - 0 
+out_instr - 0000000000001110 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000000000001110
+alu - 00000000000000000000000000000000
+memc - 0
+r1_data - 0000000000000000
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000000000000000000000
+r1_data_out - 0000000000000000
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000000000001110
+===================================================================
+
+
+
+Current CPU State ====Cycle: 11====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :11110000111111110000000000000010
+out_haz1     :1
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1011
+out_instr    :0000010000101011
+out_R1_data  :1111000011111111
+memc         :0
+instruction - 0000011000111001
+PC_address - 0000000000010010
+opcode - 0000
+func_code - 1001
+offset_sel - 01
+offset_se - 1111111111111001
+offset_shifted - 1111111111110010
+cmp_a - 0000000000100100
+cmp_b - 0000000001010000
+cmp_result - 01
+PC_no_jump - 0000000000010100
+PC_jump - 0000000000000110
+PC_next - 0000000000010100
+R1_data - 0000000000100100
+R1_data_muxed - 0000000000100100
+r2_data - 0000000001010000
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 1111000011111111 
+in_alu b- 0000000000000010 
+alu_control - 1011 
+in_R1_data - 1111000011111111 
+in_R0_en - 0 
+in_instr - 0000010000101011 
+haz1 - 1 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000001000011111111000 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 1
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000000001000011111111000 
+out_alu_result - 00000000000000001110000111111110 
+out_R1_data - 1111000011111111 
+out_R0_en - 0 
+out_instr - 0000010000111010 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000010000111010
+alu - 00000000000000001000011111111000
+memc - 0
+r1_data - 1111000011111111
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000001000011111111000
+r1_data_out - 1111000011111111
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000010000111010
+===================================================================
+
+
+
+Current CPU State ====Cycle: 12====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :00000000001001000000000000000011
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1001
+out_instr    :0000011000111001
+out_R1_data  :0000000000100100
+memc         :0
+instruction - 0000011000101000
+PC_address - 0000000000010100
+opcode - 0000
+func_code - 1000
+offset_sel - 01
+offset_se - 1111111111111000
+offset_shifted - 1111111111110000
+cmp_a - 0000000000100100
+cmp_b - 0000000001010000
+cmp_result - 01
+PC_no_jump - 0000000000010110
+PC_jump - 0000000000000110
+PC_next - 0000000000010110
+R1_data - 0000000000100100
+R1_data_muxed - 0000000000100100
+r2_data - 0000000001010000
+haz - 00000000010
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000100100 
+in_alu b- 0000000000000011 
+alu_control - 1001 
+in_R1_data - 0000000000100100 
+in_R0_en - 0 
+in_instr - 0000011000111001 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000001110000111111110 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 1
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000000001110000111111110 
+out_alu_result - 00000000000001001000000000000100 
+out_R1_data - 1111000011111111 
+out_R0_en - 0 
+out_instr - 0000010000101011 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000010000101011
+alu - 00000000000000001110000111111110
+memc - 0
+r1_data - 1111000011111111
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000001110000111111110
+r1_data_out - 1111000011111111
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000010000101011
+===================================================================
+
+
+
+Current CPU State ====Cycle: 13====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :00000000001001000000000000000010
+out_haz1     :1
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1000
+out_instr    :0000011000101000
+out_R1_data  :0000000000100100
+memc         :0
+instruction - 0110011100000100
+PC_address - 0000000000010110
+opcode - 0110
+func_code - 0100
+offset_sel - 10
+offset_se - 0000000000000100
+offset_shifted - 0000000000001000
+cmp_a - 0000000000010000
+cmp_b - 0000000000000000
+cmp_result - 00
+PC_no_jump - 0000000000011000
+PC_jump - 0000000000100000
+PC_next - 0000000000011000
+R1_data - 0000000011111111
+R1_data_muxed - 0000000011111111
+r2_data - 0000000000000000
+haz - 00000010000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000100100 
+in_alu b- 0000000000000010 
+alu_control - 1000 
+in_R1_data - 0000000000100100 
+in_R0_en - 0 
+in_instr - 0000011000101000 
+haz1 - 1 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000001001000000000000100 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000001001000000000000100 
+out_alu_result - 00000000000100100000000000010000 
+out_R1_data - 0000000000100100 
+out_R0_en - 0 
+out_instr - 0000011000111001 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000011000111001
+alu - 00000000000001001000000000000100
+memc - 0
+r1_data - 0000000000100100
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000001001000000000000100
+r1_data_out - 0000000000100100
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000011000111001
+===================================================================
+
+
+
+Current CPU State ====Cycle: 14====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :0
+out_alu      :00000000000001000000000000000000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :0110011100000100
+out_R1_data  :0000000011111111
+memc         :0
+instruction - 0000101100011111
+PC_address - 0000000000011000
+opcode - 0000
+func_code - 1111
+offset_sel - 00
+offset_se - 0000101100011111
+offset_shifted - 0001011000111110
+cmp_a - 0000000000000000
+cmp_b - 0000000000000001
+cmp_result - 01
+PC_no_jump - 0000000000011010
+PC_jump - 0001011001011000
+PC_next - 0000000000011010
+R1_data - 0000000000000000
+R1_data_muxed - 0000000000000000
+r2_data - 0000000000000001
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000100 
+in_alu b- 0000000000000000 
+alu_control - 1111 
+in_R1_data - 0000000011111111 
+in_R0_en - 0 
+in_instr - 0110011100000100 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000100100000000000010000 
+in_reg_wr - 0 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000100100000000000010000 
+out_alu_result - 00000000000000000000000000000100 
+out_R1_data - 0000000000100100 
+out_R0_en - 0 
+out_instr - 0000011000101000 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000011000101000
+alu - 00000000000100100000000000010000
+memc - 0
+r1_data - 0000000000100100
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000100100000000000010000
+r1_data_out - 0000000000100100
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000011000101000
+===================================================================
+
+
+
+Current CPU State ====Cycle: 15====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :00000000000000000000000000000001
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :0000101100011111
+out_R1_data  :0000000000000000
+memc         :0
+instruction - 0100011100000101
+PC_address - 0000000000011010
+opcode - 0100
+func_code - 0101
+offset_sel - 10
+offset_se - 0000000000000101
+offset_shifted - 0000000000001010
+cmp_a - 0000000000000001
+cmp_b - 0000000000000000
+cmp_result - 00
+PC_no_jump - 0000000000011100
+PC_jump - 0000000000100110
+PC_next - 0000000000011100
+R1_data - 0000000011111111
+R1_data_muxed - 0000000011111111
+r2_data - 0000000000000000
+haz - 00000010000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000000 
+in_alu b- 0000000000000001 
+alu_control - 1111 
+in_R1_data - 0000000000000000 
+in_R0_en - 0 
+in_instr - 0000101100011111 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000000000000100 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 0 
+out_memc - 0 
+out_alu - 00000000000000000000000000000100 
+out_alu_result - 00000000000000000000000000000001 
+out_R1_data - 0000000011111111 
+out_R0_en - 0 
+out_instr - 0110011100000100 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0110011100000100
+alu - 00000000000000000000000000000100
+memc - 0
+r1_data - 0000000011111111
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000000000000000000100
+r1_data_out - 0000000011111111
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0110011100000100
+===================================================================
+
+
+
+Current CPU State ====Cycle: 16====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :0
+out_alu      :00000000000001010000000000000000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :0100011100000101
+out_R1_data  :0000000011111111
+memc         :0
+instruction - 0000101100101111
+PC_address - 0000000000011100
+opcode - 0000
+func_code - 1111
+offset_sel - 00
+offset_se - 0000101100101111
+offset_shifted - 0001011001011110
+cmp_a - 0000000000000001
+cmp_b - 0000000001010000
+cmp_result - 01
+PC_no_jump - 0000000000011110
+PC_jump - 0001011001111100
+PC_next - 0000000000011110
+R1_data - 0000000000000001
+R1_data_muxed - 0000000000000001
+r2_data - 0000000001010000
+haz - 00000000001
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000101 
+in_alu b- 0000000000000000 
+alu_control - 1111 
+in_R1_data - 0000000011111111 
+in_R0_en - 0 
+in_instr - 0100011100000101 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000000000000001 
+in_reg_wr - 0 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000000000000000000000001 
+out_alu_result - 00000000000000000000000000000101 
+out_R1_data - 0000000000000000 
+out_R0_en - 0 
+out_instr - 0000101100011111 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000101100011111
+alu - 00000000000000000000000000000001
+memc - 0
+r1_data - 0000000000000000
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000000000000000000001
+r1_data_out - 0000000000000000
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000101100011111
+===================================================================
+
+
+
+Current CPU State ====Cycle: 17====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :00000000000000010000000001010000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :0000101100101111
+out_R1_data  :0000000000000001
+memc         :0
+instruction - 0101011100000010
+PC_address - 0000000000011110
+opcode - 0101
+func_code - 0010
+offset_sel - 10
+offset_se - 0000000000000010
+offset_shifted - 0000000000000100
+cmp_a - 0000000001010001
+cmp_b - 0000000000000000
+cmp_result - 00
+PC_no_jump - 0000000000100000
+PC_jump - 0000000000100100
+PC_next - 0000000000100100
+R1_data - 0000000011111111
+R1_data_muxed - 0000000011111111
+r2_data - 0000000000000000
+haz - 00000010000
+R0_en - 1
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000001 
+in_alu b- 0000000001010000 
+alu_control - 1111 
+in_R1_data - 0000000000000001 
+in_R0_en - 0 
+in_instr - 0000101100101111 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000000000000101 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 0 
+out_memc - 0 
+out_alu - 00000000000000000000000000000101 
+out_alu_result - 00000000000000000000000001010001 
+out_R1_data - 0000000011111111 
+out_R0_en - 0 
+out_instr - 0100011100000101 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0100011100000101
+alu - 00000000000000000000000000000101
+memc - 0
+r1_data - 0000000011111111
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000000000000000000101
+r1_data_out - 0000000011111111
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0100011100000101
+===================================================================
+
+
+
+Current CPU State ====Cycle: 18====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :0
+out_alu      :00000000000000100000000000000000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :1
+out_alu_ctrl :1111
+out_instr    :0101011100000010
+out_R1_data  :0000000011111111
+memc         :1
+instruction - 1000100010010000
+PC_address - 0000000000100100
+opcode - 1000
+func_code - 0000
+offset_sel - 01
+offset_se - 0000000000000000
+offset_shifted - 0000000000000000
+cmp_a - 1010101010101010
+cmp_b - 0000000000000000
+cmp_result - 00
+PC_no_jump - 0000000000100110
+PC_jump - 0000000000100110
+PC_next - 0000000000100110
+R1_data - 1010101010101010
+R1_data_muxed - 1010101010101010
+r2_data - 0000000000000000
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000010 
+in_alu b- 0000000000000000 
+alu_control - 1111 
+in_R1_data - 0000000011111111 
+in_R0_en - 1 
+in_instr - 0101011100000010 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000000001010001 
+in_reg_wr - 0 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000000000000000001010001 
+out_alu_result - 00000000000000000000000000000010 
+out_R1_data - 0000000000000001 
+out_R0_en - 0 
+out_instr - 0000101100101111 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000101100101111
+alu - 00000000000000000000000001010001
+memc - 0
+r1_data - 0000000000000001
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000000000000001010001
+r1_data_out - 0000000000000001
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000101100101111
+===================================================================
+
+
+
+Current CPU State ====Cycle: 19====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :1
+out_reg_wr   :1
+out_alu      :00000000000000000000000000000000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :1000100010010000
+out_R1_data  :1010101010101010
+memc         :0
+instruction - 0000100010001111
+PC_address - 0000000000100110
+opcode - 0000
+func_code - 1111
+offset_sel - 00
+offset_se - 0000100010001111
+offset_shifted - 0001000100011110
+cmp_a - 1010101010101010
+cmp_b - 1010101010101010
+cmp_result - 10
+PC_no_jump - 0000000000101000
+PC_jump - 0001000101000110
+PC_next - 0000000000101000
+R1_data - 1010101010101010
+R1_data_muxed - 1010101010101010
+r2_data - 1010101010101010
+haz - 00000000110
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000000 
+in_alu b- 0000000000000000 
+alu_control - 1111 
+in_R1_data - 1010101010101010 
+in_R0_en - 0 
+in_instr - 1000100010010000 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000000000000010 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
+
+out_reg_wr - 0 
+out_memc - 0 
+out_alu - 00000000000000000000000000000010 
+out_alu_result - 00000000000000000000000000000000 
+out_R1_data - 0000000011111111 
+out_R0_en - 1 
+out_instr - 0101011100000010 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0101011100000010
+alu - 00000000000000000000000000000010
+memc - 0
+r1_data - 0000000011111111
+r0_en - 1
+halt_sys - 0
+
+data - 00000000000000000000000000000010
+r1_data_out - 0000000011111111
+out_memc - 0
+out_r0_en - 1
+instruction_out - 0101011100000010
+===================================================================
+
+
+
+Current CPU State ====Cycle: 20====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :10101010101010101010101010101010
+out_haz1     :1
+out_haz2     :1
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :0000100010001111
+out_R1_data  :1010101010101010
+memc         :0
+instruction - 1011100010010010
+PC_address - 0000000000101000
+opcode - 1011
+func_code - 0010
+offset_sel - 01
+offset_se - 0000000000000010
+offset_shifted - 0000000000000100
+cmp_a - 0000000000000000
+cmp_b - 0000000000000000
+cmp_result - 10
+PC_no_jump - 0000000000101010
+PC_jump - 0000000000101110
+PC_next - 0000000000101010
+R1_data - 0000000000000000
+R1_data_muxed - 0101011110011010
+r2_data - 0000000000000000
+haz - 10000000000
+R0_en - 1
+Pipe Stage Two ----------------------------------------------------
+in_memc - 1 
+in_alu a - 1010101010101010 
+in_alu b- 1010101010101010 
+alu_control - 1111 
+in_R1_data - 1010101010101010 
+in_R0_en - 0 
+in_instr - 0000100010001111 
+haz1 - 1 
+haz2 - 1 
+haz8 - 0 
+s3_data - 00000000000000000010101111001101 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 1 
+out_alu - 00000000000000000000000000000000 
+out_alu_result - 00000000000000000101011110011010 
+out_R1_data - 1010101010101010 
+out_R0_en - 0 
+out_instr - 1000100010010000 
+Pipe Stage Three ----------------------------------------------------
+instruction - 1000100010010000
+alu - 00000000000000000000000000000000
+memc - 1
+r1_data - 1010101010101010
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000000010101111001101
+r1_data_out - 1010101010101010
+out_memc - 1
+out_r0_en - 0
+instruction_out - 1000100010010000
+===================================================================
+
+
+
+Current CPU State ====Cycle: 21====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :0
+out_alu      :00000000000000100000000000000000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :1
+out_alu_ctrl :1111
+out_instr    :1011100010010010
+out_R1_data  :0101011110011010
+memc         :1
+instruction - 1000101010010010
+PC_address - 0000000000101010
+opcode - 1000
+func_code - 0010
+offset_sel - 01
+offset_se - 0000000000000010
+offset_shifted - 0000000000000100
+cmp_a - 0000000000000000
+cmp_b - 0000000000000000
+cmp_result - 10
+PC_no_jump - 0000000000101100
+PC_jump - 0000000000110000
+PC_next - 0000000000101100
+R1_data - 0000000000000000
+R1_data_muxed - 0000000000000000
+r2_data - 0000000000000000
+haz - 00000000000
+R0_en - 1
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000010 
+in_alu b- 0000000000000000 
+alu_control - 1111 
+in_R1_data - 0101011110011010 
+in_R0_en - 1 
+in_instr - 1011100010010010 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000101011110011010 
+in_reg_wr - 0 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000000000101011110011010 
+out_alu_result - 00000000000000000000000000000010 
+out_R1_data - 1010101010101010 
+out_R0_en - 0 
+out_instr - 0000100010001111 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000100010001111
+alu - 00000000000000000101011110011010
+memc - 0
+r1_data - 1010101010101010
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000000101011110011010
+r1_data_out - 1010101010101010
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000100010001111
+===================================================================
+
+
+
+Current CPU State ====Cycle: 22====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :1
+out_reg_wr   :1
+out_alu      :00000000000000100000000000000000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :1
+out_alu_ctrl :1111
+out_instr    :1000101010010010
+out_R1_data  :0000000000000000
+memc         :0
+instruction - 0000110011001111
+PC_address - 0000000000101100
+opcode - 0000
+func_code - 1111
+offset_sel - 00
+offset_se - 0000110011001111
+offset_shifted - 0001100110011110
+cmp_a - 1111111111111111
+cmp_b - 1111111111111111
+cmp_result - 10
+PC_no_jump - 0000000000101110
+PC_jump - 0001100111001100
+PC_next - 0000000000101110
+R1_data - 1111111111111111
+R1_data_muxed - 1111111111111111
+r2_data - 1111111111111111
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000010 
+in_alu b- 0000000000000000 
+alu_control - 1111 
+in_R1_data - 0000000000000000 
+in_R0_en - 1 
+in_instr - 1000101010010010 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000000000000010 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 0 
+out_memc - 0 
+out_alu - 00000000000000000000000000000010 
+out_alu_result - 00000000000000000000000000000010 
+out_R1_data - 0101011110011010 
+out_R0_en - 1 
+out_instr - 1011100010010010 
+Pipe Stage Three ----------------------------------------------------
+instruction - 1011100010010010
+alu - 00000000000000000000000000000010
+memc - 0
+r1_data - 0101011110011010
+r0_en - 1
+halt_sys - 0
+
+data - 00000000000000000000000000000010
+r1_data_out - 0101011110011010
+out_memc - 0
+out_r0_en - 1
+instruction_out - 1011100010010010
+===================================================================
+
+
+
+Current CPU State ====Cycle: 23====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :11111111111111111111111111111111
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :0000110011001111
+out_R1_data  :1111111111111111
+memc         :0
+instruction - 0000110111011110
+PC_address - 0000000000101110
+opcode - 0000
+func_code - 1110
+offset_sel - 00
+offset_se - 0000110111011110
+offset_shifted - 0001101110111100
+cmp_a - 0000000000000010
+cmp_b - 0000000000000010
+cmp_result - 10
+PC_no_jump - 0000000000110000
+PC_jump - 0001101111101100
+PC_next - 0000000000110000
+R1_data - 0000000000000010
+R1_data_muxed - 0000000000000010
+r2_data - 0000000000000010
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 1 
+in_alu a - 1111111111111111 
+in_alu b- 1111111111111111 
+alu_control - 1111 
+in_R1_data - 1111111111111111 
+in_R0_en - 0 
+in_instr - 0000110011001111 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000101011110011010 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 1
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 1 
+out_alu - 00000000000000000000000000000010 
+out_alu_result - 00000000000000001111111111111110 
+out_R1_data - 0000000000000000 
+out_R0_en - 1 
+out_instr - 1000101010010010 
+Pipe Stage Three ----------------------------------------------------
+instruction - 1000101010010010
+alu - 00000000000000000000000000000010
+memc - 1
+r1_data - 0000000000000000
+r0_en - 1
+halt_sys - 0
+
+data - 00000000000000000101011110011010
+r1_data_out - 0000000000000000
+out_memc - 1
+out_r0_en - 1
+instruction_out - 1000101010010010
+===================================================================
+
+
+
+Current CPU State ====Cycle: 24====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :0
+out_memc     :0
+out_reg_wr   :1
+out_alu      :00000000000000100000000000000010
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1110
+out_instr    :0000110111011110
+out_R1_data  :0000000000000010
+memc         :0
+instruction - 0000110011011111
+PC_address - 0000000000110000
+opcode - 0000
+func_code - 1111
+offset_sel - 00
+offset_se - 0000110011011111
+offset_shifted - 0001100110111110
+cmp_a - 1111111111111111
+cmp_b - 0000000000000010
+cmp_result - 00
+PC_no_jump - 0000000000110010
+PC_jump - 0001100111110000
+PC_next - 0000000000110010
+R1_data - 1111111111111111
+R1_data_muxed - 1111111111111111
+r2_data - 0000000000000010
+haz - 00000000101
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000010 
+in_alu b- 0000000000000010 
+alu_control - 1110 
+in_R1_data - 0000000000000010 
+in_R0_en - 0 
+in_instr - 0000110111011110 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000001111111111111110 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000000001111111111111110 
+out_alu_result - 00000000000000000000000000000000 
+out_R1_data - 1111111111111111 
+out_R0_en - 0 
+out_instr - 0000110011001111 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000110011001111
+alu - 00000000000000001111111111111110
+memc - 0
+r1_data - 1111111111111111
+r0_en - 0
+halt_sys - 0
+
+data - 00000000000000001111111111111110
+r1_data_out - 1111111111111111
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000110011001111
+===================================================================
+
+
+
+Current CPU State ====Cycle: 25====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :1
+out_memc     :0
+out_reg_wr   :1
+out_alu      :11111111111111100000000000000010
+out_haz1     :0
+out_haz2     :1
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :0000110011011111
+out_R1_data  :1111111111111111
+memc         :0
+instruction - 1110111111111111
+PC_address - 0000000000110010
+opcode - 1110
+func_code - 1111
+offset_sel - 00
+offset_se - 0000111111111111
+offset_shifted - 0001111111111110
+cmp_a - 0000000000000000
+cmp_b - 0000000000000000
+cmp_result - 10
+PC_no_jump - 0000000000110100
+PC_jump - 0010000000110010
+PC_next - 0000000000110100
+R1_data - 0000000000000000
+R1_data_muxed - 0000000000000000
+r2_data - 0000000000000000
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 1111111111111110 
+in_alu b- 0000000000000010 
+alu_control - 1111 
+in_R1_data - 1111111111111111 
+in_R0_en - 0 
+in_instr - 0000110011011111 
+haz1 - 0 
+haz2 - 1 
+haz8 - 0 
+s3_data - 00000000000000000000000000000000 
+in_reg_wr - 1 
+alucontrol - 
+alu overflow - 1
+alu sign - 0
+alu zero- 0
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000000000000000000000000 
+out_alu_result - 00000000000000001111111111111110 
+out_R1_data - 0000000000000010 
+out_R0_en - 0 
+out_instr - 0000110111011110 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000110111011110
+alu - 00000000000000000000000000000000
+memc - 0
+r1_data - 0000000000000010
+r0_en - 0
+halt_sys - 1
+
+data - 00000000000000000000000000000000
+r1_data_out - 0000000000000010
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000110111011110
+===================================================================
+
+
+
+Current CPU State ====Cycle: 26====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :1
+out_memc     :0
+out_reg_wr   :0
+out_alu      :00000000000000000000000000000000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :1110111111111111
+out_R1_data  :0000000000000000
+memc         :0
+instruction - 1110111111111111
+PC_address - 0000000000110010
+opcode - 1110
+func_code - 1111
+offset_sel - 00
+offset_se - 0000111111111111
+offset_shifted - 0001111111111110
+cmp_a - 0000000000000000
+cmp_b - 0000000000000000
+cmp_result - 10
+PC_no_jump - 0000000000110100
+PC_jump - 0010000000110010
+PC_next - 0000000000110100
+R1_data - 0000000000000000
+R1_data_muxed - 0000000000000000
+r2_data - 0000000000000000
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000000 
+in_alu b- 0000000000000000 
+alu_control - 1111 
+in_R1_data - 0000000000000000 
+in_R0_en - 0 
+in_instr - 1110111111111111 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000001111111111111110 
+in_reg_wr - 0 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
+
+out_reg_wr - 1 
+out_memc - 0 
+out_alu - 00000000000000001111111111111110 
+out_alu_result - 00000000000000000000000000000000 
+out_R1_data - 1111111111111111 
+out_R0_en - 0 
+out_instr - 0000110011011111 
+Pipe Stage Three ----------------------------------------------------
+instruction - 0000110011011111
+alu - 00000000000000001111111111111110
+memc - 0
+r1_data - 1111111111111111
+r0_en - 0
+halt_sys - 1
+
+data - 00000000000000001111111111111110
+r1_data_out - 1111111111111111
+out_memc - 0
+out_r0_en - 0
+instruction_out - 0000110011011111
+===================================================================
+
+
+
+Current CPU State ====Cycle: 27====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :1
+out_memc     :0
+out_reg_wr   :0
+out_alu      :00000000000000000000000000000000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :1110111111111111
+out_R1_data  :0000000000000000
+memc         :0
+instruction - 1110111111111111
+PC_address - 0000000000110010
+opcode - 1110
+func_code - 1111
+offset_sel - 00
+offset_se - 0000111111111111
+offset_shifted - 0001111111111110
+cmp_a - 0000000000000000
+cmp_b - 0000000000000000
+cmp_result - 10
+PC_no_jump - 0000000000110100
+PC_jump - 0010000000110010
+PC_next - 0000000000110100
+R1_data - 0000000000000000
+R1_data_muxed - 0000000000000000
+r2_data - 0000000000000000
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000000 
+in_alu b- 0000000000000000 
+alu_control - 1111 
+in_R1_data - 0000000000000000 
+in_R0_en - 0 
+in_instr - 1110111111111111 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000000000000000 
+in_reg_wr - 0 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
+
+out_reg_wr - 0 
+out_memc - 0 
+out_alu - 00000000000000000000000000000000 
+out_alu_result - 00000000000000000000000000000000 
+out_R1_data - 0000000000000000 
+out_R0_en - 0 
+out_instr - 1110111111111111 
+Pipe Stage Three ----------------------------------------------------
+instruction - 1110111111111111
+alu - 00000000000000000000000000000000
+memc - 0
+r1_data - 0000000000000000
+r0_en - 0
+halt_sys - 1
+
+data - 00000000000000000000000000000000
+r1_data_out - 0000000000000000
+out_memc - 0
+out_r0_en - 0
+instruction_out - 1110111111111111
+===================================================================
+
+
+
+Current CPU State ====Cycle: 28====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :1
+out_memc     :0
+out_reg_wr   :0
+out_alu      :00000000000000000000000000000000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :1110111111111111
+out_R1_data  :0000000000000000
+memc         :0
+instruction - 1110111111111111
+PC_address - 0000000000110010
+opcode - 1110
+func_code - 1111
+offset_sel - 00
+offset_se - 0000111111111111
+offset_shifted - 0001111111111110
+cmp_a - 0000000000000000
+cmp_b - 0000000000000000
+cmp_result - 10
+PC_no_jump - 0000000000110100
+PC_jump - 0010000000110010
+PC_next - 0000000000110100
+R1_data - 0000000000000000
+R1_data_muxed - 0000000000000000
+r2_data - 0000000000000000
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000000 
+in_alu b- 0000000000000000 
+alu_control - 1111 
+in_R1_data - 0000000000000000 
+in_R0_en - 0 
+in_instr - 1110111111111111 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000000000000000 
+in_reg_wr - 0 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
+
+out_reg_wr - 0 
+out_memc - 0 
+out_alu - 00000000000000000000000000000000 
+out_alu_result - 00000000000000000000000000000000 
+out_R1_data - 0000000000000000 
+out_R0_en - 0 
+out_instr - 1110111111111111 
+Pipe Stage Three ----------------------------------------------------
+instruction - 1110111111111111
+alu - 00000000000000000000000000000000
+memc - 0
+r1_data - 0000000000000000
+r0_en - 0
+halt_sys - 1
+
+data - 00000000000000000000000000000000
+r1_data_out - 0000000000000000
+out_memc - 0
+out_r0_en - 0
+instruction_out - 1110111111111111
+===================================================================
+
+
+
+Current CPU State ====Cycle: 29====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :1
+out_memc     :0
+out_reg_wr   :0
+out_alu      :00000000000000000000000000000000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :1110111111111111
+out_R1_data  :0000000000000000
+memc         :0
+instruction - 1110111111111111
+PC_address - 0000000000110010
+opcode - 1110
+func_code - 1111
+offset_sel - 00
+offset_se - 0000111111111111
+offset_shifted - 0001111111111110
+cmp_a - 0000000000000000
+cmp_b - 0000000000000000
+cmp_result - 10
+PC_no_jump - 0000000000110100
+PC_jump - 0010000000110010
+PC_next - 0000000000110100
+R1_data - 0000000000000000
+R1_data_muxed - 0000000000000000
+r2_data - 0000000000000000
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000000 
+in_alu b- 0000000000000000 
+alu_control - 1111 
+in_R1_data - 0000000000000000 
+in_R0_en - 0 
+in_instr - 1110111111111111 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000000000000000 
+in_reg_wr - 0 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
+
+out_reg_wr - 0 
+out_memc - 0 
+out_alu - 00000000000000000000000000000000 
+out_alu_result - 00000000000000000000000000000000 
+out_R1_data - 0000000000000000 
+out_R0_en - 0 
+out_instr - 1110111111111111 
+Pipe Stage Three ----------------------------------------------------
+instruction - 1110111111111111
+alu - 00000000000000000000000000000000
+memc - 0
+r1_data - 0000000000000000
+r0_en - 0
+halt_sys - 1
+
+data - 00000000000000000000000000000000
+r1_data_out - 0000000000000000
+out_memc - 0
+out_r0_en - 0
+instruction_out - 1110111111111111
+===================================================================
+
+
+
+Current CPU State ====Cycle: 30====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :1
+out_memc     :0
+out_reg_wr   :0
+out_alu      :00000000000000000000000000000000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :1110111111111111
+out_R1_data  :0000000000000000
+memc         :0
+instruction - 1110111111111111
+PC_address - 0000000000110010
+opcode - 1110
+func_code - 1111
+offset_sel - 00
+offset_se - 0000111111111111
+offset_shifted - 0001111111111110
+cmp_a - 0000000000000000
+cmp_b - 0000000000000000
+cmp_result - 10
+PC_no_jump - 0000000000110100
+PC_jump - 0010000000110010
+PC_next - 0000000000110100
+R1_data - 0000000000000000
+R1_data_muxed - 0000000000000000
+r2_data - 0000000000000000
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000000 
+in_alu b- 0000000000000000 
+alu_control - 1111 
+in_R1_data - 0000000000000000 
+in_R0_en - 0 
+in_instr - 1110111111111111 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000000000000000 
+in_reg_wr - 0 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
+
+out_reg_wr - 0 
+out_memc - 0 
+out_alu - 00000000000000000000000000000000 
+out_alu_result - 00000000000000000000000000000000 
+out_R1_data - 0000000000000000 
+out_R0_en - 0 
+out_instr - 1110111111111111 
+Pipe Stage Three ----------------------------------------------------
+instruction - 1110111111111111
+alu - 00000000000000000000000000000000
+memc - 0
+r1_data - 0000000000000000
+r0_en - 0
+halt_sys - 1
+
+data - 00000000000000000000000000000000
+r1_data_out - 0000000000000000
+out_memc - 0
+out_r0_en - 0
+instruction_out - 1110111111111111
+===================================================================
+
+
+
+Current CPU State ====Cycle: 31====================================
+Pipe Stage One ----------------------------------------------------
+stall        :0
+halt_sys     :1
+out_memc     :0
+out_reg_wr   :0
+out_alu      :00000000000000000000000000000000
+out_haz1     :0
+out_haz2     :0
+out_haz8     :0
+out_R0_en    :0
+out_alu_ctrl :1111
+out_instr    :1110111111111111
+out_R1_data  :0000000000000000
+memc         :0
+instruction - 1110111111111111
+PC_address - 0000000000110010
+opcode - 1110
+func_code - 1111
+offset_sel - 00
+offset_se - 0000111111111111
+offset_shifted - 0001111111111110
+cmp_a - 0000000000000000
+cmp_b - 0000000000000000
+cmp_result - 10
+PC_no_jump - 0000000000110100
+PC_jump - 0010000000110010
+PC_next - 0000000000110100
+R1_data - 0000000000000000
+R1_data_muxed - 0000000000000000
+r2_data - 0000000000000000
+haz - 00000000000
+R0_en - 0
+Pipe Stage Two ----------------------------------------------------
+in_memc - 0 
+in_alu a - 0000000000000000 
+in_alu b- 0000000000000000 
+alu_control - 1111 
+in_R1_data - 0000000000000000 
+in_R0_en - 0 
+in_instr - 1110111111111111 
+haz1 - 0 
+haz2 - 0 
+haz8 - 0 
+s3_data - 00000000000000000000000000000000 
+in_reg_wr - 0 
+alucontrol - 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
+
+out_reg_wr - 0 
+out_memc - 0 
+out_alu - 00000000000000000000000000000000 
+out_alu_result - 00000000000000000000000000000000 
+out_R1_data - 0000000000000000 
+out_R0_en - 0 
+out_instr - 1110111111111111 
+Pipe Stage Three ----------------------------------------------------
+instruction - 1110111111111111
+alu - 00000000000000000000000000000000
+memc - 0
+r1_data - 0000000000000000
+r0_en - 0
+halt_sys - 1
+
+data - 00000000000000000000000000000000
+r1_data_out - 0000000000000000
+out_memc - 0
+out_r0_en - 0
+instruction_out - 1110111111111111
+===================================================================
+Memory check Passed! memory[0] value = 2bcd expected 2bcd
+Memory check Passed! memory[2] value = 579a expected 579a
+$finish called from file "/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv", line 167.
+$finish at simulation time                  334
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 334
+CPU Time:      1.140 seconds;       Data structure size:   4.0Mb
+Wed Dec  3 19:55:34 2014
