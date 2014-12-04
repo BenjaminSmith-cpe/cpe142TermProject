@@ -526,36 +526,38 @@ begin the design process with a through understanding of what hardware is to per
 	    opcode which means the last two instructions will not finish.
 	    With this information we determined only 21 full instructions will run from start to finish. With 3 stages that should take 23 cycles.
 	    Our test bench system\_tb shows the halt to occur on the 23rd cycle. 
+
+        \textbf{The main testbench in system\_tb.sv contains many singular tests up until 282ps. This is where the main assembly program starts running. }
 \onecolumn
     \section{Design Source Code}
         \subsection{Top Level}
         \lstinputlisting{../source/Design/top.sv}
-        
-        \subsection{Stage One}
-        \lstinputlisting{../source/Design/alu.sv}
-        \lstinputlisting{../source/Design/adder.sv}
-        \lstinputlisting{../source/Design/alu.sv}
+        \lstinputlisting{../source/Design/types_pkg.sv}
         \lstinputlisting{../source/Design/alu_pkg.sv}
-        \lstinputlisting{../source/Design/comparator.sv}
-        \lstinputlisting{../source/Design/control_alu.sv}
-        
-        \subsection{Stage Two}
+
+        \subsection{Stage One}
+        \lstinputlisting{../source/Design/stage_one.sv}
+        \lstinputlisting{../source/Design/adder.sv}
         \lstinputlisting{../source/Design/control_hazard_unit.sv}
         \lstinputlisting{../source/Design/control_jump.sv}
-        \lstinputlisting{../source/Design/control_main.sv}
-        \lstinputlisting{../source/Design/mem_main.sv}
+        \lstinputlisting{../source/Design/control_main.sv}      
+        \lstinputlisting{../source/Design/comparator.sv}
+        \lstinputlisting{../source/Design/control_alu.sv}
         \lstinputlisting{../source/Design/mem_program.sv}
         \lstinputlisting{../source/Design/mem_register.sv}
         \lstinputlisting{../source/Design/mux.sv}
         \lstinputlisting{../source/Design/reg_program_counter.sv}
         \lstinputlisting{../source/Design/shift_one.sv}
+        \lstinputlisting{../source/Design/sign_extender.sv}      
+        
+
+        \subsection{Stage Two}
+        \lstinputlisting{../source/Design/stage_two.sv}        
+        \lstinputlisting{../source/Design/alu.sv}           
         
         \subsection{Stage Three}
-        \lstinputlisting{../source/Design/sign_extender.sv}
-        \lstinputlisting{../source/Design/stage_one.sv}
         \lstinputlisting{../source/Design/stage_three.sv}
-        \lstinputlisting{../source/Design/stage_two.sv}
-        \lstinputlisting{../source/Design/types_pkg.sv}
+        \lstinputlisting{../source/Design/mem_main.sv}
 
     \section{Verification Source Code}
         \lstinputlisting{../source/Verif/alu_tb.sv}
