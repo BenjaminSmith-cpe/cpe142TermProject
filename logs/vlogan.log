@@ -7078,3 +7078,395 @@ Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design
 Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/reg_program_counter.sv'
 Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/shift_one.sv'
 Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/sign_extender.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/alu_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv'
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 1
+$unit
+  Package 'alu_pkg' already wildcard imported. 
+  Ignoring alu_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 2
+$unit
+  Package 'types_pkg' already wildcard imported. 
+  Ignoring types_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_register.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/top.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_three.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_two.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/adder.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/comparator.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_hazard_unit.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_jump.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_program.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mux.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/reg_program_counter.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/shift_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/sign_extender.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/alu_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv'
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 1
+$unit
+  Package 'alu_pkg' already wildcard imported. 
+  Ignoring alu_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 2
+$unit
+  Package 'types_pkg' already wildcard imported. 
+  Ignoring types_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_register.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/top.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_three.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_two.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/adder.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/comparator.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_hazard_unit.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_jump.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_program.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mux.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/reg_program_counter.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/shift_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/sign_extender.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/alu_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv'
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 1
+$unit
+  Package 'alu_pkg' already wildcard imported. 
+  Ignoring alu_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 2
+$unit
+  Package 'types_pkg' already wildcard imported. 
+  Ignoring types_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_register.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/top.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_three.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_two.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/adder.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/comparator.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_hazard_unit.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_jump.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_program.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mux.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/reg_program_counter.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/shift_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/sign_extender.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/alu_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv'
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 1
+$unit
+  Package 'alu_pkg' already wildcard imported. 
+  Ignoring alu_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 2
+$unit
+  Package 'types_pkg' already wildcard imported. 
+  Ignoring types_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_register.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/top.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_three.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_two.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/adder.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/comparator.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_hazard_unit.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_jump.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_program.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mux.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/reg_program_counter.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/shift_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/sign_extender.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/alu_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv'
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 1
+$unit
+  Package 'alu_pkg' already wildcard imported. 
+  Ignoring alu_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 2
+$unit
+  Package 'types_pkg' already wildcard imported. 
+  Ignoring types_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_register.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/top.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_three.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_two.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/adder.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/comparator.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_hazard_unit.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_jump.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_program.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mux.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/reg_program_counter.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/shift_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/sign_extender.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/alu_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv'
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 1
+$unit
+  Package 'alu_pkg' already wildcard imported. 
+  Ignoring alu_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 2
+$unit
+  Package 'types_pkg' already wildcard imported. 
+  Ignoring types_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_register.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/top.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_three.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_two.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/adder.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/comparator.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_hazard_unit.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_jump.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_program.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mux.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/reg_program_counter.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/shift_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/sign_extender.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/alu_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv'
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 1
+$unit
+  Package 'alu_pkg' already wildcard imported. 
+  Ignoring alu_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 2
+$unit
+  Package 'types_pkg' already wildcard imported. 
+  Ignoring types_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_register.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/top.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_three.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_two.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/adder.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/comparator.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_hazard_unit.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_jump.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_program.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mux.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/reg_program_counter.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/shift_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/sign_extender.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/alu_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv'
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 1
+$unit
+  Package 'alu_pkg' already wildcard imported. 
+  Ignoring alu_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 2
+$unit
+  Package 'types_pkg' already wildcard imported. 
+  Ignoring types_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_register.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/top.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_three.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_two.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/adder.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/comparator.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_hazard_unit.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_jump.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_program.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mux.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/reg_program_counter.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/shift_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/sign_extender.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/alu_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv'
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 1
+$unit
+  Package 'alu_pkg' already wildcard imported. 
+  Ignoring alu_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 2
+$unit
+  Package 'types_pkg' already wildcard imported. 
+  Ignoring types_pkg::*
+  See the System Verilog LRM(1800-2005), section 18.1.
+
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_register.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/top.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_three.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_two.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/adder.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/comparator.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_hazard_unit.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_jump.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_program.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mux.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/reg_program_counter.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/shift_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/sign_extender.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/alu_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv'
+
+Warning-[SV-IIS] Illegal import statement.
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 4
+_vcs_unit__1, "reg_stim"
+  There is an import statement directly within the class reg_stim. 
+  Although this is allowed in this version of VCS, it is illegal according to 
+  the System Verilog LRM and can result in unexpected behavior.  It will not 
+  be supported in future VCS releases.
+
+
+Warning-[SV-IIS] Illegal import statement.
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv, 5
+_vcs_unit__1, "reg_stim"
+  There is an import statement directly within the class reg_stim. 
+  Although this is allowed in this version of VCS, it is illegal according to 
+  the System Verilog LRM and can result in unexpected behavior.  It will not 
+  be supported in future VCS releases.
+
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_register.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/top.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_three.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_two.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/adder.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/comparator.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_hazard_unit.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_jump.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_program.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mux.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/reg_program_counter.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/shift_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/sign_extender.sv'

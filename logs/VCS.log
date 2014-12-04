@@ -1,3 +1,7 @@
+
+Note-[I_OPTS] Ignoring -I option
+  Ignoring -I option, using -PP option
+
 Command: vcs -file VCS_args.list system_tb
 Doing common elaboration 
 
@@ -7,6 +11,6 @@ Note-[I_OPTS] Ignoring -I option
 VCS Coverage Metrics Release I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
 ***** Warning: +memcbk/-debug* will not enable toggle coverage on MDA please use -cm_tgl mda to enable it
 11 modules and 0 UDP read.
-	However, due to incremental compilation, only 1 module needs to be compiled.
-Generating code for _VCSgd_system_tb_Wi4Abc_1
+	However, due to incremental compilation, no re-compilation is necessary.
+Generating code for _VCSgd__vcs_unit_3643014349_IKMRH_1
 ../simv up to date

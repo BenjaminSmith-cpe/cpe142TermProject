@@ -1,7 +1,7 @@
 Command: ./simv -l /gaia/class/cs1421/cs142130/cpe142/logs/simv.log -cm fsm+line+tgl+branch -cg_coverage_control=1
 Chronologic VCS simulator copyright 1991-2014
 Contains Synopsys proprietary information.
-Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Dec  3 19:55 2014
+Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Dec  4 12:25 2014
 VCD+ Writer I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
 
 
@@ -12,71 +12,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :00000000000000100000000000000010
+out_alu      :00020002
 out_haz1     :1
 out_haz2     :1
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1011
-out_instr    :0000010000101011
-out_R1_data  :0000000000000010
+out_alu_ctrl :b
+out_instr    :042b
+out_R1_data  :0002
 memc         :0
-instruction - 0000011000111001
-PC_address - 0000000000010010
-opcode - 0000
-func_code - 1001
-offset_sel - 01
-offset_se - 1111111111111001
-offset_shifted - 1111111111110010
-cmp_a - 0000000000000000
-cmp_b - 0000000000000000
-cmp_result - 10
-PC_no_jump - 0000000000010100
-PC_jump - 0000000000000110
-PC_next - 0000000000010100
-R1_data - 0000000000000000
-R1_data_muxed - 0000000000000000
-r2_data - 0000000000000000
-haz - 00000000000
+instruction - 0639
+PC_address - 0012
+opcode - 0
+func_code - 9
+offset_sel - 1
+offset_se - fff9
+offset_shifted - fff2
+cmp_a - 0000
+cmp_b - 0000
+cmp_result - 2
+PC_no_jump - 0014
+PC_jump - 0006
+PC_next - 0014
+R1_data - 0000
+R1_data_muxed - 0000
+r2_data - 0000
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000010 
-in_alu b- 0000000000000010 
-alu_control - 1011 
-in_R1_data - 0000000000000010 
+in_alu a - 0002 
+in_alu b- 0002 
+alu_control - b 
+in_R1_data - 0002 
 in_R0_en - 0 
-in_instr - 0000010000101011 
+in_instr - 042b 
 haz1 - 1 
 haz2 - 1 
 haz8 - 0 
-s3_data - 00000000000000000000000000000010 
+s3_data - 00000002 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 1
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000000000000000000000010 
-out_alu_result - 00000000000000000000000000000000 
-out_R1_data - 0000000000000010 
+out_alu - 00000002 
+out_alu_result - 00000000 
+out_R1_data - 0002 
 out_R0_en - 0 
-out_instr - 0000000000000000 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000000000000000
-alu - 00000000000000000000000000000010
+out_instr - 0000 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 0000
+alu - 00000002
 memc - 0
-r1_data - 0000000000000010
+r1_data - 0002
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000000000000000000010
-r1_data_out - 0000000000000010
+data - 00000002
+r1_data_out - 0002
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000000000000000
+instruction_out - 0000
 ===================================================================
 
 
@@ -87,71 +88,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :0
-out_alu      :00000000000000000000000000000000
+out_alu      :00000000
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :0000000000000000
-out_R1_data  :0000000000000000
+out_alu_ctrl :f
+out_instr    :0000
+out_R1_data  :0000
 memc         :0
-instruction - 0000000100101111
-PC_address - 0000000000000000
-opcode - 0000
-func_code - 1111
-offset_sel - 00
-offset_se - 0000000100101111
-offset_shifted - 0000001001011110
-cmp_a - 0000111100000000
-cmp_b - 0000000001010000
-cmp_result - 00
-PC_no_jump - 0000000000000010
-PC_jump - 0000001001100000
-PC_next - 0000000000000010
-R1_data - 0000111100000000
-R1_data_muxed - 0000111100000000
-r2_data - 0000000001010000
-haz - 00000000000
+instruction - 012f
+PC_address - 0000
+opcode - 0
+func_code - f
+offset_sel - 0
+offset_se - 012f
+offset_shifted - 025e
+cmp_a - 0f00
+cmp_b - 0050
+cmp_result - 0
+PC_no_jump - 0002
+PC_jump - 0260
+PC_next - 0002
+R1_data - 0f00
+R1_data_muxed - 0f00
+r2_data - 0050
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000000 
-in_alu b- 0000000000000000 
-alu_control - 1111 
-in_R1_data - 0000000000000000 
+in_alu a - 0000 
+in_alu b- 0000 
+alu_control - f 
+in_R1_data - 0000 
 in_R0_en - 0 
-in_instr - 0000000000000000 
+in_instr - 0000 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000000000000000 
+s3_data - 00000000 
 in_reg_wr - 0 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 1
-
 out_reg_wr - 0 
 out_memc - 0 
-out_alu - 00000000000000000000000000000000 
-out_alu_result - 00000000000000000000000000000000 
-out_R1_data - 0000000000000000 
+out_alu - 00000000 
+out_alu_result - 00000000 
+out_R1_data - 0000 
 out_R0_en - 0 
-out_instr - 0000000000000000 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000000000000000
-alu - 00000000000000000000000000000000
+out_instr - 0000 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 0000
+alu - 00000000
 memc - 0
-r1_data - 0000000000000000
+r1_data - 0000
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000000000000000000000
-r1_data_out - 0000000000000000
+data - 00000000
+r1_data_out - 0000
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000000000000000
+instruction_out - 0000
 ===================================================================
 
 
@@ -162,71 +164,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :00001111000000000000000001010000
+out_alu      :0f000050
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :0000000100101111
-out_R1_data  :0000111100000000
+out_alu_ctrl :f
+out_instr    :012f
+out_R1_data  :0f00
 memc         :0
-instruction - 0000000100101110
-PC_address - 0000000000000010
-opcode - 0000
-func_code - 1110
-offset_sel - 00
-offset_se - 0000000100101110
-offset_shifted - 0000001001011100
-cmp_a - 0000111100000000
-cmp_b - 0000000001010000
-cmp_result - 00
-PC_no_jump - 0000000000000100
-PC_jump - 0000001001100000
-PC_next - 0000000000000100
-R1_data - 0000111100000000
-R1_data_muxed - 0000111100000000
-r2_data - 0000000001010000
-haz - 00000000010
+instruction - 012e
+PC_address - 0002
+opcode - 0
+func_code - e
+offset_sel - 0
+offset_se - 012e
+offset_shifted - 025c
+cmp_a - 0f00
+cmp_b - 0050
+cmp_result - 0
+PC_no_jump - 0004
+PC_jump - 0260
+PC_next - 0004
+R1_data - 0f00
+R1_data_muxed - 0f00
+r2_data - 0050
+haz - 002
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000111100000000 
-in_alu b- 0000000001010000 
-alu_control - 1111 
-in_R1_data - 0000111100000000 
+in_alu a - 0f00 
+in_alu b- 0050 
+alu_control - f 
+in_R1_data - 0f00 
 in_R0_en - 0 
-in_instr - 0000000100101111 
+in_instr - 012f 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000000000000000 
+s3_data - 00000000 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 0 
 out_memc - 0 
-out_alu - 00000000000000000000000000000000 
-out_alu_result - 00000000000000000000111101010000 
-out_R1_data - 0000000000000000 
+out_alu - 00000000 
+out_alu_result - 00000f50 
+out_R1_data - 0000 
 out_R0_en - 0 
-out_instr - 0000000000000000 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000000000000000
-alu - 00000000000000000000000000000000
+out_instr - 0000 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 0000
+alu - 00000000
 memc - 0
-r1_data - 0000000000000000
+r1_data - 0000
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000000000000000000000
-r1_data_out - 0000000000000000
+data - 00000000
+r1_data_out - 0000
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000000000000000
+instruction_out - 0000
 ===================================================================
 
 
@@ -237,71 +240,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :00001111000000000000000001010000
+out_alu      :0f000050
 out_haz1     :1
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1110
-out_instr    :0000000100101110
-out_R1_data  :0000111100000000
+out_alu_ctrl :e
+out_instr    :012e
+out_R1_data  :0f00
 memc         :0
-instruction - 0000001101001100
-PC_address - 0000000000000100
-opcode - 0000
-func_code - 1100
-offset_sel - 00
-offset_se - 0000001101001100
-offset_shifted - 0000011010011000
-cmp_a - 1111111100001111
-cmp_b - 1111000011111111
-cmp_result - 00
-PC_no_jump - 0000000000000110
-PC_jump - 0000011010011110
-PC_next - 0000000000000110
-R1_data - 1111111100001111
-R1_data_muxed - 1111111100001111
-r2_data - 1111000011111111
-haz - 00000000000
+instruction - 034c
+PC_address - 0004
+opcode - 0
+func_code - c
+offset_sel - 0
+offset_se - 034c
+offset_shifted - 0698
+cmp_a - ff0f
+cmp_b - f0ff
+cmp_result - 0
+PC_no_jump - 0006
+PC_jump - 069e
+PC_next - 0006
+R1_data - ff0f
+R1_data_muxed - ff0f
+r2_data - f0ff
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000111100000000 
-in_alu b- 0000000001010000 
-alu_control - 1110 
-in_R1_data - 0000111100000000 
+in_alu a - 0f00 
+in_alu b- 0050 
+alu_control - e 
+in_R1_data - 0f00 
 in_R0_en - 0 
-in_instr - 0000000100101110 
+in_instr - 012e 
 haz1 - 1 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000111101010000 
+s3_data - 00000f50 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000000000000111101010000 
-out_alu_result - 00000000000000000000111100000000 
-out_R1_data - 0000111100000000 
+out_alu - 00000f50 
+out_alu_result - 00000f00 
+out_R1_data - 0f00 
 out_R0_en - 0 
-out_instr - 0000000100101111 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000000100101111
-alu - 00000000000000000000111101010000
+out_instr - 012f 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 012f
+alu - 00000f50
 memc - 0
-r1_data - 0000111100000000
+r1_data - 0f00
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000000000111101010000
-r1_data_out - 0000111100000000
+data - 00000f50
+r1_data_out - 0f00
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000000100101111
+instruction_out - 012f
 ===================================================================
 
 
@@ -312,71 +316,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :11111111000011111111000011111111
+out_alu      :ff0ff0ff
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1100
-out_instr    :0000001101001100
-out_R1_data  :1111111100001111
+out_alu_ctrl :c
+out_instr    :034c
+out_R1_data  :ff0f
 memc         :0
-instruction - 0000001100101101
-PC_address - 0000000000000110
-opcode - 0000
-func_code - 1101
-offset_sel - 00
-offset_se - 0000001100101101
-offset_shifted - 0000011001011010
-cmp_a - 1111111100001111
-cmp_b - 0000000001010000
-cmp_result - 00
-PC_no_jump - 0000000000001000
-PC_jump - 0000011001100010
-PC_next - 0000000000001000
-R1_data - 1111111100001111
-R1_data_muxed - 1111111100001111
-r2_data - 0000000001010000
-haz - 00000000010
+instruction - 032d
+PC_address - 0006
+opcode - 0
+func_code - d
+offset_sel - 0
+offset_se - 032d
+offset_shifted - 065a
+cmp_a - ff0f
+cmp_b - 0050
+cmp_result - 0
+PC_no_jump - 0008
+PC_jump - 0662
+PC_next - 0008
+R1_data - ff0f
+R1_data_muxed - ff0f
+r2_data - 0050
+haz - 002
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 1111111100001111 
-in_alu b- 1111000011111111 
-alu_control - 1100 
-in_R1_data - 1111111100001111 
+in_alu a - ff0f 
+in_alu b- f0ff 
+alu_control - c 
+in_R1_data - ff0f 
 in_R0_en - 0 
-in_instr - 0000001101001100 
+in_instr - 034c 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000111100000000 
+s3_data - 00000f00 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 1
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000000000000111100000000 
-out_alu_result - 00000000000000001111111111111111 
-out_R1_data - 0000111100000000 
+out_alu - 00000f00 
+out_alu_result - 0000ffff 
+out_R1_data - 0f00 
 out_R0_en - 0 
-out_instr - 0000000100101110 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000000100101110
-alu - 00000000000000000000111100000000
+out_instr - 012e 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 012e
+alu - 00000f00
 memc - 0
-r1_data - 0000111100000000
+r1_data - 0f00
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000000000111100000000
-r1_data_out - 0000111100000000
+data - 00000f00
+r1_data_out - 0f00
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000000100101110
+instruction_out - 012e
 ===================================================================
 
 
@@ -387,71 +392,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :11111111000011110000000001010000
+out_alu      :ff0f0050
 out_haz1     :1
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1101
-out_instr    :0000001100101101
-out_R1_data  :1111111100001111
+out_alu_ctrl :d
+out_instr    :032d
+out_R1_data  :ff0f
 memc         :0
-instruction - 0000010101100001
-PC_address - 0000000000001000
-opcode - 0000
-func_code - 0001
-offset_sel - 00
-offset_se - 0000010101100001
-offset_shifted - 0000101011000010
-cmp_a - 0000000001000000
-cmp_b - 0000000000100100
-cmp_result - 00
-PC_no_jump - 0000000000001010
-PC_jump - 0000101011001100
-PC_next - 0000000000001010
-R1_data - 0000000001000000
-R1_data_muxed - 0000000001000000
-r2_data - 0000000000100100
-haz - 00000000000
+instruction - 0561
+PC_address - 0008
+opcode - 0
+func_code - 1
+offset_sel - 0
+offset_se - 0561
+offset_shifted - 0ac2
+cmp_a - 0040
+cmp_b - 0024
+cmp_result - 0
+PC_no_jump - 000a
+PC_jump - 0acc
+PC_next - 000a
+R1_data - 0040
+R1_data_muxed - 0040
+r2_data - 0024
+haz - 000
 R0_en - 1
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 1111111100001111 
-in_alu b- 0000000001010000 
-alu_control - 1101 
-in_R1_data - 1111111100001111 
+in_alu a - ff0f 
+in_alu b- 0050 
+alu_control - d 
+in_R1_data - ff0f 
 in_R0_en - 0 
-in_instr - 0000001100101101 
+in_instr - 032d 
 haz1 - 1 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000001111111111111111 
+s3_data - 0000ffff 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000000001111111111111111 
-out_alu_result - 00000000000000000000000001010000 
-out_R1_data - 1111111100001111 
+out_alu - 0000ffff 
+out_alu_result - 00000050 
+out_R1_data - ff0f 
 out_R0_en - 0 
-out_instr - 0000001101001100 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000001101001100
-alu - 00000000000000001111111111111111
+out_instr - 034c 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 034c
+alu - 0000ffff
 memc - 0
-r1_data - 1111111100001111
+r1_data - ff0f
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000001111111111111111
-r1_data_out - 1111111100001111
+data - 0000ffff
+r1_data_out - ff0f
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000001101001100
+instruction_out - 034c
 ===================================================================
 
 
@@ -462,71 +468,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :00000000010000000000000000100100
+out_alu      :00400024
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :1
-out_alu_ctrl :0001
-out_instr    :0000010101100001
-out_R1_data  :0000000001000000
+out_alu_ctrl :1
+out_instr    :0561
+out_R1_data  :0040
 memc         :0
-instruction - 0000000101010010
-PC_address - 0000000000001010
-opcode - 0000
-func_code - 0010
-offset_sel - 00
-offset_se - 0000000101010010
-offset_shifted - 0000001010100100
-cmp_a - 0000111100000000
-cmp_b - 0000000001000000
-cmp_result - 00
-PC_no_jump - 0000000000001100
-PC_jump - 0000001010110000
-PC_next - 0000000000001100
-R1_data - 0000111100000000
-R1_data_muxed - 0000111100000000
-r2_data - 0000000001000000
-haz - 00000000100
+instruction - 0152
+PC_address - 000a
+opcode - 0
+func_code - 2
+offset_sel - 0
+offset_se - 0152
+offset_shifted - 02a4
+cmp_a - 0f00
+cmp_b - 0040
+cmp_result - 0
+PC_no_jump - 000c
+PC_jump - 02b0
+PC_next - 000c
+R1_data - 0f00
+R1_data_muxed - 0f00
+r2_data - 0040
+haz - 004
 R0_en - 1
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000001000000 
-in_alu b- 0000000000100100 
-alu_control - 0001 
-in_R1_data - 0000000001000000 
+in_alu a - 0040 
+in_alu b- 0024 
+alu_control - 1 
+in_R1_data - 0040 
 in_R0_en - 1 
-in_instr - 0000010101100001 
+in_instr - 0561 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000000001010000 
+s3_data - 00000050 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000000000000000001010000 
-out_alu_result - 00000000000000000000100100000000 
-out_R1_data - 1111111100001111 
+out_alu - 00000050 
+out_alu_result - 00000900 
+out_R1_data - ff0f 
 out_R0_en - 0 
-out_instr - 0000001100101101 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000001100101101
-alu - 00000000000000000000000001010000
+out_instr - 032d 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 032d
+alu - 00000050
 memc - 0
-r1_data - 1111111100001111
+r1_data - ff0f
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000000000000001010000
-r1_data_out - 1111111100001111
+data - 00000050
+r1_data_out - ff0f
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000001100101101
+instruction_out - 032d
 ===================================================================
 
 
@@ -537,71 +544,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :00001111000000000000000001000000
+out_alu      :0f000040
 out_haz1     :0
 out_haz2     :1
 out_haz8     :0
 out_R0_en    :1
-out_alu_ctrl :0010
-out_instr    :0000000101010010
-out_R1_data  :0000111100000000
+out_alu_ctrl :2
+out_instr    :0152
+out_R1_data  :0f00
 memc         :0
-instruction - 0000000000001110
-PC_address - 0000000000001100
-opcode - 0000
-func_code - 1110
-offset_sel - 00
-offset_se - 0000000000001110
-offset_shifted - 0000000000011100
-cmp_a - 0000000000000000
-cmp_b - 0000000000000000
-cmp_result - 10
-PC_no_jump - 0000000000001110
-PC_jump - 0000000000101010
-PC_next - 0000000000001110
-R1_data - 0000000000000000
-R1_data_muxed - 0000000000000000
-r2_data - 0000000000000000
-haz - 00000000000
+instruction - 000e
+PC_address - 000c
+opcode - 0
+func_code - e
+offset_sel - 0
+offset_se - 000e
+offset_shifted - 001c
+cmp_a - 0000
+cmp_b - 0000
+cmp_result - 2
+PC_no_jump - 000e
+PC_jump - 002a
+PC_next - 000e
+R1_data - 0000
+R1_data_muxed - 0000
+r2_data - 0000
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000111100000000 
-in_alu b- 0000000001000000 
-alu_control - 0010 
-in_R1_data - 0000111100000000 
+in_alu a - 0f00 
+in_alu b- 0040 
+alu_control - 2 
+in_R1_data - 0f00 
 in_R0_en - 1 
-in_instr - 0000000101010010 
+in_instr - 0152 
 haz1 - 0 
 haz2 - 1 
 haz8 - 0 
-s3_data - 00000000000000000000100100000000 
+s3_data - 00000900 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000000000000100100000000 
-out_alu_result - 00000110000000000000000000000001 
-out_R1_data - 0000000001000000 
+out_alu - 00000900 
+out_alu_result - 06000001 
+out_R1_data - 0040 
 out_R0_en - 1 
-out_instr - 0000010101100001 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000010101100001
-alu - 00000000000000000000100100000000
+out_instr - 0561 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 0561
+alu - 00000900
 memc - 0
-r1_data - 0000000001000000
+r1_data - 0040
 r0_en - 1
 halt_sys - 0
 
-data - 00000000000000000000100100000000
-r1_data_out - 0000000001000000
+data - 00000900
+r1_data_out - 0040
 out_memc - 0
 out_r0_en - 1
-instruction_out - 0000010101100001
+instruction_out - 0561
 ===================================================================
 
 
@@ -612,71 +620,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :00000000000000000000000000000000
+out_alu      :00000000
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1110
-out_instr    :0000000000001110
-out_R1_data  :0000000000000000
+out_alu_ctrl :e
+out_instr    :000e
+out_R1_data  :0000
 memc         :0
-instruction - 0000010000111010
-PC_address - 0000000000001110
-opcode - 0000
-func_code - 1010
-offset_sel - 01
-offset_se - 1111111111111010
-offset_shifted - 1111111111110100
-cmp_a - 1111000011111111
-cmp_b - 0000000001010000
-cmp_result - 00
-PC_no_jump - 0000000000010000
-PC_jump - 0000000000000100
-PC_next - 0000000000010000
-R1_data - 1111000011111111
-R1_data_muxed - 1111000011111111
-r2_data - 0000000001010000
-haz - 00000000000
+instruction - 043a
+PC_address - 000e
+opcode - 0
+func_code - a
+offset_sel - 1
+offset_se - fffa
+offset_shifted - fff4
+cmp_a - f0ff
+cmp_b - 0050
+cmp_result - 0
+PC_no_jump - 0010
+PC_jump - 0004
+PC_next - 0010
+R1_data - f0ff
+R1_data_muxed - f0ff
+r2_data - 0050
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000000 
-in_alu b- 0000000000000000 
-alu_control - 1110 
-in_R1_data - 0000000000000000 
+in_alu a - 0000 
+in_alu b- 0000 
+alu_control - e 
+in_R1_data - 0000 
 in_R0_en - 0 
-in_instr - 0000000000001110 
+in_instr - 000e 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000110000000000000000000000001 
+s3_data - 06000001 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 1
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000110000000000000000000000001 
-out_alu_result - 00000000000000000000000000000000 
-out_R1_data - 0000111100000000 
+out_alu - 06000001 
+out_alu_result - 00000000 
+out_R1_data - 0f00 
 out_R0_en - 1 
-out_instr - 0000000101010010 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000000101010010
-alu - 00000110000000000000000000000001
+out_instr - 0152 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 0152
+alu - 06000001
 memc - 0
-r1_data - 0000111100000000
+r1_data - 0f00
 r0_en - 1
 halt_sys - 0
 
-data - 00000110000000000000000000000001
-r1_data_out - 0000111100000000
+data - 06000001
+r1_data_out - 0f00
 out_memc - 0
 out_r0_en - 1
-instruction_out - 0000000101010010
+instruction_out - 0152
 ===================================================================
 
 
@@ -687,71 +696,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :11110000111111110000000000000011
+out_alu      :f0ff0003
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1010
-out_instr    :0000010000111010
-out_R1_data  :1111000011111111
+out_alu_ctrl :a
+out_instr    :043a
+out_R1_data  :f0ff
 memc         :0
-instruction - 0000010000101011
-PC_address - 0000000000010000
-opcode - 0000
-func_code - 1011
-offset_sel - 01
-offset_se - 1111111111111011
-offset_shifted - 1111111111110110
-cmp_a - 1111000011111111
-cmp_b - 0000000001010000
-cmp_result - 00
-PC_no_jump - 0000000000010010
-PC_jump - 0000000000001000
-PC_next - 0000000000010010
-R1_data - 1111000011111111
-R1_data_muxed - 1111000011111111
-r2_data - 0000000001010000
-haz - 00000000010
+instruction - 042b
+PC_address - 0010
+opcode - 0
+func_code - b
+offset_sel - 1
+offset_se - fffb
+offset_shifted - fff6
+cmp_a - f0ff
+cmp_b - 0050
+cmp_result - 0
+PC_no_jump - 0012
+PC_jump - 0008
+PC_next - 0012
+R1_data - f0ff
+R1_data_muxed - f0ff
+r2_data - 0050
+haz - 002
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 1111000011111111 
-in_alu b- 0000000000000011 
-alu_control - 1010 
-in_R1_data - 1111000011111111 
+in_alu a - f0ff 
+in_alu b- 0003 
+alu_control - a 
+in_R1_data - f0ff 
 in_R0_en - 0 
-in_instr - 0000010000111010 
+in_instr - 043a 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000000000000000 
+s3_data - 00000000 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 1
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000000000000000000000000 
-out_alu_result - 00000000000000001000011111111000 
-out_R1_data - 0000000000000000 
+out_alu - 00000000 
+out_alu_result - 000087f8 
+out_R1_data - 0000 
 out_R0_en - 0 
-out_instr - 0000000000001110 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000000000001110
-alu - 00000000000000000000000000000000
+out_instr - 000e 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 000e
+alu - 00000000
 memc - 0
-r1_data - 0000000000000000
+r1_data - 0000
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000000000000000000000
-r1_data_out - 0000000000000000
+data - 00000000
+r1_data_out - 0000
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000000000001110
+instruction_out - 000e
 ===================================================================
 
 
@@ -762,71 +772,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :11110000111111110000000000000010
+out_alu      :f0ff0002
 out_haz1     :1
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1011
-out_instr    :0000010000101011
-out_R1_data  :1111000011111111
+out_alu_ctrl :b
+out_instr    :042b
+out_R1_data  :f0ff
 memc         :0
-instruction - 0000011000111001
-PC_address - 0000000000010010
-opcode - 0000
-func_code - 1001
-offset_sel - 01
-offset_se - 1111111111111001
-offset_shifted - 1111111111110010
-cmp_a - 0000000000100100
-cmp_b - 0000000001010000
-cmp_result - 01
-PC_no_jump - 0000000000010100
-PC_jump - 0000000000000110
-PC_next - 0000000000010100
-R1_data - 0000000000100100
-R1_data_muxed - 0000000000100100
-r2_data - 0000000001010000
-haz - 00000000000
+instruction - 0639
+PC_address - 0012
+opcode - 0
+func_code - 9
+offset_sel - 1
+offset_se - fff9
+offset_shifted - fff2
+cmp_a - 0024
+cmp_b - 0050
+cmp_result - 1
+PC_no_jump - 0014
+PC_jump - 0006
+PC_next - 0014
+R1_data - 0024
+R1_data_muxed - 0024
+r2_data - 0050
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 1111000011111111 
-in_alu b- 0000000000000010 
-alu_control - 1011 
-in_R1_data - 1111000011111111 
+in_alu a - f0ff 
+in_alu b- 0002 
+alu_control - b 
+in_R1_data - f0ff 
 in_R0_en - 0 
-in_instr - 0000010000101011 
+in_instr - 042b 
 haz1 - 1 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000001000011111111000 
+s3_data - 000087f8 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 1
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000000001000011111111000 
-out_alu_result - 00000000000000001110000111111110 
-out_R1_data - 1111000011111111 
+out_alu - 000087f8 
+out_alu_result - 0000e1fe 
+out_R1_data - f0ff 
 out_R0_en - 0 
-out_instr - 0000010000111010 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000010000111010
-alu - 00000000000000001000011111111000
+out_instr - 043a 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 043a
+alu - 000087f8
 memc - 0
-r1_data - 1111000011111111
+r1_data - f0ff
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000001000011111111000
-r1_data_out - 1111000011111111
+data - 000087f8
+r1_data_out - f0ff
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000010000111010
+instruction_out - 043a
 ===================================================================
 
 
@@ -837,71 +848,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :00000000001001000000000000000011
+out_alu      :00240003
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1001
-out_instr    :0000011000111001
-out_R1_data  :0000000000100100
+out_alu_ctrl :9
+out_instr    :0639
+out_R1_data  :0024
 memc         :0
-instruction - 0000011000101000
-PC_address - 0000000000010100
-opcode - 0000
-func_code - 1000
-offset_sel - 01
-offset_se - 1111111111111000
-offset_shifted - 1111111111110000
-cmp_a - 0000000000100100
-cmp_b - 0000000001010000
-cmp_result - 01
-PC_no_jump - 0000000000010110
-PC_jump - 0000000000000110
-PC_next - 0000000000010110
-R1_data - 0000000000100100
-R1_data_muxed - 0000000000100100
-r2_data - 0000000001010000
-haz - 00000000010
+instruction - 0628
+PC_address - 0014
+opcode - 0
+func_code - 8
+offset_sel - 1
+offset_se - fff8
+offset_shifted - fff0
+cmp_a - 0024
+cmp_b - 0050
+cmp_result - 1
+PC_no_jump - 0016
+PC_jump - 0006
+PC_next - 0016
+R1_data - 0024
+R1_data_muxed - 0024
+r2_data - 0050
+haz - 002
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000100100 
-in_alu b- 0000000000000011 
-alu_control - 1001 
-in_R1_data - 0000000000100100 
+in_alu a - 0024 
+in_alu b- 0003 
+alu_control - 9 
+in_R1_data - 0024 
 in_R0_en - 0 
-in_instr - 0000011000111001 
+in_instr - 0639 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000001110000111111110 
+s3_data - 0000e1fe 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 1
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000000001110000111111110 
-out_alu_result - 00000000000001001000000000000100 
-out_R1_data - 1111000011111111 
+out_alu - 0000e1fe 
+out_alu_result - 00048004 
+out_R1_data - f0ff 
 out_R0_en - 0 
-out_instr - 0000010000101011 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000010000101011
-alu - 00000000000000001110000111111110
+out_instr - 042b 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 042b
+alu - 0000e1fe
 memc - 0
-r1_data - 1111000011111111
+r1_data - f0ff
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000001110000111111110
-r1_data_out - 1111000011111111
+data - 0000e1fe
+r1_data_out - f0ff
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000010000101011
+instruction_out - 042b
 ===================================================================
 
 
@@ -912,71 +924,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :00000000001001000000000000000010
+out_alu      :00240002
 out_haz1     :1
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1000
-out_instr    :0000011000101000
-out_R1_data  :0000000000100100
+out_alu_ctrl :8
+out_instr    :0628
+out_R1_data  :0024
 memc         :0
-instruction - 0110011100000100
-PC_address - 0000000000010110
-opcode - 0110
-func_code - 0100
-offset_sel - 10
-offset_se - 0000000000000100
-offset_shifted - 0000000000001000
-cmp_a - 0000000000010000
-cmp_b - 0000000000000000
-cmp_result - 00
-PC_no_jump - 0000000000011000
-PC_jump - 0000000000100000
-PC_next - 0000000000011000
-R1_data - 0000000011111111
-R1_data_muxed - 0000000011111111
-r2_data - 0000000000000000
-haz - 00000010000
+instruction - 6704
+PC_address - 0016
+opcode - 6
+func_code - 4
+offset_sel - 2
+offset_se - 0004
+offset_shifted - 0008
+cmp_a - 00ff
+cmp_b - 0000
+cmp_result - 0
+PC_no_jump - 0018
+PC_jump - 0020
+PC_next - 0018
+R1_data - 00ff
+R1_data_muxed - 00ff
+r2_data - 0000
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000100100 
-in_alu b- 0000000000000010 
-alu_control - 1000 
-in_R1_data - 0000000000100100 
+in_alu a - 0024 
+in_alu b- 0002 
+alu_control - 8 
+in_R1_data - 0024 
 in_R0_en - 0 
-in_instr - 0000011000101000 
+in_instr - 0628 
 haz1 - 1 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000001001000000000000100 
+s3_data - 00048004 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000001001000000000000100 
-out_alu_result - 00000000000100100000000000010000 
-out_R1_data - 0000000000100100 
+out_alu - 00048004 
+out_alu_result - 00120010 
+out_R1_data - 0024 
 out_R0_en - 0 
-out_instr - 0000011000111001 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000011000111001
-alu - 00000000000001001000000000000100
+out_instr - 0639 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 0639
+alu - 00048004
 memc - 0
-r1_data - 0000000000100100
+r1_data - 0024
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000001001000000000000100
-r1_data_out - 0000000000100100
+data - 00048004
+r1_data_out - 0024
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000011000111001
+instruction_out - 0639
 ===================================================================
 
 
@@ -987,71 +1000,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :0
-out_alu      :00000000000001000000000000000000
+out_alu      :00040000
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :0110011100000100
-out_R1_data  :0000000011111111
+out_alu_ctrl :f
+out_instr    :6704
+out_R1_data  :00ff
 memc         :0
-instruction - 0000101100011111
-PC_address - 0000000000011000
-opcode - 0000
-func_code - 1111
-offset_sel - 00
-offset_se - 0000101100011111
-offset_shifted - 0001011000111110
-cmp_a - 0000000000000000
-cmp_b - 0000000000000001
-cmp_result - 01
-PC_no_jump - 0000000000011010
-PC_jump - 0001011001011000
-PC_next - 0000000000011010
-R1_data - 0000000000000000
-R1_data_muxed - 0000000000000000
-r2_data - 0000000000000001
-haz - 00000000000
+instruction - 0b1f
+PC_address - 0018
+opcode - 0
+func_code - f
+offset_sel - 0
+offset_se - 0b1f
+offset_shifted - 163e
+cmp_a - 0000
+cmp_b - 0001
+cmp_result - 1
+PC_no_jump - 001a
+PC_jump - 1658
+PC_next - 001a
+R1_data - 0000
+R1_data_muxed - 0000
+r2_data - 0001
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000100 
-in_alu b- 0000000000000000 
-alu_control - 1111 
-in_R1_data - 0000000011111111 
+in_alu a - 0004 
+in_alu b- 0000 
+alu_control - f 
+in_R1_data - 00ff 
 in_R0_en - 0 
-in_instr - 0110011100000100 
+in_instr - 6704 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000100100000000000010000 
+s3_data - 00120010 
 in_reg_wr - 0 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000100100000000000010000 
-out_alu_result - 00000000000000000000000000000100 
-out_R1_data - 0000000000100100 
+out_alu - 00120010 
+out_alu_result - 00000004 
+out_R1_data - 0024 
 out_R0_en - 0 
-out_instr - 0000011000101000 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000011000101000
-alu - 00000000000100100000000000010000
+out_instr - 0628 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 0628
+alu - 00120010
 memc - 0
-r1_data - 0000000000100100
+r1_data - 0024
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000100100000000000010000
-r1_data_out - 0000000000100100
+data - 00120010
+r1_data_out - 0024
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000011000101000
+instruction_out - 0628
 ===================================================================
 
 
@@ -1062,71 +1076,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :00000000000000000000000000000001
+out_alu      :00000001
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :0000101100011111
-out_R1_data  :0000000000000000
+out_alu_ctrl :f
+out_instr    :0b1f
+out_R1_data  :0000
 memc         :0
-instruction - 0100011100000101
-PC_address - 0000000000011010
-opcode - 0100
-func_code - 0101
-offset_sel - 10
-offset_se - 0000000000000101
-offset_shifted - 0000000000001010
-cmp_a - 0000000000000001
-cmp_b - 0000000000000000
-cmp_result - 00
-PC_no_jump - 0000000000011100
-PC_jump - 0000000000100110
-PC_next - 0000000000011100
-R1_data - 0000000011111111
-R1_data_muxed - 0000000011111111
-r2_data - 0000000000000000
-haz - 00000010000
+instruction - 4705
+PC_address - 001a
+opcode - 4
+func_code - 5
+offset_sel - 2
+offset_se - 0005
+offset_shifted - 000a
+cmp_a - 00ff
+cmp_b - 0000
+cmp_result - 0
+PC_no_jump - 001c
+PC_jump - 0026
+PC_next - 001c
+R1_data - 00ff
+R1_data_muxed - 00ff
+r2_data - 0000
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000000 
-in_alu b- 0000000000000001 
-alu_control - 1111 
-in_R1_data - 0000000000000000 
+in_alu a - 0000 
+in_alu b- 0001 
+alu_control - f 
+in_R1_data - 0000 
 in_R0_en - 0 
-in_instr - 0000101100011111 
+in_instr - 0b1f 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000000000000100 
+s3_data - 00000004 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 0 
 out_memc - 0 
-out_alu - 00000000000000000000000000000100 
-out_alu_result - 00000000000000000000000000000001 
-out_R1_data - 0000000011111111 
+out_alu - 00000004 
+out_alu_result - 00000001 
+out_R1_data - 00ff 
 out_R0_en - 0 
-out_instr - 0110011100000100 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0110011100000100
-alu - 00000000000000000000000000000100
+out_instr - 6704 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 6704
+alu - 00000004
 memc - 0
-r1_data - 0000000011111111
+r1_data - 00ff
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000000000000000000100
-r1_data_out - 0000000011111111
+data - 00000004
+r1_data_out - 00ff
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0110011100000100
+instruction_out - 6704
 ===================================================================
 
 
@@ -1137,71 +1152,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :0
-out_alu      :00000000000001010000000000000000
+out_alu      :00050000
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :0100011100000101
-out_R1_data  :0000000011111111
+out_alu_ctrl :f
+out_instr    :4705
+out_R1_data  :00ff
 memc         :0
-instruction - 0000101100101111
-PC_address - 0000000000011100
-opcode - 0000
-func_code - 1111
-offset_sel - 00
-offset_se - 0000101100101111
-offset_shifted - 0001011001011110
-cmp_a - 0000000000000001
-cmp_b - 0000000001010000
-cmp_result - 01
-PC_no_jump - 0000000000011110
-PC_jump - 0001011001111100
-PC_next - 0000000000011110
-R1_data - 0000000000000001
-R1_data_muxed - 0000000000000001
-r2_data - 0000000001010000
-haz - 00000000001
+instruction - 0b2f
+PC_address - 001c
+opcode - 0
+func_code - f
+offset_sel - 0
+offset_se - 0b2f
+offset_shifted - 165e
+cmp_a - 0001
+cmp_b - 0050
+cmp_result - 1
+PC_no_jump - 001e
+PC_jump - 167c
+PC_next - 001e
+R1_data - 0001
+R1_data_muxed - 0001
+r2_data - 0050
+haz - 001
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000101 
-in_alu b- 0000000000000000 
-alu_control - 1111 
-in_R1_data - 0000000011111111 
+in_alu a - 0005 
+in_alu b- 0000 
+alu_control - f 
+in_R1_data - 00ff 
 in_R0_en - 0 
-in_instr - 0100011100000101 
+in_instr - 4705 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000000000000001 
+s3_data - 00000001 
 in_reg_wr - 0 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000000000000000000000001 
-out_alu_result - 00000000000000000000000000000101 
-out_R1_data - 0000000000000000 
+out_alu - 00000001 
+out_alu_result - 00000005 
+out_R1_data - 0000 
 out_R0_en - 0 
-out_instr - 0000101100011111 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000101100011111
-alu - 00000000000000000000000000000001
+out_instr - 0b1f 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 0b1f
+alu - 00000001
 memc - 0
-r1_data - 0000000000000000
+r1_data - 0000
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000000000000000000001
-r1_data_out - 0000000000000000
+data - 00000001
+r1_data_out - 0000
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000101100011111
+instruction_out - 0b1f
 ===================================================================
 
 
@@ -1212,71 +1228,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :00000000000000010000000001010000
+out_alu      :00010050
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :0000101100101111
-out_R1_data  :0000000000000001
+out_alu_ctrl :f
+out_instr    :0b2f
+out_R1_data  :0001
 memc         :0
-instruction - 0101011100000010
-PC_address - 0000000000011110
-opcode - 0101
-func_code - 0010
-offset_sel - 10
-offset_se - 0000000000000010
-offset_shifted - 0000000000000100
-cmp_a - 0000000001010001
-cmp_b - 0000000000000000
-cmp_result - 00
-PC_no_jump - 0000000000100000
-PC_jump - 0000000000100100
-PC_next - 0000000000100100
-R1_data - 0000000011111111
-R1_data_muxed - 0000000011111111
-r2_data - 0000000000000000
-haz - 00000010000
+instruction - 5702
+PC_address - 001e
+opcode - 5
+func_code - 2
+offset_sel - 2
+offset_se - 0002
+offset_shifted - 0004
+cmp_a - 00ff
+cmp_b - 0000
+cmp_result - 0
+PC_no_jump - 0020
+PC_jump - 0024
+PC_next - 0024
+R1_data - 00ff
+R1_data_muxed - 00ff
+r2_data - 0000
+haz - 000
 R0_en - 1
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000001 
-in_alu b- 0000000001010000 
-alu_control - 1111 
-in_R1_data - 0000000000000001 
+in_alu a - 0001 
+in_alu b- 0050 
+alu_control - f 
+in_R1_data - 0001 
 in_R0_en - 0 
-in_instr - 0000101100101111 
+in_instr - 0b2f 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000000000000101 
+s3_data - 00000005 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 0 
 out_memc - 0 
-out_alu - 00000000000000000000000000000101 
-out_alu_result - 00000000000000000000000001010001 
-out_R1_data - 0000000011111111 
+out_alu - 00000005 
+out_alu_result - 00000051 
+out_R1_data - 00ff 
 out_R0_en - 0 
-out_instr - 0100011100000101 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0100011100000101
-alu - 00000000000000000000000000000101
+out_instr - 4705 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 4705
+alu - 00000005
 memc - 0
-r1_data - 0000000011111111
+r1_data - 00ff
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000000000000000000101
-r1_data_out - 0000000011111111
+data - 00000005
+r1_data_out - 00ff
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0100011100000101
+instruction_out - 4705
 ===================================================================
 
 
@@ -1287,71 +1304,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :0
-out_alu      :00000000000000100000000000000000
+out_alu      :00020000
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :1
-out_alu_ctrl :1111
-out_instr    :0101011100000010
-out_R1_data  :0000000011111111
+out_alu_ctrl :f
+out_instr    :5702
+out_R1_data  :00ff
 memc         :1
-instruction - 1000100010010000
-PC_address - 0000000000100100
-opcode - 1000
-func_code - 0000
-offset_sel - 01
-offset_se - 0000000000000000
-offset_shifted - 0000000000000000
-cmp_a - 1010101010101010
-cmp_b - 0000000000000000
-cmp_result - 00
-PC_no_jump - 0000000000100110
-PC_jump - 0000000000100110
-PC_next - 0000000000100110
-R1_data - 1010101010101010
-R1_data_muxed - 1010101010101010
-r2_data - 0000000000000000
-haz - 00000000000
+instruction - 8890
+PC_address - 0024
+opcode - 8
+func_code - 0
+offset_sel - 1
+offset_se - 0000
+offset_shifted - 0000
+cmp_a - aaaa
+cmp_b - 0000
+cmp_result - 0
+PC_no_jump - 0026
+PC_jump - 0026
+PC_next - 0026
+R1_data - aaaa
+R1_data_muxed - aaaa
+r2_data - 0000
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000010 
-in_alu b- 0000000000000000 
-alu_control - 1111 
-in_R1_data - 0000000011111111 
+in_alu a - 0002 
+in_alu b- 0000 
+alu_control - f 
+in_R1_data - 00ff 
 in_R0_en - 1 
-in_instr - 0101011100000010 
+in_instr - 5702 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000000001010001 
+s3_data - 00000051 
 in_reg_wr - 0 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000000000000000001010001 
-out_alu_result - 00000000000000000000000000000010 
-out_R1_data - 0000000000000001 
+out_alu - 00000051 
+out_alu_result - 00000002 
+out_R1_data - 0001 
 out_R0_en - 0 
-out_instr - 0000101100101111 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000101100101111
-alu - 00000000000000000000000001010001
+out_instr - 0b2f 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 0b2f
+alu - 00000051
 memc - 0
-r1_data - 0000000000000001
+r1_data - 0001
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000000000000001010001
-r1_data_out - 0000000000000001
+data - 00000051
+r1_data_out - 0001
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000101100101111
+instruction_out - 0b2f
 ===================================================================
 
 
@@ -1362,71 +1380,72 @@ stall        :0
 halt_sys     :0
 out_memc     :1
 out_reg_wr   :1
-out_alu      :00000000000000000000000000000000
+out_alu      :00000000
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :1000100010010000
-out_R1_data  :1010101010101010
+out_alu_ctrl :f
+out_instr    :8890
+out_R1_data  :aaaa
 memc         :0
-instruction - 0000100010001111
-PC_address - 0000000000100110
-opcode - 0000
-func_code - 1111
-offset_sel - 00
-offset_se - 0000100010001111
-offset_shifted - 0001000100011110
-cmp_a - 1010101010101010
-cmp_b - 1010101010101010
-cmp_result - 10
-PC_no_jump - 0000000000101000
-PC_jump - 0001000101000110
-PC_next - 0000000000101000
-R1_data - 1010101010101010
-R1_data_muxed - 1010101010101010
-r2_data - 1010101010101010
-haz - 00000000110
+instruction - 088f
+PC_address - 0026
+opcode - 0
+func_code - f
+offset_sel - 0
+offset_se - 088f
+offset_shifted - 111e
+cmp_a - aaaa
+cmp_b - aaaa
+cmp_result - 2
+PC_no_jump - 0028
+PC_jump - 1146
+PC_next - 0028
+R1_data - aaaa
+R1_data_muxed - aaaa
+r2_data - aaaa
+haz - 006
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000000 
-in_alu b- 0000000000000000 
-alu_control - 1111 
-in_R1_data - 1010101010101010 
+in_alu a - 0000 
+in_alu b- 0000 
+alu_control - f 
+in_R1_data - aaaa 
 in_R0_en - 0 
-in_instr - 1000100010010000 
+in_instr - 8890 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000000000000010 
+s3_data - 00000002 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 1
-
 out_reg_wr - 0 
 out_memc - 0 
-out_alu - 00000000000000000000000000000010 
-out_alu_result - 00000000000000000000000000000000 
-out_R1_data - 0000000011111111 
+out_alu - 00000002 
+out_alu_result - 00000000 
+out_R1_data - 00ff 
 out_R0_en - 1 
-out_instr - 0101011100000010 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0101011100000010
-alu - 00000000000000000000000000000010
+out_instr - 5702 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 5702
+alu - 00000002
 memc - 0
-r1_data - 0000000011111111
+r1_data - 00ff
 r0_en - 1
 halt_sys - 0
 
-data - 00000000000000000000000000000010
-r1_data_out - 0000000011111111
+data - 00000002
+r1_data_out - 00ff
 out_memc - 0
 out_r0_en - 1
-instruction_out - 0101011100000010
+instruction_out - 5702
 ===================================================================
 
 
@@ -1437,71 +1456,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :10101010101010101010101010101010
+out_alu      :aaaaaaaa
 out_haz1     :1
 out_haz2     :1
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :0000100010001111
-out_R1_data  :1010101010101010
+out_alu_ctrl :f
+out_instr    :088f
+out_R1_data  :aaaa
 memc         :0
-instruction - 1011100010010010
-PC_address - 0000000000101000
-opcode - 1011
-func_code - 0010
-offset_sel - 01
-offset_se - 0000000000000010
-offset_shifted - 0000000000000100
-cmp_a - 0000000000000000
-cmp_b - 0000000000000000
-cmp_result - 10
-PC_no_jump - 0000000000101010
-PC_jump - 0000000000101110
-PC_next - 0000000000101010
-R1_data - 0000000000000000
-R1_data_muxed - 0101011110011010
-r2_data - 0000000000000000
-haz - 10000000000
+instruction - b892
+PC_address - 0028
+opcode - b
+func_code - 2
+offset_sel - 1
+offset_se - 0002
+offset_shifted - 0004
+cmp_a - 0000
+cmp_b - 0000
+cmp_result - 2
+PC_no_jump - 002a
+PC_jump - 002e
+PC_next - 002a
+R1_data - 0000
+R1_data_muxed - 579a
+r2_data - 0000
+haz - 400
 R0_en - 1
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 1 
-in_alu a - 1010101010101010 
-in_alu b- 1010101010101010 
-alu_control - 1111 
-in_R1_data - 1010101010101010 
+in_alu a - aaaa 
+in_alu b- aaaa 
+alu_control - f 
+in_R1_data - aaaa 
 in_R0_en - 0 
-in_instr - 0000100010001111 
+in_instr - 088f 
 haz1 - 1 
 haz2 - 1 
 haz8 - 0 
-s3_data - 00000000000000000010101111001101 
+s3_data - 00002bcd 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 1 
-out_alu - 00000000000000000000000000000000 
-out_alu_result - 00000000000000000101011110011010 
-out_R1_data - 1010101010101010 
+out_alu - 00000000 
+out_alu_result - 0000579a 
+out_R1_data - aaaa 
 out_R0_en - 0 
-out_instr - 1000100010010000 
-Pipe Stage Three ----------------------------------------------------
-instruction - 1000100010010000
-alu - 00000000000000000000000000000000
+out_instr - 8890 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 8890
+alu - 00000000
 memc - 1
-r1_data - 1010101010101010
+r1_data - aaaa
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000000010101111001101
-r1_data_out - 1010101010101010
+data - 00002bcd
+r1_data_out - aaaa
 out_memc - 1
 out_r0_en - 0
-instruction_out - 1000100010010000
+instruction_out - 8890
 ===================================================================
 
 
@@ -1512,71 +1532,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :0
-out_alu      :00000000000000100000000000000000
+out_alu      :00020000
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :1
-out_alu_ctrl :1111
-out_instr    :1011100010010010
-out_R1_data  :0101011110011010
+out_alu_ctrl :f
+out_instr    :b892
+out_R1_data  :579a
 memc         :1
-instruction - 1000101010010010
-PC_address - 0000000000101010
-opcode - 1000
-func_code - 0010
-offset_sel - 01
-offset_se - 0000000000000010
-offset_shifted - 0000000000000100
-cmp_a - 0000000000000000
-cmp_b - 0000000000000000
-cmp_result - 10
-PC_no_jump - 0000000000101100
-PC_jump - 0000000000110000
-PC_next - 0000000000101100
-R1_data - 0000000000000000
-R1_data_muxed - 0000000000000000
-r2_data - 0000000000000000
-haz - 00000000000
+instruction - 8a92
+PC_address - 002a
+opcode - 8
+func_code - 2
+offset_sel - 1
+offset_se - 0002
+offset_shifted - 0004
+cmp_a - 0000
+cmp_b - 0000
+cmp_result - 2
+PC_no_jump - 002c
+PC_jump - 0030
+PC_next - 002c
+R1_data - 0000
+R1_data_muxed - 0000
+r2_data - 0000
+haz - 000
 R0_en - 1
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000010 
-in_alu b- 0000000000000000 
-alu_control - 1111 
-in_R1_data - 0101011110011010 
+in_alu a - 0002 
+in_alu b- 0000 
+alu_control - f 
+in_R1_data - 579a 
 in_R0_en - 1 
-in_instr - 1011100010010010 
+in_instr - b892 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000101011110011010 
+s3_data - 0000579a 
 in_reg_wr - 0 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000000000101011110011010 
-out_alu_result - 00000000000000000000000000000010 
-out_R1_data - 1010101010101010 
+out_alu - 0000579a 
+out_alu_result - 00000002 
+out_R1_data - aaaa 
 out_R0_en - 0 
-out_instr - 0000100010001111 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000100010001111
-alu - 00000000000000000101011110011010
+out_instr - 088f 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 088f
+alu - 0000579a
 memc - 0
-r1_data - 1010101010101010
+r1_data - aaaa
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000000101011110011010
-r1_data_out - 1010101010101010
+data - 0000579a
+r1_data_out - aaaa
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000100010001111
+instruction_out - 088f
 ===================================================================
 
 
@@ -1587,71 +1608,72 @@ stall        :0
 halt_sys     :0
 out_memc     :1
 out_reg_wr   :1
-out_alu      :00000000000000100000000000000000
+out_alu      :00020000
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :1
-out_alu_ctrl :1111
-out_instr    :1000101010010010
-out_R1_data  :0000000000000000
+out_alu_ctrl :f
+out_instr    :8a92
+out_R1_data  :0000
 memc         :0
-instruction - 0000110011001111
-PC_address - 0000000000101100
-opcode - 0000
-func_code - 1111
-offset_sel - 00
-offset_se - 0000110011001111
-offset_shifted - 0001100110011110
-cmp_a - 1111111111111111
-cmp_b - 1111111111111111
-cmp_result - 10
-PC_no_jump - 0000000000101110
-PC_jump - 0001100111001100
-PC_next - 0000000000101110
-R1_data - 1111111111111111
-R1_data_muxed - 1111111111111111
-r2_data - 1111111111111111
-haz - 00000000000
+instruction - 0ccf
+PC_address - 002c
+opcode - 0
+func_code - f
+offset_sel - 0
+offset_se - 0ccf
+offset_shifted - 199e
+cmp_a - ffff
+cmp_b - ffff
+cmp_result - 2
+PC_no_jump - 002e
+PC_jump - 19cc
+PC_next - 002e
+R1_data - ffff
+R1_data_muxed - ffff
+r2_data - ffff
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000010 
-in_alu b- 0000000000000000 
-alu_control - 1111 
-in_R1_data - 0000000000000000 
+in_alu a - 0002 
+in_alu b- 0000 
+alu_control - f 
+in_R1_data - 0000 
 in_R0_en - 1 
-in_instr - 1000101010010010 
+in_instr - 8a92 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000000000000010 
+s3_data - 00000002 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 0 
 out_memc - 0 
-out_alu - 00000000000000000000000000000010 
-out_alu_result - 00000000000000000000000000000010 
-out_R1_data - 0101011110011010 
+out_alu - 00000002 
+out_alu_result - 00000002 
+out_R1_data - 579a 
 out_R0_en - 1 
-out_instr - 1011100010010010 
-Pipe Stage Three ----------------------------------------------------
-instruction - 1011100010010010
-alu - 00000000000000000000000000000010
+out_instr - b892 
+
+Pipe Stage Three --------------------------------------------------
+instruction - b892
+alu - 00000002
 memc - 0
-r1_data - 0101011110011010
+r1_data - 579a
 r0_en - 1
 halt_sys - 0
 
-data - 00000000000000000000000000000010
-r1_data_out - 0101011110011010
+data - 00000002
+r1_data_out - 579a
 out_memc - 0
 out_r0_en - 1
-instruction_out - 1011100010010010
+instruction_out - b892
 ===================================================================
 
 
@@ -1662,71 +1684,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :11111111111111111111111111111111
+out_alu      :ffffffff
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :0000110011001111
-out_R1_data  :1111111111111111
+out_alu_ctrl :f
+out_instr    :0ccf
+out_R1_data  :ffff
 memc         :0
-instruction - 0000110111011110
-PC_address - 0000000000101110
-opcode - 0000
-func_code - 1110
-offset_sel - 00
-offset_se - 0000110111011110
-offset_shifted - 0001101110111100
-cmp_a - 0000000000000010
-cmp_b - 0000000000000010
-cmp_result - 10
-PC_no_jump - 0000000000110000
-PC_jump - 0001101111101100
-PC_next - 0000000000110000
-R1_data - 0000000000000010
-R1_data_muxed - 0000000000000010
-r2_data - 0000000000000010
-haz - 00000000000
+instruction - 0dde
+PC_address - 002e
+opcode - 0
+func_code - e
+offset_sel - 0
+offset_se - 0dde
+offset_shifted - 1bbc
+cmp_a - 0002
+cmp_b - 0002
+cmp_result - 2
+PC_no_jump - 0030
+PC_jump - 1bec
+PC_next - 0030
+R1_data - 0002
+R1_data_muxed - 0002
+r2_data - 0002
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 1 
-in_alu a - 1111111111111111 
-in_alu b- 1111111111111111 
-alu_control - 1111 
-in_R1_data - 1111111111111111 
+in_alu a - ffff 
+in_alu b- ffff 
+alu_control - f 
+in_R1_data - ffff 
 in_R0_en - 0 
-in_instr - 0000110011001111 
+in_instr - 0ccf 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000101011110011010 
+s3_data - 0000579a 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 1
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 1 
-out_alu - 00000000000000000000000000000010 
-out_alu_result - 00000000000000001111111111111110 
-out_R1_data - 0000000000000000 
+out_alu - 00000002 
+out_alu_result - 0000fffe 
+out_R1_data - 0000 
 out_R0_en - 1 
-out_instr - 1000101010010010 
-Pipe Stage Three ----------------------------------------------------
-instruction - 1000101010010010
-alu - 00000000000000000000000000000010
+out_instr - 8a92 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 8a92
+alu - 00000002
 memc - 1
-r1_data - 0000000000000000
+r1_data - 0000
 r0_en - 1
 halt_sys - 0
 
-data - 00000000000000000101011110011010
-r1_data_out - 0000000000000000
+data - 0000579a
+r1_data_out - 0000
 out_memc - 1
 out_r0_en - 1
-instruction_out - 1000101010010010
+instruction_out - 8a92
 ===================================================================
 
 
@@ -1737,71 +1760,72 @@ stall        :0
 halt_sys     :0
 out_memc     :0
 out_reg_wr   :1
-out_alu      :00000000000000100000000000000010
+out_alu      :00020002
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1110
-out_instr    :0000110111011110
-out_R1_data  :0000000000000010
+out_alu_ctrl :e
+out_instr    :0dde
+out_R1_data  :0002
 memc         :0
-instruction - 0000110011011111
-PC_address - 0000000000110000
-opcode - 0000
-func_code - 1111
-offset_sel - 00
-offset_se - 0000110011011111
-offset_shifted - 0001100110111110
-cmp_a - 1111111111111111
-cmp_b - 0000000000000010
-cmp_result - 00
-PC_no_jump - 0000000000110010
-PC_jump - 0001100111110000
-PC_next - 0000000000110010
-R1_data - 1111111111111111
-R1_data_muxed - 1111111111111111
-r2_data - 0000000000000010
-haz - 00000000101
+instruction - 0cdf
+PC_address - 0030
+opcode - 0
+func_code - f
+offset_sel - 0
+offset_se - 0cdf
+offset_shifted - 19be
+cmp_a - ffff
+cmp_b - 0002
+cmp_result - 0
+PC_no_jump - 0032
+PC_jump - 19f0
+PC_next - 0032
+R1_data - ffff
+R1_data_muxed - ffff
+r2_data - 0002
+haz - 005
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000010 
-in_alu b- 0000000000000010 
-alu_control - 1110 
-in_R1_data - 0000000000000010 
+in_alu a - 0002 
+in_alu b- 0002 
+alu_control - e 
+in_R1_data - 0002 
 in_R0_en - 0 
-in_instr - 0000110111011110 
+in_instr - 0dde 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000001111111111111110 
+s3_data - 0000fffe 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 1
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000000001111111111111110 
-out_alu_result - 00000000000000000000000000000000 
-out_R1_data - 1111111111111111 
+out_alu - 0000fffe 
+out_alu_result - 00000000 
+out_R1_data - ffff 
 out_R0_en - 0 
-out_instr - 0000110011001111 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000110011001111
-alu - 00000000000000001111111111111110
+out_instr - 0ccf 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 0ccf
+alu - 0000fffe
 memc - 0
-r1_data - 1111111111111111
+r1_data - ffff
 r0_en - 0
 halt_sys - 0
 
-data - 00000000000000001111111111111110
-r1_data_out - 1111111111111111
+data - 0000fffe
+r1_data_out - ffff
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000110011001111
+instruction_out - 0ccf
 ===================================================================
 
 
@@ -1812,71 +1836,72 @@ stall        :0
 halt_sys     :1
 out_memc     :0
 out_reg_wr   :1
-out_alu      :11111111111111100000000000000010
+out_alu      :fffe0002
 out_haz1     :0
 out_haz2     :1
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :0000110011011111
-out_R1_data  :1111111111111111
+out_alu_ctrl :f
+out_instr    :0cdf
+out_R1_data  :ffff
 memc         :0
-instruction - 1110111111111111
-PC_address - 0000000000110010
-opcode - 1110
-func_code - 1111
-offset_sel - 00
-offset_se - 0000111111111111
-offset_shifted - 0001111111111110
-cmp_a - 0000000000000000
-cmp_b - 0000000000000000
-cmp_result - 10
-PC_no_jump - 0000000000110100
-PC_jump - 0010000000110010
-PC_next - 0000000000110100
-R1_data - 0000000000000000
-R1_data_muxed - 0000000000000000
-r2_data - 0000000000000000
-haz - 00000000000
+instruction - efff
+PC_address - 0032
+opcode - e
+func_code - f
+offset_sel - 0
+offset_se - 0fff
+offset_shifted - 1ffe
+cmp_a - 0000
+cmp_b - 0000
+cmp_result - 2
+PC_no_jump - 0034
+PC_jump - 2032
+PC_next - 0034
+R1_data - 0000
+R1_data_muxed - 0000
+r2_data - 0000
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 1111111111111110 
-in_alu b- 0000000000000010 
-alu_control - 1111 
-in_R1_data - 1111111111111111 
+in_alu a - fffe 
+in_alu b- 0002 
+alu_control - f 
+in_R1_data - ffff 
 in_R0_en - 0 
-in_instr - 0000110011011111 
+in_instr - 0cdf 
 haz1 - 0 
 haz2 - 1 
 haz8 - 0 
-s3_data - 00000000000000000000000000000000 
+s3_data - 00000000 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 1
 alu sign - 0
 alu zero- 0
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000000000000000000000000 
-out_alu_result - 00000000000000001111111111111110 
-out_R1_data - 0000000000000010 
+out_alu - 00000000 
+out_alu_result - 0000fffe 
+out_R1_data - 0002 
 out_R0_en - 0 
-out_instr - 0000110111011110 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000110111011110
-alu - 00000000000000000000000000000000
+out_instr - 0dde 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 0dde
+alu - 00000000
 memc - 0
-r1_data - 0000000000000010
+r1_data - 0002
 r0_en - 0
 halt_sys - 1
 
-data - 00000000000000000000000000000000
-r1_data_out - 0000000000000010
+data - 00000000
+r1_data_out - 0002
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000110111011110
+instruction_out - 0dde
 ===================================================================
 
 
@@ -1887,71 +1912,72 @@ stall        :0
 halt_sys     :1
 out_memc     :0
 out_reg_wr   :0
-out_alu      :00000000000000000000000000000000
+out_alu      :00000000
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :1110111111111111
-out_R1_data  :0000000000000000
+out_alu_ctrl :f
+out_instr    :efff
+out_R1_data  :0000
 memc         :0
-instruction - 1110111111111111
-PC_address - 0000000000110010
-opcode - 1110
-func_code - 1111
-offset_sel - 00
-offset_se - 0000111111111111
-offset_shifted - 0001111111111110
-cmp_a - 0000000000000000
-cmp_b - 0000000000000000
-cmp_result - 10
-PC_no_jump - 0000000000110100
-PC_jump - 0010000000110010
-PC_next - 0000000000110100
-R1_data - 0000000000000000
-R1_data_muxed - 0000000000000000
-r2_data - 0000000000000000
-haz - 00000000000
+instruction - efff
+PC_address - 0032
+opcode - e
+func_code - f
+offset_sel - 0
+offset_se - 0fff
+offset_shifted - 1ffe
+cmp_a - 0000
+cmp_b - 0000
+cmp_result - 2
+PC_no_jump - 0034
+PC_jump - 2032
+PC_next - 0034
+R1_data - 0000
+R1_data_muxed - 0000
+r2_data - 0000
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000000 
-in_alu b- 0000000000000000 
-alu_control - 1111 
-in_R1_data - 0000000000000000 
+in_alu a - 0000 
+in_alu b- 0000 
+alu_control - f 
+in_R1_data - 0000 
 in_R0_en - 0 
-in_instr - 1110111111111111 
+in_instr - efff 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000001111111111111110 
+s3_data - 0000fffe 
 in_reg_wr - 0 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 1
-
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00000000000000001111111111111110 
-out_alu_result - 00000000000000000000000000000000 
-out_R1_data - 1111111111111111 
+out_alu - 0000fffe 
+out_alu_result - 00000000 
+out_R1_data - ffff 
 out_R0_en - 0 
-out_instr - 0000110011011111 
-Pipe Stage Three ----------------------------------------------------
-instruction - 0000110011011111
-alu - 00000000000000001111111111111110
+out_instr - 0cdf 
+
+Pipe Stage Three --------------------------------------------------
+instruction - 0cdf
+alu - 0000fffe
 memc - 0
-r1_data - 1111111111111111
+r1_data - ffff
 r0_en - 0
 halt_sys - 1
 
-data - 00000000000000001111111111111110
-r1_data_out - 1111111111111111
+data - 0000fffe
+r1_data_out - ffff
 out_memc - 0
 out_r0_en - 0
-instruction_out - 0000110011011111
+instruction_out - 0cdf
 ===================================================================
 
 
@@ -1962,71 +1988,72 @@ stall        :0
 halt_sys     :1
 out_memc     :0
 out_reg_wr   :0
-out_alu      :00000000000000000000000000000000
+out_alu      :00000000
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :1110111111111111
-out_R1_data  :0000000000000000
+out_alu_ctrl :f
+out_instr    :efff
+out_R1_data  :0000
 memc         :0
-instruction - 1110111111111111
-PC_address - 0000000000110010
-opcode - 1110
-func_code - 1111
-offset_sel - 00
-offset_se - 0000111111111111
-offset_shifted - 0001111111111110
-cmp_a - 0000000000000000
-cmp_b - 0000000000000000
-cmp_result - 10
-PC_no_jump - 0000000000110100
-PC_jump - 0010000000110010
-PC_next - 0000000000110100
-R1_data - 0000000000000000
-R1_data_muxed - 0000000000000000
-r2_data - 0000000000000000
-haz - 00000000000
+instruction - efff
+PC_address - 0032
+opcode - e
+func_code - f
+offset_sel - 0
+offset_se - 0fff
+offset_shifted - 1ffe
+cmp_a - 0000
+cmp_b - 0000
+cmp_result - 2
+PC_no_jump - 0034
+PC_jump - 2032
+PC_next - 0034
+R1_data - 0000
+R1_data_muxed - 0000
+r2_data - 0000
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000000 
-in_alu b- 0000000000000000 
-alu_control - 1111 
-in_R1_data - 0000000000000000 
+in_alu a - 0000 
+in_alu b- 0000 
+alu_control - f 
+in_R1_data - 0000 
 in_R0_en - 0 
-in_instr - 1110111111111111 
+in_instr - efff 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000000000000000 
+s3_data - 00000000 
 in_reg_wr - 0 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 1
-
 out_reg_wr - 0 
 out_memc - 0 
-out_alu - 00000000000000000000000000000000 
-out_alu_result - 00000000000000000000000000000000 
-out_R1_data - 0000000000000000 
+out_alu - 00000000 
+out_alu_result - 00000000 
+out_R1_data - 0000 
 out_R0_en - 0 
-out_instr - 1110111111111111 
-Pipe Stage Three ----------------------------------------------------
-instruction - 1110111111111111
-alu - 00000000000000000000000000000000
+out_instr - efff 
+
+Pipe Stage Three --------------------------------------------------
+instruction - efff
+alu - 00000000
 memc - 0
-r1_data - 0000000000000000
+r1_data - 0000
 r0_en - 0
 halt_sys - 1
 
-data - 00000000000000000000000000000000
-r1_data_out - 0000000000000000
+data - 00000000
+r1_data_out - 0000
 out_memc - 0
 out_r0_en - 0
-instruction_out - 1110111111111111
+instruction_out - efff
 ===================================================================
 
 
@@ -2037,71 +2064,72 @@ stall        :0
 halt_sys     :1
 out_memc     :0
 out_reg_wr   :0
-out_alu      :00000000000000000000000000000000
+out_alu      :00000000
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :1110111111111111
-out_R1_data  :0000000000000000
+out_alu_ctrl :f
+out_instr    :efff
+out_R1_data  :0000
 memc         :0
-instruction - 1110111111111111
-PC_address - 0000000000110010
-opcode - 1110
-func_code - 1111
-offset_sel - 00
-offset_se - 0000111111111111
-offset_shifted - 0001111111111110
-cmp_a - 0000000000000000
-cmp_b - 0000000000000000
-cmp_result - 10
-PC_no_jump - 0000000000110100
-PC_jump - 0010000000110010
-PC_next - 0000000000110100
-R1_data - 0000000000000000
-R1_data_muxed - 0000000000000000
-r2_data - 0000000000000000
-haz - 00000000000
+instruction - efff
+PC_address - 0032
+opcode - e
+func_code - f
+offset_sel - 0
+offset_se - 0fff
+offset_shifted - 1ffe
+cmp_a - 0000
+cmp_b - 0000
+cmp_result - 2
+PC_no_jump - 0034
+PC_jump - 2032
+PC_next - 0034
+R1_data - 0000
+R1_data_muxed - 0000
+r2_data - 0000
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000000 
-in_alu b- 0000000000000000 
-alu_control - 1111 
-in_R1_data - 0000000000000000 
+in_alu a - 0000 
+in_alu b- 0000 
+alu_control - f 
+in_R1_data - 0000 
 in_R0_en - 0 
-in_instr - 1110111111111111 
+in_instr - efff 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000000000000000 
+s3_data - 00000000 
 in_reg_wr - 0 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 1
-
 out_reg_wr - 0 
 out_memc - 0 
-out_alu - 00000000000000000000000000000000 
-out_alu_result - 00000000000000000000000000000000 
-out_R1_data - 0000000000000000 
+out_alu - 00000000 
+out_alu_result - 00000000 
+out_R1_data - 0000 
 out_R0_en - 0 
-out_instr - 1110111111111111 
-Pipe Stage Three ----------------------------------------------------
-instruction - 1110111111111111
-alu - 00000000000000000000000000000000
+out_instr - efff 
+
+Pipe Stage Three --------------------------------------------------
+instruction - efff
+alu - 00000000
 memc - 0
-r1_data - 0000000000000000
+r1_data - 0000
 r0_en - 0
 halt_sys - 1
 
-data - 00000000000000000000000000000000
-r1_data_out - 0000000000000000
+data - 00000000
+r1_data_out - 0000
 out_memc - 0
 out_r0_en - 0
-instruction_out - 1110111111111111
+instruction_out - efff
 ===================================================================
 
 
@@ -2112,71 +2140,72 @@ stall        :0
 halt_sys     :1
 out_memc     :0
 out_reg_wr   :0
-out_alu      :00000000000000000000000000000000
+out_alu      :00000000
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :1110111111111111
-out_R1_data  :0000000000000000
+out_alu_ctrl :f
+out_instr    :efff
+out_R1_data  :0000
 memc         :0
-instruction - 1110111111111111
-PC_address - 0000000000110010
-opcode - 1110
-func_code - 1111
-offset_sel - 00
-offset_se - 0000111111111111
-offset_shifted - 0001111111111110
-cmp_a - 0000000000000000
-cmp_b - 0000000000000000
-cmp_result - 10
-PC_no_jump - 0000000000110100
-PC_jump - 0010000000110010
-PC_next - 0000000000110100
-R1_data - 0000000000000000
-R1_data_muxed - 0000000000000000
-r2_data - 0000000000000000
-haz - 00000000000
+instruction - efff
+PC_address - 0032
+opcode - e
+func_code - f
+offset_sel - 0
+offset_se - 0fff
+offset_shifted - 1ffe
+cmp_a - 0000
+cmp_b - 0000
+cmp_result - 2
+PC_no_jump - 0034
+PC_jump - 2032
+PC_next - 0034
+R1_data - 0000
+R1_data_muxed - 0000
+r2_data - 0000
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000000 
-in_alu b- 0000000000000000 
-alu_control - 1111 
-in_R1_data - 0000000000000000 
+in_alu a - 0000 
+in_alu b- 0000 
+alu_control - f 
+in_R1_data - 0000 
 in_R0_en - 0 
-in_instr - 1110111111111111 
+in_instr - efff 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000000000000000 
+s3_data - 00000000 
 in_reg_wr - 0 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 1
-
 out_reg_wr - 0 
 out_memc - 0 
-out_alu - 00000000000000000000000000000000 
-out_alu_result - 00000000000000000000000000000000 
-out_R1_data - 0000000000000000 
+out_alu - 00000000 
+out_alu_result - 00000000 
+out_R1_data - 0000 
 out_R0_en - 0 
-out_instr - 1110111111111111 
-Pipe Stage Three ----------------------------------------------------
-instruction - 1110111111111111
-alu - 00000000000000000000000000000000
+out_instr - efff 
+
+Pipe Stage Three --------------------------------------------------
+instruction - efff
+alu - 00000000
 memc - 0
-r1_data - 0000000000000000
+r1_data - 0000
 r0_en - 0
 halt_sys - 1
 
-data - 00000000000000000000000000000000
-r1_data_out - 0000000000000000
+data - 00000000
+r1_data_out - 0000
 out_memc - 0
 out_r0_en - 0
-instruction_out - 1110111111111111
+instruction_out - efff
 ===================================================================
 
 
@@ -2187,71 +2216,72 @@ stall        :0
 halt_sys     :1
 out_memc     :0
 out_reg_wr   :0
-out_alu      :00000000000000000000000000000000
+out_alu      :00000000
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :1110111111111111
-out_R1_data  :0000000000000000
+out_alu_ctrl :f
+out_instr    :efff
+out_R1_data  :0000
 memc         :0
-instruction - 1110111111111111
-PC_address - 0000000000110010
-opcode - 1110
-func_code - 1111
-offset_sel - 00
-offset_se - 0000111111111111
-offset_shifted - 0001111111111110
-cmp_a - 0000000000000000
-cmp_b - 0000000000000000
-cmp_result - 10
-PC_no_jump - 0000000000110100
-PC_jump - 0010000000110010
-PC_next - 0000000000110100
-R1_data - 0000000000000000
-R1_data_muxed - 0000000000000000
-r2_data - 0000000000000000
-haz - 00000000000
+instruction - efff
+PC_address - 0032
+opcode - e
+func_code - f
+offset_sel - 0
+offset_se - 0fff
+offset_shifted - 1ffe
+cmp_a - 0000
+cmp_b - 0000
+cmp_result - 2
+PC_no_jump - 0034
+PC_jump - 2032
+PC_next - 0034
+R1_data - 0000
+R1_data_muxed - 0000
+r2_data - 0000
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000000 
-in_alu b- 0000000000000000 
-alu_control - 1111 
-in_R1_data - 0000000000000000 
+in_alu a - 0000 
+in_alu b- 0000 
+alu_control - f 
+in_R1_data - 0000 
 in_R0_en - 0 
-in_instr - 1110111111111111 
+in_instr - efff 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000000000000000 
+s3_data - 00000000 
 in_reg_wr - 0 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 1
-
 out_reg_wr - 0 
 out_memc - 0 
-out_alu - 00000000000000000000000000000000 
-out_alu_result - 00000000000000000000000000000000 
-out_R1_data - 0000000000000000 
+out_alu - 00000000 
+out_alu_result - 00000000 
+out_R1_data - 0000 
 out_R0_en - 0 
-out_instr - 1110111111111111 
-Pipe Stage Three ----------------------------------------------------
-instruction - 1110111111111111
-alu - 00000000000000000000000000000000
+out_instr - efff 
+
+Pipe Stage Three --------------------------------------------------
+instruction - efff
+alu - 00000000
 memc - 0
-r1_data - 0000000000000000
+r1_data - 0000
 r0_en - 0
 halt_sys - 1
 
-data - 00000000000000000000000000000000
-r1_data_out - 0000000000000000
+data - 00000000
+r1_data_out - 0000
 out_memc - 0
 out_r0_en - 0
-instruction_out - 1110111111111111
+instruction_out - efff
 ===================================================================
 
 
@@ -2262,71 +2292,72 @@ stall        :0
 halt_sys     :1
 out_memc     :0
 out_reg_wr   :0
-out_alu      :00000000000000000000000000000000
+out_alu      :00000000
 out_haz1     :0
 out_haz2     :0
 out_haz8     :0
 out_R0_en    :0
-out_alu_ctrl :1111
-out_instr    :1110111111111111
-out_R1_data  :0000000000000000
+out_alu_ctrl :f
+out_instr    :efff
+out_R1_data  :0000
 memc         :0
-instruction - 1110111111111111
-PC_address - 0000000000110010
-opcode - 1110
-func_code - 1111
-offset_sel - 00
-offset_se - 0000111111111111
-offset_shifted - 0001111111111110
-cmp_a - 0000000000000000
-cmp_b - 0000000000000000
-cmp_result - 10
-PC_no_jump - 0000000000110100
-PC_jump - 0010000000110010
-PC_next - 0000000000110100
-R1_data - 0000000000000000
-R1_data_muxed - 0000000000000000
-r2_data - 0000000000000000
-haz - 00000000000
+instruction - efff
+PC_address - 0032
+opcode - e
+func_code - f
+offset_sel - 0
+offset_se - 0fff
+offset_shifted - 1ffe
+cmp_a - 0000
+cmp_b - 0000
+cmp_result - 2
+PC_no_jump - 0034
+PC_jump - 2032
+PC_next - 0034
+R1_data - 0000
+R1_data_muxed - 0000
+r2_data - 0000
+haz - 000
 R0_en - 0
+
 Pipe Stage Two ----------------------------------------------------
 in_memc - 0 
-in_alu a - 0000000000000000 
-in_alu b- 0000000000000000 
-alu_control - 1111 
-in_R1_data - 0000000000000000 
+in_alu a - 0000 
+in_alu b- 0000 
+alu_control - f 
+in_R1_data - 0000 
 in_R0_en - 0 
-in_instr - 1110111111111111 
+in_instr - efff 
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00000000000000000000000000000000 
+s3_data - 00000000 
 in_reg_wr - 0 
 alucontrol - 
 alu overflow - 0
 alu sign - 0
 alu zero- 1
-
 out_reg_wr - 0 
 out_memc - 0 
-out_alu - 00000000000000000000000000000000 
-out_alu_result - 00000000000000000000000000000000 
-out_R1_data - 0000000000000000 
+out_alu - 00000000 
+out_alu_result - 00000000 
+out_R1_data - 0000 
 out_R0_en - 0 
-out_instr - 1110111111111111 
-Pipe Stage Three ----------------------------------------------------
-instruction - 1110111111111111
-alu - 00000000000000000000000000000000
+out_instr - efff 
+
+Pipe Stage Three --------------------------------------------------
+instruction - efff
+alu - 00000000
 memc - 0
-r1_data - 0000000000000000
+r1_data - 0000
 r0_en - 0
 halt_sys - 1
 
-data - 00000000000000000000000000000000
-r1_data_out - 0000000000000000
+data - 00000000
+r1_data_out - 0000
 out_memc - 0
 out_r0_en - 0
-instruction_out - 1110111111111111
+instruction_out - efff
 ===================================================================
 Memory check Passed! memory[0] value = 2bcd expected 2bcd
 Memory check Passed! memory[2] value = 579a expected 579a
@@ -2338,5 +2369,5 @@ VCS Coverage Metrics: during simulation line, FSM, branch, tgl was monitored
 ---------------------------------------------------------------------------
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 334
-CPU Time:      1.140 seconds;       Data structure size:   4.0Mb
-Wed Dec  3 19:55:34 2014
+CPU Time:      1.200 seconds;       Data structure size:   4.0Mb
+Thu Dec  4 12:25:05 2014

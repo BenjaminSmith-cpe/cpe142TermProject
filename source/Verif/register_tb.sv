@@ -1,8 +1,8 @@
-import alu_pkg::*; 
-import types_pkg::*;
 //`define VERBOSE
 
 class reg_stim;
+	import alu_pkg::*; 
+	import types_pkg::*;
     
     rand logic   [15:0]  memory_test_data;
     rand logic          halt;
@@ -27,7 +27,8 @@ endclass
 
 module register_tb();
     import alu_pkg::*;
-
+	import types_pkg::*;
+	
     integer          errors;
     integer          testiterations = 10000;
     integer          successes;
