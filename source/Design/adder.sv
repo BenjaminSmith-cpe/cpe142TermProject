@@ -1,3 +1,9 @@
+// Adder module 
+//
+// This module is used to add two 16 bit numbers. 
+// Used for Program Counter
+//
+
 module adder(
     input logic     [15:0]  pc,
     input logic     [15:0]  offset,

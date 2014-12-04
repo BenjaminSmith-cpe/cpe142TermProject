@@ -1,11 +1,19 @@
+// Register file module
+//
+// This module will store values of the registers for the cpu.
+// It can write new data to the registers as well as read them.
+// The R0 register is treated slightly different for instructions
+// like MUL/DIV or branching instructions based on our ISA.
+//
+
 module mem_register(
     input wire          rst,
     input wire          clk,
     input wire          halt_sys,
 
     input wire          R0_read,
-    input wire  [3:0]   ra1,
-    input wire  [3:0]   ra2,
+    input wire  [3:0]   ra1,        // address of register 1
+    input wire  [3:0]   ra2,        // address of register 2
 
     input wire          write_en,
     input wire          R0_en,

@@ -1,3 +1,9 @@
+// Hazard/Forwarding unit module 
+//
+// This module determines Current hazards, and outputs the
+// necessary signals to properly deal with them 
+//
+
 module control_hazard_unit(
 
     input wire              s2_R0_en,
@@ -11,7 +17,7 @@ module control_hazard_unit(
     input wire      [3:0]   s2_r1,
     input wire      [3:0]   s3_r1,
 
-    output logic    [10:0]  haz,
+    output logic    [10:0]  haz,			// control signals to handle the hazards
     output logic            stall
 );
 

@@ -1,9 +1,14 @@
+// ALU module
+//
+// This is the main ALU responsible for all arithmetic operations
+//
+
 module alu(
-    input alu_pkg::in_t       in,
-    input alu_pkg::control_e  control,
+    input alu_pkg::in_t       in,       // input a and b
+    input alu_pkg::control_e  control,  // control signals
     
-    output alu_pkg::status_t   stat,
-    output integer   out
+    output alu_pkg::status_t   stat,    // status bits like overflow
+    output integer   out                // 32 bit output
 );
     import alu_pkg::*;
 	integer vcstemp; //required because VCS does not support concat bit slicing.. booooo
@@ -11,6 +16,7 @@ module alu(
     logic signed [17:0] arith;
     
     assign vcstemp = {16'b0,({in.a, in.a} << in.b%16)};
+
     always_comb begin    
         case(control)
             OR  : out = {16'b0,in.a | in.b};
@@ -41,12 +47,15 @@ module alu(
          endcase
     end
 
+    // The status of the ALU needs to be computed 
     always_comb begin:flag_logic
-        stat.zero = !(|out);
-        stat.div0 = ((control == DIV)&&(in.b == 32'd0)) ? 1'b1 : 1'b0;
-        
-        stat.overflow = (control == ADD || control == SUB) ? arith[17]^arith[16] : 1'b0; 
-        
+        // zero flag
+        stat.zero = !(|out);    
+        // divide by zero flag
+        stat.div0 = ((control == DIV)&&(in.b == 32'd0)) ? 1'b1 : 1'b0;          
+        // overflow flag
+        stat.overflow = (control == ADD || control == SUB) ? arith[17]^arith[16] : 1'b0;  
+        // sign flag
         if(control == MULT) stat.sign = out[31];
         else                stat.sign = out[15];
     end

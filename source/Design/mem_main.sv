@@ -1,8 +1,10 @@
-//===========================================================
-// Main memory block
-// Word addressable (16-bit)
 //
-//===========================================================
+// Main memory block
+//
+// Word addressable (16-bit) and resettable. 
+// Shadow memory was only used to easily load and clear 
+// the memory during testbenching and validation
+//
 
 module mem_main(
     input wire          rst,

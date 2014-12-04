@@ -1,3 +1,9 @@
+// Program memory module
+//
+// Simple readable program memory
+// used to store the binary program instructions
+//
+
 module mem_program(
     input wire  [15:0]  address,
     output logic[15:0]  data_out

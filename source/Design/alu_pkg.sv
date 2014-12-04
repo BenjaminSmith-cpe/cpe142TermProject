@@ -1,7 +1,13 @@
+// alu package module 
+//
+// This file contains the data types we are using for the ALU
+// 
+//
+
 package alu_pkg;
     
     typedef logic signed [15:0] word_16;
-
+    // the control_e signal tells the ALU what operation to perform
     typedef enum logic[3:0]{
         MULT= 4'h1,
         DIV = 4'h2,

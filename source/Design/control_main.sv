@@ -1,3 +1,11 @@
+// Main control module
+//
+// This module determines the control signals for
+// every instruction based on the opcode and func code.
+// This unit will also halt the system when any exception occurs
+// divide by zero, overflow, unknown opcode
+//
+
 module control_main(
     input types_pkg::opcode_t   opcode,
     input alu_pkg::control_e    func,
@@ -17,7 +25,10 @@ module control_main(
     import types_pkg::*;
     import alu_pkg::*;
     
+    // Compute control signals
     always_comb begin
+        // If an exception has occurred, zero everything out and 
+        // halt system.
         if (div0 || overflow) begin // Exception
             ALUop = 1'b0;
             offset_sel = NONE;
@@ -29,6 +40,7 @@ module control_main(
             se_imm_a = 1'b0;
         end
         else begin
+            // determine output signals based on opcode
             case (opcode) 
                 ARITHM: begin
                     ALUop = 1'b0;
@@ -41,7 +53,7 @@ module control_main(
                     halt_sys = 1'b0;
                     reg_wr = 1'b1;
                     R0_read = 1'b0;
-                    se_imm_a = 1'b0; // Not soooo sure bout this one
+                    se_imm_a = 1'b0; 
                 end
                 LW: begin
                     ALUop = 1'b1;
@@ -125,6 +137,6 @@ module control_main(
                     se_imm_a = 1'b0;
                 end
             endcase
-        end // if(exception)
+        end
     end
 endmodule
