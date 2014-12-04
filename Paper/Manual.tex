@@ -178,12 +178,12 @@ begin the design process with a through understanding of what hardware is to per
 
     \subsection{Register File}
     The register file's basic function is to provide the contents of a register when an address is supplied to it's address port. The register file has has two address ports and two data ports. Data will be produced on the output ports as soon as it is ready, not waiting for a clock. The write procedure is sequential and the data will be written on the rising edge of the system clock. The register will also implement two custom functions based around the R0 register. R0 will be accessible through the register ports like all of the other registers, but in addition to this it will respond to R0\_en and R0\_read.
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=.28\textwidth]{./figures/rf.jpg}
-        \caption{Register File Block}
-        \label{rffig}
-    \end{figure}
+    % \begin{figure}[H]
+    %     \centering
+    %     \includegraphics[width=.28\textwidth]{./figures/rf.jpg}
+    %     \caption{Register File Block}
+    %     \label{rffig}
+    % \end{figure}
 
     \begin{table}[H]
         \caption{Register File Control Signals}
@@ -274,7 +274,6 @@ begin the design process with a through understanding of what hardware is to per
 		        \end{tabular}
 		\end{table}
 	\FloatBarrier
-	\clearpage
     \subsection{Stage 1}
     The first stage of this design contains nearly all of the control logic for processor. Since the path through
     the 16-bit signed divider of stage two is so long, a lot of control logic can be implemented without effecting
@@ -395,9 +394,7 @@ begin the design process with a through understanding of what hardware is to per
         1             & 1             & extend 12 bits to 16\\
         \end{tabular}
     \end{table}
-    
-    \newpage
-    
+        
 	% \begin{figure}[htpb]
  %        \includegraphics[width=.4\textwidth]{./figures/stage2.jpg}
  %        \caption{Pipeline Organization Stage Two}
@@ -417,7 +414,7 @@ begin the design process with a through understanding of what hardware is to per
 	
     \subsection{Stage 3}
     The third stage of this pipelined processor handles memory references and writes back to the
-    register file as seen in Figure \ref{stage3}. The main logic of this stage is contained in the 
+    register file as seen in stage 3. The main logic of this stage is contained in the 
     main memory unit which is described in section two of this document.
     \FloatBarrier
     \newpage  
