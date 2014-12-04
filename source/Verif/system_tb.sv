@@ -167,3 +167,91 @@ module system_tb();
         $finish;
     end
 endmodule
+
+    always @ (negedge clk) begin
+        if(SimPhase == FULLTEST) begin
+            //PC, ADDERS, MEMORY, REGISTER FILE, ALU, and pipeline buffers (inputs and output)
+            $display("\n\n\n")
+            $display("\nCurrent CPU State =================================================");
+            $display("\nPipe Stage One ----------------------------------------------------");
+            $display("\nPC: %4d --   :%b"     , dut.st1.PC);
+            $display("\nstall        :%b"     , dut.st1.stall);
+            $display("\nhalt_sys     :%b"     , dut.st1.halt_sys);
+
+            $display("\nout_memc     :%b"     , dut.st1.out_memc);
+            $display("\nout_reg_wr   :%b"     , dut.st1.out_reg_wr);
+            $display("\nout_alu      :%b"     , dut.st1.out_alu);
+            $display("\nout_haz1     :%b"     , dut.st1.out_haz1);
+            $display("\nout_haz2     :%b"     , dut.st1.out_haz2);
+            $display("\nout_haz8     :%b"     , dut.st1.out_haz8);
+            $display("\nout_R0_en    :%b"     , dut.st1.out_R0_en);
+            $display("\nout_alu_ctrl :%b"     , dut.st1.out_alu_ctrl);
+            $display("\nout_instr    :%b"     , dut.st1.out_instr);
+            $display("\nout_R1_data  :%b"     , dut.st1.out_R1_data);
+            $display("\nmemc         :%b"     , dut.st1.memc);
+
+            $display("\ninstruction - %b"     , instruction );
+            $display("\nPC_address - %b"      , PC_address );
+            
+            $display("\nopcode - %b"          , opcode );
+            $display("\nfunc_code - %b"       , func_code );
+            
+            $display("\noffset_sel - %b"      , offset_sel );
+            $display("\noffset_se - %b"       , offset_se );
+            $display("\noffset_shifted - %b"  , offset_shifted );
+            
+            $display("\ncmp_a - %b"           , cmp_a );
+            $display("\ncmp_b - %b"           , cmp_b );
+            $display("\ncmp_result - %b"      , cmp_result );
+            
+            $display("\nPC_no_jump - %b"      , PC_no_jump );
+            $display("\nPC_jump - %b"         , PC_jump );
+            $display("\nPC_next - %b"         , PC_next );
+            
+            $display("\nR1_data - %b"         , R1_data );
+            $display("\nR1_data_muxed - %b"   , R1_data_muxed );
+            $display("\nr2_data - %b"         , r2_data );
+            
+            $display("\nhaz - %b"             , haz );
+            $display("\nR0_en - %b"           , R0_en );
+
+            $display("\nPipe Stage Two ----------------------------------------------------");
+            $display("\nin_memc - %b "        , dut.st3.in_memc);
+            $display("\nin_alu - %b "         , dut.st3.in_alu);
+            $display("\nalu_control - %b "    , dut.st3.alu_control);
+            $display("\nin_R1_data - %b "     , dut.st3.in_R1_data);
+            $display("\nin_R0_en - %b "       , dut.st3.in_R0_en);
+            $display("\nin_instr - %b "       , dut.st3.in_instr);
+            $display("\nhaz1 - %b "           , dut.st3.haz1);
+            $display("\nhaz2 - %b "           , dut.st3.haz2);
+            $display("\nhaz8 - %b "           , dut.st3.haz8);
+            $display("\ns3_data - %b "        , dut.st3.s3_data);
+            $display("\nin_reg_wr - %b "      , dut.st3.in_reg_wr);
+            
+            $display("\n");
+            $display("\nout_reg_wr - %b "     , dut.st3.out_reg_wr);
+            $display("\nout_memc - %b "       , dut.st3.out_memc);
+            $display("\nout_alu - %b "        , dut.st3.out_alu);
+            $display("\nout_alu_result - %b " , dut.st3.out_alu_result);
+            $display("\nout_R1_data - %b "    , dut.st3.out_R1_data);
+            $display("\nout_R0_en - %b "      , dut.st3.out_R0_en);
+            $display("\nout_instr - %b "      , dut.st3.out_instr);
+
+            $display("\nPipe Stage Three ----------------------------------------------------");
+            $display("\ninstruction - %b"     , instruction);
+            $display("\nalu - %b"             , alu);
+            $display("\nmemc - %b"            , memc);
+            $display("\nr1_data - %b"         , r1_data);
+            $display("\nr0_en - %b"           , r0_en);
+            $display("\nhalt_sys - %b"        , halt_sys);
+            
+            $display("\n");
+            $display("\ndata - %b"            , data);
+            $display("\nr1_data_out - %b"     , r1_data_out);
+            $display("\nout_memc - %b"        , out_memc);
+            $display("\nout_r0_en - %b"       , out_r0_en);
+            $display("\ninstruction_out - %b" , instruction_out);
+            $display("\n===================================================================");
+        end
+    end
+endmodule
