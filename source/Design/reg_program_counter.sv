@@ -1,3 +1,10 @@
+//
+// Program counter register module
+//
+// This module simply flops the input value and outputs
+// it for the current program counter
+//
+
 module reg_program_counter(
     input wire clk,
     input wire rst,

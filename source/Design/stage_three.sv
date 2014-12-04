@@ -1,3 +1,12 @@
+//
+// Stage three instantiation and wiring
+//
+// This module instantiates and connects together all of the 
+// individual components in the third stage of the processor. 
+// 
+// Only contains the main memory and a mux for selecting the output
+//
+
 module stage_three(
     input   wire                clk,
     input   wire                rst,

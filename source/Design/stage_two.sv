@@ -1,3 +1,12 @@
+//
+// Stage two instantiation and wiring
+//
+// This module instantiates and connects together all of the 
+// individual components in the second stage of the processor. 
+// it also contains the second pipeline flip flop.
+// The ALU is the main module that resides here
+//
+
 module stage_two(
         input rst,
         input clk,

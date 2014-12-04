@@ -1,3 +1,11 @@
+//
+// This is the top level module for our CPU
+//
+// This module instantiates and connects together all of the 
+// individual stages in the processor.
+//
+
+
 module top (
     input wire clk,
     input wire rst

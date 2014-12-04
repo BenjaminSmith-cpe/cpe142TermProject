@@ -1,3 +1,11 @@
+//
+// Mux module
+//
+// This module is parameterized so it can be used as 
+// a 2 to 1, or 3 to 1 mux with different sized inputs.
+//
+
+
 module mux
     #(parameter SIZE = 16, parameter IS3WAY = 1)(
     input wire [IS3WAY:0]       sel,

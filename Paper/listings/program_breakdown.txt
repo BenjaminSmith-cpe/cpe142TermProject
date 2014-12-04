@@ -3,7 +3,7 @@ Hand calculations for program code
 
 ADD 0F00, 0050		into R1 0f50
 SUB 0F50*, 0050		Into R1 0f00
-OR FF0F, F0FF 		into R3 Top part of alu output is all high for some reason.
+OR FF0F, F0FF 		into R3 FFFF
 AND FFFF*, 0050   into R3 0050
 MUL 0040, 0024    into R5(0900) into R0(0000)
 Div 0F00, 0900*		into R1(0001) into R0(0600)

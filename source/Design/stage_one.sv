@@ -1,3 +1,12 @@
+//
+// Stage one instantiation and wiring
+//
+// This module instantiates and connects together all of the 
+// individual components in the first stage of the processor. 
+// it also contains the first pipeline flip flop.
+// The majority of the control logic resides in this stage
+//
+
 module stage_one(
     	input wire          clk,
     	input wire          rst,

@@ -1,3 +1,11 @@
+//
+// Types package
+//
+// This defines the data types we are using
+// throughout the design. Making debugging easier
+//
+
+
 package types_pkg;
     import alu_pkg::*;
 

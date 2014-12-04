@@ -1,3 +1,10 @@
+//
+// Sign extender module
+//
+// This module is capable of sign extending extending a 4, 
+// 8, or 12-bit value to a signed 16 bit value.
+//
+
 module sign_extender(
     input types_pkg::sel_t          offset_sel,
     input wire              [11:0]  input_value,
