@@ -2,6 +2,8 @@
 \usepackage{tabularx}
 \usepackage{pdfpages}
 \usepackage{lipsum}
+\usepackage{pdfpages}
+
 \renewcommand{\arraystretch}{1.3}
 
 \newcommand{\COURSE}{CPE142: Computer Organization}
@@ -12,6 +14,11 @@
 \begin{document}
 \input{./Library/Title_Page.tex}
 \input{./Library/TOC.tex}
+
+\includepdf[pages={1}]{figures/status_report.pdf}
+\newpage
+\includepdf[pages={2}]{figures/status_report.pdf}
+\newpage
 
 \section{Introduction}
 \IEEEPARstart{T}{his} document details the design process of the CSUS CPE 142 Computer Organization 
@@ -391,22 +398,22 @@ begin the design process with a through understanding of what hardware is to per
     
     \newpage
     
-	\begin{figure}[htpb]
-        \includegraphics[width=.4\textwidth]{./figures/stage2.jpg}
-        \caption{Pipeline Organization Stage Two}
-        \label{stage2}
-    \end{figure}
+	% \begin{figure}[htpb]
+ %        \includegraphics[width=.4\textwidth]{./figures/stage2.jpg}
+ %        \caption{Pipeline Organization Stage Two}
+ %        \label{stage2}
+ %    \end{figure}
     
     \subsection{Stage 2}
     The entire second stage of this design belongs to the Arithmetic Logic Unit as seen in Figure
     \ref{stage2}. This ALU supports all of the operations listed in Table \ref{alucontrol}. Its function is 
     determined by the ALU\_control in the first stage. The 16 bit signed division will be our longest combinatorial path between stages, so there is very little logic between the ALU and the flip-flops.  
     
-	\begin{figure}[htpb]
-        \includegraphics[width=.4\textwidth]{./figures/stage3.jpg}
-        \caption{Pipeline Organization Stage Three}
-        \label{stage3}
-    \end{figure}    
+	% \begin{figure}[htpb]
+ %        \includegraphics[width=.4\textwidth]{./figures/stage3.jpg}
+ %        \caption{Pipeline Organization Stage Three}
+ %        \label{stage3}
+ %    \end{figure}    
 	
     \subsection{Stage 3}
     The third stage of this pipelined processor handles memory references and writes back to the
@@ -422,15 +429,12 @@ begin the design process with a through understanding of what hardware is to per
     \end{figure*}
     \FloatBarrier
 
-	\section{Simulation and Verification}
-	\subsection{Term Project Status Report}
-	We should import the PDF HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	
-	\subsection{Expected Results}
-	We were given a small amount of assembly code to test our processor. 
-	\lstinputlisting{../Paper/listings/program.asm}
+    \onecolumn
     \section{Design Source Code}
-        \subsubsection{Stage One}
+        \subsection{Top Level}
+        \lstinputlisting{../source/Design/top.sv}
+        
+        \subsection{Stage One}
         \lstinputlisting{../source/Design/alu.sv}
         \lstinputlisting{../source/Design/adder.sv}
         \lstinputlisting{../source/Design/alu.sv}
@@ -438,7 +442,7 @@ begin the design process with a through understanding of what hardware is to per
         \lstinputlisting{../source/Design/comparator.sv}
         \lstinputlisting{../source/Design/control_alu.sv}
         
-        \subsubsection{Stage Two}
+        \subsection{Stage Two}
         \lstinputlisting{../source/Design/control_hazard_unit.sv}
         \lstinputlisting{../source/Design/control_jump.sv}
         \lstinputlisting{../source/Design/control_main.sv}
@@ -446,27 +450,24 @@ begin the design process with a through understanding of what hardware is to per
         \lstinputlisting{../source/Design/mem_program.sv}
         \lstinputlisting{../source/Design/mem_register.sv}
         \lstinputlisting{../source/Design/mux.sv}
-  
         \lstinputlisting{../source/Design/reg_program_counter.sv}
         \lstinputlisting{../source/Design/shift_one.sv}
         
-        \subsubsection{Stage Three}
+        \subsection{Stage Three}
         \lstinputlisting{../source/Design/sign_extender.sv}
         \lstinputlisting{../source/Design/stage_one.sv}
         \lstinputlisting{../source/Design/stage_three.sv}
         \lstinputlisting{../source/Design/stage_two.sv}
-        \lstinputlisting{../source/Design/top.sv}
         \lstinputlisting{../source/Design/types_pkg.sv}
 
     \section{Verification Source Code}
         \lstinputlisting{../source/Verif/alu_tb.sv}
         \lstinputlisting{../source/Verif/register_tb.sv}
         \lstinputlisting{../source/Verif/system_tb.sv}
-
+        \lstinputlisting{../source/Verif/mux_tb.sv}
     
     \section{Build Scripts and utilities}
         \lstinputlisting[language = bash, label = imuangle]{../runsim.sh}
-        \lstinputlisting[label = imuangle]{../vlogan_args.list}
-        \lstinputlisting[label = imuangle]{../VCS_args.list}
-
+        \lstinputlisting[]{../vlogan_args.list}
+        \lstinputlisting[]{../VCS_args.list}
 \end{document}

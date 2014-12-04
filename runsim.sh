@@ -1,6 +1,9 @@
 #! /bin/bash
-# $runsim [test bench ]
-# 
+# $runsim [test bench]
+# where acceptable selections of test benches are alu_tb, register_tb
+# system_tb, mux_tb
+# examlple $> ./runtim.sh system_tb
+#
 # Three step VCS flow as described in Synopsys user guide. Uses implicit configuration
 # which allows unknown modules to be automatically resolved. See individual command
 # comments for details. An important caveat of implicit configuration is packages and
