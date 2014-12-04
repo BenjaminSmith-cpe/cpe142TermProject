@@ -1,7 +1,3 @@
-
-Note-[I_OPTS] Ignoring -I option
-  Ignoring -I option, using -PP option
-
 Command: vcs -file VCS_args.list system_tb
 Doing common elaboration 
 

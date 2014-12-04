@@ -1,19 +1,18 @@
+// ALU test bench
+//
+// This module generates random stiumlus for ALU both data and control lines
+// through testing is ensured by simulation coverage metrics collected by VCS
+//
+
 import alu_pkg::*; 
 import types_pkg::*;
 //`define VERBOSE
 //`define BOUNDED_INPUTS
+
+//called by check_alu_outputs to print debug updates
 task static print_alu_state(string ident, integer result, control_e control, in_t in, integer out, status_t stat, reg ov);
+    // different print formats for different functions
     case(control)
-        default :begin
-            $display("%s -- time %4d - op: %s", ident, $time(), control.name);
-            $display("s:%b o:%b, z:%b -- Expected: s:%b o:%b, z:%b", stat.sign, stat.overflow, stat.zero, result[15], ov, !(|result));
-            $display("%11d - %b", in.a,in.a);
-            $display("%11d - %b", in.b,in.b);
-            $display("================================");
-            $display("%11d - %b <-- result", signed'(out[15:0]), out[15:0]);
-            $display("%11d - %b <-- expected \n", signed'(result[15:0]), result[15:0]);
-        end
-        
         MULT: begin
             $display("%s -- time %4d - op: %s", ident, $time(), control.name);
             $display("s:%b o:%b, z:%b -- Expected: s:%b o:%b, z:%b", stat.sign, stat.overflow, stat.zero, result[31], ov, !(|result));
@@ -31,11 +30,22 @@ task static print_alu_state(string ident, integer result, control_e control, in_
             $display("%11d - %b", in.b,in.b);
             $display("================================");
             $display("%11d - %b <-- result", out[15:0], out[15:0]);
-            $display("%11d - %b <-- expected \n", result[15:0], result[15:0]);      
+            $display("%11d - %b <-- expected \n", result[15:0], result[15:0]);   
         end
+
+        default :begin
+            $display("%s -- time %4d - op: %s", ident, $time(), control.name);
+            $display("s:%b o:%b, z:%b -- Expected: s:%b o:%b, z:%b", stat.sign, stat.overflow, stat.zero, result[15], ov, !(|result));
+            $display("%11d - %b", in.a,in.a);
+            $display("%11d - %b", in.b,in.b);
+            $display("================================");
+            $display("%11d - %b <-- result", signed'(out[15:0]), out[15:0]);
+            $display("%11d - %b <-- expected \n", signed'(result[15:0]), result[15:0]);
+        end   
     endcase
 endtask
     
+// returns number of errors for a given test cycle
 function automatic check_alu_outputs(
     status_t stat,
     control_e control,
@@ -43,12 +53,13 @@ function automatic check_alu_outputs(
     integer  out
 );
     
-    reg                 ov;
-    reg                 simsign;
-    integer             result;
-    reg signed [15:0]   tarith;
-    integer             failure_count = 0;
+    reg                 ov; //expected overflow
+    reg                 simsign; //expected simulation sign
+    integer             result; //ALU result
+    reg signed [15:0]   tarith; //dummy logic for overflow detector
+    integer             failure_count = 0; //total number of failures across all checks
     
+    //calculate expected result
     case(control)
         OR  : result = {16'b0,in.a | in.b};
         AND : result = {16'b0,in.a & in.b};
@@ -70,6 +81,7 @@ function automatic check_alu_outputs(
         end
      endcase
 
+    //expected overflow flag calculation
     case(control)
         OR  : ov = 0;
         AND : ov = 0;
@@ -83,6 +95,7 @@ function automatic check_alu_outputs(
         DIV : ov = 0;
      endcase
     
+    //Sign flag test
     simsign = (control == MULT) ? result[31] : result[15];
     if((stat.sign != simsign) && !stat.overflow) begin              
         print_alu_state("Sign Flag FAILURE", result, control, in, out, stat, ov);
@@ -93,6 +106,7 @@ function automatic check_alu_outputs(
         print_alu_state("Sign Flag SUCCESS", result, control, in, out, stat, ov);
     `endif
 
+    //Overflow flag test
     if((stat.overflow != ov) && !control[1]) begin                     
         print_alu_state("Overflow Flag FAILURE",result, control, in, out, stat, ov);
         failure_count++;   
@@ -102,6 +116,7 @@ function automatic check_alu_outputs(
         print_alu_state("Overflow Flag SUCCESS", result, control, in, out, stat, ov);
     `endif
 
+    //Zero flag test
     if((stat.zero && |out)&& !stat.overflow) begin           
         print_alu_state("Zero Flag FAILURE", result, control, in, out, stat, ov);
         failure_count++;   
@@ -111,6 +126,7 @@ function automatic check_alu_outputs(
         print_alu_state("Zero Flag SUCCESS", result, control, in, out, stat, ov);
     `endif
 
+    //ALU result flag test
     if((result != out)&& (!stat.overflow)) begin
         print_alu_state("ALU FAILURE", result, control, in, out, stat, ov);
         failure_count++;   
@@ -123,11 +139,13 @@ function automatic check_alu_outputs(
     return failure_count;
 endfunction
 
+//Class to utilize system verilog's random generation capabilityseald b
 class alu_stim;
     rand alu_pkg::control_e control;
     rand word_16            a;
     rand word_16            b;
     
+    //simple numbers for human inspection
     `ifdef BOUNDED_INPUTS
     constraint limits{ 
         a <= 2; 
@@ -139,14 +157,17 @@ class alu_stim;
     }
     `endif
 
+    //randomize wrapper incase more random features needed
     function r();
         randomize();
     endfunction
 endclass
 
+//Main module instanciates classes, modules and wiring
 module alu_tb();
     import alu_pkg::*;
 
+    //ALU  I/O lines
     alu_pkg::control_e  control;
     status_t            stat;
     in_t                alu_input;
@@ -155,7 +176,8 @@ module alu_tb();
     integer             testiterations = 10000;
     integer             successes = 0;
 
-    alu main_alu(
+    //instantiate ALU module 
+    alu DUT(
         .in     (alu_input),
         .control(control),
         .stat   (stat),
@@ -165,14 +187,20 @@ module alu_tb();
     initial begin
         alu_stim as = new;
         
+        //apply test stimulus and check output
         for(int i = 0; i < testiterations; i++) begin
+            //randomize inputs
             as.r();
+            //drive DUT
             control = as.control;
             alu_input.a = as.a;
             alu_input.b = as.b;
+
+            //wait and check
             #1 errors += check_alu_outputs(stat, control, alu_input, alu_output);
         end
 
+        //print completion rate
         successes = testiterations - errors;
         $display("\n");
         $display("================Test Statistics=================");
