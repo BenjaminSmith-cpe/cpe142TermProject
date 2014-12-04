@@ -1,7 +1,7 @@
 Command: ./simv -l /gaia/class/cs1421/cs142130/cpe142/logs/simv.log -cm fsm+line+tgl+branch -cg_coverage_control=1
 Chronologic VCS simulator copyright 1991-2014
 Contains Synopsys proprietary information.
-Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Dec  4 12:40 2014
+Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Dec  4 14:27 2014
 VCD+ Writer I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
 
 Warning-[STASKW_CO1] Cannot open file
@@ -77,6 +77,9 @@ out_alu_result - 00000000
 out_R1_data - 0002 
 out_R0_en - 0 
 out_instr - 0000 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
 
 Pipe Stage Three --------------------------------------------------
 instruction - 0000
@@ -153,6 +156,9 @@ out_alu_result - 00000000
 out_R1_data - 0000 
 out_R0_en - 0 
 out_instr - 0000 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
 
 Pipe Stage Three --------------------------------------------------
 instruction - 0000
@@ -229,6 +235,9 @@ out_alu_result - 00000f50
 out_R1_data - 0000 
 out_R0_en - 0 
 out_instr - 0000 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 0000
@@ -305,6 +314,9 @@ out_alu_result - 00000f00
 out_R1_data - 0f00 
 out_R0_en - 0 
 out_instr - 012f 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 012f
@@ -381,6 +393,9 @@ out_alu_result - 0000ffff
 out_R1_data - 0f00 
 out_R0_en - 0 
 out_instr - 012e 
+alu overflow - 1
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 012e
@@ -457,6 +472,9 @@ out_alu_result - 00000050
 out_R1_data - ff0f 
 out_R0_en - 0 
 out_instr - 034c 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 034c
@@ -533,6 +551,9 @@ out_alu_result - 00000900
 out_R1_data - ff0f 
 out_R0_en - 0 
 out_instr - 032d 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 032d
@@ -609,6 +630,9 @@ out_alu_result - 06000001
 out_R1_data - 0040 
 out_R0_en - 1 
 out_instr - 0561 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 0561
@@ -685,6 +709,9 @@ out_alu_result - 00000000
 out_R1_data - 0f00 
 out_R0_en - 1 
 out_instr - 0152 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
 
 Pipe Stage Three --------------------------------------------------
 instruction - 0152
@@ -761,6 +788,9 @@ out_alu_result - 000087f8
 out_R1_data - 0000 
 out_R0_en - 0 
 out_instr - 000e 
+alu overflow - 1
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 000e
@@ -827,16 +857,19 @@ haz8 - 0
 s3_data - 000087f8 
 in_reg_wr - 1 
 alucontrol - 
-alu overflow - 1
+alu overflow - 0
 alu sign - 0
 alu zero- 0
 out_reg_wr - 1 
 out_memc - 0 
 out_alu - 000087f8 
-out_alu_result - 0000e1fe 
+out_alu_result - 000021fe 
 out_R1_data - f0ff 
 out_R0_en - 0 
 out_instr - 043a 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 043a
@@ -900,7 +933,7 @@ in_instr - 0639
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 0000e1fe 
+s3_data - 000021fe 
 in_reg_wr - 1 
 alucontrol - 
 alu overflow - 1
@@ -908,21 +941,24 @@ alu sign - 0
 alu zero- 0
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 0000e1fe 
+out_alu - 000021fe 
 out_alu_result - 00048004 
 out_R1_data - f0ff 
 out_R0_en - 0 
 out_instr - 042b 
+alu overflow - 1
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 042b
-alu - 0000e1fe
+alu - 000021fe
 memc - 0
 r1_data - f0ff
 r0_en - 0
 halt_sys - 0
 
-data - 0000e1fe
+data - 000021fe
 r1_data_out - f0ff
 out_memc - 0
 out_r0_en - 0
@@ -985,10 +1021,13 @@ alu zero- 0
 out_reg_wr - 1 
 out_memc - 0 
 out_alu - 00048004 
-out_alu_result - 00120010 
+out_alu_result - 00000012 
 out_R1_data - 0024 
 out_R0_en - 0 
 out_instr - 0639 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 0639
@@ -1052,7 +1091,7 @@ in_instr - 6704
 haz1 - 0 
 haz2 - 0 
 haz8 - 0 
-s3_data - 00120010 
+s3_data - 00000012 
 in_reg_wr - 0 
 alucontrol - 
 alu overflow - 0
@@ -1060,21 +1099,24 @@ alu sign - 0
 alu zero- 0
 out_reg_wr - 1 
 out_memc - 0 
-out_alu - 00120010 
+out_alu - 00000012 
 out_alu_result - 00000004 
 out_R1_data - 0024 
 out_R0_en - 0 
 out_instr - 0628 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 0628
-alu - 00120010
+alu - 00000012
 memc - 0
 r1_data - 0024
 r0_en - 0
 halt_sys - 0
 
-data - 00120010
+data - 00000012
 r1_data_out - 0024
 out_memc - 0
 out_r0_en - 0
@@ -1141,6 +1183,9 @@ out_alu_result - 00000001
 out_R1_data - 00ff 
 out_R0_en - 0 
 out_instr - 6704 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 6704
@@ -1217,6 +1262,9 @@ out_alu_result - 00000005
 out_R1_data - 0000 
 out_R0_en - 0 
 out_instr - 0b1f 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 0b1f
@@ -1293,6 +1341,9 @@ out_alu_result - 00000051
 out_R1_data - 00ff 
 out_R0_en - 0 
 out_instr - 4705 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 4705
@@ -1369,6 +1420,9 @@ out_alu_result - 00000002
 out_R1_data - 0001 
 out_R0_en - 0 
 out_instr - 0b2f 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 0b2f
@@ -1445,6 +1499,9 @@ out_alu_result - 00000000
 out_R1_data - 00ff 
 out_R0_en - 1 
 out_instr - 5702 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
 
 Pipe Stage Three --------------------------------------------------
 instruction - 5702
@@ -1521,6 +1578,9 @@ out_alu_result - 0000579a
 out_R1_data - aaaa 
 out_R0_en - 0 
 out_instr - 8890 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 8890
@@ -1597,6 +1657,9 @@ out_alu_result - 00000002
 out_R1_data - aaaa 
 out_R0_en - 0 
 out_instr - 088f 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 088f
@@ -1673,6 +1736,9 @@ out_alu_result - 00000002
 out_R1_data - 579a 
 out_R0_en - 1 
 out_instr - b892 
+alu overflow - 0
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - b892
@@ -1749,6 +1815,9 @@ out_alu_result - 0000fffe
 out_R1_data - 0000 
 out_R0_en - 1 
 out_instr - 8a92 
+alu overflow - 1
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 8a92
@@ -1825,6 +1894,9 @@ out_alu_result - 00000000
 out_R1_data - ffff 
 out_R0_en - 0 
 out_instr - 0ccf 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
 
 Pipe Stage Three --------------------------------------------------
 instruction - 0ccf
@@ -1901,6 +1973,9 @@ out_alu_result - 0000fffe
 out_R1_data - 0002 
 out_R0_en - 0 
 out_instr - 0dde 
+alu overflow - 1
+alu sign - 0
+alu zero- 0
 
 Pipe Stage Three --------------------------------------------------
 instruction - 0dde
@@ -1977,6 +2052,9 @@ out_alu_result - 00000000
 out_R1_data - ffff 
 out_R0_en - 0 
 out_instr - 0cdf 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
 
 Pipe Stage Three --------------------------------------------------
 instruction - 0cdf
@@ -2053,6 +2131,9 @@ out_alu_result - 00000000
 out_R1_data - 0000 
 out_R0_en - 0 
 out_instr - efff 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
 
 Pipe Stage Three --------------------------------------------------
 instruction - efff
@@ -2129,6 +2210,9 @@ out_alu_result - 00000000
 out_R1_data - 0000 
 out_R0_en - 0 
 out_instr - efff 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
 
 Pipe Stage Three --------------------------------------------------
 instruction - efff
@@ -2205,6 +2289,9 @@ out_alu_result - 00000000
 out_R1_data - 0000 
 out_R0_en - 0 
 out_instr - efff 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
 
 Pipe Stage Three --------------------------------------------------
 instruction - efff
@@ -2281,6 +2368,9 @@ out_alu_result - 00000000
 out_R1_data - 0000 
 out_R0_en - 0 
 out_instr - efff 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
 
 Pipe Stage Three --------------------------------------------------
 instruction - efff
@@ -2357,6 +2447,9 @@ out_alu_result - 00000000
 out_R1_data - 0000 
 out_R0_en - 0 
 out_instr - efff 
+alu overflow - 0
+alu sign - 0
+alu zero- 1
 
 Pipe Stage Three --------------------------------------------------
 instruction - efff
@@ -2382,5 +2475,5 @@ VCS Coverage Metrics: during simulation line, FSM, branch, tgl was monitored
 ---------------------------------------------------------------------------
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 334
-CPU Time:      0.930 seconds;       Data structure size:   4.0Mb
-Thu Dec  4 12:40:51 2014
+CPU Time:      0.800 seconds;       Data structure size:   4.0Mb
+Thu Dec  4 14:27:58 2014

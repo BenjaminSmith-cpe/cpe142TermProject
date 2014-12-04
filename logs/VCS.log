@@ -8,18 +8,16 @@ Doing common elaboration
 Note-[I_OPTS] Ignoring -I option
   Ignoring -I option, using -PP option
 
+
+Lint-[CAWM-L] Width mismatch
+/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv, 13
+  Continuous assignment width mismatch
+  32 bits (lhs) versus 48 bits (rhs).
+  Source info: assign vcstemp = {16'b0, ({in.a, in.a} << (in.b % 16))};  
+
 VCS Coverage Metrics Release I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
 ***** Warning: +memcbk/-debug* will not enable toggle coverage on MDA please use -cm_tgl mda to enable it
 9 modules and 0 UDP read.
-Generating code for _VCSgd_std_1
-Generating code for _VCSgd_alu_pkg_vaPdvb_1
-Generating code for _VCSgd_types_pkg_PxcUfe_1
-Generating code for _VCSgd__vcs_unit_3643014349_IKMRH_1
-Generating code for _VCSgd_system_tb_Wi4Abc_1
-Generating code for _VCSgd_shift_one_HLMOpc_1
-Generating code for _VCSgd_comparator_1
-Generating code for _VCSgd_mux_1
-Generating code for _VCSgd_mux_0000_PdUmQe_1
+	However, due to incremental compilation, only 1 module needs to be compiled.
 Generating code for _VCSgd_stage_two_opmoDd_1
-Generating code for _VCSgd_stage_three_Tj46Id_1
 ../simv up to date

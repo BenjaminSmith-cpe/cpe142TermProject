@@ -6,16 +6,17 @@ module alu(
     output integer   out
 );
     import alu_pkg::*;
-
+	integer vcstemp; //required because VCS does not support concat bit slicing.. booooo
     logic carry;
     logic signed [17:0] arith;
     
+    assign vcstemp = {16'b0,({in.a, in.a} << in.b%16)};
     always_comb begin    
         case(control)
             OR  : out = {16'b0,in.a | in.b};
             AND : out = {16'b0,in.a & in.b};
             MULT: out = in.a * in.b;
-            ROL : out = {16'b0,({in.a, in.a} << in.b%16)}[31:16];
+            ROL : out = vcstemp[31:16];
             ROR : out = {16'b0,({in.a, in.a} >> in.b%16)};
             SHL : out = {16'b0,in.a << in.b};
             SHR : out = {16'b0,in.a >> in.b};

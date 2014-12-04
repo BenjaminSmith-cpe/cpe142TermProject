@@ -239,7 +239,6 @@ module system_tb();
             $display("out_R1_data - %h "    , dut.st2.out_R1_data);
             $display("out_R0_en - %h "      , dut.st2.out_R0_en);
             $display("out_instr - %h "      , dut.st2.out_instr);
-=======
             $display("alu overflow - %b"    , dut.st2.out_alu_stat.sign);
             $display("alu sign - %b"        , dut.st2.out_alu_stat.overflow);
 			$display("alu zero- %b"         , dut.st2.out_alu_stat.zero);

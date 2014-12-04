@@ -7609,3 +7609,120 @@ Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design
 Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/reg_program_counter.sv'
 Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/shift_one.sv'
 Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/sign_extender.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+
+Error-[SE] Syntax error
+  Following verilog source has syntax error :
+  "/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv", 242: token 
+  is '==='
+  =======
+     ^
+
+1 error
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/alu_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv'
+
+Error-[SV-FNYI] Feature not yet implemented
+/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv, 18
+  SystemVerilog feature not yet implemented. Select of concatenation 
+  Expression: {16'b0, ({in.a, in.a} << (in.b % 16))}
+  
+
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_register.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/top.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_three.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_two.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/adder.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/comparator.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_hazard_unit.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_jump.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_program.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mux.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/reg_program_counter.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/shift_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/sign_extender.sv'
+1 error
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/alu_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv'
+
+Error-[SE] Syntax error
+  Following verilog source has syntax error :
+  "/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv", 18: token is '['
+              ROL : out = ({in.a, in.a} << in.b%16)[31:16];
+                                                    ^
+
+1 error
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/alu_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_register.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/top.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_three.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_two.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/adder.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/comparator.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_hazard_unit.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_jump.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_program.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mux.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/reg_program_counter.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/shift_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/sign_extender.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/alu_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv'
+
+Error-[SE] Syntax error
+  Following verilog source has syntax error :
+  "/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv", 13: token is '='
+      vcstemp = {16'b0,({in.a, in.a} << in.b%16)};
+               ^
+
+1 error
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Design/types_pkg.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/alu_tb.sv'
+Parsing design file '/gaia/class/cs1421/cs142130/cpe142/source/Verif/register_tb.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_register.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/top.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_three.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/stage_two.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/adder.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/comparator.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_alu.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_hazard_unit.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_jump.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/control_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_main.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mem_program.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/mux.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/reg_program_counter.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/shift_one.sv'
+Parsing library directory file '/gaia/class/cs1421/cs142130/cpe142/source/Design/sign_extender.sv'
