@@ -1,8 +1,21 @@
 Command: ./simv -l /gaia/class/cs1421/cs142130/cpe142/logs/simv.log -cm fsm+line+tgl+branch -cg_coverage_control=1
 Chronologic VCS simulator copyright 1991-2014
 Contains Synopsys proprietary information.
-Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Dec  4 12:25 2014
+Compiler version I-2014.03-2; Runtime version I-2014.03-2;  Dec  4 12:40 2014
 VCD+ Writer I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
+
+Warning-[STASKW_CO1] Cannot open file
+  The file 'source/Verif/haz10.hex' could not be opened. No such file or 
+  directory.
+  Please ensure that the file exists with proper permissions.
+
+
+Warning-[STASKW_RMCOF] Cannot open file
+/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv, 131
+  Cannot open file 'source/Verif/haz10.hex' passed as argument to $readmem.
+  Please verify that the first argument to $readmem is a file that exists with
+  proper permissions.
+
 
 
 
@@ -2361,7 +2374,7 @@ instruction_out - efff
 ===================================================================
 Memory check Passed! memory[0] value = 2bcd expected 2bcd
 Memory check Passed! memory[2] value = 579a expected 579a
-$finish called from file "/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv", line 167.
+$finish called from file "/gaia/class/cs1421/cs142130/cpe142/source/Verif/system_tb.sv", line 165.
 $finish at simulation time                  334
 
 ---------------------------------------------------------------------------
@@ -2369,5 +2382,5 @@ VCS Coverage Metrics: during simulation line, FSM, branch, tgl was monitored
 ---------------------------------------------------------------------------
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 334
-CPU Time:      1.200 seconds;       Data structure size:   4.0Mb
-Thu Dec  4 12:25:05 2014
+CPU Time:      0.930 seconds;       Data structure size:   4.0Mb
+Thu Dec  4 12:40:51 2014

@@ -1,10 +1,7 @@
 //`define VERBOSE
 
 class reg_stim;
-	import alu_pkg::*; 
-	import types_pkg::*;
-    
-    rand logic   [15:0]  memory_test_data;
+    rand logic   [15:0] memory_test_data;
     rand logic          halt;
     rand logic   [3:0]  address;
     

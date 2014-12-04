@@ -8,8 +8,6 @@ typedef enum{RESET, IDLE, HAZARD, FULLTEST, HAZ0, HAZ1, HAZ2, HAZ3, HAZ4, HAZ5, 
 module system_tb();
     import alu_pkg::*;
     import types_pkg::*;
-    import tb_utils_pkg::*;
-    import tb_class_def::*;
     
     integer             testiteration = 0;
     integer             failure_count = 0;
