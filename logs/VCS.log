@@ -11,6 +11,5 @@ Note-[I_OPTS] Ignoring -I option
 VCS Coverage Metrics Release I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
 ***** Warning: +memcbk/-debug* will not enable toggle coverage on MDA please use -cm_tgl mda to enable it
 9 modules and 0 UDP read.
-	However, due to incremental compilation, only 1 module needs to be compiled.
-Generating code for _VCSgd_stage_two_opmoDd_1
+	However, due to incremental compilation, no re-compilation is necessary.
 ../simv up to date
